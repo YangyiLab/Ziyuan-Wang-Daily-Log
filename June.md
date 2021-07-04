@@ -1,8 +1,64 @@
-[TOC]
+- [2021-06-22](#2021-06-22)
+  - [GRE 数学部分](#gre-数学部分)
+    - [Problems:](#problems)
+  - [完成安装Docker metaboAnalystic4.0 into server 42.193.18.116](#完成安装docker-metaboanalystic40-into-server-4219318116)
+    - [注意事项](#注意事项)
+    - [Probelmes：](#probelmes)
+    - [开启服务器命令](#开启服务器命令)
+  - [HMMGnen](#hmmgnen)
+    - [状态](#状态)
+- [2021-6-23](#2021-6-23)
+  - [GRE 数学部分](#gre-数学部分-1)
+    - [Problems](#problems-1)
+  - [GeneHMM 学习 包括隐马尔可夫](#genehmm-学习-包括隐马尔可夫)
+    - [复习HMM三类问题](#复习hmm三类问题)
+    - [<span id="jump">生物序列对比的HMM变种 </span>](#生物序列对比的hmm变种-)
+    - [GLIMMER-HMM Based on GHMM](#glimmer-hmm-based-on-ghmm)
+- [2021-6-24](#2021-6-24)
+  - [MetaboAnalyst 4.0 Tutorial](#metaboanalyst-40-tutorial)
+    - [Statical Analysis](#statical-analysis)
+    - [代谢组进展](#代谢组进展)
+    - [待进展](#待进展)
+  - [GRE机经](#gre机经)
+    - [地球月球撞击文章注意点](#地球月球撞击文章注意点)
+    - [14修正案](#14修正案)
+    - [法国革命2月](#法国革命2月)
+  - [GLIMMER-HMM 原理](#glimmer-hmm-原理)
+- [2021-6-25](#2021-6-25)
+  - [GRE数学](#gre数学)
+- [2021-6-26](#2021-6-26)
+  - [GRE 数学](#gre-数学)
+- [2021-6-28](#2021-6-28)
+  - [PLAN](#plan)
+  - [代谢组结果进展](#代谢组结果进展)
+    - [分析文件级标准操作流程](#分析文件级标准操作流程)
+    - [分组对应](#分组对应)
+    - [12h处理组](#12h处理组)
+    - [72h处理组](#72h处理组)
+  - [宏基因组处理](#宏基因组处理)
+    - [宏基因组分析流程](#宏基因组分析流程)
+    - [分箱解析](#分箱解析)
+    - [MetaWRAP](#metawrap)
+    - [运行三种分箱软件](#运行三种分箱软件)
+    - [Bin提纯](#bin提纯)
+    - [Bin注释](#bin注释)
+  - [GLIMMER-HMM](#glimmer-hmm)
+    - [文献阅读](#文献阅读)
+- [2021-6-29](#2021-6-29)
+  - [PLAN](#plan-1)
+  - [Gene Prediction总结](#gene-prediction总结)
+  - [Homology method](#homology-method)
+    - [ETS 方法](#ets-方法)
+    - [DP method](#dp-method)
+    - [HMM method](#hmm-method)
+- [2021-6-30](#2021-6-30)
+  - [PLAN](#plan-2)
+  - [桉树宏基因组功能丰度可视化](#桉树宏基因组功能丰度可视化)
 # 2021-06-22
 ## GRE 数学部分
 
 ### Problems:
+
 + reciprocal 倒数
 + rhombus 菱形
 + face card  JQK 牌
@@ -200,15 +256,15 @@ reads Binding -- Contig binning
 
 
 ### MetaWRAP
-
+~~~
     # 主要使用MetaWRAP，演示基于官方测试数据
     # 主页：https://github.com/bxlab/metaWRAP
     # 挖掘单菌基因组，需要研究对象复杂度越低、测序深度越大，结果质量越好。要求单样本6GB+，复杂样本如土壤推荐数据量30GB+，至少3个样本
     # 上面的演示数据12个样仅140MB，无法获得单菌基因组，这里使用官方测序数据演示讲解
     # 软件和数据库布置需2-3天，演示数据分析过程超10h，标准30G样也需3-30天，由服务器性能决定。
-
+~~~
 **准备数据和环境变量**
-
+~~~
     # 流程: https://github.com/bxlab/metaWRAP/blob/master/Usage_tutorial.md
     > 
     # 输入数据：质控后的FASTQ序列，文件名格式必须为*_1.fastq和*_2.fastq
@@ -260,10 +316,11 @@ reads Binding -- Contig binning
     # 加载运行环境
     cd ${wd}/binning
     conda activate metawrap
-
+~~~
 
 ### 运行三种分箱软件
-
+ 
+~~~
     metawrap -v
     # 输入文件为contig和clean reads
     # 调用三大主流binning程序cococt, maxbin2, metabat2
@@ -272,11 +329,11 @@ reads Binding -- Contig binning
     nohup metawrap binning -o temp/binning -t 1 -a temp/megahit/final.contigs.fa \
       --metabat2 --maxbin2 --concoct temp/seq/ERR*.fastq &
     # 用自己的文件，替换输出文件名为 *1_kneaddata_paired*.fastq 
-	# 如果想接上上面的流程使用自己的文件做分析，则把ERR*.fastq替换为 *1_kneaddata_paired*.fastq
     # 输出文件夹 temp/binning 包括3种软件结果和中间文件
+~~~
 
 ### Bin提纯
-
+~~~
     # 8线程2h， 24p 1h
     cd ${wd}/binning
     # rm -rf temp/bin_refinement
@@ -289,10 +346,9 @@ reads Binding -- Contig binning
     # 查看高质量Bin的数量，10个，见temp/bin_refinement/metawrap_50_10_bins.stats目录
     wc -l temp/bin_refinement/metawrap_50_10_bins.stats
     # 结果改进程度见temp/bin_refinement/figures/目录
-
-
+~~~
 ### Bin注释
-
+~~~
     # Taxator-tk对每条contig物种注释，再估计bin整体的物种，11m (用时66 min)
     metawrap classify_bins -b temp/bin_refinement/metawrap_50_10_bins \
       -o temp/bin_classify -t 2 &
@@ -309,7 +365,7 @@ reads Binding -- Contig binning
     # 每个bin基因注释的gff文件bin_funct_annotations, 
     # 核酸ffn文件bin_untranslated_genes，
     # 蛋白faa文件bin_translated_genes
-    
+~~~
 ## GLIMMER-HMM
 ### 文献阅读
 两种方法 DP方法 Markov 模型

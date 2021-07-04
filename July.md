@@ -18,7 +18,7 @@
   - [eggNog 数据库](#eggnog-数据库)
   - [24samples 16s分析](#24samples-16s分析)
   - [微生物土壤重建文献](#微生物土壤重建文献)
-    - [Key point](#key-point)
+    - [Key point 3](#key-point-3)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -102,7 +102,7 @@
 
 ## 微生物土壤重建文献
 文献地址 https://doi.org/10.1038/s41467-020-20271-4
-### Key point
+### Key point 3
 + Body size
 + Community assembly processes of soil organisms in paddy system
 + Distance-decay relationship and variation
