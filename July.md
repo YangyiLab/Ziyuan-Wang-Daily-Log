@@ -102,3 +102,6 @@
 ## 微生物土壤重建文献
 文献地址 https://doi.org/10.1038/s41467-020-20271-4
 ### Key point
++ Body size
++ Community assembly processes of soil organisms in paddy system
++ Distance-decay relationship and variation
