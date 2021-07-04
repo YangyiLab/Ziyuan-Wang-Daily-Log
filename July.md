@@ -11,6 +11,7 @@
   - [代谢组数据](#代谢组数据)
 - [2021-7-3](#2021-7-3)
   - [PLAN](#plan-2)
+  - [创建GitHub Gitee Blog](#创建github-gitee-blog)
   - [中科院超算使用记录](#中科院超算使用记录)
     - [登录方法](#登录方法)
     - [使用记录](#使用记录)
@@ -71,6 +72,9 @@
 + **GRE 阅读一套题**
 + **尝试超算使用**
 + 阅读土壤物种重建文章
+## 创建GitHub Gitee Blog
++ Github网址 https://github.com/YangyiLab/Daily-Worklog
++ 码云 令牌 4ffb557087446dc944151a59d1beb9ba
 
 ## 中科院超算使用记录
 ### 登录方法
