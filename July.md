@@ -90,5 +90,5 @@
 
 ## 24samples 16s分析
 + aplha 多样性
-+ beta 多样性
++ beta 多样性 (需要利用commandLine函数辅助)
 + 相对丰度图
