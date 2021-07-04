@@ -77,6 +77,7 @@
 ## 创建GitHub Gitee Blog
 + Github网址 https://github.com/YangyiLab/Daily-Worklog
 + 码云 令牌 4ffb557087446dc944151a59d1beb9ba
+  项目地址: https://gitee.com/YangyiLab/Daily-Worklog
 
 ## 中科院超算使用记录
 ### 登录方法
