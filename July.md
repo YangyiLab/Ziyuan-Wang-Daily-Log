@@ -21,6 +21,15 @@
     - [Key point 3](#key-point-3)
 - [2021-7-5](#2021-7-5)
   - [PLAN](#plan-3)
+- [2021-7-6](#2021-7-6)
+  - [PLAN](#plan-4)
+  - [微生物土壤重建文献](#微生物土壤重建文献-1)
+    - [文章简介](#文章简介)
+    - [文章计算解读](#文章计算解读)
+    - [NVI 介绍](#nvi-介绍)
+  - [VIGOR, an annotation program for small viral genomes](#vigor-an-annotation-program-for-small-viral-genomes)
+    - [Feature of viral genes](#feature-of-viral-genes)
+    - [key point](#key-point)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -103,14 +112,52 @@
 + 相对丰度图
 
 ## 微生物土壤重建文献
-文献地址 https://doi.org/10.1038/s41467-020-20271-4
+<span id="BS-D1">文献地址 https://doi.org/10.1038/s41467-020-20271-4 </span>
 ### Key point 3
 + Body size
 + Community assembly processes of soil organisms in paddy system
 + Distance-decay relationship and variation
+
+**[section-2](#BS-D2)**
 
 # 2021-7-5
 ## PLAN 
 + **修改土壤微生物论文 定稿**
 + **GRE阅读3填空1**
 + 修改简历
+
+# 2021-7-6
+## PLAN 
++ **修改土壤微生物论文图片引用**
++ **GRE阅读3填空1**
++ 病毒微生物综述阅读
++ **土壤重建论文继续阅读**
+
+## 微生物土壤重建文献
+上文地址: **[section-1](#BS-D1)**
+### 文章简介
+<span id="BS-D2">本文主要通过探究体型大小揭示生物体型大小在生物群落构建机制中的作用</span>
+生物生物体型与**丰富度**、**扩散速率**和**生态位宽度**负相关，从而影响了生物群落的周转率。
+
+### 文章计算解读
++ 丰富度 alpha多样性
++ 扩散速率 DDR Distance-decay relationship
+  比较方式包括Similarity BC ~ 地理距离Distance
+  $\log S =a+b \log D$
+  $S_0$与body size关系 以及$b$斜率指标和body size关系
+
+$S_0$计算方法，文章中选用了45个采样点，每个采样点进行分箱，分出不同的class级别物种，此时拥有了class级别物种的body size，在更加细分，可以计算出d距离两地的群落的BC距离，拟合出a和b，当D=1km时计算出的$S_0$即initial similarity,达到$S_0/2$时对应的$d_H$即halving distance,上述计算出$b,S_0,d_H$对应bcd图。a图扩展到了整个群落层面。
+
++ Assembly 计算 使用三个指标 NVD OMI 扩散指数
+
+### NVI 介绍
+介绍论文地址 https://onlinelibrary.wiley.com/doi/full/10.1111/oik.02803?saml_referrer
++ 提出该方法论文的定义为，两个群落获得OTU表后，进行bootstrap抽样并计算BC距离$E(\beta_{null})$与两样本之间的BC距离$\beta_{obs}$,若接近于0，则表示随机性强，若接近于+1或者-1 则证明确定性强
++ 本文使用方法为对于999个随机生成的样本的每个OTU，之后对于28个class level的微生物分类，计算class级NDV 
+采样地点20个图新，在实验地块，通过这些数据建库bootstrap
+## VIGOR, an annotation program for small viral genomes
+### Feature of viral genes
+Although most viral genomes are relatively small compared to eukaryotic and prokaryotic genomes, the gene structure of viral genomes can be complex. For example, introns, alternative splicing, overlapping genes, and ribosomal slippage exist in many viral genomes. Thus an all purpose gene finder cannot be easily adapted for gene prediction across all virus families. However, if the genome scaffold and the gene features of a viral genome are well understood, a similarity-based gene prediction approach based on the curated gene repertoire for a specific virus genus with attention to particular recognition features, such as, splice sites and mature peptide cleavage sites can be adapted, and perform better than an ab initio gene finder.
+### key point
+内含子、可变剪接、重叠基因和核糖体滑移
+introns, alternative splicing, overlapping genes, and ribosomal slippage
