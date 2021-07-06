@@ -118,7 +118,7 @@
 + Community assembly processes of soil organisms in paddy system
 + Distance-decay relationship and variation
 
-**[section-2](#BS-D2)**
+后续地址 **[section-2](#微生物土壤重建文献-1)**
 
 # 2021-7-5
 ## PLAN 
@@ -134,9 +134,9 @@
 + **土壤重建论文继续阅读**
 
 ## 微生物土壤重建文献
-上文地址: **[section-1](#BS-D1)**
+上文地址: **[section-1](#微生物土壤重建文献)**
 ### 文章简介
-<span id="BS-D2">本文主要通过探究体型大小揭示生物体型大小在生物群落构建机制中的作用</span>
+本文主要通过探究体型大小揭示生物体型大小在生物群落构建机制中的作用>
 生物生物体型与**丰富度**、**扩散速率**和**生态位宽度**负相关，从而影响了生物群落的周转率。
 
 ### 文章计算解读
