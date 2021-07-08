@@ -39,8 +39,14 @@
     - [扩散指数](#扩散指数)
   - [VIGOR, an annotation program for small viral genomes](#vigor-an-annotation-program-for-small-viral-genomes-1)
     - [Algorithm](#algorithm)
+  - [会议记录](#会议记录)
 - [2021-7-8](#2021-7-8)
   - [PLAN](#plan-6)
+  - [桉树论文结果部分大纲](#桉树论文结果部分大纲)
+    - [微生物组成分析](#微生物组成分析)
+    - [alpha多样性比较](#alpha多样性比较)
+    - [PCoA 图](#pcoa-图)
+    - [KEGG热图](#kegg热图)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -219,10 +225,27 @@ Predicting steps
      + Genotyping of influenza virus
      + Identification of the mature peptide cleavage sites for the rhinovirus polyprotein and SARS coronavirus orf1a and orf1ab
   5. Further criteria
-
+## 会议记录
++ Kris 邮箱 kieft@wisc.edu
++ 文章阅读 10.1038/srep19237
++ IMG数据库 https://genome.jgi.doe.gov/portal/IMG_VR/IMG_VR.home.html
 # 2021-7-8
 ## PLAN 
-+ GRE阅读1填空3
-+ 修改微生物图注
-+ 设计桉树论文大纲
-+ 阅读桉树相关文献
++ **GRE阅读1填空3**
++ **修改微生物图注**
++ **设计桉树论文大纲**
+
+## 桉树论文结果部分大纲
+### 微生物组成分析
+含有16s相对丰度组成图表以及通过宏基因组
+### alpha多样性比较
++ 夏季的图三样品检验 数值 以及两两检验
++ 冬季的均值变化
+### PCoA 图
++ 冬季三处理图
++ 夏季三处理图
+### KEGG热图
++ 冬季热图
++ 夏季热图
++ 不同组分柱状图
++ top15差异排列图

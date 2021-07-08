@@ -5,7 +5,7 @@
   
 **GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/June.md
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/July.md
+**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/June.md
 + JULY 
 
 **GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/July.md
