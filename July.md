@@ -47,6 +47,10 @@
     - [alpha多样性比较](#alpha多样性比较)
     - [PCoA 图](#pcoa-图)
     - [KEGG热图](#kegg热图)
+- [2021-7-9](#2021-7-9)
+  - [PLAN](#plan-7)
+  - [PHANOTATE Programming](#phanotate-programming)
+    - [Problems :](#problems-)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -249,3 +253,15 @@ Predicting steps
 + 夏季热图
 + 不同组分柱状图
 + top15差异排列图
+
+# 2021-7-9
+## PLAN 
++ **GRE阅读1填空3**
++ 修改简历
++ **噬菌体基因组下载级两种软件分别统计**
++ **nog表**
+
+## PHANOTATE Programming
+### Problems :
++ Unable to debug **findpath** Package
++ Able to debug this
