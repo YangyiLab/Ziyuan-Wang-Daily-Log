@@ -279,4 +279,4 @@ Predicting steps
 
 ## nog分析
 ### 分布图
-![avatar]()
+![avatar](https://github.com/YangyiLab/Daily-Worklog/blob/master/%E5%8A%9F%E8%83%BD%E7%BB%9F%E8%AE%A1.tif)
