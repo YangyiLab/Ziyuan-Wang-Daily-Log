@@ -55,6 +55,7 @@
   - [PLAN](#plan-8)
   - [nog分析](#nog分析)
     - [分布图](#分布图)
+    - [氮代谢相关功能](#氮代谢相关功能)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -272,11 +273,22 @@ Predicting steps
 
 # 2021-7-10
 ## PLAN
-+ 收集图注文献
-+ 收集宏基因组文献
-+ 初步分析nog表
-+ GRE套题语文1
++ **收集图注文献**
++ **收集宏基因组文献**
++ **初步分析nog表**
++ **GRE套题语文1**
 
 ## nog分析
 ### 分布图
-![avatar](https://github.com/YangyiLab/Daily-Worklog/blob/master/%E5%8A%9F%E8%83%BD%E7%BB%9F%E8%AE%A1.tif)
+![avatar](https://raw.githubusercontent.com/YangyiLab/Daily-Worklog/master/summer_nog_L1_distribution.jpg)
+### 氮代谢相关功能
+筛选出四个与氮代谢相关功能
+|  nog_id   | L2功能描述  | L1功能描述|
+|  ----  | ----  | ---- |
+|actNOG00819|	Nitrate reductase alpha	|	C | 
+|bactNOG03014	|Carbon-Nitrogen ligase, with glutamine as amido-N-donor	|G|
+|arCOG00635	|Dioxygenase related to 2-nitropropane dioxygenase	|R|
+|bactNOG04920	|Nitrogen assimilation transcriptional regulator; Transcriptional activator for the hut, put and ure operons and repressor for the gdh and gltB operons in response to nitrogen limitation protein	|R|
+
+
+
