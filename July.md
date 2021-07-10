@@ -51,6 +51,10 @@
   - [PLAN](#plan-7)
   - [PHANOTATE Programming](#phanotate-programming)
     - [Problems :](#problems-)
+- [2021-7-10](#2021-7-10)
+  - [PLAN](#plan-8)
+  - [nog分析](#nog分析)
+    - [分布图](#分布图)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -265,3 +269,14 @@ Predicting steps
 ### Problems :
 + Unable to debug **findpath** Package
 + Able to debug this
+
+# 2021-7-10
+## PLAN
++ 收集图注文献
++ 收集宏基因组文献
++ 初步分析nog表
++ GRE套题语文1
+
+## nog分析
+### 分布图
+![avatar]()
