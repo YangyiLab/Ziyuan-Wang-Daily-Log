@@ -56,6 +56,20 @@
   - [nog分析](#nog分析)
     - [分布图](#分布图)
     - [氮代谢相关功能](#氮代谢相关功能)
+- [2021-7-11](#2021-7-11)
+  - [PLAN](#plan-9)
+  - [使用VSCode调试服务器python文件](#使用vscode调试服务器python文件)
+    - [先决条件](#先决条件)
+    - [步骤](#步骤)
+  - [pyfastax软件介绍及其安装](#pyfastax软件介绍及其安装)
+    - [安装](#安装)
+    - [用法](#用法)
+    - [Tips](#tips)
+  - [调试phanotate](#调试phanotate)
+    - [在VSCode中python调试时加入参数](#在vscode中python调试时加入参数)
+    - [algorithm steps](#algorithm-steps)
+    - [Most time-consuming codes](#most-time-consuming-codes)
+    - [Orf Creating](#orf-creating)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -269,7 +283,7 @@ Predicting steps
 ## PHANOTATE Programming
 ### Problems :
 + Unable to debug **findpath** Package
-+ Able to debug this
++ Able to debug this remotely via VSCode
 
 # 2021-7-10
 ## PLAN
@@ -290,5 +304,104 @@ Predicting steps
 |arCOG00635	|Dioxygenase related to 2-nitropropane dioxygenase	|R|
 |bactNOG04920	|Nitrogen assimilation transcriptional regulator; Transcriptional activator for the hut, put and ure operons and repressor for the gdh and gltB operons in response to nitrogen limitation protein	|R|
 
+# 2021-7-11
+## PLAN
++ **完成GRE模考1**
++ **运行phanotate逐行运行**
++ **下载pyfastax**
+
+## 使用VSCode调试服务器python文件
+### 先决条件
++ 服务器+服务器账号
++ VSCode
++ Python Extention
+### 步骤
++ 在左侧扩展中安装Remote - SSH 
+Visual Studio Code Remote - SSH
++ 输入服务服务器IP和账号
++ 选择相应文件路径
++ 在服务器上安装相应扩展
+
+## pyfastax软件介绍及其安装
+> 文章地址 https://academic.oup.com/bib/advance-article-abstract/doi/10.1093/bib/bbaa368/6042388?redirectedFrom=fulltext
+
+处理fasta和fastaq文件，计算反向互补序列等等，利用面向对象技术开发。
+
+### 安装
+> pip install pyfastx
+
+### 用法
+软件网站: https://github.com/lmdu/pyfastx
+中文指导网站: https://zhuanlan.zhihu.com/p/339239341?utm_source=qq&utm_medium=social&utm_oi=1132893343180603392
+
+### Tips
+软件功能比较基础，主要用于文件处理，可作为脚本文件的一部分进行应用，一些功能如统计GC含量，fasta fastaq相互转化比较吸引人
+
+## 调试phanotate
+### 在VSCode中python调试时加入参数
+**步骤**
++ 点击运行
++ 点击打开配置 Open Configureations
++ 在json文件中添加args
+
+``` json
+# 未修改代码
+"version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        }
+    ]
+# 修改后代码
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["covid.fasta"]
+        }
+    ]
+}
+```
+### algorithm steps
++ Selected start and stop codons
+```
+start_codons = ['ATG', 'GTG', 'TTG']
+stop_codons = ['TAA', 'TGA', 'TAG']
+```
++ Orfs **Class** for holding orfs
++ GCframe **Class** to get the GCframe
++ calculate the GCframe and rbs 
+```python
+### the length is 21?
+#kmers for rbs
+score_rbs(dna[i:i+21])
+```
+*Question: why use window and GCFrame*
+
+### Most time-consuming codes
+```python
+	#-------------------------------Find the ORFs----------------------------------------------#
+	my_orfs = functions.get_orfs(seq)
 
 
+
+	#-------------------------------Create the Graph-------------------------------------------#
+	my_graph = functions.get_graph(my_orfs)
+```
+###  Orf Creating
++ Find all the start and stop condos
++ creat potential orfs
++ Reset iterator and find all the open reading frames
++ calculate orfs score based on RBS and GCframe
