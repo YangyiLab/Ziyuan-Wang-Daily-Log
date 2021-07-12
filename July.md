@@ -70,6 +70,9 @@
     - [algorithm steps](#algorithm-steps)
     - [Most time-consuming codes](#most-time-consuming-codes)
     - [Orf Creating](#orf-creating)
+- [2021-7-12](#2021-7-12)
+  - [PLAN](#plan-10)
+  - [审稿意见回复](#审稿意见回复)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -405,3 +408,27 @@ score_rbs(dna[i:i+21])
 + creat potential orfs
 + Reset iterator and find all the open reading frames
 + calculate orfs score based on RBS and GCframe
+
+# 2021-7-12
+## PLAN
++ **GRE阅读3填空1**
++ **确定微生物图注**
+
+## 审稿意见回复
+The paper appears to describe an MSA method for RNA/DNA data. The method, called SaAlign, can handle relatively large numbers of sequences (tens of thousands) of relatively great length (hundreds of kbs). The assessment of the method was done using ITS, virus and mt DNA data, and it focused on the computation time under different parallelization schemes. The computation time was compared to that of two existing methods, MAFFT and HAlign2. C codes and python codes are clearly showed to the readers which helped them to analyze and optimize again. Overall, I found the paper clearly written and very easy to follow. The method implementation is fairly intuitive. In particular, I was intrigued by the authors' idea of performing pairwise alignments by splitting the input strings on the LCS and recursing on the two pairs of wings. I think that such an approach to divide-and-conquering the problem of aligning very long sequences may prove a useful tool, but this manuscript in its current form is not ready for publication and needs some minor modification.
+
+I had some issues with the evaluation study, discussed below.
+1)	Regarding the datasets. First, the nature of these datasets wasn't completely clear to me. I assume that these are biological datasets, but the text "The increase in the number of sequences in the experimental dataset in this paper is different from previous experiments, and our datasets were achieved by adding nonrepeating DNA sequences instead of simply repeating the original sequence set" seems to imply that the datasets have some difference with precious datasets(HAlign). I with the author can explain more clearly.
+> 准确解释将相同的序列重复表示的意思，必要可以加实验
+2)	The font size of the text in some figures is too small, e.g., Figure 2. Similarly, the text of Table 1 is too small. Please avoid abbreviations in the abstract, e.g., MSA and SPS.
+> 直接Modify
+3)	The manuscript provides a nice higher-level summary of the algorithm, but I would need to see more specifics (e.g. concrete pseudocode).
+> 加伪代码
+4)   I suggest that you should unify the nouns used in the paper. Such as both "dicotyledonous mitochondrial genome" and "whole angiosperm genomes" refer to mitochondrion genome in table 1. Can you use "mitochondrion genome" instead of both others.
+> Modify
+5) You used a suffix array to identify the LCS of two strings, why do you concatenate two strings instead of adding the different end character after each string? like as "#"and "$".
+> 直接进行解释，在具体实现时加入了相应的符号
+6) The accuracy was assessed using average SPS in this work. The details of the assessment process should be explained. The reference of average SPS (Wan et al; 2017) says that a reference MSA is necessary. What reference was used for each of the three datasets in this paper? It should also be stated which of SPS=1.0 or SPS=0.0 is interpreted to be more accurate. 
+> Modify
+7) In the last sentence of Discussion, is it OK to include protein MSA into the applications, based on the results shown in this paper?
+> 直接解释可以更改后实现
