@@ -359,6 +359,8 @@ Visual Studio Code Remote - SSH
             "console": "integratedTerminal"
         }
     ]
+```
+```json
 # 修改后代码
 {
     "version": "0.2.0",
