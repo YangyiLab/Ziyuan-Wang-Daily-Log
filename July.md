@@ -78,6 +78,13 @@
   - [nog分析冬季](#nog分析冬季)
     - [分布图](#分布图-1)
     - [氮代谢相关功能](#氮代谢相关功能-1)
+  - [get_orfs流程](#get_orfs流程)
+    - [frame_plot(GCframe) add_base](#frame_plotgcframe-add_base)
+    - [for-each base 21mer k=21](#for-each-base-21mer-k21)
+    - [frame_plot(GCframe) get](#frame_plotgcframe-get)
+    - [Calculate pstop and record start stop condos](#calculate-pstop-and-record-start-stop-condos)
+  - [Reset iterator and find all the open reading frames (including overlaps)](#reset-iterator-and-find-all-the-open-reading-frames-including-overlaps)
+    - [Give a score to each ORF based on rbs and GC](#give-a-score-to-each-orf-based-on-rbs-and-gc)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -446,7 +453,7 @@ I had some issues with the evaluation study, discussed below.
 
 ## nog分析冬季
 ### 分布图
-![avatar](https://raw.githubusercontent.com/YangyiLab/Daily-Worklog/master/summer_nog_L1_distribution.jpg)
+![avatar](https://raw.githubusercontent.com/YangyiLab/Daily-Worklog/master/winter_nog_L1_distribution.png)
 ### 氮代谢相关功能
 筛选出四个与氮代谢相关功能
 |  nog_id   | L2功能描述  | L1功能描述|
@@ -455,3 +462,71 @@ I had some issues with the evaluation study, discussed below.
 |bactNOG03014	|Carbon-Nitrogen ligase, with glutamine as amido-N-donor	|G|
 |arCOG00635	|Dioxygenase related to 2-nitropropane dioxygenase	|R|
 |bactNOG04920	|Nitrogen assimilation transcriptional regulator; Transcriptional activator for the hut, put and ure operons and repressor for the gdh and gltB operons in response to nitrogen limitation protein	|R|
+
+## get_orfs流程
+[上接](#algorithm-steps)
+
+### frame_plot(GCframe) add_base
+Main function: record the window frequence ATCG and record the total GC frequence. **Implement**: queue FIFO
+
+### for-each base 21mer k=21
+calculate frequence of rbs with deferent score
+
+### frame_plot(GCframe) get
+Main function:save the window GC value. **Implement** Considering 3 types of ORFs
+```python
+# There are 3 types of ORF
+# Senario 1
+# 1  2  3  1  2  3
+# 1  2  3
+# Senario 2
+# 2  3  1  2  3  1 ORF+1
+# 1  2  3
+# Senario 3
+# 3  1  2  3  1  2 ORF+2
+# 1  2  3
+for i in range(len(self.total[3])-1):
+  self.freq.append( [self.total[1][i],self.total[2][i],self.total[3][i]] )
+  self.freq.append( [self.total[2][i],self.total[3][i],self.total[1][i+1]] )
+  self.freq.append( [self.total[3][i],self.total[1][i+1],self.total[2][i+1]] )
+```
+### Calculate pstop and record start stop condos
++ Calculate pstop
+```python
+Pa = frequency['A']/(my_orfs.contig_length*2)
+Pt = frequency['T']/(my_orfs.contig_length*2)
+Pg = frequency['G']/(my_orfs.contig_length*2)
+Pc = frequency['C']/(my_orfs.contig_length*2)
+my_orfs.pstop = (Pt*Pa*Pa + Pt*Pg*Pa + Pt*Pa*Pg)
+```
++ Normalize rbs frequence and calculate the frequence
++ record start stop condos
+```python
+# The dicts that will hold the start and stop codons
+	stops = {1:0, 2:0, 3:0, -1:1, -2:2, -3:3}
+	starts = {1:[], 2:[], 3:[], -1:[], -2:[], -3:[]}
+```
+## Reset iterator and find all the open reading frames (including overlaps)
++ First, all three orfs first 3 bp/nt (states 1 2 3 have first 3 condos are added in the start position records)
++ Find all start and stop pairs for both original and comp_rev sequence
+```python
+#When recognizing a stop condo
+stop = i+2
+  for start in reversed(starts[frame]):
+    length = stop-start+1
+    if(length >= my_orfs.min_orf_len):
+      seq = dna[start-1:stop]
+      rbs = dna[start-21:start]
+      rbs_score = score_rbs(dna[start-21:start])
+      my_orfs.add_orf(start, stop-2, length, frame, seq, rbs, rbs_score)
+      training_rbs[rbs_score] += 1
+
+  starts[frame] = []
+  stops[frame] = stop
+```
++ Add a trained rbs array
+This array record all the rbs types' frequency within the orfs selected
+### Give a score to each ORF based on rbs and GC
++ Based on RBS
+Normalize the trained rbs table. Then calculate the weight $\omega_{rbs}$ following
+$$\omega_{rbs}=\frac{Frequece_{trained}(rbs)}{Frequece_{backgroud}(rbs)}$$
