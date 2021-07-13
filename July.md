@@ -528,5 +528,5 @@ stop = i+2
 This array record all the rbs types' frequency within the orfs selected
 ### Give a score to each ORF based on rbs and GC
 + Based on RBS
-Normalize the trained rbs table. Then calculate the weight $\omega_{rbs}$ following
+Normalize the trained rbs table. Then calculate the weight of rbs. $\omega_{rbs}$ following
 $$\omega_{rbs}=\frac{Frequece_{trained}(rbs)}{Frequece_{backgroud}(rbs)}$$
