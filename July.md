@@ -53,7 +53,7 @@
     - [Problems :](#problems-)
 - [2021-7-10](#2021-7-10)
   - [PLAN](#plan-8)
-  - [nog分析](#nog分析)
+  - [nog分析夏季](#nog分析夏季)
     - [分布图](#分布图)
     - [氮代谢相关功能](#氮代谢相关功能)
 - [2021-7-11](#2021-7-11)
@@ -73,6 +73,11 @@
 - [2021-7-12](#2021-7-12)
   - [PLAN](#plan-10)
   - [审稿意见回复](#审稿意见回复)
+- [2021-7-13](#2021-7-13)
+  - [PLAN](#plan-11)
+  - [nog分析冬季](#nog分析冬季)
+    - [分布图](#分布图-1)
+    - [氮代谢相关功能](#氮代谢相关功能-1)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -275,11 +280,12 @@ Predicting steps
 + 夏季热图
 + 不同组分柱状图
 + top15差异排列图
++ 氮相关功能差异箱型图
 
 # 2021-7-9
 ## PLAN 
 + **GRE阅读1填空3**
-+ 修改简历
++ **修改简历**
 + **噬菌体基因组下载级两种软件分别统计**
 + **nog表**
 
@@ -295,7 +301,7 @@ Predicting steps
 + **初步分析nog表**
 + **GRE套题语文1**
 
-## nog分析
+## nog分析夏季
 ### 分布图
 ![avatar](https://raw.githubusercontent.com/YangyiLab/Daily-Worklog/master/summer_nog_L1_distribution.jpg)
 ### 氮代谢相关功能
@@ -431,3 +437,21 @@ I had some issues with the evaluation study, discussed below.
 > Modify
 7) In the last sentence of Discussion, is it OK to include protein MSA into the applications, based on the results shown in this paper?
 > 直接解释可以更改后实现
+
+# 2021-7-13
+## PLAN
++ **GRE阅读3填空1**
++ 分析functions.get_orfs代码
++ **冬季nog数据库分析**
+
+## nog分析冬季
+### 分布图
+![avatar](https://raw.githubusercontent.com/YangyiLab/Daily-Worklog/master/summer_nog_L1_distribution.jpg)
+### 氮代谢相关功能
+筛选出四个与氮代谢相关功能
+|  nog_id   | L2功能描述  | L1功能描述|
+|  ----  | ----  | ---- |
+|actNOG00819|	Nitrate reductase alpha	|	C | 
+|bactNOG03014	|Carbon-Nitrogen ligase, with glutamine as amido-N-donor	|G|
+|arCOG00635	|Dioxygenase related to 2-nitropropane dioxygenase	|R|
+|bactNOG04920	|Nitrogen assimilation transcriptional regulator; Transcriptional activator for the hut, put and ure operons and repressor for the gdh and gltB operons in response to nitrogen limitation protein	|R|
