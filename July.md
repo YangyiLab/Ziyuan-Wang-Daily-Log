@@ -530,3 +530,5 @@ This array record all the rbs types' frequency within the orfs selected
 + Based on RBS
 Normalize the trained rbs table. Then calculate the weight of rbs. $\omega_{rbs}$ following
 $$\omega_{rbs}=\frac{Frequece_{trained}(rbs)}{Frequece_{backgroud}(rbs)}$$
++ Calculate the score based both on rbs, GC and Start condo according to the fomula of the paper.
+  
