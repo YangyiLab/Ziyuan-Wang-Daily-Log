@@ -83,8 +83,16 @@
     - [for-each base 21mer k=21](#for-each-base-21mer-k21)
     - [frame_plot(GCframe) get](#frame_plotgcframe-get)
     - [Calculate pstop and record start stop condos](#calculate-pstop-and-record-start-stop-condos)
-  - [Reset iterator and find all the open reading frames (including overlaps)](#reset-iterator-and-find-all-the-open-reading-frames-including-overlaps)
+    - [Reset iterator and find all the open reading frames (including overlaps)](#reset-iterator-and-find-all-the-open-reading-frames-including-overlaps)
     - [Give a score to each ORF based on rbs and GC](#give-a-score-to-each-orf-based-on-rbs-and-gc)
+- [2021-7-14](#2021-7-14)
+  - [PLAN](#plan-12)
+  - [get_graph流程](#get_graph流程)
+    - [creat all the Nodes and  Edge](#creat-all-the-nodes-and--edge)
+    - [Check for long noncoding regions that would break the path](#check-for-long-noncoding-regions-that-would-break-the-path)
+    - [Connect the open reading frames to each other](#connect-the-open-reading-frames-to-each-other)
+    - [Minimal path algorithm](#minimal-path-algorithm)
+    - [What we can imporove](#what-we-can-imporove)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -448,7 +456,7 @@ I had some issues with the evaluation study, discussed below.
 # 2021-7-13
 ## PLAN
 + **GRE阅读3填空1**
-+ 分析functions.get_orfs代码
++ **分析functions.get_orfs代码**
 + **冬季nog数据库分析**
 
 ## nog分析冬季
@@ -465,6 +473,7 @@ I had some issues with the evaluation study, discussed below.
 
 ## get_orfs流程
 [上接](#algorithm-steps)
+[next section](#get_graph流程)
 
 ### frame_plot(GCframe) add_base
 Main function: record the window frequence ATCG and record the total GC frequence. **Implement**: queue FIFO
@@ -506,7 +515,7 @@ my_orfs.pstop = (Pt*Pa*Pa + Pt*Pg*Pa + Pt*Pa*Pg)
 	stops = {1:0, 2:0, 3:0, -1:1, -2:2, -3:3}
 	starts = {1:[], 2:[], 3:[], -1:[], -2:[], -3:[]}
 ```
-## Reset iterator and find all the open reading frames (including overlaps)
+### Reset iterator and find all the open reading frames (including overlaps)
 + First, all three orfs first 3 bp/nt (states 1 2 3 have first 3 condos are added in the start position records)
 + Find all start and stop pairs for both original and comp_rev sequence
 ```python
@@ -531,4 +540,61 @@ This array record all the rbs types' frequency within the orfs selected
 Normalize the trained rbs table. Then calculate the weight of rbs. $\omega_{rbs}$ following
 $$\omega_{rbs}=\frac{Frequece_{trained}(rbs)}{Frequece_{backgroud}(rbs)}$$
 + Calculate the score based both on rbs, GC and Start condo according to the fomula of the paper.
-  
+# 2021-7-14
+## PLAN
++ **GRE填空3阅读1**
++ 分析functions.get_orfs代码
++ **代谢组数据库id号获取**
+## get_graph流程
+[上接](#get_orfs流程)
+### creat all the Nodes and  Edge
+The procedure depends on the type of the frame if the frame > 0 which means + the Node and Edge looks like 
+> start_condo -----> stop_condo
+
+If it is rev_comp type (frame < 0) it looks like 
+>stop_condo -----> start_condo
+
+**Code:**
+```python
+for orf in my_orfs.iter_orfs():
+  if(orf.frame > 0):
+    source = Node('CDS', 'start', orf.frame, orf.start)
+    target = Node('CDS', 'stop', orf.frame, orf.stop)
+  else:
+    source = Node('CDS', 'stop', orf.frame, orf.stop)
+    target = Node('CDS', 'start', orf.frame, orf.start)
+  G.add_edge(Edge(source, target, orf.weight))
+```
+### Check for long noncoding regions that would break the path
+**Main point** if the non-coding region is over 300 this region will be defined as gap.
+**Optimization** the loop seems not very efficient we can use more complicated data structure.
+
+### Connect the open reading frames to each other
+Several types:
++ Gap
++ Overlap
+### Minimal path algorithm
+```python
+source = "Node('source','source',0,0)"
+target = "Node('target','target',0," + str(len(seq)+1) + ")"
+# Write edges to the fastpath program, and multiply the weight to not lose decimal places
+fz.empty_graph()
+for e in my_graph.iteredges():
+  if args.dump: print(e)
+  ret = fz.add_edge(str(e))
+
+if args.dump: sys.exit()
+```
+### What we can imporove
++ Loops
+These codes take a lot of time because of its reduncdant loops. in some parts there are 3 for means the time complexity will be $O(n^3)$
++ Data structure
+For some problems when we are using suitable data structure and algorithm we can accelerate it. The codes of phanotate handle most of its problems via traversal method
++ Parallel **Multiprocessor, GPU and MultiServer**
+  + For mutiprocessor we can use a python package or we can write codes using C or C++, and import into python files via .so file
+  **Multiprocess Package** https://pypi.org/project/multiprocess/
+  + For GPU we can write a opencl or cuda version
+  **opencl** https://cims.nyu.edu/~schlacht/OpenCLModel.pdf
+  **cuda** https://dl.acm.org/doi/10.1145/1365490.1365500
+  + Use Spark or Hadoop to run a file consisting multiple sequences on several servers
+  e.g. **HAlign** https://academic.oup.com/bioinformatics/article/31/15/2475/188425 *Note:This paper is dealing with multiple sequences alignment problem but we can use Hadoop to realize gene prediction of dataset.*
