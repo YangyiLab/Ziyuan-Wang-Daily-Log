@@ -93,6 +93,8 @@
     - [Connect the open reading frames to each other](#connect-the-open-reading-frames-to-each-other)
     - [Minimal path algorithm](#minimal-path-algorithm)
     - [What we can imporove](#what-we-can-imporove)
+- [2021-7-15](#2021-7-15)
+  - [度假](#度假)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -598,3 +600,7 @@ For some problems when we are using suitable data structure and algorithm we can
   **cuda** https://dl.acm.org/doi/10.1145/1365490.1365500
   + Use Spark or Hadoop to run a file consisting multiple sequences on several servers
   e.g. **HAlign** https://academic.oup.com/bioinformatics/article/31/15/2475/188425 *Note:This paper is dealing with multiple sequences alignment problem but we can use Hadoop to realize gene prediction of dataset.*
+
+# 2021-7-15
+## 度假
+毫无任何学习除了背了背GRE的单词估计到7.21都会是这个状态，暂且称7.15-7.21放假模式吧
