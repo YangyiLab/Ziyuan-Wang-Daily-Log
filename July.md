@@ -95,6 +95,11 @@
     - [What we can imporove](#what-we-can-imporove)
 - [2021-7-15](#2021-7-15)
   - [度假](#度假)
+  - [突变](#突变)
+- [2021-7-17](#2021-7-17)
+  - [PLAN](#plan-13)
+- [2021-7-18](#2021-7-18)
+  - [PLAN](#plan-14)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -604,3 +609,13 @@ For some problems when we are using suitable data structure and algorithm we can
 # 2021-7-15
 ## 度假
 毫无任何学习除了背了背GRE的单词估计到7.21都会是这个状态，暂且称7.15-7.21放假模式吧
+## 突变
+由于女朋友飞机被取消，旅游直接取消
+
+# 2021-7-17
+## PLAN
++ **GRE阅读3填空1**
+
+# 2021-7-18
+## PLAN
++ **GRE阅读1填空3**
