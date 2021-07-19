@@ -100,6 +100,9 @@
   - [PLAN](#plan-13)
 - [2021-7-18](#2021-7-18)
   - [PLAN](#plan-14)
+- [2021-7-19](#2021-7-19)
+  - [PLAN](#plan-15)
+  - [Zhejiang University 感悟](#zhejiang-university-感悟)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -605,7 +608,7 @@ For some problems when we are using suitable data structure and algorithm we can
   **cuda** https://dl.acm.org/doi/10.1145/1365490.1365500
   + Use Spark or Hadoop to run a file consisting multiple sequences on several servers
   e.g. **HAlign** https://academic.oup.com/bioinformatics/article/31/15/2475/188425 *Note:This paper is dealing with multiple sequences alignment problem but we can use Hadoop to realize gene prediction of dataset.*
-
+·
 # 2021-7-15
 ## 度假
 毫无任何学习除了背了背GRE的单词估计到7.21都会是这个状态，暂且称7.15-7.21放假模式吧
@@ -619,3 +622,16 @@ For some problems when we are using suitable data structure and algorithm we can
 # 2021-7-18
 ## PLAN
 + **GRE阅读1填空3**
+
+# 2021-7-19
+## PLAN
++ **GRE阅读1填空3**
++ **修改图并输入投稿系统**
+
+## Zhejiang University 感悟
+对于浙江大学基础医学院夏令营整体感觉
++ 非科研导向，希望解决医学问题，但发文章也可以
++ 老师比较少，学生的学习区条件比较好
++ 新老师比较多，大多都是有考核压力，老教师基本都是当官躺平，进入夏令营后基本能录取，不管是否优秀营员
++ 微生物方面很少做代谢组等多组学或基因分析，绝大多数做天然产物&合成生物学
++ 钱比较到位，楼比较多分为还比较轻松相比于隔壁西湖大学
