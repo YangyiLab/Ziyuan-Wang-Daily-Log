@@ -103,6 +103,9 @@
 - [2021-7-19](#2021-7-19)
   - [PLAN](#plan-15)
   - [Zhejiang University 感悟](#zhejiang-university-感悟)
+- [2021-7-20](#2021-7-20)
+  - [PLAN](#plan-16)
+  - [Overview Yifei Huang Lab](#overview-yifei-huang-lab)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -635,3 +638,14 @@ For some problems when we are using suitable data structure and algorithm we can
 + 新老师比较多，大多都是有考核压力，老教师基本都是当官躺平，进入夏令营后基本能录取，不管是否优秀营员
 + 微生物方面很少做代谢组等多组学或基因分析，绝大多数做天然产物&合成生物学
 + 钱比较到位，楼比较多分为还比较轻松相比于隔壁西湖大学
+
+# 2021-7-20
+## PLAN
++ **GRE阅读1填空3**
++ **根据润色公司批注修改文章，写好abstract，并定稿**
++ **Overview Yifei Huang Lab**
++ **下载噬菌体测试集数据，可视化prodigal & phanotate**
+
+## Overview Yifei Huang Lab
++ 统计+机器学习比较多
++ 通过群体遗传做推断
