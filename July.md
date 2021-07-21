@@ -106,6 +106,10 @@
 - [2021-7-20](#2021-7-20)
   - [PLAN](#plan-16)
   - [Overview Yifei Huang Lab](#overview-yifei-huang-lab)
+- [2021-7-21](#2021-7-21)
+  - [PLAN](#plan-17)
+  - [phage可视化](#phage可视化)
+  - [Abstract 结构](#abstract-结构)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -649,3 +653,21 @@ For some problems when we are using suitable data structure and algorithm we can
 ## Overview Yifei Huang Lab
 + 统计+机器学习比较多
 + 通过群体遗传做推断
+
+# 2021-7-21
+## PLAN
++ **GRE阅读2填空2**
++ 论文参考文献及图注摘要修改完成
++ **phage gbk可视化**
+
+## phage可视化
+基因量统计，左侧phanotate 右侧prodigal
+**LC597490.1**
+![avartar](LC597490.1.png)
+
+## Abstract 结构
++ 第一句总的说搭便车现象被报道Motility assays and microscopy studies reveal that Streptomyces spores are transported to plant tissues by interacting directly with the flagella of both gram-positive and gram-negative bacteria. 
++ 第二句谈氮肥和搭便车的关系不太明确
++ 第三句我们采用基因组分析表明氮肥会影响携带菌含量从而改变根际结构改变植物生长。
++ 第四句但如果彻底隔绝运动细菌hitchhiking，也不利于植物的生长。
++ 第五句总的来说，搭便车作用对于植物生长十分关键，同时氮肥对于植物生长的影响归因于对于搭便车现象。
