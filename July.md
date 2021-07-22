@@ -110,6 +110,9 @@
   - [PLAN](#plan-17)
   - [phage可视化](#phage可视化)
   - [Abstract 结构](#abstract-结构)
+- [2021-7-22](#2021-7-22)
+- [PLAN](#plan-18)
+- [phage基因组做出散点图](#phage基因组做出散点图)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -671,3 +674,13 @@ For some problems when we are using suitable data structure and algorithm we can
 + 第三句我们采用基因组分析表明氮肥会影响携带菌含量从而改变根际结构改变植物生长。
 + 第四句但如果彻底隔绝运动细菌hitchhiking，也不利于植物的生长。
 + 第五句总的来说，搭便车作用对于植物生长十分关键，同时氮肥对于植物生长的影响归因于对于搭便车现象。
+
+# 2021-7-22
+# PLAN
++ **GRE阅读2填空2**
++ **phage基因组做出散点图**
+# phage基因组做出散点图
+1-100
+![avartar](LC597490_position_distribution_prodigal&phanotate.png)
+101-350
+![avartar](LC597490_position_distribution_prodigal&phanotate_100_350.png)
