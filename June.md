@@ -153,9 +153,11 @@ Ei 碱基位置为第i号密码子 i=1,2,3
 
 $$\mathop{argmax}\limits_{\phi} \prod_{q\in \phi}
     P(S_i|q_i,d_i)P(q_i|q_{i-i})P(d_i)$$
-S denotes sequence 
+$S$ denotes sequence $S_i$ denotes the subsequent corresponding to the state $q_i$
 $q_i$ denotes statues 
 $\phi$ denotes the optimium path
+$P(d_i)$ the probability of state qi emitting a feature of length
+$d_i$ duration
 
 # 2021-6-24
 
@@ -426,6 +428,5 @@ Then find the maximium and set ut as the root node like the graph. then set $b_k
 ## 桉树宏基因组功能丰度可视化
 主要针对GO数据和KEGG数据寻找与氮代谢相关的GO或者KO
 首先判断差异表达量 即ORG VS Y5 & Y5 VS Y10 在夏天和冬天的改变&并做图
-
 
 + KEGG 功能丰度热图和检验

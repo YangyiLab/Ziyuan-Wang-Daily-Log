@@ -113,6 +113,11 @@
 - [2021-7-22](#2021-7-22)
 - [PLAN](#plan-18)
 - [phage基因组做出散点图](#phage基因组做出散点图)
+- [2021-7-23](#2021-7-23)
+  - [PLAN](#plan-19)
+  - [对LC597490相同基因做出VENN图](#对lc597490相同基因做出venn图)
+    - [All the genes](#all-the-genes)
+    - [+ STRAND](#-strand)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -684,3 +689,16 @@ For some problems when we are using suitable data structure and algorithm we can
 ![avartar](LC597490_position_distribution_prodigal&phanotate.png)
 101-350
 ![avartar](LC597490_position_distribution_prodigal&phanotate_100_350.png)
+
+# 2021-7-23
+## PLAN
++ **GRE阅读2填空2**
++ **整理ML和demography材料**
++ 找出phanotate中可以进行opencl & cuda的内容
++ **对LC597490相同基因做出VENN图**
+
+## 对LC597490相同基因做出VENN图
+### All the genes
+![avartar](LC597490_prodigal_phanotate.png)
+### + STRAND
+![avartar](LC597490_prodigal_phanotate_+.png)
