@@ -118,6 +118,12 @@
   - [对LC597490相同基因做出VENN图](#对lc597490相同基因做出venn图)
     - [All the genes](#all-the-genes)
     - [+ STRAND](#-strand)
+  - [Potential parallel part for phanotate](#potential-parallel-part-for-phanotate)
+- [2021-7-24](#2021-7-24)
+  - [PLAN](#plan-20)
+  - [Potential LAN](#potential-lan)
+  - [Research Proposal](#research-proposal)
+    - [Statement of Purpose](#statement-of-purpose)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -694,7 +700,7 @@ For some problems when we are using suitable data structure and algorithm we can
 ## PLAN
 + **GRE阅读2填空2**
 + **整理ML和demography材料**
-+ 找出phanotate中可以进行opencl & cuda的内容
++ **找出phanotate中可以进行opencl & cuda的内容**
 + **对LC597490相同基因做出VENN图**
 
 ## 对LC597490相同基因做出VENN图
@@ -702,3 +708,39 @@ For some problems when we are using suitable data structure and algorithm we can
 ![avartar](LC597490_prodigal_phanotate.png)
 ### + STRAND
 ![avartar](LC597490_prodigal_phanotate_+.png)
+## Potential parallel part for phanotate
++ count the number of rbs. Use a classic method of parallel method named **Reduce**
++ construct the gc frame **reduce**
++ identify orf and consteruct the graph
+
+# 2021-7-24
+## PLAN
++ **GRE阅读2填空2**
++ **Research Proposal初稿**
++ **Email修改**
++ **Cover Letter 修改**
+
+## Potential LAN
++ https://transbioinfolab.org/contact University of Miami
++ https://www.wuchtylab.org/people University of Miami
++ https://www.christinaboucher.com/ University of Florida
++ https://www.med.unc.edu/microimm/dittmerlab/directory/dirk-dittmer/ 北卡教堂山
++ http://phanstiel-lab.med.unc.edu/jobs.html 北卡教堂山
++ https://www.med.unc.edu/genetics/sullivanlab/ 北卡教堂山
++ https://geiselmed.dartmouth.edu/dunlaploros/members/ 达特茅斯
++ https://geiselmed.dartmouth.edu/whitfield/members/ 达特茅斯
++ http://www.christensen-lab.com/careers 达特茅斯
++ https://bioinfocs.rice.edu/projects Rice
++ http://www.ruf.rice.edu/~hmkohn/conservation.html Rice
+
+## Research Proposal
+Think of a proposal as a blue-print – a mini-version of the thesis that you would like to eventually write. The proposal should be written in the form of an essay, not a list. It should contain:
+1. Statement of Purpose
+2. Research Questions
+3. Literature Review
+4. Statement of Significance
+5. Research Methodology
+### Statement of Purpose
+一些可能的话题
++ 群体遗传学+序列
++ 微生物多组学+机器学习
