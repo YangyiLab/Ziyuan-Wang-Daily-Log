@@ -124,6 +124,14 @@
   - [Potential LAN](#potential-lan)
   - [Research Proposal](#research-proposal)
     - [Statement of Purpose](#statement-of-purpose)
+  - [群体遗传学习](#群体遗传学习)
+    - [归纳法induction和演绎法deduction并用的实践过程。](#归纳法induction和演绎法deduction并用的实践过程)
+    - [名词介绍](#名词介绍)
+    - [选型交配 assortative mating](#选型交配-assortative-mating)
+    - [配子不平衡](#配子不平衡)
+- [2021-7-25](#2021-7-25)
+  - [PLAN](#plan-21)
+  - [ML学习计划](#ml学习计划)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -719,6 +727,7 @@ For some problems when we are using suitable data structure and algorithm we can
 + **Research Proposal初稿**
 + **Email修改**
 + **Cover Letter 修改**
++ **群体遗传-1学习**
 
 ## Potential LAN
 + https://transbioinfolab.org/contact University of Miami
@@ -744,3 +753,57 @@ Think of a proposal as a blue-print – a mini-version of the thesis that you wo
 一些可能的话题
 + 群体遗传学+序列
 + 微生物多组学+机器学习
+
+## 群体遗传学习
+### 归纳法induction和演绎法deduction并用的实践过程。
+
+归纳法：大量实验数据的积累，特别是在果蝇等模式生物上的实验，揭示了遗传进化的一般过程。通过这些实践我们可以归纳出遗传进化的一般规律。
+
+演绎法：我们通过建立包括了很多参数的模型，比如遗传漂变、突变、自然选择等，来推演遗传进化的过程和结果。
+群体遗传学的发展是一个归纳法induction和演绎法deduction并用的实践过程。
+
+归纳法：大量实验数据的积累，特别是在果蝇等模式生物上的实验，揭示了遗传进化的一般过程。通过这些实践我们可以归纳出遗传进化的一般规律。
+
+### 名词介绍
+
++ 基因 **gene**：遗传基本单元，通常指一个或多个外显子，或者编码RNA或者蛋白质的DNA序列。
+位点 **locus**：基因组上的某些区域或序列，包括非编码区。
+
++ 等位基因 **allele**：某个位点DNA序列的另一种形式或变异。
+基因型 **genotype**：某个个体的某个位点所拥有的一套等位基因。
+
++ 表型 **phenotype**：某个个体形态、生化、生理、行为等表现出的特性，也即“性状”。
+显性 **dominant**：一个等位基因表达的表型掩盖了其另一个等位基因表达的表型。那么该等位基因就是显性基因。“显性”是一个连续性的，比如“完全显性”，即一个等位基因表型完全掩盖了另一个等位基因的表型，杂合性状和该等位基因性状完全一样；“不完全显性”，表型没有被完全掩盖，杂合性状介于两个纯合性状之间。
+隐形 **recessive**：表型被掩盖等位基因。
+
+### 选型交配 assortative mating
+非随机交配: 
++ 正选型交配
++ 负选型交配
++ 近亲交配 导致IBD
+
+**近交系数**指近交后代从近交双亲中获得的某个基因来自双亲的共同祖先，且该基因在近交后代中纯合的概率，即来自共同祖先的基因在近交后代中相遇的概率。
+
+### 配子不平衡
+学习网站 https://zhuanlan.zhihu.com/p/364024534
+重组率r指两个位点之间重组形成的配子占全部配子中的比例，也可以理解为两个位点之间发生重组的概率
+配子不平衡（或者连锁不平衡）D
+![avartar](https://pic1.zhimg.com/v2-067f8fd3eabb1f626a361548b294b404_r.jpg)
+$$D=g_{11}g_{22}-g_{12}g_{21}$$
+另一种测评
+$$\rho^2=\frac{D^2}{p_1p_2p_3p_$}$$
+highlight
+群体大小：群体越大，配子不平衡越不明显，反之，配子不平衡越明显。$\rho^2$估计
+$$\rho^2=\frac{1}{1+4N_er}$$
+
+# 2021-7-25
+## PLAN
++ **GRE 套题1**
++ Enrichment Analysis 步骤总结
++ 初步清洗代谢组数据
++ **西瓜书下载并开始学东西找到相关资源**
++ 群体遗传-2学习
+
+## ML学习计划
+主要教材 西瓜书-周志华
+Coursera 吴恩达参考
