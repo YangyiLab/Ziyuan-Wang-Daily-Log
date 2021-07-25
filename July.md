@@ -132,6 +132,9 @@
 - [2021-7-25](#2021-7-25)
   - [PLAN](#plan-21)
   - [ML学习计划](#ml学习计划)
+  - [群体遗传学习-Drift](#群体遗传学习-drift)
+    - [遗传漂变 Drift](#遗传漂变-drift)
+    - [遗传漂变模型](#遗传漂变模型)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -755,6 +758,8 @@ Think of a proposal as a blue-print – a mini-version of the thesis that you wo
 + 微生物多组学+机器学习
 
 ## 群体遗传学习
+源网页 https://mp.weixin.qq.com/s?__biz=MzUxMDYwNTQ4Nw==&mid=2247485292&idx=1&sn=d9abb199d4d0fd4f4d060258109739ac&chksm=f90126acce76afba8463ef9c050296943a203b561182da1ddbb5f91a22d0f2050646e1d18b63&mpshare=1&scene=23&srcid=0723jqxfREhY56xbpel3I3iG&sharer_sharetime=1626998616720&sharer_shareid=a998d5aed407492daa2de9f9d4885e19#rd
+[下一部分](#群体遗传学习-drift)
 ### 归纳法induction和演绎法deduction并用的实践过程。
 
 归纳法：大量实验数据的积累，特别是在果蝇等模式生物上的实验，揭示了遗传进化的一般过程。通过这些实践我们可以归纳出遗传进化的一般规律。
@@ -762,7 +767,6 @@ Think of a proposal as a blue-print – a mini-version of the thesis that you wo
 演绎法：我们通过建立包括了很多参数的模型，比如遗传漂变、突变、自然选择等，来推演遗传进化的过程和结果。
 群体遗传学的发展是一个归纳法induction和演绎法deduction并用的实践过程。
 
-归纳法：大量实验数据的积累，特别是在果蝇等模式生物上的实验，揭示了遗传进化的一般过程。通过这些实践我们可以归纳出遗传进化的一般规律。
 
 ### 名词介绍
 
@@ -796,14 +800,46 @@ highlight
 群体大小：群体越大，配子不平衡越不明显，反之，配子不平衡越明显。$\rho^2$估计
 $$\rho^2=\frac{1}{1+4N_er}$$
 
+
 # 2021-7-25
 ## PLAN
 + **GRE 套题1**
-+ Enrichment Analysis 步骤总结
-+ 初步清洗代谢组数据
++ **Enrichment Analysis 步骤总结**
++ **初步清洗代谢组数据**
 + **西瓜书下载并开始学东西找到相关资源**
-+ 群体遗传-2学习
++ **群体遗传-2学习**
 
 ## ML学习计划
-主要教材 西瓜书-周志华
+主要教材 西瓜书-周志华 https://github.com/Mikoto10032/DeepLearning/blob/master/books/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%91%A8%E5%BF%97%E5%8D%8E.pdf
 Coursera 吴恩达参考
+
+## 群体遗传学习-Drift
+### 遗传漂变 Drift
+生物学群体中，一代向下一代的遗传传递中，由于个体数、配子数和等位基因是一个有限采样传递，因而产生了子代和亲代在等位基因频率上的随机差异。这种差异就是遗传漂变。采样样本量越小，遗传漂变越大。
+
+**Wright-Fisher模型** 假设条件与Hardy-Weinberg条件一致，除群体数量 HW模式指的是无限大种群
++ 世代午觉擦汗
++ 雌雄比例相同
++ 群体数量N保持不变
++ 无自然选择
+
+基因型和基因比例效果图
+![avartar](https://mmbiz.qpic.cn/mmbiz_png/28HEmLRCgZuDEZEOiaureRnsCe2zxiazjUIiaJbJPnWhcmhiaThVX1SlQznfDn4JFXJx8tr2JVUjfjFpWnic9kCph6A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+类比 近交系和drift 对于杂合子频率的降低原理不同
+遗传漂变是因为基因频率改变导致的杂合子频率减低；而近缘交配中基因频率不发生变化。
+
+一个等位基因在群体中最终固定(基因频率=1)的概率和它在群体中起始基因频率是一样大的。
+
+### 遗传漂变模型
++ 二项分布模型：即一些二项分布的基本属性。当两个等位基因频率相等时（p=q=0.5)，最后结果方差最大，遗传漂变的的效应最大。
+下一代中有i个等位基因为A的概率为
+$$P_{(i=A)}=P^{2N}_{i}p^iq^{2N-i}$$
+
++ 马尔科夫链：转移概率，与初始状态无关。
+转移概率t代i个A 到 t+1代j个A
+$$P_{i\rightarrow j}=P^{2N}_{j}p^jq^{2N-j}$$
+当i=0 or 2N时p or q会等于0即进入了吸收态
+
++ 扩散模型类似于一个粒子左右移动，两次吸收态的模型，但每次只可以移动一次（每个时间步）
+该莫兰模型假定世代重叠。在每个时间步长，选择一个个体进行繁殖，并选择一个个体死亡。因此，在每个时间步中，给定等位基因的拷贝数可以增加1、减少1，也可以保持不变。这意味着转移矩阵是三对角矩阵
