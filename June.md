@@ -81,7 +81,7 @@ docker pull jsychong/metaboanalyst:august2020
 ~~~ bash
 
 $ sudo su #进入终端
-$ docker run -ti --rm --name metaboanalyst_docker -p 8080:8080 jsychong/metaboanalyst
+$ docker run -ti --rm --name metaboanalyst_docker -p 8080:8080 jsychong/metaboanalyst:august2020
 root@760b678fd4bf:/ Rscript /metab4script.R
 root@:/ java -jar /opt/payara/payara-micro.jar --deploymentDir /opt/payara/deployments #这种情况下关闭服务器网站依然运行可以进行运行
 ~~~

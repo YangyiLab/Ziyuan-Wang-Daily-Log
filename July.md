@@ -135,6 +135,13 @@
   - [群体遗传学习-Drift](#群体遗传学习-drift)
     - [遗传漂变 Drift](#遗传漂变-drift)
     - [遗传漂变模型](#遗传漂变模型)
+- [2021-7-26](#2021-7-26)
+  - [PLAN](#plan-22)
+  - [代谢组数据清洗及其SOP](#代谢组数据清洗及其sop)
+    - [数据清洗SOP](#数据清洗sop)
+    - [Enrichment analysis](#enrichment-analysis)
+  - [群体遗传学习-Drift](#群体遗传学习-drift-1)
+    - [有效群体数量](#有效群体数量)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -843,3 +850,52 @@ $$P_{i\rightarrow j}=P^{2N}_{j}p^jq^{2N-j}$$
 
 + 扩散模型类似于一个粒子左右移动，两次吸收态的模型，但每次只可以移动一次（每个时间步）
 该莫兰模型假定世代重叠。在每个时间步长，选择一个个体进行繁殖，并选择一个个体死亡。因此，在每个时间步中，给定等位基因的拷贝数可以增加1、减少1，也可以保持不变。这意味着转移矩阵是三对角矩阵
+
+# 2021-7-26
+## PLAN
++ **GRE 填空2阅读2**
++ 群体遗传2学习
++ **西瓜书总览**
++ **代谢组数据清洗运行算例并给出SOP**
+
+## 代谢组数据清洗及其SOP
+### 数据清洗SOP
++ 首先进入navicat，导入Data_Pos_qc.csv文件
++ 选择两组比较两两差异的分组处理模型导入数据库，选择Name和后续两组
++ 与Name_CID_CPD_PATH做Join 若新表表名为data_table_cp_zr
+```sql
+SELECT NAME_CID_CPD_PATH.CID,data_table_cp_zr.*
+FROM NAME_CID_CPD_PATH,data_table_cp WHERE 
+data_table_cp.Name=NAME_CID_CPD_PATH.Name
+```
++ 使用导出向导导出为xlsx文件 **不要导出成csv**
++ 使用excel在第二行加入分组标志 GROUP CP CP ... ZR ZR ...
++ 再使用excel转化为csv
++ 使用r代码清洗掉重复数据求和 若生成的table为res.csv
+```R
+res=read.csv("res.csv")
+colnames(res)[1] = "CID"
+res_filter=aggregate(res[,2:15],list(res[,1]),sum)
+colnames(res_filter)[1] = "CID"
+write.csv(res_filter,"res.csv")
+```
+
+### Enrichment analysis
+网址 http://42.193.18.116:8080/MetaboAnalyst/faces/upload/EnrichUploadView.xhtml
+选择 A concentration table (quantitative enrichment analysis)
+进行分析
+
+## 群体遗传学习-Drift
+[上一部分](#群体遗传学习-drift)
+### 有效群体数量
+在一个理想群体中，在随机遗传漂变影响下，能够产生相同的等位基因分布或者等量的同系繁殖的个体数量
+
+建立者效应：一个群体是由一个或少数几个个体建立起来的，该群体往往有较小的有效群体数量。比如少数有害物种入侵。
+
+瓶颈效应：一个群体突然经历了剧烈短暂的群体数量减少，进而导致了遗传漂变突然增大，并显著影响了后续群体的有效群体数量（即便后续群体的统计群体数量的得到很快恢复）。
+
+影响有效群体数量因素
++ 群体数量波动 计算方法调和平均值 
+$$ \frac{1}{N_e}=\frac{1}{t}[\frac{1}{N_{e(t=1})}+\frac{1}{N_{e(t=2)}}+...+\frac{1}{N_{e(t=t)}}]$$
++ 第二个影响有效群体数量的因素是交配模式 类似瓶颈效应 如若一雄多雌 则雄性成为瓶颈效应中群体剩余个体
++ 影响有效群体数量的因素是子代贡献率 方差较大时即 生子较多的个体的基因影响较大，降低基因丰富度，降低有效种群。后代数量的变异过小可能会导致有效群体数量比实际统计群体数量大。
