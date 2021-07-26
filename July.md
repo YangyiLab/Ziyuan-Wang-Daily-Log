@@ -886,6 +886,7 @@ write.csv(res_filter,"res.csv")
 进行分析
 
 ## 群体遗传学习-Drift
+https://mp.weixin.qq.com/s?__biz=MzUxMDYwNTQ4Nw==&mid=2247485312&idx=1&sn=c4d0141ada7837fdb64fe1725483d771&chksm=f9012640ce76af5621a7934a6b8d5872ed87d3eeeef6fa420e528fcf08940229b909066896fd&mpshare=1&scene=23&srcid=0725KoedvZStMM0sLiZHyOsh&sharer_sharetime=1627213034170&sharer_shareid=a998d5aed407492daa2de9f9d4885e19#rd
 [上一部分](#群体遗传学习-drift)
 ### 有效群体数量
 在一个理想群体中，在随机遗传漂变影响下，能够产生相同的等位基因分布或者等量的同系繁殖的个体数量
