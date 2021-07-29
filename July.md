@@ -144,6 +144,9 @@
     - [有效群体数量](#有效群体数量)
 - [2021-7-27](#2021-7-27)
   - [度假开始 7.27-7.29](#度假开始-727-729)
+- [2021-7-29](#2021-7-29)
+  - [PLAN](#plan-23)
+  - [Labs](#labs)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -905,3 +908,16 @@ $$ \frac{1}{N_e}=\frac{1}{t}[\frac{1}{N_{e(t=1})}+\frac{1}{N_{e(t=2)}}+...+\frac
 
 # 2021-7-27
 ## 度假开始 7.27-7.29
+
+# 2021-7-29
+## PLAN
++ 收集labs in NYU tulane
++ 投稿total environment
+
+## Labs
++ http://tsirigos.com/ Aristotelis.Tsirigos@nyulangone.org
++ https://greshamlab.bio.nyu.edu/join/#page-content 
++ https://kathleengferristulane.wordpress.com/people/
++ https://www.ahmed-braimah.com/lab-members
++ http://liuzlab.org/members/
++ https://durenlab.com/vacancies
