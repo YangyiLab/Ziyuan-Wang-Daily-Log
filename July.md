@@ -147,6 +147,19 @@
 - [2021-7-29](#2021-7-29)
   - [PLAN](#plan-23)
   - [Labs](#labs)
+- [2021-7-30](#2021-7-30)
+  - [PLAN](#plan-24)
+  - [配置新服务器信息](#配置新服务器信息)
+    - [ip信息](#ip信息)
+    - [R语言服务器](#r语言服务器)
+    - [animalcelus](#animalcelus)
+  - [Viral genome (phage)](#viral-genome-phage)
+  - [重点LAB](#重点lab)
+  - [群体遗传-Drift](#群体遗传-drift)
+    - [杂合子概率与有效群体数量有关](#杂合子概率与有效群体数量有关)
+    - [有效群体数量的估计$N_e$](#有效群体数量的估计n_e)
+    - [基因系谱和溯祖模型 Coalescent theory](#基因系谱和溯祖模型-coalescent-theory)
+    - [瓶颈时间和溯祖](#瓶颈时间和溯祖)
 # 2021-7-1
 ## PLAN
 + **VirFinder 文献阅读**
@@ -807,7 +820,7 @@ Think of a proposal as a blue-print – a mini-version of the thesis that you wo
 ![avartar](https://pic1.zhimg.com/v2-067f8fd3eabb1f626a361548b294b404_r.jpg)
 $$D=g_{11}g_{22}-g_{12}g_{21}$$
 另一种测评
-$$\rho^2=\frac{D^2}{p_1p_2p_3p_$}$$
+$$\rho^2=\frac{D^2}{p_1p_2p_3p_4}$$
 highlight
 群体大小：群体越大，配子不平衡越不明显，反之，配子不平衡越明显。$\rho^2$估计
 $$\rho^2=\frac{1}{1+4N_er}$$
@@ -830,7 +843,7 @@ Coursera 吴恩达参考
 生物学群体中，一代向下一代的遗传传递中，由于个体数、配子数和等位基因是一个有限采样传递，因而产生了子代和亲代在等位基因频率上的随机差异。这种差异就是遗传漂变。采样样本量越小，遗传漂变越大。
 
 **Wright-Fisher模型** 假设条件与Hardy-Weinberg条件一致，除群体数量 HW模式指的是无限大种群
-+ 世代午觉擦汗
++ 世代无交叉
 + 雌雄比例相同
 + 群体数量N保持不变
 + 无自然选择
@@ -859,7 +872,7 @@ $$P_{i\rightarrow j}=P^{2N}_{j}p^jq^{2N-j}$$
 # 2021-7-26
 ## PLAN
 + **GRE 填空2阅读2**
-+ 群体遗传2学习
++ **群体遗传2学习**
 + **西瓜书总览**
 + **代谢组数据清洗运行算例并给出SOP**
 
@@ -896,6 +909,10 @@ https://mp.weixin.qq.com/s?__biz=MzUxMDYwNTQ4Nw==&mid=2247485312&idx=1&sn=c4d014
 ### 有效群体数量
 在一个理想群体中，在随机遗传漂变影响下，能够产生相同的等位基因分布或者等量的同系繁殖的个体数量
 
+**两类有效群体大小**
+> + inbreeding effective population size 通过近交系数
+> + **变异有效群体大小**利用基因频率方差估计有效群体大小的方法
+
 建立者效应：一个群体是由一个或少数几个个体建立起来的，该群体往往有较小的有效群体数量。比如少数有害物种入侵。
 
 瓶颈效应：一个群体突然经历了剧烈短暂的群体数量减少，进而导致了遗传漂变突然增大，并显著影响了后续群体的有效群体数量（即便后续群体的统计群体数量的得到很快恢复）。
@@ -911,8 +928,8 @@ $$ \frac{1}{N_e}=\frac{1}{t}[\frac{1}{N_{e(t=1})}+\frac{1}{N_{e(t=2)}}+...+\frac
 
 # 2021-7-29
 ## PLAN
-+ 收集labs in NYU tulane
-+ 投稿total environment
++ **收集labs in NYU tulane**
++ **投稿total environment**
 
 ## Labs
 + http://tsirigos.com/ Aristotelis.Tsirigos@nyulangone.org
@@ -921,3 +938,68 @@ $$ \frac{1}{N_e}=\frac{1}{t}[\frac{1}{N_{e(t=1})}+\frac{1}{N_{e(t=2)}}+...+\frac
 + https://www.ahmed-braimah.com/lab-members
 + http://liuzlab.org/members/
 + https://durenlab.com/vacancies
+
+# 2021-7-30
+## PLAN
++ **准备Viral genome 总结**
++ **GRE 阅读2填空2**
++ **生成手稿，定稿 total environment**
++ **完成群体遗传2**
+
+## 配置新服务器信息
+### ip信息
+**服务器ip号** 42.193.15.162
+### R语言服务器
+http://42.193.15.162:8080/
+账号 Ruser
+密码 R123456
+### animalcelus
+http://42.193.15.162:8787/
+账号 rstudio
+密码 animalcelus
+
+## Viral genome (phage)
+不同种类噬菌体的基因结构不相同，而对于不同噬菌体结构，两种软件给出的预测缺都是正链反链都有。
+
+a related work 
+![比较方法](https://www.frontiersin.org/files/Articles/412794/fmicb-10-00184-HTML/image_m/fmicb-10-00184-g001.jpg)
+
+方向
++ 利用统计学训练并找到较好的参数对于不同种类的噬菌体
++ 加速利用框架
+
+## 重点LAB
+https://sfb.kaust.edu.sa/Pages/JoinUs.aspx
+
+## 群体遗传-Drift
+[Last section](#群体遗传学习-drift-1)
+### 杂合子概率与有效群体数量有关
+$$H_t= (1-\frac{1}{1N_e})^tH_0$$
+$H_0$是初始群体杂合子频率，$H_t$是经过t代之后群体杂合子频率。
+### 有效群体数量的估计$N_e$
+利用IBD反推$N_e$
+近交有效群体数量 - 在一个群体中两个等位基因是来自共同祖先IBD的概率，和该概率等效的理想群体数就是近交有效群体数。
+两种具体计算方式
+https://www.isbreeding.net/common/UploadFiles/file/teaching/%E6%95%B0%E9%87%8F%E9%81%97%E4%BC%A0%E5%AD%A6%E6%95%99%E5%AD%A62017/%E7%AC%AC4%E7%AB%A0%E8%AF%BE%E4%BB%B6.pdf
+
+**距离隔离**
+随着空间距离的增加，交配概率或者配子扩散数量降低。
+
+### 基因系谱和溯祖模型 Coalescent theory
+**溯祖**：根据当前的群体样本逆推过去群体中发生的事件，直到找到一个共同的祖先。
+最近共同祖先 **Most Recent Common Ancester**：在系谱中，对当前样本溯祖，第一个出现的共同的祖先，即最近共同祖先。
+
+**基本假设:$N_e$不变**
+$2N_e$单倍体群体中，两个单倍体来自于父代服从几何分布，当有效群体数较大时服从指数分布
+对于多个系谱的溯祖，系谱越多，两两溯祖发生的概率越大，等待时间越短。
+溯祖树高：从当下到k个系谱找到它们的最近共同祖先所需要的时间。树高平均为2N代-4N代，当k=2时，所需时间最短，为2N，随着k的增加，所需时间增长，最长为4N。公式如下
+![推定模型图](https://mmbiz.qpic.cn/mmbiz_png/28HEmLRCgZuDEZEOiaureRnsCe2zxiazjUEu1J2MicibCLqOXxEBtOU6pJ783R9q7sc4VDbMMppoVHxibibla5OD0VWg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+### 瓶颈时间和溯祖
+在群体经历了瓶颈事件时，群体中的各个系谱比瓶颈前或后更容易找到共同祖先，所以在瓶颈的溯祖时间变短。
+主要原因 $N_e$ 变小
+
+扩张群体：越靠近当下时间，群体数量越大，溯祖时间越长；反之，随着时间回溯，有效群体数量变小，溯祖时间变短。
+
+收缩群体：越靠近当下，群体数量越小，溯祖时间越短；反之，随着时间回溯，有效群体数量扩大，溯祖所需时间越长。
+
+瓶颈事件后种群成为收缩群体
