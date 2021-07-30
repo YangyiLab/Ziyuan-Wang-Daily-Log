@@ -849,7 +849,7 @@ Coursera 吴恩达参考
 + 无自然选择
 
 基因型和基因比例效果图
-![avartar](https://mmbiz.qpic.cn/mmbiz_png/28HEmLRCgZuDEZEOiaureRnsCe2zxiazjUIiaJbJPnWhcmhiaThVX1SlQznfDn4JFXJx8tr2JVUjfjFpWnic9kCph6A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![avartar](https://pic1.zhimg.com/80/v2-29414a66c5633037eb84c9acb931132c_720w.jpg)
 
 类比 近交系和drift 对于杂合子频率的降低原理不同
 遗传漂变是因为基因频率改变导致的杂合子频率减低；而近缘交配中基因频率不发生变化。
@@ -992,7 +992,8 @@ https://www.isbreeding.net/common/UploadFiles/file/teaching/%E6%95%B0%E9%87%8F%E
 **基本假设:$N_e$不变**
 $2N_e$单倍体群体中，两个单倍体来自于父代服从几何分布，当有效群体数较大时服从指数分布
 对于多个系谱的溯祖，系谱越多，两两溯祖发生的概率越大，等待时间越短。
-溯祖树高：从当下到k个系谱找到它们的最近共同祖先所需要的时间。树高平均为2N代-4N代，当k=2时，所需时间最短，为2N，随着k的增加，所需时间增长，最长为4N。公式如下
+溯祖树高：从当下到k个系谱找到它们的最近共同祖先所需要的时间。树高平均为2N代-4N代，当k=2时，所需时间最短，为2N，随着k的增加，所需时间增长，最长为4N。
+
 ![推定模型图](https://pic3.zhimg.com/80/v2-1a029b48997833e85c6d8c4a203f68be_720w.jpg)
 ### 瓶颈时间和溯祖
 在群体经历了瓶颈事件时，群体中的各个系谱比瓶颈前或后更容易找到共同祖先，所以在瓶颈的溯祖时间变短。
