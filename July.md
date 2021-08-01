@@ -1048,3 +1048,4 @@ Jupiter文件和示例学习文件位于/home/ubuntu/tensorflowStudy
 ## phage 数据库分类
 对于单链 Monodnaviria
 对于双链 Duplodnaviria phage 
+并批量下载
