@@ -15,6 +15,16 @@
     - [海岛海岛模型](#海岛海岛模型)
     - [无限海岛模型](#无限海岛模型)
     - [溯祖与亚群、前夕的关系](#溯祖与亚群前夕的关系)
+- [2021-8-3](#2021-8-3-1)
+  - [PLAN](#plan-3)
+  - [Quite good LAB](#quite-good-lab)
+  - [统计单链双链phage](#统计单链双链phage)
+    - [gc skew](#gc-skew)
+  - [the dataset](#the-dataset)
+  - [群体遗传-突变](#群体遗传-突变)
+    - [突变来源](#突变来源)
+    - [基本概念](#基本概念)
+  - [Pytorch 线性回归](#pytorch-线性回归)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -132,3 +142,73 @@ FST为0.25以上，群体间有很大的遗传分化。
 **含有迁移的溯祖**
 来自同一个亚群的两个分支溯祖时间长短不受种群迁徙率的影响，只和大群体种群数量有关，数量越大，溯祖所需时间越长。
 当两个分支来自两个不同亚群时，溯祖时间不仅受大群体数量影响，还受迁徙率影响。迁徙率越大，溯祖时间越短。
+
+# 2021-8-3
+## PLAN
++ **统计单链双链phage**
++ **GRE填空2阅读2**
++ **群体遗传4**
++ **西瓜书chapter 3代码在pytorch实现**
+
+## Quite good LAB
++ http://blekhmanlab.org/research.html
+
+## 统计单链双链phage
+### gc skew
+GC skew is when the nucleotides guanine and cytosine are over- or under-abundant in a particular region of DNA or RNA. In equilibrium conditions (without mutational or selective pressure and with nucleotides randomly distributed within the genome) there is an equal frequency of the four DNA bases (adenine, guanine, thymine, and cytosine) on both single strands of a DNA molecule.
+
+## the dataset
+Code
+```python
+import pyfastx
+import numpy
+import matplotlib.pyplot as mplt
+import phanotate_modules.functions as phano
+fa_ds = pyfastx.Fasta('ds-linear.fasta')
+fa_ss = pyfastx.Fasta('ss-circular.fasta')
+dataset=[]
+for itm in fa_ds:
+  list_itm=[]
+  list_itm.append(len(itm.seq))
+  list_itm.append(itm.gc_skew)
+  list_itm.append(itm.gc_content)
+  brbs=phano.get_backgroud_rbs(itm.seq)
+  list_itm=list_itm+brbs
+  list_itm.append("ds")
+  dataset.append(list_itm)
+
+for itm in fa_ss:
+  list_itm=[]
+  list_itm.append(len(itm.seq))
+  list_itm.append(itm.gc_skew)
+  list_itm.append(itm.gc_content)
+  brbs=phano.get_backgroud_rbs(itm.seq)
+  list_itm=list_itm+brbs
+  list_itm.append("ss")
+  dataset.append(list_itm)
+```
+
+Entity = ["length","gc_skew","gc_content","rbs1_content","rbs2_content"..."rbs28_content"]
+
+## 群体遗传-突变
+### 突变来源
++ 点突变
++ 插入缺失突变
++ 结构变异
+
+中性突变--受drift 影响
+有利有害--受自然选择影响
+### 基本概念
++ **mutation fitness spectrum** 遗传适应谱系
+
+一个密度分布函数图，表现了一个突变对于物种的有益或者有害
+![mutation fitness spectrum](https://pic4.zhimg.com/80/v2-fb05a9def37b14077cf10b20f91f0187_720w.jpg)
++ mutation-accumulation 突变累积实验
+
+用途:估计突变适应谱。估计多代后做突变处理的组和对照组的适应度变化和基因型的方差确定是否有利突变
+## Pytorch 线性回归
+步骤 
++ 定义一组输入数据；
++ 定义计算图；
++ 定义损失函数；
++ 优化，拟合参数。
