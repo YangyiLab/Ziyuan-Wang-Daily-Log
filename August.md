@@ -25,6 +25,15 @@
     - [突变来源](#突变来源)
     - [基本概念](#基本概念)
   - [Pytorch 线性回归](#pytorch-线性回归)
+- [2021-8-5](#2021-8-5)
+  - [PLAN](#plan-4)
+  - [群体遗传4-突变的结局](#群体遗传4-突变的结局)
+    - [孟德尔分离](#孟德尔分离)
+    - [突变在有限群体模型中的结局](#突变在有限群体模型中的结局)
+    - [自然选择下的几何模型](#自然选择下的几何模型)
+  - [Demography LAB](#demography-lab)
+- [2021-8-6](#2021-8-6)
+  - [PLAN](#plan-5)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -212,3 +221,49 @@ Entity = ["length","gc_skew","gc_content","rbs1_content","rbs2_content"..."rbs28
 + 定义计算图；
 + 定义损失函数；
 + 优化，拟合参数。
+
+# 2021-8-5
+## PLAN
++ **GRE阅读2填空2**
++ **tensorflow简单做降维**
++ **西瓜书第四章**
++ **群体遗传4**
+
+## 群体遗传4-突变的结局
+### 孟德尔分离
+在突变二倍体中，有1/2的可能传递给子代，有1/2的可能丢失。如果有k个子代，那么该突变在所有子代中丢失的概率
+$$P(mutationlost)=(\frac{1}{2})^k$$
+对于一个群体，如果子代数量为Poisson分布，那么该群体经过一代之后，该（中性）突变在群体中丢失的概率是一个常数1/e = 0.3679
+推导方法: 对K求全概率，K服从$\lambda=2$的泊松分布，原因，种群数量不变。
+
+### 突变在有限群体模型中的结局
+初始频率$p_0=1/N_e$ $p_0\rightarrow 0$ 由扩散模型，扩散时间$4N_e$ 固定概率$1/2N_e$
+
+### 自然选择下的几何模型
+微突变：被自然选择固定的有利突变往往是微小作用的突变，而不是带来很大效应的突变。
+
+**原因如图所示**
+
+![](https://pic3.zhimg.com/80/v2-a667f1b8d85b4d548f2a158c1db38e82_720w.jpg)
+靠近圆心则为有利突变
+
+![](https://pic2.zhimg.com/80/v2-50d587bdb7b41075f7afaaa99e7d8e6d_720w.jpg)
+
+m(突变强度，如突变设计的等位基因数)较小时，突变靠近有利变异的可能性较大。
+
+**考虑drift时** m越小，drift的固定作用比较弱而自然选择作用又比较小，有利突变易丢失
+
+## Demography LAB
++ https://www.med.upenn.edu/mathieson-lab/personnel.html
++ https://lohmueller.eeb.ucla.edu/research/
++ http://jjensenlab.org/people
++ https://popgen.gatech.edu/people/
+
+# 2021-8-6
+## PLAN
++ GRE阅读2填空2
++ 群体遗传4
++ 西瓜书chapter 4 和xgboot
++ 统计phage，给出统计学信息
+
+
