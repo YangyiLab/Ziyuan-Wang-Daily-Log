@@ -34,6 +34,14 @@
   - [Demography LAB](#demography-lab)
 - [2021-8-6](#2021-8-6)
   - [PLAN](#plan-5)
+  - [NUS LAB](#nus-lab)
+  - [Boosting](#boosting)
+- [2021-8-7](#2021-8-7)
+  - [PLAN](#plan-6)
+  - [群体遗传--突变模型](#群体遗传--突变模型)
+    - [等位基因突变模型](#等位基因突变模型)
+    - [DNA序列的突变模型](#dna序列的突变模型)
+    - [突变对等位基因频率的影响](#突变对等位基因频率的影响)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -237,7 +245,8 @@ $$P(mutationlost)=(\frac{1}{2})^k$$
 推导方法: 对K求全概率，K服从$\lambda=2$的泊松分布，原因，种群数量不变。
 
 ### 突变在有限群体模型中的结局
-初始频率$p_0=1/N_e$ $p_0\rightarrow 0$ 由扩散模型，扩散时间$4N_e$ 固定概率$1/2N_e$
+初始频率$p_0=1/N_e$ $p_0\rightarrow `
+0$ 由扩散模型，扩散时间$4N_e$ 固定概率$1/2N_e$
 
 ### 自然选择下的几何模型
 微突变：被自然选择固定的有利突变往往是微小作用的突变，而不是带来很大效应的突变。
@@ -261,9 +270,57 @@ m(突变强度，如突变设计的等位基因数)较小时，突变靠近有�
 
 # 2021-8-6
 ## PLAN
-+ GRE阅读2填空2
++ **GRE阅读2填空1**
 + 群体遗传4
-+ 西瓜书chapter 4 和xgboot
-+ 统计phage，给出统计学信息
++ **西瓜书chapter 4 和boosting**
++ **统计phage，给出统计学信息**
 
+## NUS LAB
++ duke-nus.edu.sg/eid/faculty/tenure-track-faculty/tenure-track-faculty-staff-details/Detail/gavin-james-smith
++ https://www.duke-nus.edu.sg/cvmd/the-team/primary-appointment/Detail/owen-john-llewellyn-rackham
++ https://avianevonus.com/lab-members/
+
+## Boosting
+Core 给予每一个obs一个权重$w_i$
+迭代依据
+$$\alpha^{(s)}=log\frac{1-err^{(s)}}{err^{(s)}}$$
+$$w_i^{(s)}=w_i^{(s-1)}exp(\alpha)^{(s)}$$
+
+# 2021-8-7
+## PLAN
++ **GRE套题1**
++ **群体遗传4**
+
+## 群体遗传--突变模型
+### 等位基因突变模型
+
+无限等位基因模型：每次突变都产生一个新的从未有过的基因类型，后代中所有该基因型都是通过该突变得到的，identity by descent。
+
+k 等位基因模型：假设某个位点的等位基因不是无限的，而是k个，每次突变都有k-1种可能。随着k的减小和突变率的增大， 群体中出现的两个相同的等位基因越来越有可能是多次突变事件形成的identity by state，而不是同一个突变事件identity by descent。
+
+逐步突变模型：突变产生的基因型取决于当前基因状态，即突变并不是完全随机的。比如，在不同的DNA序列中，SNP突变的转换(CT/AG)比颠换(CA/CG/GT/AT)更容易发生。
+(突变作用于状态，状态的衡量就是微卫星DNA片段的多态性，数量多态性，由整数表示the number of repeats)
+**对于IBD的解释，两个具有相同repeats number的基因可能不是IBD e.g. 9+1=10-1**
+
+### DNA序列的突变模型
+
+无限位点模型：假设DNA序列无限长，每一个位点都有发生突变的可能，且每个位点最多只能经历一次突变。
+**用途：短时间内近似**
+
+有限位点模型：DNA序列长度有限，每个位点可能经历多次突变。
+
+### 突变对等位基因频率的影响
++ 不可逆
+
+$$p_t=p_0(1-\mu)^t$$
++ 可逆 利用马尔科夫性，之和转移概率有关
+
+$P(a\rightarrow A)= \mu, P(A\rightarrow a)= \lambda$
+平衡概率$P_{equilibrium}=\frac{\lambda}{\lambda+\mu}$
+
++ 考虑遗传漂变 计算杂合率 计算方法和migration gene flow 类似 加入因子
+
+平衡$F=\frac{1}{4N_e\mu+1}$
+即在一个无限等位基因模型中，在漂变-突变平衡的群体中，两个随机抽样的等位基因是非同源等位基因allozygous的概率。随着theta的增大，两个等位基因来自非同源的可能性增加，而来自同源等位的概率越来越小。
+![allozygous](https://dyerlab.github.io/applied_population_genetics/media/allele_lineages.png)
 
