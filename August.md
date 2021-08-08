@@ -42,6 +42,10 @@
     - [等位基因突变模型](#等位基因突变模型)
     - [DNA序列的突变模型](#dna序列的突变模型)
     - [突变对等位基因频率的影响](#突变对等位基因频率的影响)
+- [2021-8-8](#2021-8-8)
+  - [PLAN](#plan-7)
+  - [决策树python实现](#决策树python实现)
+  - [pytorch 流程 用三次方拟合sin](#pytorch-流程-用三次方拟合sin)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -324,3 +328,63 @@ $P(a\rightarrow A)= \mu, P(A\rightarrow a)= \lambda$
 即在一个无限等位基因模型中，在漂变-突变平衡的群体中，两个随机抽样的等位基因是非同源等位基因allozygous的概率。随着theta的增大，两个等位基因来自非同源的可能性增加，而来自同源等位的概率越来越小。
 ![allozygous](https://dyerlab.github.io/applied_population_genetics/media/allele_lineages.png)
 
+# 2021-8-8
+## PLAN
++ **GRE阅读2填空1**
++ **西瓜书chapter 4 sklearn**
++ **修改abstract定稿**
+
+## 决策树python实现
+网址 https://sklearn.apachecn.org/docs/master/11.html
+示例代码
+
+```python
+from sklearn import tree
+X = [[0, 0], [1, 1],[1,2]]
+Y = [0, 1, 0]
+clf = tree.DecisionTreeClassifier()
+clf = clf.fit(X, Y)
+clf.predict_proba([[2., 2.]])
+```
+
+## pytorch 流程 用三次方拟合sin
+```python
+import numpy as np
+import math
+
+# Create random input and output data
+x = np.linspace(-math.pi, math.pi, 2000)
+y = np.sin(x)
+
+# Randomly initialize weights
+a = np.random.randn()
+b = np.random.randn()
+c = np.random.randn()
+d = np.random.randn()
+
+learning_rate = 1e-6
+for t in range(2000):
+    # Forward pass: compute predicted y
+    # y = a + b x + c x^2 + d x^3
+    y_pred = a + b * x + c * x ** 2 + d * x ** 3
+
+    # Compute and print loss
+    loss = np.square(y_pred - y).sum()
+    if t % 100 == 99:
+        print(t, loss)
+
+    # Backprop to compute gradients of a, b, c, d with respect to loss
+    grad_y_pred = 2.0 * (y_pred - y)
+    grad_a = grad_y_pred.sum()
+    grad_b = (grad_y_pred * x).sum()
+    grad_c = (grad_y_pred * x ** 2).sum()
+    grad_d = (grad_y_pred * x ** 3).sum()
+
+    # Update weights
+    a -= learning_rate * grad_a
+    b -= learning_rate * grad_b
+    c -= learning_rate * grad_c
+    d -= learning_rate * grad_d
+
+print(f'Result: y = {a} + {b} x + {c} x^2 + {d} x^3')
+```
