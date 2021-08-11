@@ -53,6 +53,21 @@
     - [自然选择对不同表达方式基因所产生的作用](#自然选择对不同表达方式基因所产生的作用)
     - [自然选择增加平均适应性(等位基因频率和适应性关系)](#自然选择增加平均适应性等位基因频率和适应性关系)
     - [自然选择的基本定理](#自然选择的基本定理)
+- [2021-8-10](#2021-8-10)
+  - [PLAN](#plan-9)
+  - [pytorch Dataset&loader 类构建](#pytorch-datasetloader-类构建)
+    - [声明自己的dataset](#声明自己的dataset)
+    - [导入到Dataloader](#导入到dataloader)
+  - [softmax classifier for phage](#softmax-classifier-for-phage)
+- [2021-8-11](#2021-8-11)
+  - [PLAN](#plan-10)
+  - [Wilson Lab](#wilson-lab)
+    - [batch effects](#batch-effects)
+  - [群体遗传-自然选择模型](#群体遗传-自然选择模型)
+    - [基因型适应性表面模型](#基因型适应性表面模型)
+    - [单位点三位基因模型](#单位点三位基因模型)
+    - [两位点模型](#两位点模型)
+    - [自然选择与突变，漂变影响](#自然选择与突变漂变影响)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -398,9 +413,9 @@ print(f'Result: y = {a} + {b} x + {c} x^2 + {d} x^3')
 
 # 2021-8-9
 ## PLAN
-+ GRE阅读4
-+ 群体遗传5
-+ 西瓜书chapter 5
++ **GRE阅读4**
++ **群体遗传5**
++ **西瓜书chapter 5**
 + **修改研究进展ppt**
 
 ## 群体遗传--自然选择
@@ -421,12 +436,12 @@ Tips:
 
 这和前面提到的几种选择作用不同。前面不管是对显性基因的选择，对隐性基因的选择，还是对杂合子劣势，自然选择的结果都是清除群体中的某一个基因，使得群体多态性降低，也称之为单态平衡monomorphic equilibrium。而杂合优势带来的结果是维持了群体的多态性，没有使得其中一个等位基因固定或者消失，所以杂合优势导致的结果也称之为多态平衡polymorphic equilibrium。
 
-+ 杂合优势的计算方法 基线法，当$\Delta p =0$条件计算
++ 杂合优势的计算方法 极限法，当$\Delta p =0$条件计算
 
 ### 自然选择增加平均适应性(等位基因频率和适应性关系)
 自然选择的结果是增加的群体的平均适应性
 
-显性、隐形一般线性，自然选择趋向于增加平均适应性
+显性、隐性一般显性，自然选择趋向于增加平均适应性
 
 杂合优势和杂合劣势的适应性和等位基因频率
 
@@ -443,3 +458,123 @@ $$\Delta \bar{w} =var(w)$$
 $$\Delta \bar{w} =\frac{\bar{w}'- \bar{w}}{\bar{w}}$$
 $\bar{w}$ denotes the average of fitness after the natural selection.
 即一个群体的各个个体的适应性变异很大，那么经过自然选择该群体的平均适应性变化同样会很大。
+
+# 2021-8-10
+## PLAN
++ **GRE填空4**
++ **西瓜书chapter 5 + pytorch**
++ **phage 分类神经网络初步**
++ **EI投递**
+
+## pytorch Dataset&loader 类构建
+### 声明自己的dataset
+重点要写出 self 中的元素，这些元素可以`for - each`
+写出__get_item__ 方法
+定义length
+### 导入到Dataloader
+直接创建类，利用构造函数
+
+## softmax classifier for phage
+```python
+import torch
+import torch.nn as nn
+import numpy as np
+import matplotlib.pyplot as plt
+from d2l import torch as d2l
+
+# Hyper-parameters
+input_size = 1
+output_size = 1
+num_epochs = 10
+learning_rate = 0.05
+
+# Linear regression model
+model = nn.Sequential(nn.Flatten(), nn.Linear(26,2))
+def init_weights(m):
+    if type(m) == nn.Linear:
+        nn.init.normal_(m.weight, std=0.01)
+
+model.apply(init_weights)
+
+# Loss and optimizer
+loss = nn.CrossEntropyLoss()
+trainer = torch.optim.SGD(model.parameters(), lr=learning_rate)  
+
+from torch.utils.data import DataLoader
+
+# Train the model
+# d2l.train_ch3(model, x_train, y_train, loss, num_epochs, trainer)
+from torch.utils.data import DataLoader
+from torch.utils import data
+class CustomDataset(data.Dataset):#需要继承data.Dataset
+    def __init__(self,x,y):
+        # TODO
+        # 1. Initialize file path or list of file names.
+        self.X=x 
+        self.y=y
+        self.length=len(self.X)
+        pass
+    def __getitem__(self, index):
+        # TODO
+        # 1. Read one data from file (e.g. using numpy.fromfile, PIL.Image.open).
+        # 2. Preprocess the data (e.g. torchvision.Transform).
+        # 3. Return a data pair (e.g. image and label).
+        #这里需要注意的是，第一步：read one data，是一个data
+        return self.X[index],self.y[index]
+        
+    def __len__(self):
+        # You should change 0 to the total size of your dataset.
+        return self.length
+
+mydataset=CustomDataset(x_train,y_train)
+myloader=data.DataLoader(mydataset,batch_size=15)
+for X, y in myloader:
+    print(X)
+d2l.train_ch3(model, myloader, myloader, loss, num_epochs, trainer)
+```
+
+rate --> 100% (train and cross validation)
+# 2021-8-11
+## PLAN
++ **Wilson lab**
++ **群体遗传6**
++ **GRE阅读1填空1**
+
+## Wilson Lab
+### batch effects
+批次效应（batch effect），表示样品在不同批次中处理和测量产生的与试验期间记录的任何生物变异无关的技术差异。批次效应是高通量试验中常见的变异来源，受日期、环境、处理组、实验人员、试剂、平台等一些非生物因素的影响。
+合并分析不同批次的数据时，平常的标准化方法不足以调整批次之间的差异。如果批次效应比较严重，这些差异就会干扰实验结果，我们就不能够判断得到的差异表达的基因是来源于想要研究的因素，还是和批次相关。
+批次效应不能被消除，只有尽可能的降低。校正批次效应的目的是，减少批次之间的差异，尽量让多个批次的数据重新组合在一起，这样下游分析就可以只考虑生物学差异因素。
+
+## 群体遗传-自然选择模型
+### 基因型适应性表面模型
+![](https://pic2.zhimg.com/80/v2-a689424551add63ffe462786ac6e2035_720w.jpg)
+任何地点起始时都会向AA处移动:原因，无论在任何一点AA的适应度都会大于Aa,aa
+### 单位点三位基因模型
+**适应性表**
+![适应性表](https://pic3.zhimg.com/80/v2-3be82368995f1c07908ceb5a032b1f32_720w.jpg)
+![](https://pic4.zhimg.com/80/v2-ced3ef5cacc1f3a42cc92fade3a48ec7_720w.jpg)
+**计算方法**
++ $\bar{w}$ 表示三个基因位点的平均适应度
++ $\bar{w}_A=w_{AA}p+w_{AB}q+w_{AC}r,p+q+r=1$ 表示A基因相关的边缘适应度
++ $\Delta p=p\frac{\bar{w}_A-\bar{w}}{\bar{w}}$ 原因:个体较多，在交配时，服从基于基因型的的HW交配原则
+
+对于图一解释为什么当其实C频率较小时C会消失--natural selection instead of drift
+当C的起始频率较高时，在自然选择的作用下，群体平均适应性是逐渐增高，所以上图中3个路径直接移动到C固定的位置。而当C的起始频率较低的时候，群体适应性路径并没有直接移动到C固定的位置，相反，把C在群体中移除了。这主要是因为从C频率较低的位置，移动到C频率较高的位置，群体的适应性并不是一直增高，而是会经历一个适应性低谷。自然选择无法使移动路径跨越适应性低谷。关于此适应性低谷，可以参考上表中各个基因型的适应性大小。因为C的起始频率比较低，所以群体中的C多以杂合形式存在，即AC（0.679）和SC（0.534），而这两种基因型的适应性是低于AS（0.763）的适应性的。所以，C以杂合形式出现在群体中，实际上会导致群体适应性降低的。这也是为什么低频出现的C最终在群体中消失了。强调一点，这儿C的消失并不是因为其起始频率低，在遗传漂变的作用下消失的，而是在自然选择作用下消失的。自然选择作用的不是等位基因，而是基因型。
+
+数学角度计算$\Delta p$时C的边缘平均适应性为$\bar{w}_C=w_{CC}p+w_{AC}q+w_{CS}r,p+q+r=1$ 基因频率p较小导致计算的增长值为负数
+
+### 两位点模型
+**自然选择对两个位点的选择会牵涉到配子不平衡问题。此种情况下自然选择的结果取决于自然选择本身和两个位点之间的重组情况，以及群体起始基因型频率。**
+
+**复习配子不平衡**假设存在两个位点A, B。 如果位点间等位基因的组合不是随机的，那么就称这种现象为：连锁不平衡，r重组率。
+
+在这里两位点位于同一个染色体上
+
+最终的结局只与r 重组率有关
++ r较小 $\bar{w}$变化较小，基因频率变化受自然选择中重组基因型的影响小，会走向初始的四种基因型适应性最高处
++ 重组水平r较高时，每一代都会产生重组类型，使得群体平均适应性改变，因而可能使得移动路径偏离。此时，各个等位基因的初始频率就可能决定了各个基因的最终命运。
+
+### 自然选择与突变，漂变影响
++ 遗传漂变 对比$4N_es$与1的关系
++ 突变
