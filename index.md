@@ -1,28 +1,37 @@
-# Daily-Worklog
-王子渊四川大学计算生物学，每日工作日志和学习心得，可自由引用，服务器可随意登录，主要供同学和可以提师弟师妹参考，并给予建议
+## Welcome to GitHub Pages
 
-## 当前服务器
-+ 服务器1 
+You can use the [editor on GitHub](https://github.com/YangyiLab/ZhibinLiuLab.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-42.193.18.116 配备有animalcules metaboanalyst 以及phanotate prodigal GlimmerHMM
-+ 服务器2
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-42.193.15.162 配有animalcules R语言server tensorflow
+### Markdown
 
-## 工作日志目录-2021
-+ JUNE 
-  
-**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/June.md
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/June.md
-+ JULY 
+```markdown
+Syntax highlighted code block
 
-**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/July.md
+# Header 1
+## Header 2
+### Header 3
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/July.md
+- Bulleted
+- List
 
-+ AUGUST
-  
-**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/August.md
+1. Numbered
+2. List
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/August.md
+**Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
+```
+
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+
+### Jekyll Themes
+
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/YangyiLab/ZhibinLiuLab.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
