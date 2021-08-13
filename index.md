@@ -27,13 +27,17 @@
 
 **码云链接**(不需翻墙，更新不定时不同GitHub) [August](https://gitee.com/YangyiLab/Daily-Worklog/blob/master/August.md)
 
-## 成员介绍
+## 成员介绍 Members
+### Teachers
 [刘志斌-PI]()
 
+### Undergraduates
 [王子渊](July.md)
+
+[雷文雁]()
 
 [夏琦妮]()
 
 [郭新宇]()
 
-[雷文雁]()
+[金书毅]()
