@@ -32,7 +32,8 @@
 [刘志斌-PI]()
 
 ### Undergraduates
-[王子渊](July.md)
+[Ziyuan Wang](July.md)
+**Email**: princeyuansql@gmail.com
 
 [雷文雁]()
 
