@@ -106,6 +106,15 @@
   - [PLAN](#plan-17)
   - [SVM总结](#svm总结)
   - [群体遗传part](#群体遗传part)
+- [2018-8-19](#2018-8-19)
+  - [PLAN](#plan-18)
+  - [500-bp phage result](#500-bp-phage-result)
+    - [random forest](#random-forest)
+    - [deep learning](#deep-learning)
+  - [Gaoxin ARG论文](#gaoxin-arg论文)
+  - [群体遗传中最关键的描述因素](#群体遗传中最关键的描述因素)
+    - [$H$ $F$ and $H_e$](#h-f-and-h_e)
+    - [配子不平衡](#配子不平衡)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -814,3 +823,37 @@ cart 84% 3level and we can find the specific indicators maybe 3 or 4
 
 ## 群体遗传part
 + 基因频率、基因型频率、杂合衡量和D
+
+# 2018-8-19
+## PLAN
++ **阅读Gao论文**
++ 西瓜书chapter 7
++ **Gre 阅读3**
++ **群体遗传总结回顾**
++ **phage 继续利用神经网络探究**
+
+## 500-bp phage result
+### random forest
+84.5%
+### deep learning
+78.5%
+
+## Gaoxin ARG论文
+ARG序列识别，用卷积神经网络CNN识别
+包括抗菌性 mechanism source
+cross-entropy losses
+三层方式减少计算量
+
+## 群体遗传中最关键的描述因素
+### $H$ $F$ and $H_e$
+对于杂合性的描述十分重要
+inbreeding depression 近交衰退
+### 配子不平衡
+理想情况下两个配子AB的组合为的概率为$p_Ap_B$
+**影响因素**
+
++ 物理连锁 和重组有关
++ 自然选择 和选择系数有关s
++ 变异 与变异率有关 即通过不同模型包括产生新基因，互相突变等
++ 不同群体之间的合并 可以通过基因流中群体结构进行解释
++ 交配系统不同 如近交
