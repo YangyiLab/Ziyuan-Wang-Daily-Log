@@ -120,6 +120,12 @@
   - [NTU Lab](#ntu-lab-1)
   - [QTL初步](#qtl初步)
   - [群体遗传回顾](#群体遗传回顾)
+- [2018-8-21](#2018-8-21)
+  - [PLAN](#plan-20)
+  - [埃默里lab](#埃默里lab)
+  - [集成方法ensamble](#集成方法ensamble)
+    - [Boosting](#boosting-1)
+    - [Bagging](#bagging)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -886,3 +892,22 @@ Drift概念
 溯祖概率，时间...
 
 key point 固定时间 $\frac{1}{2p}N_e$
+
+# 2018-8-21
+## PLAN
++ **Gre套题**
++ 群体遗传回顾
++ **西瓜书chapter7复习和chapter8**
++ **应用数理统计overview**
+
+## 埃默里lab
+https://www.vegalab.org/
+
+## 集成方法ensamble
+### Boosting
+AdaBoosting 加性分类器
+目的:减小方差
+
+### Bagging
+通过更改数据集，bootstrap
+特例 Random Forest 数据集和属性都抽样
