@@ -126,6 +126,14 @@
   - [集成方法ensamble](#集成方法ensamble)
     - [Boosting](#boosting-1)
     - [Bagging](#bagging)
+- [2018-8-22](#2018-8-22)
+  - [PLAN](#plan-21)
+  - [Gao Paper](#gao-paper)
+    - [序列处理方法](#序列处理方法)
+    - [one-hot](#one-hot)
+  - [群体遗传基因flow总结](#群体遗传基因flow总结)
+  - [QTL基本思路](#qtl基本思路)
+  - [集成方法判定](#集成方法判定)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -911,3 +919,35 @@ AdaBoosting 加性分类器
 ### Bagging
 通过更改数据集，bootstrap
 特例 Random Forest 数据集和属性都抽样
+
+# 2018-8-22
+## PLAN
++ **阅读Gao 论文**
++ 阅读Katie论文
++ **群体遗**西瓜书chapter 8**传回顾**
++ **学习QLT内容**
++ 
++ **应用数理统计overview**
+
+## Gao Paper
+### 序列处理方法
+aa sequence one-hot encoder
+Encoder 又称作编码器。它的作用就是「将现实问题转化为数学问题」
+![encoder](https://img.chainnews.com/material/images/5c1b6f49fd444eb556195bb1a4643916.jpg-article)
+
+### one-hot
+我们使用one hot编码器对类别进行“二进制化”操作，然后将其作为模型训练的特征
+
+## 群体遗传基因flow总结
++ basic idea 亚群满足hw总群不满足hw
++ 基因流方向 利用父母分析
++ 分析不同的群体中杂合子情况，以及不同衡量的杂合子频数差异
++ 溯祖理论m 越频繁T越小
+
+## QTL基本思路
+利用线性模型/复合线性模型统计位点与数量特征的相关性
+计算的识别值LOD 2~3筛选标准
+
+## 集成方法判定
+分歧误差公式
+$$E(H)=\bar{E}-\bar{A}$$
