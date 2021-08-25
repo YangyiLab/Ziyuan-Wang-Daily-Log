@@ -140,6 +140,16 @@
   - [叶形QTL鉴别](#叶形qtl鉴别)
   - [QTL 统计值](#qtl-统计值)
     - [A基因平均效应](#a基因平均效应)
+- [2021-8-24](#2021-8-24)
+  - [PLAN](#plan-23)
+  - [抽样分布原理](#抽样分布原理)
+  - [QTL LOD图解](#qtl-lod图解)
+- [2021-8-24](#2021-8-24-1)
+  - [PLAN](#plan-24)
+  - [Alumi Lab](#alumi-lab)
+  - [群体遗传变异复习](#群体遗传变异复习)
+    - [相同点](#相同点)
+  - [phage dataset 网址](#phage-dataset-网址)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -987,3 +997,42 @@ A配子和A结合的概率为p 和a结合的概率为q
 **AA** a **Aa** b **aa** -a
 AA和Aa受A配子效应产生的平均基因值为$pa+qd$
 A平均效应值$\alpha_1=a+qd-\mu$
+
+# 2021-8-24
+## PLAN
++ GRE填空2阅读2
++ **统计chapter1**
++ **西瓜书chapter9**
++ **phage 尝试1000bp 2000bp 3000bp 10kbp 并扩大数据集**
++ **QTL作图数学原理**
+
+## 抽样分布原理
+在总体分布抑制的情况下，可以知道抽样样本一些属性的分布如方差、期望等，尤其是在正态分布时比较准确
+
+## QTL LOD图解
+$$L=\prod_{i=1}^n f(y|x_i)$$
+
+在第i个样本基因型的概率下，表型为y的概率
+$f(y)$利用全概率公式$f(y)=\sum_{q=1}f(y|x,q)P(q|x)$
+
+# 2021-8-24
+## PLAN
++ **GRE填空2阅读2**
++ **西瓜书chapter9复习**
++ **整理phage项目并创建GitHub**
++ **群体遗传回顾**
+
+## Alumi Lab
++ https://www.feinberg.northwestern.edu/sites/biochem/faculty/profile.html?xid=34028
+
+## 群体遗传变异复习
+
+与基因流异同对比
+### 相同点
+$F_{st}=\frac{1}{4N_em+1}$ 基因流的平衡$F_{st}$
+$F=\frac{1}{4N_e\mu+1}$ 突变后平衡固定系数$F$
+
+根据Fst定义$H_T= 2\bar{p}\bar{q}$等于于固定系数中的$H_e$，$H_S$在到达稳定状态时小亚群复合HW，所以$H_S=H_I$可以看作与固定系数中的$H_O$相等
+
+## phage dataset 网址
+https://github.com/YangyiLab/phage-classfier-and-gene-finder/tree/main/dataset
