@@ -144,12 +144,18 @@
   - [PLAN](#plan-23)
   - [抽样分布原理](#抽样分布原理)
   - [QTL LOD图解](#qtl-lod图解)
-- [2021-8-24](#2021-8-24-1)
+- [2021-8-25](#2021-8-25)
   - [PLAN](#plan-24)
   - [Alumi Lab](#alumi-lab)
   - [群体遗传变异复习](#群体遗传变异复习)
     - [相同点](#相同点)
   - [phage dataset 网址](#phage-dataset-网址)
+- [2021-8-26](#2021-8-26)
+  - [PLAN](#plan-25)
+  - [phage dataset](#phage-dataset)
+    - [new dataset](#new-dataset)
+    - [Unbalanced datasets](#unbalanced-datasets)
+  - [群体遗传自然选择-1](#群体遗传自然选择-1)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -1015,7 +1021,7 @@ $$L=\prod_{i=1}^n f(y|x_i)$$
 在第i个样本基因型的概率下，表型为y的概率
 $f(y)$利用全概率公式$f(y)=\sum_{q=1}f(y|x,q)P(q|x)$
 
-# 2021-8-24
+# 2021-8-25
 ## PLAN
 + **GRE填空2阅读2**
 + **西瓜书chapter9复习**
@@ -1035,4 +1041,36 @@ $F=\frac{1}{4N_e\mu+1}$ 突变后平衡固定系数$F$
 根据Fst定义$H_T= 2\bar{p}\bar{q}$等于于固定系数中的$H_e$，$H_S$在到达稳定状态时小亚群复合HW，所以$H_S=H_I$可以看作与固定系数中的$H_O$相等
 
 ## phage dataset 网址
-https://github.com/YangyiLab/phage-classfier-and-gene-finder/tree/main/dataset
+https://github.com/YangyiLab/phage-classfier-and-gene-finder/tree/main/dataset# 
+
+# 2021-8-26
+## PLAN
++ **GRE填空2阅读2**
++ **群体遗传回顾**
++ **phage数据集整理并下载**
++ **看百面**
+
+## phage dataset
+### new dataset
+4 kinds
++ ds-circular 272
++ ds-linear 2900
++ ss-circular 753
++ ss-linear 726
+
+### Unbalanced datasets
+Because I'm using a neural network, I don't want to reduce my training sample. 
+
+I intend to use several methods
++ indentify my own loss function(**Focal Loss**)
+https://github.com/clcarwin/focal_loss_pytorch
++ set class weight 
++ set sample weight
+
+## 群体遗传自然选择-1
+自然选择的计算，首先计算基因分布，再计算选择指数，在进行归一化。
+不同基因选择方式有不同的平衡点和结局
+
+**自然选择基本定理** 
++ Fisher通过公式证明了经过一代自然选择，群体平均适应性的改变等于群体适应性方差（变异）的大小。 
++ Fisher通过公式证明了经过一代自然选择，群体平均适应性的改变等于群体适应性方差（变异）的大小。
