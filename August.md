@@ -165,6 +165,11 @@
 - [2021-8-30](#2021-8-30)
   - [PLAN](#plan-27)
   - [QTL 数学原理 复合作图](#qtl-数学原理-复合作图)
+- [2021-8-31](#2021-8-31)
+  - [PLAN](#plan-28)
+  - [GBDT](#gbdt)
+  - [Random Forest Result](#random-forest-result)
+  - [AdaBoost Result](#adaboost-result)
 # 2021-8-1
 ## PLAN
 + **GRE 填空2阅读2**
@@ -1121,3 +1126,20 @@ b）在计算某个标记（区间）效应的时候，将其他区域效应最�
 $$ Height = u+A*GT_A+[B*GT_B+… …+ K*GT_K]+ e$$
 
 本质LOD 筛选 多元线性回归计算效应
+
+# 2021-8-31
+## PLAN
++ **Gre阅读2填空2**
++ **phage Random Forest调参**
++ **GBDT学习**
++ 群体遗传回顾
+
+## GBDT 
+本质一种boosting 策略
+
+## Random Forest Result
+After modifying the paramters the test acc is 73% if we have 4 classes.
+After modifying the paramters the test acc is 82.3% if we have 2 classes.
+
+## AdaBoost Result
+After modifying the paramters the test acc is 71% if we have 4 classes.
