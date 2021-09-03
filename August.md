@@ -1143,3 +1143,4 @@ After modifying the paramters the test acc is 82.3% if we have 2 classes.
 
 ## AdaBoost Result
 After modifying the paramters the test acc is 71% if we have 4 classes.
+After modifying the paramters the test acc is 78% if we have 2 classes.
