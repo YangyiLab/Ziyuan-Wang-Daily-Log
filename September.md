@@ -18,6 +18,16 @@
   - [dataset skew](#dataset-skew)
   - [群体遗传-中性](#群体遗传-中性)
     - [多样性原因](#多样性原因)
+- [2021-9-4](#2021-9-4)
+  - [PLAN](#plan-3)
+  - [Pairwise Alignment](#pairwise-alignment)
+    - [Smith-Waterman 扩展](#smith-waterman-扩展)
+  - [深度学习](#深度学习)
+    - [文本表示模型](#文本表示模型)
+  - [RNN-seq2seq](#rnn-seq2seq)
+    - [Concept](#concept)
+    - [features](#features)
+    - [模型组成](#模型组成)
 
 
 # 2021-9-1
@@ -128,4 +138,42 @@ I can maintain 72% data and have a 80% accuracy when I am dealing with a 4-class
 
 ## 群体遗传-中性
 ### 多样性原因
-尽管drift的固定或loss 很强，但由于$N_e$较大，平衡杂合度由有效群体和变异度觉得，这两项越大杂合度越高，即使drift作用大，由于群体较大，基因的多样性一样大，
+尽管drift的固定或loss 很强，但由于$N_e$较大，平衡杂合度由有效群体和变异度觉得，这两项越大杂合度越高，即使drift作用大，由于群体较大，基因的多样性一样大。
+
+# 2021-9-4
+## PLAN
++ **Gre 套题1**
++ 深度学习RNN
++ **百面chapter1**
++ **生物序列overview**
++ phage训练
+
+## Pairwise Alignment
+### Smith-Waterman 扩展
+寻找相似区域
++ 扩展包括寻找多处相似区域并进行连配 (如果序列一条或两条都比较长,通过设置阈值T决定分段数，和可识别的同源序列数量)
+
++ 交叠匹配(一条序列包含另一条的情况) 实现方法匹配可以起始于左端和顶端,匹配结束于右侧和底端，同时可以做重复序列查找实现。
+
+## 深度学习
+### 文本表示模型
+Key Words: Bag of words, TF-IDF, topic model
+$$TF\text{-}IDF(d,t)=TF(d,t)\times IDF(t)$$ 
+TF:在d中t词频
+$IDF(T)=log\frac{papers_{total}}{papers_{contains(t)}+1}$
+
+N-gram N连单词划分
+
+## RNN-seq2seq
+### Concept
+输入$\mathbf{(x^{(1)},x^{(2)},\text{...} ,x^{(\tau)})}$
+通过第一层RNN训练结果为$\mathbf{C}$定长特征向量
+再利用$\mathbf{C}$进行RNN训练，输出定长的$\mathbf{(y^{(1)},y^{(2)},\text{...},y^{(ny)})}$
+
+### features
+输入不定长，输入输出不等长。
+
+### 模型组成
+包括两个RNN
++ 第一个RNN输入为不定长序列，输出单一状态特征$h_{\tau}(x)$
++ 第二个RNN为通过$h_{\tau}(x)$ 训练输出等长度$\mathbf{(y^{(1)},y^{(2)},\text{...},y^{(ny)})}$
