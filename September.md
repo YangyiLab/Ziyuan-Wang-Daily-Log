@@ -143,10 +143,10 @@ I can maintain 72% data and have a 80% accuracy when I am dealing with a 4-class
 # 2021-9-4
 ## PLAN
 + **Gre 套题1**
-+ 深度学习RNN
++ **深度学习RNN**
 + **百面chapter1**
 + **生物序列overview**
-+ phage训练
++ **phage训练**
 
 ## Pairwise Alignment
 ### Smith-Waterman 扩展
