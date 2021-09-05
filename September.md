@@ -28,6 +28,9 @@
     - [Concept](#concept)
     - [features](#features)
     - [模型组成](#模型组成)
+- [2021-9-5](#2021-9-5)
+  - [PLAN](#plan-4)
+  - [分子进化problem](#分子进化problem)
 
 
 # 2021-9-1
@@ -177,3 +180,16 @@ N-gram N连单词划分
 包括两个RNN
 + 第一个RNN输入为不定长序列，输出单一状态特征$h_{\tau}(x)$
 + 第二个RNN为通过$h_{\tau}(x)$ 训练输出等长度$\mathbf{(y^{(1)},y^{(2)},\text{...},y^{(ny)})}$
+
+# 2021-9-5
+## PLAN
++ **Gre 阅读2填空2**
++ **深度学习RNN pytorch 实现overview**
++ 百面chapter2
++ **群体遗传分子进化**
+
+
+## 分子进化problem
++ Diverge
++ Poison Model
++ Diverge 和分子钟替换的区别是什么？为什么要分为两步相加
