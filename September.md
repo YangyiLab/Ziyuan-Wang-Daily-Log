@@ -65,6 +65,21 @@
     - [LDA](#lda)
 - [2021-9-12](#2021-9-12)
   - [PLAN](#plan-11)
+- [2021-9-13](#2021-9-13)
+  - [PLAN](#plan-12)
+- [2021-9-14](#2021-9-14)
+  - [PLAN](#plan-13)
+  - [Markov Model and Sequence Analysis](#markov-model-and-sequence-analysis)
+    - [Markov Model](#markov-model)
+    - [HMM 三类问题应用](#hmm-三类问题应用)
+    - [PHMM序列对比](#phmm序列对比)
+  - [非监督](#非监督)
+    - [K-means](#k-means)
+    - [高斯](#高斯)
+- [2021-9-15](#2021-9-15)
+  - [PLAN](#plan-14)
+  - [Qini Xia](#qini-xia)
+  - [G4论文结果](#g4论文结果)
 
 
 # 2021-9-1
@@ -350,4 +365,58 @@ FSA 保持多个状态，维护多个数组，时间复杂度相同利用自动�
 # 2021-9-12
 ## PLAN
 + **Gre阅读2填空2**
-+ 功能分析结果论文完成
++ **功能分析结果论文完成**
+
+# 2021-9-13
+## PLAN
++ **调试好nog代码和图**
++ **生物序列chapter3&4**
++ **Gre填空2阅读2**
+
+# 2021-9-14
+## PLAN
++ **Gre填空2阅读2**
++ **生物序列chapter3&4**
++ **修改审稿人1问题**
++ **百面chapter5**
++ **准备转座子和G4资料**
+
+## Markov Model and Sequence Analysis
+### Markov Model
+例 利用马尔可夫转移概率矩阵去判断cpg岛和飞cpg区域的区别，首先对于cpg区域和非cpg区域构建转移概率矩阵
+### HMM 三类问题应用
++ 计算cpg区域可能性
++ 通过碱基排列和参数，估计是否是cpg
++ 参数估计 BW算法
+### PHMM序列对比
+首先回忆FSA有限自动机比较方式，有限自动机需要维护三个矩阵，PHMM将其中的参数值换为了状态转移概率，发射概率作为找到路径的参数。再通过递归法进行估计 
+
+## 非监督
+### K-means
+问题：
++ 局部最优
++ 受噪声影响大
++ **需要制定分类类别**
+  + 分类类别方法  手肘法 Gap 法 核函数法(针对高维数据)
++ 优化方法
+  + K-means++ 逐渐split类别
+  + IsoData 包括分裂合并操作
+### 高斯
+求解方法: EM
+
+# 2021-9-15
+## PLAN
++ **Gre填空2阅读2**
++ **修改文章中审稿人1问题**
++ **百面chapter5**
++ **G4文章阅读**
+
+## Qini Xia
++ 阅读论文 Selection and thermostability suggest G-quadruplexes are novel functional elements of the human genome
++ 翻译金书毅论文到中文
++ Genome 1001 API
+
+## G4论文结果
++ Uneven density of G4 loci across the genome 比较fold change G4 loci vs average 
++ G4 stability differs among genic regions and nongenic
+functional regions 利用小提琴做检验 疑问 **stability score**
