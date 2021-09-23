@@ -101,6 +101,11 @@
     - [布尔函数和隐层](#布尔函数和隐层)
     - [激活函数](#激活函数)
     - [交叉熵和平方误差](#交叉熵和平方误差)
+- [2021-9-20](#2021-9-20)
+  - [论文 Inferring Developmental Stage Composition from Gene Expression in Human Malaria](#论文-inferring-developmental-stage-composition-from-gene-expression-in-human-malaria)
+    - [观感](#观感)
+- [2021-9-22](#2021-9-22)
+- [2021-9-23](#2021-9-23)
 
 
 # 2021-9-1
@@ -525,3 +530,33 @@ n个输入变量最大可能出现$2^{n-1}$个简单合取式相加（彼此互�
 ### 交叉熵和平方误差
 + 交叉熵适合多分类
 + 平方误差适合连续性回归
+
+# 2021-9-20
++ **Gre阅读4**
++ **前向神经网络训练技巧**
++ **the book of why**
++ **Cordy论文**
+
+## 论文 Inferring Developmental Stage Composition from Gene Expression in Human Malaria
+网址 https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003392#pcbi-1003392-g001
+### 观感
+quadprog why?
+
+steps:
++ learn the $\beta$ from known data
++ predict the distribution of $\mathbf{x}$ if we know y
+
+also Fst the subgroup and the total group the difference of H (种群结构的存在而造成的杂合子频数的降低) confused **find out**
+
+# 2021-9-22
++ **GRE阅读3**
++ **Forest Microbiome代码**
++ **the book of why**
++ **审稿人2问题回答**
++ **wes认证**
+
+
+# 2021-9-23
++ Gre阅读4
++ 审稿人2问题文章中修改
++ 整理phage代码
