@@ -107,6 +107,10 @@
 - [2021-9-22](#2021-9-22)
 - [2021-9-23](#2021-9-23)
   - [识别G4方法](#识别g4方法)
+- [2021-9-24](#2021-9-24)
+  - [解决服务器git clone慢问题](#解决服务器git-clone慢问题)
+  - [拆分fasta 按照染色体命令](#拆分fasta-按照染色体命令)
+  - [按照要求截取fasta代码](#按照要求截取fasta代码)
 
 
 # 2021-9-1
@@ -571,3 +575,58 @@ also Fst the subgroup and the total group the difference of H (种群结构的�
 八个环状特征
 
 回归问题
+
+# 2021-9-24
++ **Gre阅读2**
++ **基因结构预测paper**
++ **因果理论库**
++ **适用G4识别器**
++ **Cordy Lab准备、个人陈述准备**
+
+## 解决服务器git clone慢问题
+https://cloud.tencent.com/developer/article/1761668
+
+## 拆分fasta 按照染色体命令
+
+```shell
+cat result.fasta | awk 'BEGIN { CHROM="" } { if ($1~"^>") CHROM=substr($1,2); print $0 > CHROM".fa" }'
+```
+
+## 按照要求截取fasta代码
+```python
+def main():
+   
+    outfile="../Arabidopsis_sequence/result.fasta"
+    fastafile='../Arabidopsis_sequence/An-1.chr.all.v2.0.fasta'
+    idfile='../Arabidopsis_sequence/list.txt'
+
+
+    idfile = open(idfile, 'r')
+    resultfile = open(outfile, 'w')
+    for id in idfile:
+        qid = id.strip()
+        flag = 0 
+        with open(fastafile,'r') as ffile:
+            for line in ffile:
+                line = line.strip()
+                if line.startswith('>'):
+                    name = line.replace('>','').split()[0]
+                    if name == qid:
+                        flag = 1
+                        resultfile.write(line + '\n')
+                    else:
+                        flag = 0
+                else:
+                    if flag == 0:
+                        pass
+                    else:
+                        resultfile.write(line + '\n')
+    resultfile.close()
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+```
