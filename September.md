@@ -111,6 +111,11 @@
   - [解决服务器git clone慢问题](#解决服务器git-clone慢问题)
   - [拆分fasta 按照染色体命令](#拆分fasta-按照染色体命令)
   - [按照要求截取fasta代码](#按照要求截取fasta代码)
+- [2021-9-25](#2021-9-25)
+  - [PLAN](#plan-19)
+  - [GFF -> BED](#gff---bed)
+  - [拟南芥project](#拟南芥project)
+  - [phage](#phage)
 
 
 # 2021-9-1
@@ -630,3 +635,21 @@ if __name__ == '__main__':
 
 
 ```
+
+# 2021-9-25
+## PLAN
++ **Gre套题1**
++ **psqfinder -> bed file**
++ **百面RNN 辅助花书学习**
++ **完成文献查询，关于假阳性基因**
+
+## GFF -> BED
+```shell
+ cat test.gff | grep -v exon | cut -f1,4,5,9 | cut -f1 -d";" | awk '{print $1, $2, $3, $5}' | sed -e 's/ /\t/g' | sed -e 's/\"//g' > /home/ubuntu/Arabidopsis/Arabidopsis_sequence/chr1.g4.bed
+ ```
+
+ ## 拟南芥project
+ https://www.justice.gov/opa/pr/huawei-cfo-wanzhou-meng-admits-misleading-global-financial-institution
+
+ ## phage
+ 利用uniprot建库检验
