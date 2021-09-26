@@ -116,6 +116,11 @@
   - [GFF -> BED](#gff---bed)
   - [拟南芥project](#拟南芥project)
   - [phage](#phage)
+- [2021-9-25](#2021-9-25-1)
+  - [PLAN](#plan-20)
+  - [phage](#phage-1)
+  - [Stone](#stone)
+  - [1001 Genome](#1001-genome)
 
 
 # 2021-9-1
@@ -648,8 +653,27 @@ if __name__ == '__main__':
  cat test.gff | grep -v exon | cut -f1,4,5,9 | cut -f1 -d";" | awk '{print $1, $2, $3, $5}' | sed -e 's/ /\t/g' | sed -e 's/\"//g' > /home/ubuntu/Arabidopsis/Arabidopsis_sequence/chr1.g4.bed
  ```
 
- ## 拟南芥project
- https://www.justice.gov/opa/pr/huawei-cfo-wanzhou-meng-admits-misleading-global-financial-institution
+## 拟南芥project
+https://www.justice.gov/opa/pr/huawei-cfo-wanzhou-meng-admits-misleading-global-financial-institution
 
- ## phage
- 利用uniprot建库检验
+## phage
+利用uniprot建库检验
+
+# 2021-9-25
+## PLAN
++ **Gre单词**
++ **文献阅读整理**
++ **修改文章完毕**
++ **Forest Microbiome**
+
+## phage
++ *att* sites identification
++ window size 3 -> 6
+
+## Stone 
+https://www.pascaltitle.com/
+https://sites.google.com/view/rafaeldandrea/home
+
+## 1001 Genome
++ 下载Col-0 尽可能多的信息 比较fold 复现 +转座子
++ 转座子 和 G4关联 多个种 地理考虑 进化考虑
