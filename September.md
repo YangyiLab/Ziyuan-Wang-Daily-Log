@@ -116,11 +116,18 @@
   - [GFF -> BED](#gff---bed)
   - [拟南芥project](#拟南芥project)
   - [phage](#phage)
-- [2021-9-25](#2021-9-25-1)
+- [2021-9-26](#2021-9-26)
   - [PLAN](#plan-20)
   - [phage](#phage-1)
   - [Stone](#stone)
   - [1001 Genome](#1001-genome)
+- [2021-9-27](#2021-9-27)
+  - [PLAN](#plan-21)
+- [2021-9-28](#2021-9-28)
+  - [PLAN](#plan-22)
+  - [统计fold change代码](#统计fold-change代码)
+  - [VSCode 反复输入密码](#vscode-反复输入密码)
+  - [统计fasta碱基数](#统计fasta碱基数)
 
 
 # 2021-9-1
@@ -595,6 +602,9 @@ also Fst the subgroup and the total group the difference of H (种群结构的�
 
 ## 解决服务器git clone慢问题
 https://cloud.tencent.com/developer/article/1761668
+```bash
+git clone https://github.com.cnpmjs.org/Hackergeek/architecture-samples
+```
 
 ## 拆分fasta 按照染色体命令
 
@@ -659,7 +669,7 @@ https://www.justice.gov/opa/pr/huawei-cfo-wanzhou-meng-admits-misleading-global-
 ## phage
 利用uniprot建库检验
 
-# 2021-9-25
+# 2021-9-26
 ## PLAN
 + **Gre单词**
 + **文献阅读整理**
@@ -677,3 +687,44 @@ https://sites.google.com/view/rafaeldandrea/home
 ## 1001 Genome
 + 下载Col-0 尽可能多的信息 比较fold 复现 +转座子
 + 转座子 和 G4关联 多个种 地理考虑 进化考虑
+
+
+# 2021-9-27
+## PLAN
++ **完成cover letter**
++ **完成TE识别软件安装**
++ **GRE阅读4填空4**
+
+# 2021-9-28
+## PLAN
++ GRE阅读3填空3
++ **Cover Letter 定稿**
++ **研究fold代码**
+
+## 统计fold change代码
+ 
+ ```bash
+%%bash 
+awk '{sum +=$3-$2}END{print sum}' quadron+.bed 
+awk '{sum +=$3-$2}END{print sum}' quadron-.bed 
+awk '{sum +=$2-10000}END{print sum}' hg19.genome
+```
+
+```R
+all_cov=12229294+12175905
+all_total=2880813286*2
+all_cov_bp=(12229294+12175905.)/(2880813286*2)
+
+```
+
+总结利用coverage计算比例
+
+## VSCode 反复输入密码
++ 菜单栏里view，点击command palette
++ 输入remote-ssh: kill vs code server on host…
++ 再次输入密码即可重新登录。
+
+## 统计fasta碱基数
+```shell
+grep -v '>' input.fa| perl -ne  '{$count_A=$count_A+($_=~tr/A//);$count_T=$count_T+($_=~tr/T//);$count_G=$count_G+($_=~tr/G//);$count_C=$count_C+($_=~tr/C//);$count_N=$count_N+($_=~tr/N//)};END{print qq{total count is },$count_A+$count_T+$count_G+$count_C+$count_N, qq{\nGC%:},($count_G+$count_C)/($count_A+$count_T+$count_G+$count_C+$cont_N),qq{\n} }'
+```
