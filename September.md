@@ -128,6 +128,11 @@
   - [统计fold change代码](#统计fold-change代码)
   - [VSCode 反复输入密码](#vscode-反复输入密码)
   - [统计fasta碱基数](#统计fasta碱基数)
+- [2021-9-29](#2021-9-29)
+  - [PLAN](#plan-23)
+  - [LAB](#lab)
+  - [bedtool](#bedtool)
+    - [Intersect](#intersect)
 
 
 # 2021-9-1
@@ -659,8 +664,8 @@ if __name__ == '__main__':
 + **完成文献查询，关于假阳性基因**
 
 ## GFF -> BED
-```shell
- cat test.gff | grep -v exon | cut -f1,4,5,9 | cut -f1 -d";" | awk '{print $1, $2, $3, $5}' | sed -e 's/ /\t/g' | sed -e 's/\"//g' > /home/ubuntu/Arabidopsis/Arabidopsis_sequence/chr1.g4.bed
+```bash
+cat chr5.gff | grep -v exon | cut -f1,4,5,3,6,7 | cut -f1 -d";" | awk '{print $1, $3,$4,$2, $5,$6}' | sed -e 's/ /\t/g' | sed -e 's/\"//g' > /home/ubuntu/Arabidopsis/Arabidopsis_sequence/chr5.g4.bed
  ```
 
 ## 拟南芥project
@@ -697,7 +702,7 @@ https://sites.google.com/view/rafaeldandrea/home
 
 # 2021-9-28
 ## PLAN
-+ GRE阅读3填空3
++ **GRE阅读3填空3**
 + **Cover Letter 定稿**
 + **研究fold代码**
 
@@ -727,4 +732,19 @@ all_cov_bp=(12229294+12175905.)/(2880813286*2)
 ## 统计fasta碱基数
 ```shell
 grep -v '>' input.fa| perl -ne  '{$count_A=$count_A+($_=~tr/A//);$count_T=$count_T+($_=~tr/T//);$count_G=$count_G+($_=~tr/G//);$count_C=$count_C+($_=~tr/C//);$count_N=$count_N+($_=~tr/N//)};END{print qq{total count is },$count_A+$count_T+$count_G+$count_C+$count_N, qq{\nGC%:},($count_G+$count_C)/($count_A+$count_T+$count_G+$count_C+$cont_N),qq{\n} }'
+```
+
+# 2021-9-29
+## PLAN
++ Cover letter修改
++ GRE阅读3填空3
+
+## LAB
+https://sbmi.uth.edu/ccsm/members.htm
+
+## bedtool 
+### Intersect
+```bash
+bedtools intersect [OPTIONS] -a <FILE> \
+                             -b <FILE1, FILE2, ..., FILEN>
 ```
