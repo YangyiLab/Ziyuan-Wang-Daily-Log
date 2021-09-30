@@ -49,13 +49,13 @@ Abstract: Multiple DNA/RNA sequence alignment is an important fundamental tool i
 
 + SEPTEMBER
   
-**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/September.md
+**GitHub链接** [https://github.com/YangyiLab/Daily-Worklog/blob/master/September.md](https://github.com/YangyiLab/Daily-Worklog/blob/master/September.md)
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/September.md
+**码云链接**(不需翻墙，更新不定时不同GitHub)[https://gitee.com/YangyiLab/Daily-Worklog/blob/master/September.md](https://gitee.com/YangyiLab/Daily-Worklog/blob/master/September.md)
 
 + October
   
-**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/October.md
+**GitHub链接** [https://github.com/YangyiLab/Daily-Worklog/blob/master/October.md](https://github.com/YangyiLab/Daily-Worklog/blob/master/October.md)
 
-**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md
+**码云链接**(不需翻墙，更新不定时不同GitHub)[https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md](https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md)
 
