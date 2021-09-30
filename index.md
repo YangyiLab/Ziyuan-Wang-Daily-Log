@@ -19,7 +19,7 @@ Phage genome has always been a research focus of virus science, but there is no 
 In addition, for different phage genome types, single and double chains are not considered, and there is still a lack of related tools for viral metagenomic annotation, most of which are suitable for whole-genome annotation. Also, we try to reduce the high FP rate. Therefore, we propose a pipeline that classifies fragments and then annotates them based on the fragment information.
 ### Combined analysis of mouse metabolome and Chinese medicine metabolome
 Traditional Chinese medicine (TCM) has a long history and has always been regarded as a national treasure by Chinese people. However, in order to further the effectiveness of traditional Chinese medicine, we constructed mice with gynecological diseases through animal models and treated them with Traditional Chinese medicine. The efficacy of the treatment was confirmed by the combined analysis of mouse metabolome, Chinese medicine mass spectrometry and drug network.
-### Microbiome shows there is a recovery 
+### Microbiome shows there is a recovery in the soil of secondary forest
 Ten-year recovery of forest soil microorganisms in a secondary forest by metagenomic analysis.
 The introduction of new cash crops after cutting down the plants in the original forest may cause ecological damage, but our research shows that the ecological damage is short-term and can be recovered within ten years.
 In Guangzhou, we found that changing the primary forest to a secondary forest of camphor trees restored the soil flora in summer, but the recovery effect was not enough in winter.
@@ -52,3 +52,10 @@ Abstract: Multiple DNA/RNA sequence alignment is an important fundamental tool i
 **GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/September.md
 
 **码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/September.md
+
++ October
+  
+**GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/October.md
+
+**码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md
+
