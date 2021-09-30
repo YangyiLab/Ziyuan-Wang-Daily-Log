@@ -133,6 +133,9 @@
   - [LAB](#lab)
   - [bedtool](#bedtool)
     - [Intersect](#intersect)
+  - [计算TE覆盖率步骤](#计算te覆盖率步骤)
+- [2021-9-30](#2021-9-30)
+  - [PLAN](#plan-24)
 
 
 # 2021-9-1
@@ -736,8 +739,8 @@ grep -v '>' input.fa| perl -ne  '{$count_A=$count_A+($_=~tr/A//);$count_T=$count
 
 # 2021-9-29
 ## PLAN
-+ Cover letter修改
-+ GRE阅读3填空3
++ **Cover letter修改**
++ **GRE阅读3填空3**
 
 ## LAB
 https://sbmi.uth.edu/ccsm/members.htm
@@ -748,3 +751,32 @@ https://sbmi.uth.edu/ccsm/members.htm
 bedtools intersect [OPTIONS] -a <FILE> \
                              -b <FILE1, FILE2, ..., FILEN>
 ```
+
+## 计算TE覆盖率步骤
++ 识别TE
+
+```bash
+source activate
+conda EDTA
+EDTA.pl --genome chr1.fa > chr1.data
+```
++ TE的gff 转 bed
+```bash
+cat chr1.TE.gff | grep -v exon | cut -f1,4,5,3,6,7 | cut -f1 -d";" | awk '{print $1, $3,$4,$2, $5,$6}' | sed -e 's/ /\t/g' | sed -e 's/\"//g' > /home/ubuntu/Arabidopsis/Arabidopsis_sequence/chr1.TE.bed
+```
+
++ intersect 交集
+```bash
+bedtools intersect -a chr1.TE.bed -b chr1.g4.bed
+```
++ 计算$\frac{Count_{intersect_{TE\text{-}G4}}}{Count_{TE}}$
+
+```R
+print(g4_chr1/chr1_total)
+print(chr1_g4_TE/chr1_TE)
+```
+
+# 2021-9-30
+## PLAN
++ **GRE阅读3填空3**
++ **Cover Letter定稿**
