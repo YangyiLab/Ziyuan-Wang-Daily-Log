@@ -33,3 +33,6 @@ R语言端口 8080
 **GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/September.md
 
 **码云链接**(不需翻墙，更新不定时不同GitHub)https://gitee.com/YangyiLab/Daily-Worklog/blob/master/September.md
+
+## Personal Web
+https://gitee.com/YangyiLab/Daily-Worklog/wikis/pages
