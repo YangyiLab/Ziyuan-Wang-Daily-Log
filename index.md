@@ -9,6 +9,7 @@
 
 42.193.15.162 配有animalcules R语言server tensorflow pytorch
 R语言端口 8080
+配置了 Quadron EDTA
 
 
 ## Projects
@@ -30,6 +31,7 @@ Abtract: Nitrogen fertilizer has a significant impact on the soil microbial comm
 Abstract: Multiple DNA/RNA sequence alignment is an important fundamental tool in bioinformatics, especially for phylogenetic tree construction. With DNA-sequencing improvements, the amount of bioinformatics data is constantly increasing, and various tools need to be iterated constantly. Mitochondrial genome analyses of multiple individuals and species require bioinformatics software; therefore, their performances need to be optimized. To improve the alignment of ultra-large datasets and ultra-long sequences, we optimized a dynamic programming algorithm using longest common substring methods. Ulatra-arge test DNA datasets, containing sequences of different lengths, some over 300 kb (kilobase), revealed that the Multiple DNA/RNA Sequence Alignment Tool Based on Suffix Tree (SaAlign) saved time and computational space. It outperformed the existing technical tools, including MAFFT and HAlign-II. For mitochondrial genome datasets having limited numbers of sequences, MAFFT performed the required tasks, but it could not handle ultra-large mitochondrial genome datasets. We implement a multiple DNA/RNA sequence alignment tool based on Center Star strategy and use suffix array algorithm to optimize the spatial and time efficiency. Nowadays, whole-genome research and NGS technology are becoming more popular, and it is necessary to save computational resources for laboratories. That software is of great significance in these aspects, especially in the study of the whole-mitochondrial genome of plants.
 
 ## 工作日志目录-2021
+### Prince的工作目录
 + JUNE 
   
 **GitHub链接** https://github.com/YangyiLab/Daily-Worklog/blob/master/June.md
@@ -59,3 +61,7 @@ Abstract: Multiple DNA/RNA sequence alignment is an important fundamental tool i
 
 **码云链接**(不需翻墙，更新不定时不同GitHub)[https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md](https://gitee.com/YangyiLab/Daily-Worklog/blob/master/October.md)
 
+
+### 七崽（不知道为何如此自称）的工作目录
+**码云链接**(不需翻墙，更新不定时不同GitHub)[夏琦妮工作目录](https://gitee.com/YangyiLab/Daily-Worklog/tree/master/%E4%B8%83%E5%B4%BD%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%B1%95)
+**Github连接**[夏琦妮工作目录](七崽工作进展/七崽工作进展.md)

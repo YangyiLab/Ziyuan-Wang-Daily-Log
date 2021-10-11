@@ -20,6 +20,7 @@
   - [处理bed文件更新](#处理bed文件更新)
 - [2021-10-10](#2021-10-10)
 - [2021-10-11](#2021-10-11)
+  - [Quadron 脚本代码](#quadron-脚本代码)
 # 2021-10-1
 ## PLAN
 + **GRE阅读3填空3**
@@ -127,3 +128,21 @@ os.system("perl -p -i -e \"s/chr1/"+chr_fasta[0:4]+"/g\" "+ g4_bed)
 # 2021-10-11
 + **Gre套题1**
 + **Gre阅读7**
+
+## Quadron 脚本代码
+```R
+#G4-Quadron.R
+args <- commandArgs (trailingOnly =TRUE)
+print ( "NOTE: Loading Quadron core. . . ", quote=FALSE)
+load ( "/home/ubuntu/Arabidopsis/Quadron/Quadron.lib" )
+print (args)
+Quadron ( FastaFile= args [1],OutFile= args [2],
+        nCPU=as.numeric ( args [3] ),
+        SeqPartitionBy = 100000 )
+```
+shell 运行代码
+```bash
+Rscript G4-Quadron.R /home/ubuntu/Arabidopsis/Arabidopsis_sequence/An-1/chr3.fa /home/ubuntu/Arabidopsis/Arabidopsis_sequence/An-1/chr3.g4.out.txt 2
+```
+后续有三个参数分别对应arg 1 2 3 即 输入文件 输出文件 cpu数量
+
