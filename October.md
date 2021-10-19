@@ -23,6 +23,14 @@
   - [Quadron 脚本代码](#quadron-脚本代码)
 - [2021-10-12](#2021-10-12)
 - [2021-10-13](#2021-10-13)
+- [2021-10-18 A day back to work](#2021-10-18-a-day-back-to-work)
+  - [PLAN](#plan-5)
+  - [G4论文关系](#g4论文关系)
+    - [Quadruplex-forming sequences occupy discrete regions inside plant LTR retrotransposons](#quadruplex-forming-sequences-occupy-discrete-regions-inside-plant-ltr-retrotransposons)
+  - [单细胞文章](#单细胞文章)
+    - [VEGA](#vega)
+- [2021-10-19](#2021-10-19)
+  - [PLAN](#plan-6)
 # 2021-10-1
 ## PLAN
 + **GRE阅读3填空3**
@@ -153,4 +161,41 @@ Rscript G4-Quadron.R /home/ubuntu/Arabidopsis/Arabidopsis_sequence/An-1/chr3.fa 
 
 # 2021-10-13
 + **Gre数学1**
-+ Gre填空7
++ **Gre填空7**
+
+
+# 2021-10-18 A day back to work
+## PLAN
++ **安装论文汇总器**
++ **overview 单细胞测序**
++ **RDA overview以及如何解释结果**
++ **分子生物学作业以及学习**
+
+## G4论文关系
+### Quadruplex-forming sequences occupy discrete regions inside plant LTR retrotransposons
+主要探究G4与LTR的关系
++ G4在LTR的分布位点/相对和绝对 
+![G4在LTR的分布位点/相对和绝对](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/42/2/10.1093_nar_gkt893/3/m_gkt893f1p.jpeg?Expires=1637540582&Signature=QfCBtXTloHlQNUu-QZKD4U~a0QiP7LXu0EE488~Wpn6wZaJfC93kRpudmHvqz75ZpNMgQuf5m~GYWX6SkRfbcLEvs38a~-9nZEkxwEdoAJ9YQogx3~AiMcq5Ad-JdeckuJhsSMcuyxSwpb690-gfFHXh-s0S20f6WhorwfIAmtAtehBUMeKYGQXgJzIpCcd9WbbfjKsE6eM8P6wRetR1a1AOfvGhQaiACkA9Q1JiOD7GeQhhxhQkJB-O44u~~WYy6AtFhrfzg6QHNlzT6D0U~wTuswrTQlIrqm5Vj6mgGnlDRcEoiiE6ovVdeiTfk6B860IcroLJE7qD3drpy0A0jQ__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+
++ G4之间的距离
++ PQS in relation to predicted transcription start site G4与翻译起始位点的距离
+![G4在LTR的距离](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/nar/42/2/10.1093_nar_gkt893/3/m_gkt893f4p.jpeg?Expires=1637540582&Signature=Q6lsB4sMKzTO6UlQmBZfKBOnbIxYUvrn-eZiTvZ2PLJhGZdF9Eod8glboIxVEvK~s3H-5ySSWdZlHJtquxhFVP79BPCbNKnSC7bQ7x7ejj5bw5RDiIgMgTDlmcKRDMMj3e4gOCl16tAcAT3QM2ZhngLAhYSICwITMPhoU0V-gVSJ4PLeHsgGsQM86eghuoIBu9LMOVJBZuCGH7OsUcpbBgRsVgS452rM~hLMeey2NbRrf-pkBP5g4ZWO1Yvra5stEx8heGbyF2lzEqu8nsB4JAjcMnB8dR60uKbNpXsZBI-WHjI4PHxUQaPomgpNkz6DnKl9M9ZJDslijHWPpIJlOg__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+
+
++ **讨论**
+
+启动子上游和下游 PQS 的丰度表明四链体可能分别在 RNA 的转录起始和延伸中发挥作用。负链中启动子上游的四链体 DNA 的定位可以通过将转录区域维持在单链构象中来刺激逆转录转座子的转录
+
+我们推测 LTRs 中四链体的存在可能与这种失活机制有关，可能是通过干扰甲基化过程。由于在一条链上形成的四链体理论上会使另一条链处于单链状态，因此它们可能会阻碍周围序列的甲基化，即使它们富含 CpG 和其他可甲基化的核苷酸对。
+
+## 单细胞文章
+### VEGA
+目的:找到合适特征，从而进行降维后分析，好处可解释性强，相比于传统机器学习。
+
+
+# 2021-10-19
+## PLAN
++ 分子生物学作业+复习
++ VEGA论文阅读
++ 甲基化阅读
++ 统计PHD材料
