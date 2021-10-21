@@ -43,6 +43,13 @@
     - [UThealth *ddl December 1*](#uthealth-ddl-december-1)
   - [VEGA](#vega-1)
     - [problems](#problems)
+- [2021-10-20](#2021-10-20)
+  - [PLAN](#plan-7)
+  - [VAE & VI](#vae--vi)
+    - [VAE](#vae)
+    - [VI 与EM区别](#vi-与em区别)
+    - [Nature method 文章](#nature-method-文章)
+  - [TE G4分析思路](#te-g4分析思路)
 # 2021-10-1
 ## PLAN
 + **GRE阅读3填空3**
@@ -370,3 +377,29 @@ You may include your broad research interests, previous research accomplishments
 ### problems
 + tSNE UMAP 降维方法
 + VAE Variable-AE 变分
+
+# 2021-10-20
+## PLAN
++ **选校**
++ **决策树代码完毕**
++ **甲基化论文标注**
++ **变分总结**
+
+
+## VAE & VI
+### VAE
+全连接(encoder) -> $\mu,\Sigma$ 向量 -> latent 向量 -> 全连接(decoder)
+
+不同的类别的latent向量为不同的正态分布，相同的趋向相同的正态分布，同时可以有效降维，和计算每一个latent变量，vega中记为GMV与gene的关系，即gene GMV的enrichment
+
+### VI 与EM区别
+*EM 如GGM 混合高斯分布， E步根据t时间的均值方差算后验 
+VI中由于后验分布算不出* not sure
+### Nature method 文章
+VI算出隐藏变量
+
+## TE G4分析思路
++ 甲基化在全基因组的破坏性和甲基化在LTR区域破坏性
+  + LTR全部识别后做出进化树 海明距离聚类 按照2017Nature structure上方法做
+  + G4在LTR上 聚类 参照JGG
+  + 甲基化聚类到的G4 再次聚类到TE(LTR) 功能聚类
