@@ -49,6 +49,7 @@
     - [VAE](#vae)
     - [VI 与EM区别](#vi-与em区别)
     - [Nature method 文章](#nature-method-文章)
+    - [VEGA scVI 异同点总结](#vega-scvi-异同点总结)
   - [TE G4分析思路](#te-g4分析思路)
 # 2021-10-1
 ## PLAN
@@ -396,7 +397,15 @@ You may include your broad research interests, previous research accomplishments
 *EM 如GGM 混合高斯分布， E步根据t时间的均值方差算后验 
 VI中由于后验分布算不出* not sure
 ### Nature method 文章
-VI算出隐藏变量
+VI算出隐藏变量 文章中利用KL作为loss函数变体，算出$Z_n$,后续算出
+
+### VEGA scVI 异同点总结
+异
++ VEGA尽可能恢复到原来的值 scVI恢复的值服从ZINB [ZINB](https://www.jianshu.com/p/aa948e1be21c) loss 接近原来的值
+
+同
++ 都考虑到了batch effect
++ 都得出latent $Z$
 
 ## TE G4分析思路
 + 甲基化在全基因组的破坏性和甲基化在LTR区域破坏性
