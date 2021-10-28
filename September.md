@@ -613,7 +613,10 @@ https://cloud.tencent.com/developer/article/1761668
 ```bash
 git clone https://github.com.cnpmjs.org/Hackergeek/architecture-samples
 ```
-
+目前该镜像无法正确运行
+```bash
+git clone https://hub.fastgit.org/kubernetes/kubernetes.git
+```
 ## 拆分fasta 按照染色体命令
 
 ```shell

@@ -51,6 +51,25 @@
     - [Nature method 文章](#nature-method-文章)
     - [VEGA scVI 异同点总结](#vega-scvi-异同点总结)
   - [TE G4分析思路](#te-g4分析思路)
+- [2021-10-25](#2021-10-25)
+  - [PLAN](#plan-8)
+  - [PS结构](#ps结构)
+    - [开头](#开头)
+    - [教育经历](#教育经历)
+- [2021-10-26](#2021-10-26)
+  - [PLAN](#plan-9)
+  - [DT](#dt)
+  - [PS 第一段科研经历](#ps-第一段科研经历)
+    - [汉语架构](#汉语架构)
+  - [甲基化文件](#甲基化文件)
+- [2021-10-27](#2021-10-27)
+  - [PLAN](#plan-10)
+  - [PS 第二段科研经历](#ps-第二段科研经历)
+    - [汉语架构](#汉语架构-1)
+  - [Stefan论文](#stefan论文)
+    - [The Protein Interactome of Streptococcus pneumoniae and Bacterial Meta-interactomes Improve Function Predictions](#the-protein-interactome-of-streptococcus-pneumoniae-and-bacterial-meta-interactomes-improve-function-predictions)
+- [2021-10-28](#2021-10-28)
+  - [PLAN](#plan-11)
 # 2021-10-1
 ## PLAN
 + **GRE阅读3填空3**
@@ -412,3 +431,115 @@ VI算出隐藏变量 文章中利用KL作为loss函数变体，算出$Z_n$,后�
   + LTR全部识别后做出进化树 海明距离聚类 按照2017Nature structure上方法做
   + G4在LTR上 聚类 参照JGG
   + 甲基化聚类到的G4 再次聚类到TE(LTR) 功能聚类
+
+
+# 2021-10-25
+## PLAN
++ **毕业设计选题确定**
++ **ML决策树作业完成**
++ **PS overview**
++ **phyml绘图**
+
+## PS结构
+### 开头
+Frankly, when first exposed to microbiology in the second semester of my junior year, I found myself quite ignorant of this academic discipline. To be sure, as a student major in computational biology from the Department of Biology & the Department of Software Engineering, Sichuan University, I had sound foundation in programming and biology; but it required an equally sound knowledge base in microbiology, genetics and sequencing technique in order to perform well in a host of seminars on bioinformatics. To develop my interdisciplinary knowledge, I tried desperately to be educated in microbiology through self-study, consulting a large amount of relevant technical literature, attending lectures, and discussing with classmates.
+Indeed, that was a period of overwhelming fatigue and excitement. Nevertheless, the feeling of learning something new and making important progress was itself a source of constant pride. Looking back, this experience has proved decisive in determining my academic interest in biostatistics and in the related bioinformatics. It has further shaped my research interest in the Ph.D. program at your esteemed university.
+### 教育经历
+I am currently completing my degree in computational biology at Sichuan University. I believe that my exposure to the multi-disciplinary approach of Bioinformatics makes me a good candidate for your program. I have a solid foundation in biology and have gotten straight. As in all courses including cell biology, genetics and biochemistry. Likewise, I score similarly across my computer courses including Data Structures and Algorithms, and Databases and Computational Logic. In addition, I completed courses in mathematical modeling, discrete mathematics, and stochastic processes among others with an A average. My education in stochastic processes was a great help in my subsequent research, reflecting the value of interdisciplinary studies. Conducting a study on the identification of identical-by-decent (IBD) gene fragments in population flow, I applied continuous-time Markov chain to construct a mathematical model and abstracted the complex gene exchange problem into a birth and death chain to solve the problem.
+
+
+# 2021-10-26
+## PLAN
++ **ML决策树作业完成**
++ **PS 第一段**
++ **微生物功能分析**
++ **阅读Stefen论文**
+
+## DT
+```python
+for value in uniqueVals:
+      if splitDataSet(dataSet, bestFeat, value) == []:
+          # 返回多数表决
+          return majorityCnt(classList)
+      subLabels = labels[:]       #copy all of labels, so trees don't mess up existing labels
+      del(subLabels[bestFeat])
+      myTree[bestFeatLabel][value] = treeGenerate(splitDataSet(dataSet, bestFeat, value),subLabels,original_dataSet)
+  return myTree
+```
+uniqueVals 使用原始数据集中所有可能取值，如果该类取值未考虑，则直接返回父节点的多数表决值
+
+
+## PS 第一段科研经历
+### 汉语架构
++ 科研主题/title是什么？
+
+hitchhiking研究  Soil Nitrogen Impacts Rhizosphere Microbial Community Due to Microbial Hitchhiking
++ 如何完成科研工作，你在里面扮演了什么样的角色？
+处理数据，写论文
+详细版本：首先查看测序数据进行处理，之后进行16S扩增子分析，包括群落多样性，功能丰度，已经细菌间相互作用分析。同时在形成手稿时，我整个承担了作图以及论文写作
+
++ 科研过程中遇到了什么困难？是如何去解决的，例如用了什么理论/模型/办法，有什么创新or改进？
+困难: 
+如果做常规分析，没有任何创新性，在对数据进行挖掘时，我们最后结合了最新报道的试验性文章的结论，通过本实验的生物信息学验证，印证了此前的报道。
+在写introduction时遇到了较大的问题，不知道如何介绍整个领域的研究进展，不知道如何挑选文献等。解决方式为和导师详细交流，共同讨论，学到了如何讲好故事，如何整理逻辑。
+
++ 科研最终得到了什么研究结论/给出了什么policy建议。得到了导师的褒奖、获什么奖了吗？
+最终成果为，完成一篇文章，并投稿。文章的意义在于对于一个大家日常接受的事实 适量施肥利于植物生长 的根本机理从全新的方面做出了解释，即从微生物方面对于进行了解释。
+
++ 自己的收获和体会，该经历给自己带来了什么（有什么意义）？例如，能力的提升、兴趣的拓展、发现自己需要更深入的学习以达成未来目标云云。
+能力的提升 包括如何处理测序数据，如何对微生物组数据进行深入探究，如何写学术论文读文献等等。
+
+
+## 甲基化文件
+including chrom pos strand Mc_class methylated_bases total_bases methylation_call.
+这几项的说名
+
+
+# 2021-10-27
+## PLAN
++ **PS 第二段**
++ **决策树再次复习**
++ **Stefan论文精读**
+
+## PS 第二段科研经历
+### 汉语架构
++ 科研主题/title是什么？
+
+Gene Identification and Classification In the Viral Genome
++ 如何完成科研工作，你在里面扮演了什么样的角色？
+
+阅读文献，构建算法
+详细版本：我们要处理的问题是识别噬菌体基因组的编码区。我主要负责首先查询已有的算法，找到已有算法的问题，对于噬菌体宏基因组采样的噬菌体基因片段进行分类，分类后开发噬菌体基因组基因识别算法。
+
++ 科研过程中遇到了什么困难？是如何去解决的，例如用了什么理论/模型/办法，有什么创新or改进？
+**困难:** 
+  + 对于噬菌体基因组，目前测序数据比较少，没有可靠的数据集,现有的基因预测都是利用Prodigal和Phanotate进行预测的，需要开发新算法进行编码区预测。
+  + 噬菌体DNA类型很多包括了单链双链，环状和线状
+  + 对于宏基因组测序，获得的序列都是片段的而非全基因组拼接后的序列
+
+解决方案
+查阅资料，使用最新的技术进行解决。在基因注释时，不使用训练集进行训练，开发generative model直接基于序列进行学习。
+在进行基因编码区之前，首先基于片段序列进行预测，预测噬菌体DNA类型。
+因为算法需要全基因组的数据，遇到片段时难以处理，我们最终采用，学习每一类噬菌体全基因组的近似数据，当遇到片段时使用全基因组近似数据进行处理，并预测基因。
+
++ 科研最终得到了什么研究结论/给出了什么policy建议。得到了导师的褒奖、获什么奖了吗？
+
+由于时间较短，目前只完成了噬菌体DNA分类器，但取得了不错的进展，威斯康星麦迪逊的导师评价我的工作很不错，在完成第一部分后我们进行了下一部分的大量文献阅读以及其他软件的测试，并提出了初步想法，这个项目将在我的毕业论文中实现。
+
++ 自己的收获和体会，该经历给自己带来了什么（有什么意义）？例如，能力的提升、兴趣的拓展、发现自己需要更深入的学习以达成未来目标云云。
+
+能力的提升 包括如何正确使用公共数据集，如何对病毒组数据进行深入探究，如何展开和其他机构合作。
+
+
+## Stefan论文
+### The Protein Interactome of Streptococcus pneumoniae and Bacterial Meta-interactomes Improve Function Predictions
+主题 利用蛋白相互功能由已知功能推测未知功能
+算法 **模拟退火算法**
+同时也要计算不同功能类别之间的联系
+
+# 2021-10-28
+## PLAN
++ PS 全部完成
++ 审稿意见回复
++ GAN overview
+
