@@ -543,5 +543,13 @@ Gene Identification and Classification In the Viral Genome
 + 审稿意见回复
 + GAN overview
 
-88
+## Generative Model
+**源头为波兹曼机**
+目的：找到一层或者多层隐藏变量
+### 波兹曼机
+RBM 能量函数与波兹曼机有区别 求解为最大似然法
+训练方法 
+### 深度信念网络
+与rbm区别 只有最后一层hidden layer是RBM
+
 
