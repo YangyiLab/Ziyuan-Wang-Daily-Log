@@ -71,6 +71,9 @@
 - [2021-10-28](#2021-10-28)
   - [PLAN](#plan-11)
   - [PS结尾](#ps结尾)
+  - [Generative Model](#generative-model)
+    - [波兹曼机](#波兹曼机)
+    - [深度信念网络](#深度信念网络)
 # 2021-10-1
 ## PLAN
 + **GRE阅读3填空3**
@@ -544,11 +547,17 @@ Gene Identification and Classification In the Viral Genome
 + 审稿意见回复
 + GAN overview
 
-<<<<<<< HEAD
 ## PS结尾
 + 第一部分阐述自己未来的职业规划，常见按照长短期分别说明，毕业后短期（1-3年 ）想做什么工作，长期中（5-10年）想达到什么职业目标。职业规划通常需要和学员所申请专业方向、过去实习经历以及自己的远期目标/愿景联系起来。
 Considering that I am applying for a PhD program, my short-term career plan is to find a scientist position in a technology company or enter a university after graduation. However, in the long run, my future is uncertain and there are many possibilities. I may consider starting a business centering on biotechnology.
-=======
+
+
++ 陈述择校原因，夸对方学校。常见原因包括：学校名声、项目设计、课程设置、知名教授、求职机会、校友资源、地理位置、个人情节等等。
+                                                    The University of Wisconsin-Madison is a prestigious university known as the public Ivy.
+Your school has made outstanding progress in many fields. The Microbiology field I applied for has a large number of achievements, and has published a large number of meaningful papers in Nature Microbiology, Microbiome, ISME and other magazines. I particularly appreciate the work of Professor Karthik Anantharaman, whose work covers both bioinformatics and experiment-based microbiology.
+My undergraduate scientific research experience is mainly related to bioinformatics and macro omics data processing. If I study in University of Wisconsin-Madison, I can obtain more results by using high-quality laboratory resources.
+Meanwhile, SINCE June 2021, I have had an internship in Professor Karthik Anantharaman's research group for four months. I have a preliminary understanding of his research and have completed part of the work and made preliminary progress.           
+
 ## Generative Model
 **源头为波兹曼机**
 目的：找到一层或者多层隐藏变量
@@ -557,12 +566,3 @@ RBM 能量函数与波兹曼机有区别 求解为最大似然法
 训练方法 
 ### 深度信念网络
 与rbm区别 只有最后一层hidden layer是RBM
-
->>>>>>> d7a81e918e4c2b33837c5477a65da4734e675259
-
-
-+ 陈述择校原因，夸对方学校。常见原因包括：学校名声、项目设计、课程设置、知名教授、求职机会、校友资源、地理位置、个人情节等等。
-                                                    The University of Wisconsin-Madison is a prestigious university known as the public Ivy.
-Your school has made outstanding progress in many fields. The Microbiology field I applied for has a large number of achievements, and has published a large number of meaningful papers in Nature Microbiology, Microbiome, ISME and other magazines. I particularly appreciate the work of Professor Karthik Anantharaman, whose work covers both bioinformatics and experiment-based microbiology.
-My undergraduate scientific research experience is mainly related to bioinformatics and macro omics data processing. If I study in University of Wisconsin-Madison, I can obtain more results by using high-quality laboratory resources.
-Meanwhile, SINCE June 2021, I have had an internship in Professor Karthik Anantharaman's research group for four months. I have a preliminary understanding of his research and have completed part of the work and made preliminary progress.            
