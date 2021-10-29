@@ -544,9 +544,21 @@ Gene Identification and Classification In the Viral Genome
 + 审稿意见回复
 + GAN overview
 
+<<<<<<< HEAD
 ## PS结尾
 + 第一部分阐述自己未来的职业规划，常见按照长短期分别说明，毕业后短期（1-3年 ）想做什么工作，长期中（5-10年）想达到什么职业目标。职业规划通常需要和学员所申请专业方向、过去实习经历以及自己的远期目标/愿景联系起来。
 Considering that I am applying for a PhD program, my short-term career plan is to find a scientist position in a technology company or enter a university after graduation. However, in the long run, my future is uncertain and there are many possibilities. I may consider starting a business centering on biotechnology.
+=======
+## Generative Model
+**源头为波兹曼机**
+目的：找到一层或者多层隐藏变量
+### 波兹曼机
+RBM 能量函数与波兹曼机有区别 求解为最大似然法
+训练方法 
+### 深度信念网络
+与rbm区别 只有最后一层hidden layer是RBM
+
+>>>>>>> d7a81e918e4c2b33837c5477a65da4734e675259
 
 
 + 陈述择校原因，夸对方学校。常见原因包括：学校名声、项目设计、课程设置、知名教授、求职机会、校友资源、地理位置、个人情节等等。
