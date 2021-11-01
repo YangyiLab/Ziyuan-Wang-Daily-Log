@@ -637,7 +637,7 @@ graphical abstract 加两个图
 ## PLAN
 + **PS修改**
 + **PHS 完成**
-+ 继续学习generative model
++ **继续学习generative model**
 + **文献阅读 利用化学结构推断电流**
 
 ## 利用化学结构推断电流科学问题
