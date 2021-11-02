@@ -3,11 +3,12 @@
   - [进入系统填报信息](#进入系统填报信息)
     - [Penn State](#penn-state)
   - [MADISON](#madison)
+  - [微生物结论](#微生物结论)
 
 # 2021-11-1
 ## PLAN
 + **修改PS**
-+ 微生物作图
++ **微生物作图**
 + **进入系统填报信息**
 + 修改甲基化文件 转成bed
 
@@ -20,3 +21,6 @@
 ## MADISON
 + 密码 5#DvMnQwAwHhL+r
 + user name pry0921
+
+## 微生物结论
+无植物 各种处理alpha beta多样性都没有区别
