@@ -10,6 +10,11 @@
   - [deep learning approach antibiotics](#deep-learning-approach-antibiotics)
 - [2021-11-3](#2021-11-3)
   - [PLAN](#plan-2)
+  - [机器学习作业总结](#机器学习作业总结)
+    - [loop 固定写法](#loop-固定写法)
+    - [全连接模型](#全连接模型)
+    - [卷积](#卷积)
+    - [卷积实现相关参数](#卷积实现相关参数)
 
 # 2021-11-1
 ## PLAN
@@ -82,4 +87,125 @@ def trans_mCfile2bed(path,input_file_name):
 # 2021-11-3
 ## PLAN
 + **微生物热图**
-+ MINSET数据集overvoew pytorch回忆 基于教材 Dive into
++ **MINSET数据集overvoew pytorch回忆 基于教材 Dive into**
+
+## 机器学习作业总结
+### loop 固定写法
+当定义好训练模型后，不需要修改train和test loop是固定的，如以下框架
+```python
+def train_loop(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        pred = model(X)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if batch % 100 == 0:
+            loss, current = loss.item(), batch * len(X)
+            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+
+
+def test_loop(dataloader, model, loss_fn):
+    size = len(dataloader.dataset)
+    num_batches = len(dataloader)
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in dataloader:
+            pred = model(X)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+    test_loss /= num_batches
+    correct /= size
+    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+```
+
+### 全连接模型
+```py
+import os
+import torch
+from torch import nn
+from torch.utils.data import DataLoader
+from torchvision import datasets, transforms
+import torch
+from torch.utils.data import Dataset
+from torchvision import datasets
+from torchvision.transforms import ToTensor
+import matplotlib.pyplot as plt
+import numpy as np
+import torch.nn.functional as F
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super(NeuralNetwork, self).__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+```
+
+### 卷积
+```python
+class CoNeuralNetwork(nn.Module):
+    def __init__(self):
+        super(CoNeuralNetwork, self).__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack =  nn.Sequential(
+    nn.Conv2d(1, 6, kernel_size=5, padding=2), nn.ReLU(),
+    nn.AvgPool2d(kernel_size=2, stride=2),
+    nn.Conv2d(6, 16, kernel_size=5), nn.ReLU(),
+    nn.AvgPool2d(kernel_size=2, stride=2),
+    nn.Flatten(),
+    nn.Linear(16 * 5 * 5, 120), nn.ReLU(),
+    nn.Linear(120, 84), nn.ReLU(),
+    nn.Linear(84, 10))
+
+    def forward(self, x):
+        logits = self.linear_relu_stack(x)
+        return logits
+```
+
+### 卷积实现相关参数
++ kernel 参数 只涉及卷积核形状
++ stride  步幅
+
+在计算互相关时，卷积窗口从输入张量的左上角开始，向下和向右滑动。 在前面的例子中，我们默认每次滑动一个元素。 但是，有时候为了高效计算或是缩减采样次数，卷积窗口可以跳过中间位置，每次滑动多个元素。
+
+![stride](https://zh-v2.d2l.ai/_images/conv-stride.svg)
+
+例子中 **垂直步幅为  3 ，水平步幅为  2  的二维互相关运算**
+
+pytorch实现
+```python
+## 右下步幅一致情况
+conv2d = nn.Conv2d(1, 1, kernel_size=3, padding=1, stride=2)
+## 右下步幅不一致情况
+conv2d = nn.Conv2d(1, 1, kernel_size=(3, 5), padding=(0, 1), stride=(3, 4))
+```
+同时在上面例子中卷积核 padding stride都不同
+
++ padding 在行和列填充
+
+![padding](https://zh-v2.d2l.ai/_images/conv-pad.svg)
+
+例子中添加了一列一行
+
+pytorch 实现
+```python
+conv2d = nn.Conv2d(1, 1, kernel_size=3, padding=1)
+```
++ output 下一层的数量 决定了卷积数量
