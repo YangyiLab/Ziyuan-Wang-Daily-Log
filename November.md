@@ -8,6 +8,8 @@
 - [2021-11-2](#2021-11-2)
   - [PLAN](#plan-1)
   - [deep learning approach antibiotics](#deep-learning-approach-antibiotics)
+- [2021-11-3](#2021-11-3)
+  - [PLAN](#plan-2)
 
 # 2021-11-1
 ## PLAN
@@ -76,3 +78,8 @@ def trans_mCfile2bed(path,input_file_name):
 
 ## deep learning approach antibiotics
 方法 MPNN 消息传递神经网络 GNN的一种
+
+# 2021-11-3
+## PLAN
++ **微生物热图**
++ MINSET数据集overvoew pytorch回忆 基于教材 Dive into
