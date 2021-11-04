@@ -27,12 +27,13 @@
 + **修改甲基化文件 转成bed**
 
 ## 进入系统填报信息
+    
 ### Penn State
 + 地址 No.29 Wangjiang Road, Chengdu, Sichuan, China,610064
 + 密码 wzy851234wzy851234
 + 登录号 zxw5399@psu.edu
 
-## MADISON
+### MADISON
 + 密码 5#DvMnQwAwHhL+r
 + user name pry0921
 
@@ -88,11 +89,13 @@ def trans_mCfile2bed(path,input_file_name):
 方法 MPNN 消息传递神经网络 GNN的一种
 
 # 2021-11-3
+    
 ## PLAN
 + **微生物热图**
 + **MINSET数据集overvoew pytorch回忆 基于教材 Dive into**
 
 ## 机器学习作业总结
+    
 ### loop 固定写法
 当定义好训练模型后，不需要修改train和test loop是固定的，如以下框架
 ```python
@@ -130,7 +133,8 @@ def test_loop(dataloader, model, loss_fn):
 ```
 
 ### 全连接模型
-```py
+           
+```python
 import os
 import torch
 from torch import nn
@@ -193,6 +197,7 @@ class CoNeuralNetwork(nn.Module):
 例子中 **垂直步幅为  3 ，水平步幅为  2  的二维互相关运算**
 
 pytorch实现
+
 ```python
 ## 右下步幅一致情况
 conv2d = nn.Conv2d(1, 1, kernel_size=3, padding=1, stride=2)
@@ -215,11 +220,21 @@ conv2d = nn.Conv2d(1, 1, kernel_size=3, padding=1)
 
 
 # 2021-11-4
+
 ## PLAN
 + **拉美研究ppt初稿**
-+ 百面前向神经网络
++ **百面前向神经网络**
 + **微生物调参**
 
 ## 微生物
 H1-F-vs-H2-F-vs-H3-F0.8601 0.006 **
 H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
+
+## 卷积神经网络
+
+### resnet
+核心 每－层都不比上一层差 每一层新网络训练残差
+
+### 卷积变种
+反卷积	转置卷积
+实例 AE  VAE GAN
