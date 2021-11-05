@@ -2,7 +2,7 @@
   - [PLAN](#plan)
   - [进入系统填报信息](#进入系统填报信息)
     - [Penn State](#penn-state)
-  - [MADISON](#madison)
+    - [MADISON](#madison)
   - [微生物结论](#微生物结论)
   - [修改甲基化文件 转成bed](#修改甲基化文件-转成bed)
 - [2021-11-2](#2021-11-2)
@@ -18,6 +18,15 @@
 - [2021-11-4](#2021-11-4)
   - [PLAN](#plan-3)
   - [微生物](#微生物)
+  - [卷积神经网络](#卷积神经网络)
+    - [resnet](#resnet)
+    - [卷积变种](#卷积变种)
+- [2021-11-5](#2021-11-5)
+  - [PLAN](#plan-4)
+  - [resnet实现代码](#resnet实现代码)
+  - [微生物introduction 修改](#微生物introduction-修改)
+    - [原introduction 逻辑](#原introduction-逻辑)
+    - [修改逻辑](#修改逻辑)
 
 # 2021-11-1
 ## PLAN
@@ -238,3 +247,177 @@ H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 ### 卷积变种
 反卷积	转置卷积
 实例 AE  VAE GAN
+
+# 2021-11-5
+
+## PLAN
++ 论文修改introduction设计
++ 卷积神经网络训练方法 loss计算overview
++ **resnet实现 pytorch**
+
+## resnet实现代码
+
+```python
+#model.py
+
+import torch.nn as nn
+import torch
+
+#18/34
+class BasicBlock(nn.Module):
+    expansion = 1 #每一个conv的卷积核个数的倍数
+
+    def __init__(self, in_channel, out_channel, stride=1, downsample=None):#downsample对应虚线残差结构
+        super(BasicBlock, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=in_channel, out_channels=out_channel,
+                               kernel_size=3, stride=stride, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(out_channel)#BN处理
+        self.relu = nn.ReLU()
+        self.conv2 = nn.Conv2d(in_channels=out_channel, out_channels=out_channel,
+                               kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn2 = nn.BatchNorm2d(out_channel)
+        self.downsample = downsample
+
+    def forward(self, x):
+        identity = x #捷径上的输出值
+        if self.downsample is not None:
+            identity = self.downsample(x)
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        out += identity
+        out = self.relu(out)
+
+        return out
+
+#50,101,152
+class Bottleneck(nn.Module):
+    expansion = 4#4倍
+
+    def __init__(self, in_channel, out_channel, stride=1, downsample=None):
+        super(Bottleneck, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels=in_channel, out_channels=out_channel,
+                               kernel_size=1, stride=1, bias=False)  # squeeze channels
+        self.bn1 = nn.BatchNorm2d(out_channel)
+        self.relu = nn.ReLU(inplace=True)
+        # -----------------------------------------
+        self.conv2 = nn.Conv2d(in_channels=out_channel, out_channels=out_channel,
+                               kernel_size=3, stride=stride, bias=False, padding=1)
+        self.bn2 = nn.BatchNorm2d(out_channel)
+        self.relu = nn.ReLU(inplace=True)
+        # -----------------------------------------
+        self.conv3 = nn.Conv2d(in_channels=out_channel, out_channels=out_channel*self.expansion,#输出*4
+                               kernel_size=1, stride=1, bias=False)  # unsqueeze channels
+        self.bn3 = nn.BatchNorm2d(out_channel*self.expansion)
+        self.relu = nn.ReLU(inplace=True)
+        self.downsample = downsample
+
+    def forward(self, x):
+        identity = x
+        if self.downsample is not None:
+            identity = self.downsample(x)
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+        out = self.relu(out)
+
+        out = self.conv3(out)
+        out = self.bn3(out)
+
+        out += identity
+        out = self.relu(out)
+
+        return out
+
+
+class ResNet(nn.Module):
+
+    def __init__(self, block, blocks_num, num_classes=1000, include_top=True):#block残差结构 include_top为了之后搭建更加复杂的网络
+        super(ResNet, self).__init__()
+        self.include_top = include_top
+        self.in_channel = 64
+
+        self.conv1 = nn.Conv2d(1, self.in_channel, kernel_size=7, stride=2,
+                               padding=3, bias=False)
+        self.bn1 = nn.BatchNorm2d(self.in_channel)
+        self.relu = nn.ReLU(inplace=True)
+        self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
+        self.layer1 = self._make_layer(block, 64, blocks_num[0])
+        self.layer2 = self._make_layer(block, 128, blocks_num[1], stride=2)
+        self.layer3 = self._make_layer(block, 256, blocks_num[2], stride=2)
+        self.layer4 = self._make_layer(block, 512, blocks_num[3], stride=2)
+        if self.include_top:
+            self.avgpool = nn.AdaptiveAvgPool2d((1, 1))  # output size = (1, 1)自适应
+            self.fc = nn.Linear(512 * block.expansion, num_classes)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
+
+    def _make_layer(self, block, channel, block_num, stride=1):
+        downsample = None
+        if stride != 1 or self.in_channel != channel * block.expansion:
+            downsample = nn.Sequential(
+                nn.Conv2d(self.in_channel, channel * block.expansion, kernel_size=1, stride=stride, bias=False),
+                nn.BatchNorm2d(channel * block.expansion))
+
+        layers = []
+        layers.append(block(self.in_channel, channel, downsample=downsample, stride=stride))
+        self.in_channel = channel * block.expansion
+
+        for _ in range(1, block_num):
+            layers.append(block(self.in_channel, channel))
+
+        return nn.Sequential(*layers)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = self.relu(x)
+        x = self.maxpool(x)
+
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
+        x = self.layer4(x)
+
+        if self.include_top:
+            x = self.avgpool(x)
+            x = torch.flatten(x, 1)
+            x = self.fc(x)
+
+        return x
+
+
+def resnet34(num_classes=1000, include_top=True):
+    return ResNet(BasicBlock, [3, 4, 6, 3], num_classes=num_classes, include_top=include_top)
+
+
+def resnet101(num_classes=1000, include_top=True):
+    return ResNet(Bottleneck, [3, 4, 23, 3], num_classes=num_classes, include_top=include_top)
+```
+
+这套代码可以训练MNSIT
+
+## 微生物introduction 修改
+
+### 原introduction 逻辑
+从hitchhiking现象说起，影响hitchhiking有物理化学环境 
+
+氮浓度是直接影响微生物群落结构的关键因素 
+
+### 修改逻辑
+hitchhiking现象介绍 影响hitchhiking已有的报道 氮可以影响微生物群落 但不知道是否影响hitchhiking 
+
+另一方面 植物分泌物作为土壤细菌的营养来源 是否促进hitchhiking 
+
+植物和氮对hitchhiking的关系 
