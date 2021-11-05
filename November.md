@@ -28,6 +28,7 @@
     - [原introduction 逻辑](#原introduction-逻辑)
     - [修改逻辑](#修改逻辑)
   - [在线pdf](#在线pdf)
+  - [卷积神经网络训练方法 batch noemalization](#卷积神经网络训练方法-batch-noemalization)
 
 # 2021-11-1
 ## PLAN
@@ -253,7 +254,7 @@ H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 
 ## PLAN
 + **论文修改introduction设计**
-+ 卷积神经网络训练方法 loss计算overview
++ **卷积神经网络训练方法 loss计算overview**
 + **resnet实现 pytorch**
 
 ## resnet实现代码
@@ -427,3 +428,7 @@ hitchhiking现象介绍 影响hitchhiking已有的报道 氮可以影响微生�
 <iframe src="https://docs.google.com/gview?embedded=true&url=https://github.com/YangyiLab/Ziyuan-Wang-Daily-Log/raw/master/June.pdf" style="width:600px; height:500px;" frameborder="0"></iframe>
 
 https://docs.google.com/gview?embedded=true&url=*https://github.com/YangyiLab/Ziyuan-Wang-Daily-Log/raw/master/June.pdf* 修改斜体部分
+
+## 卷积神经网络训练方法 batch noemalization
+加入BN batch Normalization 后 
+BN层需要多学习 $\beta$  $\gamma$ 方法 BP
