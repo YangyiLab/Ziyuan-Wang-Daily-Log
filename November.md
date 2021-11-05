@@ -251,7 +251,7 @@ H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 # 2021-11-5
 
 ## PLAN
-+ 论文修改introduction设计
++ **论文修改introduction设计**
 + 卷积神经网络训练方法 loss计算overview
 + **resnet实现 pytorch**
 
