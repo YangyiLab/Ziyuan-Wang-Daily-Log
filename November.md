@@ -27,6 +27,7 @@
   - [微生物introduction 修改](#微生物introduction-修改)
     - [原introduction 逻辑](#原introduction-逻辑)
     - [修改逻辑](#修改逻辑)
+  - [在线pdf](#在线pdf)
 
 # 2021-11-1
 ## PLAN
@@ -421,3 +422,8 @@ hitchhiking现象介绍 影响hitchhiking已有的报道 氮可以影响微生�
 另一方面 植物分泌物作为土壤细菌的营养来源 是否促进hitchhiking 
 
 植物和氮对hitchhiking的关系 
+
+## 在线pdf
+<iframe src="https://docs.google.com/gview?embedded=true&url=https://github.com/YangyiLab/Ziyuan-Wang-Daily-Log/raw/master/June.pdf" style="width:600px; height:500px;" frameborder="0"></iframe>
+
+https://docs.google.com/gview?embedded=true&url=*https://github.com/YangyiLab/Ziyuan-Wang-Daily-Log/raw/master/June.pdf* 修改斜体部分
