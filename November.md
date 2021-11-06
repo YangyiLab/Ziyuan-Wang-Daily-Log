@@ -445,8 +445,8 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 ## PLAN
 + **Penn State & UA 材料准备**
 + **阅读单细胞文献1篇**
-+ 阅读G4文献1篇
-+ 卷积神经网络百面
++ **阅读G4文献1**
++ **卷积神经网络百面**
 
 ## Penn State 问题
 + Describe your most meaningful independent research experience. Your answer should include the scientific questions or hypotheses you asked, the experimental design you used to test the hypothesis or question, your results, and the conclusions you drew about the biological processes you studied. Describe your role in the project: Were you part of a research team? What parts of the project were you responsible for? 500 words maximum.
@@ -461,7 +461,7 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 
 + Describe something in your academic life that you are most proud of. 250 words maximum.
 
-## UA 账户
+## UA账户
 邮箱 13230859192@163.com
 密码 b#UFaXFK千*.7EPc
 
@@ -474,3 +474,21 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 
 ### 方法
 图嵌入 可以利用 GCN 代替吗？
+
+## 卷积神经网络模块细节
+
+### 全局平均池化
+
+目的：取代全连接层
+优势：降低计算量提高可解释性
+
+### 瓶颈模型
+
+利用1*1卷积做升降维	尤其在大卷积（通道较多时）
+
+## 进一步关注文章
++ https://com-mendeley-prod-publicsharing-pdfstore.s3.eu-west-1.amazonaws.com/0524-PUBMED/10.1371/journal.pone.0113955/pone_0113955_pdf.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMSJIMEYCIQDbQrxMJTyRt5vZU30g41wj6QppW5YXAI1S7Sx2aywA5QIhAPqo0ZqnGqWXaynlhHKkznHvtazdOh62jdNOuDTj0VkTKowECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAxoMMTA4MTY2MTk0NTA1Igw0TdvfvuOyFdjenc0q4AN8yJVtQgt%2FGWfXBmR7SV8qPjjUM16%2F8KyVxq%2FJsZdaVN8O2AnCzZBb5DnF7SguS2ElEPlAwCS0n%2B2W8vJRUdSi1WdlKo1lz9jZwF8y%2Fk%2BMevWsQAMjWb4Mt5yypKyuSS%2F5NAMSMc5MHGATNczmF7WdHVcV9WYFOIR6SCXuHVGnunhnRZOami6675XVhx3umZcijQeuZuvEgV1TqqaYT9D1fWJjzcMRe4QPW%2BlzyF1gNPIfwg56w1X0Ff8kh2sQ0Xca1j8XTuEK3h4cG1aXlpa%2B3rEdokIv3X61TAZiXhogzE4TQUZmIp5NdVmUd5666J0FwtsE5npqiJfxZgJH9ng2%2BdKDwtmKHUPHHHKaaxMMNZGgyzuf4INA%2Bjvmyz5YK1naQpnVv7x4%2F9N3c5JRGvvsKx43Qs%2FBE7X%2F6eBAX3YOE4BT87nqd1%2F0UUjOM5piqLyo%2FkFIUyKOq5379BKjauczbrWK9bGm95nh8MopRX63o3zpLms8CEOUujwYTGtyAPUHcc4%2Fn7xKPkjyvwmDrrVape5Y1ut%2BtQa490gpCim5jMz3Gvl3yEHBgIAkWkvO57UdUXooS7EIgzOsvGhSOEoxElZsXbm%2Bc3WB%2FPxadCqi0DTwT%2F7qjZU%2FaRUi46bfPN8w7eOYjAY6pAHiVsIWea5nOvbTpLs99Ym7edSQfFGBFOhkUEQvWJXpHaymqKPkRFwRSlDk5pYSwApgqXi4p0mTFIH2QSwRRk0Mtkxt%2BAATxmf%2Bni%2Fi92iLqjysnKK%2FkDgnLpTmyl67J5uX%2F5gxPThSOPUvn9zW6nRkKFQgG64GmLdVO99dQBwauy0XT4I8MjtiZgeOoUkPFEISPVNXJwtEYkEpgw5TcIZ8zA0SvQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211106T102812Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIARSLZVEVEV6ALJXJW%2F20211106%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Signature=d8237e6a8140c4774008c5094ba0cf96e1e7924d37bece29e8ceb654c0216e78
+
++ https://www.sciencedirect.com/science/article/pii/S0006291X20301935#bib22
+
++ https://doi.org/10.1016/j.bbagen.2018.06.014
