@@ -29,6 +29,13 @@
     - [修改逻辑](#修改逻辑)
   - [在线pdf](#在线pdf)
   - [卷积神经网络训练方法 batch noemalization](#卷积神经网络训练方法-batch-noemalization)
+- [2021-11-6](#2021-11-6)
+  - [PLAN](#plan-5)
+  - [Penn State 问题](#penn-state-问题)
+  - [UA 账户](#ua-账户)
+  - [单细胞论文](#单细胞论文)
+    - [结论](#结论)
+    - [方法](#方法)
 
 # 2021-11-1
 ## PLAN
@@ -432,3 +439,38 @@ https://docs.google.com/gview?embedded=true&url=*https://github.com/YangyiLab/Zi
 ## 卷积神经网络训练方法 batch noemalization
 加入BN batch Normalization 后 
 BN层需要多学习 $\beta$  $\gamma$ 方法 BP
+
+# 2021-11-6
+
+## PLAN
++ **Penn State & UA 材料准备**
++ 阅读单细胞文献1篇
++ 阅读G4文献1篇
++ 卷积神经网络百面
+
+## Penn State 问题
++ Describe your most meaningful independent research experience. Your answer should include the scientific questions or hypotheses you asked, the experimental design you used to test the hypothesis or question, your results, and the conclusions you drew about the biological processes you studied. Describe your role in the project: Were you part of a research team? What parts of the project were you responsible for? 500 words maximum.
+
++ Generally, it's considered best practice for a student to move to a new institution for Graduate School. If you are currently a Penn State, University Park campus student, please tell us why staying here is a good choice for you.
+
++ Briefly describe an academic obstacle you faced or a challenge you have met. What strategies did you use to overcome the challenge? If you faced a future technical problem in your research, how would you overcome this hurdle. 250 words maximum
+
++ What are your current research interests, why is that field/area attractive to you, and which faculty in the department would allow you to pursue these interests? What do you see yourself doing in 10 years from now? 250 words maximum
+
++ Socially diverse groups do better science, are more productive and innovative, and make better decisions. Describe any past activities that have supported diversity and inclusion. How would you support or contribute to diversity and inclusion in the Biology program? 250 words maximum
+
++ Describe something in your academic life that you are most proud of. 250 words maximum.
+
+## UA 账户
+邮箱 13230859192@163.com
+密码 b#UFaXFK千*.7EPc
+
+## 单细胞论文
+
+### 结论
+整合 rna-seq atac-seq 等多组学进行降维 节点分类等
+
+我们展示了 SIMBA 提供了一个单一的框架，允许以通用的方式制定不同的单细胞分析问题，从而简化新分析的开发和其他单细胞模式的集成。
+
+### 方法
+图嵌入 可以利用 GCN 代替吗？
