@@ -32,10 +32,19 @@
 - [2021-11-6](#2021-11-6)
   - [PLAN](#plan-5)
   - [Penn State 问题](#penn-state-问题)
-  - [UA 账户](#ua-账户)
+  - [UA账户](#ua账户)
   - [单细胞论文](#单细胞论文)
     - [结论](#结论)
     - [方法](#方法)
+  - [卷积神经网络模块细节](#卷积神经网络模块细节)
+    - [全局平均池化](#全局平均池化)
+    - [瓶颈模型](#瓶颈模型)
+  - [进一步关注文章](#进一步关注文章)
+- [2021-11-7](#2021-11-7)
+  - [PLAN](#plan-6)
+  - [Penn State 问题](#penn-state-问题-1)
+  - [Graph Embedding](#graph-embedding)
+    - [Deep work](#deep-work)
 
 # 2021-11-1
 ## PLAN
@@ -492,3 +501,45 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 + https://www.sciencedirect.com/science/article/pii/S0006291X20301935#bib22
 
 + https://doi.org/10.1016/j.bbagen.2018.06.014
+
+# 2021-11-7
+
+## PLAN
++ **Penn State问题回答**
++ 图嵌入学习
+
+## Penn State 问题
++ Describe your most meaningful independent research experience. Your answer should include the scientific questions or hypotheses you asked, the experimental design you used to test the hypothesis or question, your results, and the conclusions you drew about the biological processes you studied. Describe your role in the project: Were you part of a research team? What parts of the project were you responsible for? 500 words maximum.
+
+今年九月开始，我们实验室开展了一项新课题，关于G4、甲基化和转座子在拟南芥全基因组的研究。这个课题是第一次我独自设计的课题并实施的，目前依然在进行。一些研究报道了G4结构与LTR末端区域的研究，同时也有报道了G4在CpG island处富集，我猜测G4结构和甲基化有关。同时G4潜在序列是否折叠除了受序列因素影响还会受理化性质的影响，对于不同类型的拟南芥在不同的生态环境类型，相同序列是否折叠会出现不同情况，我们基于这种假设对于Genome1001项目中世界各地的拟南芥基因组，进行了全基因组分析。考虑到TAIR10项目中已经有了1135种拟南芥在世界各地的坐标，甲基化注释图谱，以及全基因组序列。我们首先利用软件Quadron (一种基于机器学习预测pqs的软件)识别全部G4结构。之后通过统计，识别出的潜在G4结构周边的甲基化程度，推断是否该潜在G4进行了折叠。综合多个拟南芥类群的信息，我们可以推断哪些类别潜在G4结构是否折叠受地理因素影响较大。同时还利用LTR识别软件，将不同拟南芥类群的LTR识别出来，并判断不同类别的拟南芥存在的LTR差异。如果差异LTR的末端重复序列G4结构附近的甲基化程度很高，这意味着不同地理位置的拟南芥基因组种转座子差异主要是由地理位置对于G4结构折叠影响，从而导致逆转录转座子LTR在基因组中的转座受到影响，导致拟南芥物种分化。
+
+目前我们的发现不同地区分布的生态型，在G4区域附近的甲基化程度不同。同时，我们还提出假设，不同地区的拟南芥类群在转座子层面的差异，主要的原因就是，G4结构受地理因素影响，导致其抑制甲基化程度降低，使得转座子无法转座，这一假设还需要继续结合地理因素进行探究。
+
+考虑到我此前已经有了一定的科研训练基础，我在这个项目中作为负责人带领整个团队，从选题到基因组数据获取，和最终的项目实施以及最终完成paper都将由我主要负责。在我们的团队中还有一些目前大学三年级的同学，我还与这些同学进行合作，共同完成这个课题。
+
++ Generally, it's considered best practice for a student to move to a new institution for Graduate School. If you are currently a Penn State, University Park campus student, please tell us why staying here is a good choice for you.
+
++ Briefly describe an academic obstacle you faced or a challenge you have met. What strategies did you use to overcome the challenge? If you faced a future technical problem in your research, how would you overcome this hurdle. 250 words maximum
+
++ What are your current research interests, why is that field/area attractive to you, and which faculty in the department would allow you to pursue these interests? What do you see yourself doing in 10 years from now? 250 words maximum
+
+目前我对基因组学很感兴趣，包括人类进化与疾病的关系很感兴趣，同时技术层面上我对于机器学习深度学习结合生物模型很感兴趣。此前，我的关于Genome1001拟南芥群体基因组的项目与群体遗传学相关，我在本科的学习大量的生物学、统计学以及编程知识。因此，我将宾州州立大学生物博士项目视为一个理想的平台，以实现我成为群体遗传学领域领先的研究人员的梦想。此外，目前随着基因组技术的发展，通过群体遗传学手段帮助人类治疗治病越来越成为可能，我在一方面进一步的研究不仅可以为人类疾病治疗做贡献，同时在精准医疗行业发展越来越快的情况下，对自己的职业生涯也十分有益。
+
+Dr. Yifei Huang 的研究我十分感兴趣，不管是研究的科学问题(从群体遗传学角度研究自然选择对于人类进化和疾病的影响)，还是所采用的方法(用计算手段与机器学习还有深度学习结合)都十分吸引我，同时受他研究的启发，我将他研究的一些方法用到了我研究拟南芥群体基因组项目中。
+
+在十年后，我想我可能在高校寻求教职，做科学研究，也有可能在医疗公司或者医院做研究人员，对于人类群体疾病进行研究。在这十年中，不仅我希望自己能够发表高水平论文，也希望自己的学术成果能真正帮助到病人，解决一些实际问题。同时也希望能开发方法或者软件，帮助到整个研究领域。
+
++ Socially diverse groups do better science, are more productive and innovative, and make better decisions. Describe any past activities that have supported diversity and inclusion. How would you support or contribute to diversity and inclusion in the Biology program? 250 words maximum
+
++ Describe something in your academic life that you are most proud of. 250 words maximum.
+
+## Graph Embedding
+
+作用 ： 如果没有Graph Embedding 要使用one hot编码 但是可能长度过于长，同时失去了节点之间的信息
+
+### Deep work
+https://zhuanlan.zhihu.com/p/45167021
+参数为 参数矩阵 每一个节点映射的向量
+利用 似然函数 做梯度下降
+似然函数为 在出现某一结点$v_i$的条件下，出现某一个序列的概率
+训练样本构成 : 通过随机游走，建立大量的路径
