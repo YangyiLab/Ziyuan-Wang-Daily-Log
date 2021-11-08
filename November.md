@@ -45,6 +45,9 @@
   - [Penn State 问题](#penn-state-问题-1)
   - [Graph Embedding](#graph-embedding)
     - [Deep work](#deep-work)
+- [2021-11-7](#2021-11-7-1)
+  - [PLAN](#plan-7)
+  - [Diversity Statement](#diversity-statement)
 
 # 2021-11-1
 ## PLAN
@@ -506,7 +509,7 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 
 ## PLAN
 + **Penn State问题回答**
-+ 图嵌入学习
++ **图嵌入学习**
 
 ## Penn State 问题
 + Describe your most meaningful independent research experience. Your answer should include the scientific questions or hypotheses you asked, the experimental design you used to test the hypothesis or question, your results, and the conclusions you drew about the biological processes you studied. Describe your role in the project: Were you part of a research team? What parts of the project were you responsible for? 500 words maximum.
@@ -543,3 +546,28 @@ https://zhuanlan.zhihu.com/p/45167021
 利用 似然函数 做梯度下降
 似然函数为 在出现某一结点$v_i$的条件下，出现某一个序列的概率 其中概率部分的意思是，在一个随机游走中，当给定一个顶点 $v_i$时，出现它的w窗口范围内顶点的概率。
 训练样本构成 : 通过随机游走，建立大量的路径
+
+# 2021-11-7
+
+## PLAN
++ **图嵌入其他算法、代码**
++ **diversity statement完成**
+
+## Diversity Statement
+
++ Socially diverse groups do better science, are more productive and innovative, and make better decisions. Describe any past activities that have supported diversity and inclusion. How would you support or contribute to diversity and inclusion in the Biology program? 250 words maximum
+
+It is well known that the United States is a diverse society, and Penn State argues that socially diverse groups do better science, are more productive and innovative, and make better decisions.
+In my opinion, I accept this tradition and I think diversity is the key to our evolution because it brings new tastes to our existing communities.
+Living in a pluralistic environment, where different cultures and environments bring with them different personal experiences, values and worldviews, helps people interact effectively with each other and prepares them to participate in an increasingly complex and pluralistic society.
+Take me for example.
+When I was in late primary school, my mother left home to study for a PhD, so I learned to take care of myself and manage my time.
+During this time, I learned how to cook and clean my room.
+Although the experience was a bit difficult, it improved my self-reliance.
+In addition, this special experience also reminds me to have confidence to overcome the difficulties in university study and research work.
+After entering Sichuan University, I participated in many volunteer and community activities, such as serving as the volunteer of Chengdu station of Chinese Society of Cell Biology Conference, caring for the elderly in nursing homes, and accompanying the elderly during festivals.
+In addition, when I entered the senior year of university, I also began to guide junior students to do projects.
+These experiences are my valuable asset.
+On the one hand, these activities give me a sense of achievement.
+On the other hand, I enjoyed brainstorming and discussing academic issues with my younger brothers and sisters in the process of instructing them, although they might lack knowledge.
+These gave me the idea of applying for a PhD, hoping to make more contributions to the society.
