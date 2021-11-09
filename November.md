@@ -48,6 +48,8 @@
 - [2021-11-7](#2021-11-7-1)
   - [PLAN](#plan-7)
   - [Diversity Statement](#diversity-statement)
+- [2021-11-8](#2021-11-8)
+  - [PLAN](#plan-8)
 
 # 2021-11-1
 ## PLAN
@@ -571,3 +573,9 @@ These experiences are my valuable asset.
 On the one hand, these activities give me a sense of achievement.
 On the other hand, I enjoyed brainstorming and discussing academic issues with my younger brothers and sisters in the process of instructing them, although they might lack knowledge.
 These gave me the idea of applying for a PhD, hoping to make more contributions to the society.
+
+# 2021-11-8
+
+## PLAN
++ **填写 Penn State Madison UArizona网申**
++ **networkx overview**
