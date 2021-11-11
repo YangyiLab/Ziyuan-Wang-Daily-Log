@@ -54,6 +54,8 @@
 - [2021-11-9](#2021-11-9)
   - [PLAN](#plan-9)
   - [Introduction 内容](#introduction-内容)
+- [2021-11-10](#2021-11-10)
+  - [PLAN](#plan-10)
 
 # 2021-11-1
 ## PLAN
@@ -594,7 +596,7 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 ## PLAN
 + **刘老师推荐信**
 + **introduction 文献整理**
-+ 矩阵求导 推导
++ **矩阵求导 推导**
 
 ## Introduction 内容
 + 8种拟南芥种质对与其根相关的细菌产生显着的选择性影响。群落物种组成和相对丰度差异均显着（P<0.001)。八个不同且可重复的加入依赖群落概况也与对照大块土壤不同。这些变体的根系分泌物通过高效液相色谱 (HPLC) 进行分析  根际分泌物改变微生物组 Shirley A. Micallef, Michael P. Shiaris, Adán Colón-Carmona, Influence of Arabidopsis thaliana accessions on rhizobacterial communities and natural variation in root exudates, Journal of Experimental Botany, Volume 60, Issue 6, April 2009, Pages 1729–1742, https://doi.org/10.1093/jxb/erp053
@@ -612,3 +614,10 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 + 植物通过生产固定碳资源帮助维持稳定的根际生物群落 https://doi.org/10.1007/s00253-018-9556-6
 
 **植物会分泌分泌物影响群落，但影响机制不清楚。**
+
+# 2021-11-10
+
+## PLAN
++ 根际微生物overview
++ introduction初稿
++ 网申填写
