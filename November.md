@@ -57,6 +57,10 @@
   - [矩阵求导](#矩阵求导)
 - [2021-11-10](#2021-11-10)
   - [PLAN](#plan-10)
+  - [注释方法](#注释方法)
+    - [比较基因组方法 mauve](#比较基因组方法-mauve)
+    - [Steps](#steps)
+  - [introduction](#introduction)
 
 # 2021-11-1
 ## PLAN
@@ -627,4 +631,18 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 ## PLAN
 + **根际微生物overview**
 + introduction初稿
-+ 网申填写
++ **网申填写**
++ RNN overview Liheng course
+
+## 注释方法
+利用Prokka 数据库 需要再次确定
+
+### 比较基因组方法 mauve
+mauve 可视化网站 http://darlinglab.org/mauve/user-guide/viewer.html
+
+### Steps
++ 下载序列
++ 注释为gbk
++ 可视化
+
+## introduction
