@@ -54,6 +54,7 @@
 - [2021-11-9](#2021-11-9)
   - [PLAN](#plan-9)
   - [Introduction 内容](#introduction-内容)
+  - [矩阵求导](#矩阵求导)
 - [2021-11-10](#2021-11-10)
   - [PLAN](#plan-10)
 
@@ -614,6 +615,12 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 + 植物通过生产固定碳资源帮助维持稳定的根际生物群落 https://doi.org/10.1007/s00253-018-9556-6
 
 **植物会分泌分泌物影响群落，但影响机制不清楚。**
+
+## 矩阵求导
+
++ 布局 分母布局 分子布局
++ 对于向量变元$x$中每一个分量都要求导
++ 梯度 对应列向量
 
 # 2021-11-10
 
