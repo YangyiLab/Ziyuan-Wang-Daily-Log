@@ -61,6 +61,9 @@
     - [比较基因组方法 mauve](#比较基因组方法-mauve)
     - [Steps](#steps)
   - [introduction](#introduction)
+  - [RNN](#rnn)
+    - [GRU](#gru)
+    - [LSTM](#lstm)
 
 # 2021-11-1
 ## PLAN
@@ -630,9 +633,9 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 
 ## PLAN
 + **根际微生物overview**
-+ introduction初稿
++ **introduction初稿**
 + **网申填写**
-+ RNN overview Liheng course
++ **RNN overview Liheng course**
 
 ## 注释方法
 利用Prokka 数据库 需要再次确定
@@ -646,3 +649,18 @@ mauve 可视化网站 http://darlinglab.org/mauve/user-guide/viewer.html
 + 可视化
 
 ## introduction
+
+In addition to soil physical and chemical properties, plant rhizosphere exudates were also confirmed to be related to soil microbial community by previous studies. Previous studies have reported that root exudates of different arabidopsis species significantly alter the soil microbiome(Micallef et al., 2009). A phenomenon known as rhizosphere crosstalk shows that root-soil interactions resulting from the constant secretion of small molecules, including sugars and vitamins, as well as complex proteins, are the main factors that determine microbial nature(Micallef et al., 2009). Plants help maintain stable rhizosphere biomes by producing fixed carbon resources(Korenblum et al., 2020; Lucke et al., 2020). However, the mechanism by which plant roots influence microbial communities has not been revealed.
+
+## RNN
+
+### GRU
+
+本质： 增加每一层的Hiddenlayer数 即从$H_t$增加至$R_t,Z_t$学习的参数量*3
+
+R 负责短期 
+Z 负责长期如果$t' 到 t $时间内Z=1则所有的则该时间段内的新状态都没有被考虑
+
+### LSTM
+
+更复杂 三门 二状态
