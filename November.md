@@ -76,6 +76,9 @@
   - [文章讨论](#文章讨论)
     - [对于无氮肥现象](#对于无氮肥现象)
     - [三者关系](#三者关系)
+  - [蛋白建模扩展](#蛋白建模扩展)
+    - [wiki资料](#wiki资料)
+    - [文献](#文献)
 
 # 2021-11-1
 ## PLAN
@@ -729,3 +732,13 @@ cells 13494
 
 + 植物根际诱导hitchhiking 分泌物问题 谈不谈？
 + 有无植物 氮浓度对于hitchhiking作用影响十分显著  
+  
+
+## 蛋白建模扩展
+
+### wiki资料
+https://en.wikipedia.org/wiki/Direct_coupling_analysis
+
+### 文献
++ https://www.nature.com/articles/s41592-018-0138-4 **DeepSequece**
++ https://academic.oup.com/mbe/article/35/4/1018/4815777 **bmDCA**
