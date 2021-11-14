@@ -698,7 +698,7 @@ Z 负责长期如果$t' 到 t $时间内Z=1则所有的则该时间段内的新�
 
 ## PLAN
 + **VAE 作业代码框架搭建**
-+ 蛋白序列建模 总结
++ **蛋白序列建模 总结**
 + **讨论 overview**
 
 
@@ -742,3 +742,22 @@ https://en.wikipedia.org/wiki/Direct_coupling_analysis
 ### 文献
 + https://www.nature.com/articles/s41592-018-0138-4 **DeepSequece**
 + https://academic.oup.com/mbe/article/35/4/1018/4815777 **bmDCA**
+
+
+# 2021-11-14
+
+## PLAN
++ **VAE调惨 可视化等overview**
++ 蛋白序列建模deepsequence 总结
++ **调参技巧学习**
+
+
+
+
+## VAE 损失函数
+
+Output假定为正态分布 均值为输出方差为常数 构造出mse
+
+## 调参
+
+如果在训练集就效果不理想要增大模型容量解决
