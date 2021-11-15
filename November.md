@@ -1,6 +1,7 @@
 - [2021-11-1](#2021-11-1)
   - [PLAN](#plan)
   - [进入系统填报信息](#进入系统填报信息)
+    - [ietls number](#ietls-number)
     - [Penn State](#penn-state)
     - [MADISON](#madison)
   - [无植物微生物结论基调](#无植物微生物结论基调)
@@ -79,6 +80,13 @@
   - [蛋白建模扩展](#蛋白建模扩展)
     - [wiki资料](#wiki资料)
     - [文献](#文献)
+- [2021-11-14](#2021-11-14)
+  - [PLAN](#plan-13)
+  - [VAE 损失函数](#vae-损失函数)
+  - [调参](#调参)
+- [2021-11-15](#2021-11-15)
+  - [PLAN](#plan-14)
+  - [Problems](#problems)
 
 # 2021-11-1
 ## PLAN
@@ -89,6 +97,10 @@
 
 ## 进入系统填报信息
     
+### ietls number
+20CN002445WANZ001A
+
+
 ### Penn State
 + 地址 No.29 Wangjiang Road, Chengdu, Sichuan, China,610064
 + 密码 wzy851234wzy851234
@@ -748,10 +760,8 @@ https://en.wikipedia.org/wiki/Direct_coupling_analysis
 
 ## PLAN
 + **VAE调惨 可视化等overview**
-+ 蛋白序列建模deepsequence 总结
++ **蛋白序列建模deepsequence 总结**
 + **调参技巧学习**
-
-
 
 
 ## VAE 损失函数
@@ -761,3 +771,16 @@ Output假定为正态分布 均值为输出方差为常数 构造出mse
 ## 调参
 
 如果在训练集就效果不理想要增大模型容量解决
+
+
+# 2021-11-15
+
+## PLAN
++ **网申填报 诺特丹**
++ **推荐信邮件**
++ **VAE训练问题总结**
++ 单细胞文献
+
+## Problems
++ tf 出现负值 (限制tf三层 具体处理？)
++ UMAP 在原始数据结果不好
