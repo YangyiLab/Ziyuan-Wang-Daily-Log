@@ -87,6 +87,12 @@
 - [2021-11-15](#2021-11-15)
   - [PLAN](#plan-14)
   - [Problems](#problems)
+  - [perturb-seq](#perturb-seq)
+    - [文章符号](#文章符号)
+- [2021-11-16](#2021-11-16)
+  - [PLAN](#plan-15)
+  - [单细胞](#单细胞)
+    - [代码备注](#代码备注)
 
 # 2021-11-1
 ## PLAN
@@ -779,8 +785,39 @@ Output假定为正态分布 均值为输出方差为常数 构造出mse
 + **网申填报 诺特丹**
 + **推荐信邮件**
 + **VAE训练问题总结**
-+ 单细胞文献
++ **单细胞文献**
 
 ## Problems
 + tf 出现负值 (限制tf三层 具体处理？)
 + UMAP 在原始数据结果不好
+
+## perturb-seq
+
+原理 向细胞中转入可以是特定基因成魔的CRISPR inference RNA序列 sgRNA  沉默特定基因后 观察
+
+### 文章符号
+Tg
+DOSM
+
+# 2021-11-16
+
+## PLAN
++ **网申收尾**
++ 单细胞论文进一步阅读，以及分类标注
++ 单细胞论文 umap t-sne图
+
+## 单细胞
+
+### 代码备注
+
+```r
+attributes(train)$dim
+attributes(train[tfs, ])$dim
+attributes(tpm)$dim
+attributes(tpm[tfs, ])$dim
+
+```
+train 筛选出的五种细胞处理
+tpm所有的
+`train[tfs, ]`转录本training set
+`tpm[tfs, ]` 未筛选的转录本
