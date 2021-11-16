@@ -821,3 +821,9 @@ train 筛选出的五种细胞处理
 tpm所有的
 `train[tfs, ]`转录本training set
 `tpm[tfs, ]` 未筛选的转录本
+
+### umap 图
+
+利用genes构建umap图可以将不同类别区分开但用tf做图无法分类
+
+重点关注tf对于genes的影响
