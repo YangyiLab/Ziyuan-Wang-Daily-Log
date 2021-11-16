@@ -835,3 +835,5 @@ tpm所有的
 不考虑tf时重建效率不高，loss巨大
 
 隐层构建可以考虑用scvi的构建
+
+https://www.nature.com/articles/s41592-018-0229-2.pdf
