@@ -844,11 +844,11 @@ https://www.nature.com/articles/s41592-018-0229-2.pdf
 # 2021-11-17
 
 ## PLAN
-+ 展示ppt完成
++ 展示ppt完成素材
 + **单细胞网络调优**
 + **分析scvi代码**
 + 深度RNN
 
 ## VAE 不考虑tf数据后恢复情况
 
-10000左右loss 不够理想 可以加入 tf再做尝试
+5000左右loss 不够理想 可以加入 tf再做尝试
