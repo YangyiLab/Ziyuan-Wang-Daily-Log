@@ -98,6 +98,9 @@
 - [2021-11-17](#2021-11-17)
   - [PLAN](#plan-16)
   - [VAE 不考虑tf数据后恢复情况](#vae-不考虑tf数据后恢复情况)
+- [2021-11-18](#2021-11-18)
+  - [PLAN](#plan-17)
+  - [多利用scvi的代码为基础](#多利用scvi的代码为基础)
 
 # 2021-11-1
 ## PLAN
@@ -854,3 +857,112 @@ https://www.nature.com/articles/s41592-018-0229-2.pdf
 5000左右loss 不够理想 可以加入 tf再做尝试
 
 不用过拟合防止技术算一下
+
+# 2021-11-18
+
+## PLAN
++ UA 申请系统填报
++ **展示ppt**
++ **不用过拟合技术 计算VAE损失**
++ 宏基因组套路讨论
++ 总环讨论
+
+## 多利用scvi的代码为基础
+```python
+import os
+from typing import Literal
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from scvi.nn import FCLayers,Encoder
+# import scvi
+# import  scvi
+
+
+
+class VAE(nn.Module):
+
+    def __init__(self,n_gene=784, h_dim=[800,400], z_dim=200):
+        super(VAE, self).__init__()
+
+        # [b,784] -> [b,20]
+        # u:[b,10] sigma:[b,10]
+        self.use_batch_norm: Literal["encoder", "decoder", "none", "both"] = "both",
+        self.use_layer_norm: Literal["encoder", "decoder", "none", "both"] = "none",
+        self.n_gene=n_gene
+        self.latent_distribution = "normal"
+        use_batch_norm_encoder = self.use_batch_norm == "encoder" or self.use_batch_norm == "both"
+        use_layer_norm_encoder = self.use_layer_norm == "encoder" or self.use_layer_norm == "both"
+        self.encoder = nn.Sequential(
+            nn.Linear(n_gene, h_dim[0]),
+            nn.ReLU(),
+            nn.Linear(h_dim[0], h_dim[1]),
+            nn.ReLU(),
+            nn.Linear(h_dim[1], z_dim*2),
+            nn.ReLU(),
+        )
+        # [b,20] -> [b,784]
+        self.decoder = FCLayers(
+            n_in=200,
+            n_out=800,
+            n_cat_list=None,
+            n_layers=1,
+            n_hidden=400,
+            dropout_rate=0.2
+        )
+
+        self.z_encoder = Encoder(
+            n_gene,
+            400,
+            n_layers=2,
+            n_hidden=800,
+            dropout_rate=0.2,
+            distribution=self.latent_distribution,
+            use_batch_norm=use_batch_norm_encoder,
+            use_layer_norm=use_layer_norm_encoder,
+            activation_fn=torch.nn.LeakyReLU,
+        )
+        self.criterion = nn.MSELoss()
+        self.linear_out = nn.Linear(800, self.n_gene)
+
+    def forward(self, x):
+        batch_size = x.size(0)
+        # flatten
+        # x = x.view(batch_size, 784)
+        # encoder
+        # [b,20] , including mean and sigma
+        h_ = self.encoder(x)
+        # [b,20] -> [b,10] and [b,10]
+        mu, sigma = h_.chunk(2, dim=1)
+        # reparametrize trick, epison~N(0,1)
+        h = mu + sigma * torch.randn_like(sigma)
+        # decoder
+        x_hat = self.decoder(h)
+        x_hat = self.linear_out(x_hat)
+        x_hat = F.relu(x_hat)
+        # reshape
+        # x_hat = x_hat.view(batch_size, 1, 28, 28)
+
+        # kl divergence
+        kld = 0.5 * torch.sum(
+            torch.pow(mu, 2) +
+            torch.pow(sigma, 2) -
+            torch.log(1e-8 + torch.pow(sigma, 2)) - 1
+        ) / (batch_size*self.n_gene)
+
+        return x_hat, kld
+
+class vae_loss(nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+    def calculate(self, x, x_reconst , mu ,log_var):
+        reconst_loss = F.mse_loss(x_reconst, x, size_average=False)
+        kl_div = - 0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+        return reconst_loss , kl_div
+
+    def forward(self, x, x_reconst , mu ,log_var):
+        reconst_loss , kl_div = self.calculate(x, x_reconst , mu ,log_var)
+        return reconst_loss + kl_div
+
+```
