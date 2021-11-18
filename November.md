@@ -101,6 +101,7 @@
 - [2021-11-18](#2021-11-18)
   - [PLAN](#plan-17)
   - [多利用scvi的代码为基础](#多利用scvi的代码为基础)
+  - [宏基因组参考文献](#宏基因组参考文献)
 
 # 2021-11-1
 ## PLAN
@@ -861,10 +862,10 @@ https://www.nature.com/articles/s41592-018-0229-2.pdf
 # 2021-11-18
 
 ## PLAN
-+ UA 申请系统填报
++ **UA 申请系统填报**
 + **展示ppt**
 + **不用过拟合技术 计算VAE损失**
-+ 宏基因组套路讨论
++ **宏基因组套路讨论**
 + 总环讨论
 
 ## 多利用scvi的代码为基础
@@ -966,3 +967,8 @@ class vae_loss(nn.Module):
         return reconst_loss + kl_div
 
 ```
+
+## 宏基因组参考文献
+
+氮代谢 Metagenomic reconstruction of nitrogen cycling pathways in a CO2-
+enriched grassland ecosystem
