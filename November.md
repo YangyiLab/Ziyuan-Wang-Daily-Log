@@ -102,6 +102,17 @@
   - [PLAN](#plan-17)
   - [多利用scvi的代码为基础](#多利用scvi的代码为基础)
   - [宏基因组参考文献](#宏基因组参考文献)
+- [2021-11-19](#2021-11-19)
+  - [PLAN](#plan-18)
+  - [scanpy 数据结构总结](#scanpy-数据结构总结)
+    - [对于该项目](#对于该项目)
+  - [VAE调参](#vae调参)
+  - [功能](#功能)
+    - [无植物](#无植物)
+    - [有植物](#有植物)
+  - [讨论](#讨论)
+  - [无植物微生物结论基调](#无植物微生物结论基调-1)
+    - [微生物不同氮肥浓度](#微生物不同氮肥浓度-1)
 
 # 2021-11-1
 ## PLAN
@@ -128,7 +139,7 @@
 ## 无植物微生物结论基调
 
 ### 微生物不同氮肥浓度
-H1-F-vs-H2-F-vs-H3-F 0.8601 0.006 **
+**H1-F-vs-H2-F-vs-H3-F 0.8601 0.006 ** 无差异**
 H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 
 ### 不同氮肥浓度是否引发hitchhiking
@@ -972,3 +983,42 @@ class vae_loss(nn.Module):
 
 氮代谢 Metagenomic reconstruction of nitrogen cycling pathways in a CO2-
 enriched grassland ecosystem
+
+
+# 2021-11-19
+
+## PLAN
++ 阅读宏基因组论文
++ **调参**
++ **adata 数据结构熟悉**
++ **讨论+结果确定基调**
+
+## scanpy 数据结构总结
+
+### 对于该项目
+尽量使用read_csv后手动设置基因名称，细胞名称等内容
+
+## VAE调参
+此前的问题，没有进行cell normalization 就进行训练了，如果进行cell normalization后进行训练会效果好一些
+
+
+## 功能
+
+一定要做成表
+
+### 无植物
+有膜 无差异 cell motility
+无膜 有差异 cell motility
+
+### 有植物
+有膜 无差异 cell motility
+无膜 有差异 cell motility
+
+## 讨论
+无植物 无运动菌hitchhiking  无bacillus
+
+## 无植物微生物结论基调
+
+### 微生物不同氮肥浓度
+**H1-F-vs-H2-F-vs-H3-F 0.8601 0.006 ** 无差异**
+H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
