@@ -1,9 +1,10 @@
 - [2021-11-1](#2021-11-1)
   - [PLAN](#plan)
   - [进入系统填报信息](#进入系统填报信息)
+    - [ietls number](#ietls-number)
     - [Penn State](#penn-state)
     - [MADISON](#madison)
-  - [无植物微生物结论](#无植物微生物结论)
+  - [无植物微生物结论基调](#无植物微生物结论基调)
     - [微生物不同氮肥浓度](#微生物不同氮肥浓度)
     - [不同氮肥浓度是否引发hitchhiking](#不同氮肥浓度是否引发hitchhiking)
   - [修改甲基化文件 转成bed](#修改甲基化文件-转成bed)
@@ -54,6 +55,67 @@
 - [2021-11-9](#2021-11-9)
   - [PLAN](#plan-9)
   - [Introduction 内容](#introduction-内容)
+  - [矩阵求导](#矩阵求导)
+- [2021-11-11](#2021-11-11)
+  - [PLAN](#plan-10)
+  - [注释方法](#注释方法)
+    - [比较基因组方法 mauve](#比较基因组方法-mauve)
+    - [Steps](#steps)
+  - [introduction](#introduction)
+  - [RNN](#rnn)
+    - [GRU](#gru)
+    - [LSTM](#lstm)
+- [2021-11-12](#2021-11-12)
+  - [PLAN](#plan-11)
+  - [玻尔兹曼机](#玻尔兹曼机)
+  - [清洗数据](#清洗数据)
+- [2021-11-13](#2021-11-13)
+  - [PLAN](#plan-12)
+  - [VAE 项目变量解读](#vae-项目变量解读)
+    - [进度](#进度)
+    - [模型搭建完毕](#模型搭建完毕)
+  - [文章讨论](#文章讨论)
+    - [对于无氮肥现象](#对于无氮肥现象)
+    - [三者关系](#三者关系)
+  - [蛋白建模扩展](#蛋白建模扩展)
+    - [wiki资料](#wiki资料)
+    - [文献](#文献)
+- [2021-11-14](#2021-11-14)
+  - [PLAN](#plan-13)
+  - [VAE 损失函数](#vae-损失函数)
+  - [调参](#调参)
+- [2021-11-15](#2021-11-15)
+  - [PLAN](#plan-14)
+  - [Problems](#problems)
+  - [perturb-seq](#perturb-seq)
+    - [文章符号](#文章符号)
+- [2021-11-16](#2021-11-16)
+  - [PLAN](#plan-15)
+  - [单细胞](#单细胞)
+    - [代码备注](#代码备注)
+    - [umap 图](#umap-图)
+    - [需解决问题](#需解决问题)
+- [2021-11-17](#2021-11-17)
+  - [PLAN](#plan-16)
+  - [VAE 不考虑tf数据后恢复情况](#vae-不考虑tf数据后恢复情况)
+- [2021-11-18](#2021-11-18)
+  - [PLAN](#plan-17)
+  - [多利用scvi的代码为基础](#多利用scvi的代码为基础)
+  - [宏基因组参考文献](#宏基因组参考文献)
+- [2021-11-19](#2021-11-19)
+  - [PLAN](#plan-18)
+  - [scanpy 数据结构总结](#scanpy-数据结构总结)
+    - [对于该项目](#对于该项目)
+  - [VAE调参](#vae调参)
+  - [功能](#功能)
+    - [无植物](#无植物)
+    - [有植物](#有植物)
+  - [讨论](#讨论)
+  - [无植物微生物结论基调](#无植物微生物结论基调-1)
+    - [微生物不同氮肥浓度](#微生物不同氮肥浓度-1)
+- [2021-11-20](#2021-11-20)
+  - [PLAN](#plan-19)
+  - [训练记录](#训练记录)
 
 # 2021-11-1
 ## PLAN
@@ -64,6 +126,10 @@
 
 ## 进入系统填报信息
     
+### ietls number
+20CN002445WANZ001A
+
+
 ### Penn State
 + 地址 No.29 Wangjiang Road, Chengdu, Sichuan, China,610064
 + 密码 wzy851234wzy851234
@@ -73,10 +139,10 @@
 + 密码 5#DvMnQwAwHhL+r
 + user name pry0921
 
-## 无植物微生物结论
+## 无植物微生物结论基调
 
 ### 微生物不同氮肥浓度
-H1-F-vs-H2-F-vs-H3-F0.8601 0.006 **
+**H1-F-vs-H2-F-vs-H3-F 0.8601 0.006 ** 无差异**
 H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 
 ### 不同氮肥浓度是否引发hitchhiking
@@ -509,7 +575,7 @@ BN层需要多学习 $\beta$  $\gamma$ 方法 BP
 利用1*1卷积做升降维	尤其在大卷积（通道较多时）
 
 ## 进一步关注文章
-+ https://com-mendeley-prod-publicsharing-pdfstore.s3.eu-west-1.amazonaws.com/0524-PUBMED/10.1371/journal.pone.0113955/pone_0113955_pdf.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEOD%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMSJIMEYCIQDbQrxMJTyRt5vZU30g41wj6QppW5YXAI1S7Sx2aywA5QIhAPqo0ZqnGqWXaynlhHKkznHvtazdOh62jdNOuDTj0VkTKowECIn%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEQAxoMMTA4MTY2MTk0NTA1Igw0TdvfvuOyFdjenc0q4AN8yJVtQgt%2FGWfXBmR7SV8qPjjUM16%2F8KyVxq%2FJsZdaVN8O2AnCzZBb5DnF7SguS2ElEPlAwCS0n%2B2W8vJRUdSi1WdlKo1lz9jZwF8y%2Fk%2BMevWsQAMjWb4Mt5yypKyuSS%2F5NAMSMc5MHGATNczmF7WdHVcV9WYFOIR6SCXuHVGnunhnRZOami6675XVhx3umZcijQeuZuvEgV1TqqaYT9D1fWJjzcMRe4QPW%2BlzyF1gNPIfwg56w1X0Ff8kh2sQ0Xca1j8XTuEK3h4cG1aXlpa%2B3rEdokIv3X61TAZiXhogzE4TQUZmIp5NdVmUd5666J0FwtsE5npqiJfxZgJH9ng2%2BdKDwtmKHUPHHHKaaxMMNZGgyzuf4INA%2Bjvmyz5YK1naQpnVv7x4%2F9N3c5JRGvvsKx43Qs%2FBE7X%2F6eBAX3YOE4BT87nqd1%2F0UUjOM5piqLyo%2FkFIUyKOq5379BKjauczbrWK9bGm95nh8MopRX63o3zpLms8CEOUujwYTGtyAPUHcc4%2Fn7xKPkjyvwmDrrVape5Y1ut%2BtQa490gpCim5jMz3Gvl3yEHBgIAkWkvO57UdUXooS7EIgzOsvGhSOEoxElZsXbm%2Bc3WB%2FPxadCqi0DTwT%2F7qjZU%2FaRUi46bfPN8w7eOYjAY6pAHiVsIWea5nOvbTpLs99Ym7edSQfFGBFOhkUEQvWJXpHaymqKPkRFwRSlDk5pYSwApgqXi4p0mTFIH2QSwRRk0Mtkxt%2BAATxmf%2Bni%2Fi92iLqjysnKK%2FkDgnLpTmyl67J5uX%2F5gxPThSOPUvn9zW6nRkKFQgG64GmLdVO99dQBwauy0XT4I8MjtiZgeOoUkPFEISPVNXJwtEYkEpgw5TcIZ8zA0SvQ%3D%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20211106T102812Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIARSLZVEVEV6ALJXJW%2F20211106%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Signature=d8237e6a8140c4774008c5094ba0cf96e1e7924d37bece29e8ceb654c0216e78
++ https://com-mendeley-prod-publicsharing-pdfstore.s3.eu-west-1.amazonaws.com/0524-PUBMED/10.1371/journal.pone.0113955/
 
 + https://www.sciencedirect.com/science/article/pii/S0006291X20301935#bib22
 
@@ -594,7 +660,7 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 ## PLAN
 + **刘老师推荐信**
 + **introduction 文献整理**
-+ 矩阵求导 推导
++ **矩阵求导 推导**
 
 ## Introduction 内容
 + 8种拟南芥种质对与其根相关的细菌产生显着的选择性影响。群落物种组成和相对丰度差异均显着（P<0.001)。八个不同且可重复的加入依赖群落概况也与对照大块土壤不同。这些变体的根系分泌物通过高效液相色谱 (HPLC) 进行分析  根际分泌物改变微生物组 Shirley A. Micallef, Michael P. Shiaris, Adán Colón-Carmona, Influence of Arabidopsis thaliana accessions on rhizobacterial communities and natural variation in root exudates, Journal of Experimental Botany, Volume 60, Issue 6, April 2009, Pages 1729–1742, https://doi.org/10.1093/jxb/erp053
@@ -612,3 +678,378 @@ These gave me the idea of applying for a PhD, hoping to make more contributions 
 + 植物通过生产固定碳资源帮助维持稳定的根际生物群落 https://doi.org/10.1007/s00253-018-9556-6
 
 **植物会分泌分泌物影响群落，但影响机制不清楚。**
+
+## 矩阵求导
+
++ 布局 分母布局 分子布局
++ 对于向量变元$x$中每一个分量都要求导
++ 梯度 对应列向量
+
+# 2021-11-11
+
+## PLAN
++ **根际微生物overview**
++ **introduction初稿**
++ **网申填写**
++ **RNN overview Liheng course**
+
+## 注释方法
+利用Prokka 数据库 需要再次确定
+
+### 比较基因组方法 mauve
+mauve 可视化网站 http://darlinglab.org/mauve/user-guide/viewer.html
+
+### Steps
++ 下载序列
++ 注释为gbk
++ 可视化
+
+## introduction
+
+In addition to soil physical and chemical properties, plant rhizosphere exudates were also confirmed to be related to soil microbial community by previous studies. Previous studies have reported that root exudates of different arabidopsis species significantly alter the soil microbiome(Micallef et al., 2009). A phenomenon known as rhizosphere crosstalk shows that root-soil interactions resulting from the constant secretion of small molecules, including sugars and vitamins, as well as complex proteins, are the main factors that determine microbial nature(Micallef et al., 2009). Plants help maintain stable rhizosphere biomes by producing fixed carbon resources(Korenblum et al., 2020; Lucke et al., 2020). However, the mechanism by which plant roots influence microbial communities has not been revealed.
+
+## RNN
+
+### GRU
+
+本质： 增加每一层的Hiddenlayer数 即从$H_t$增加至$R_t,Z_t$学习的参数量*3
+
+R 负责短期 
+Z 负责长期如果$t' 到 t $时间内Z=1则所有的则该时间段内的新状态都没有被考虑
+
+### LSTM
+
+更复杂 三门 二状态
+
+# 2021-11-12
+
+## PLAN
++ **自回归文献阅读**
++ **修改GRU模型为套路模型**
+
+## 玻尔兹曼机
+
+不受限情况下算后验概率利用MCMC方法 https://www.bilibili.com/video/BV1kJ41127aD?p=3
+
+## 清洗数据
+
+需要修改读文件部分
+
+# 2021-11-13
+
+## PLAN
++ **VAE 作业代码框架搭建**
++ **蛋白序列建模 总结**
++ **讨论 overview**
+
+
+## VAE 项目变量解读
+
+z_all 所有的隐变量 tf层 tf 1182
+
+genes 11941
+
+cells 13494
+
+### 进度
+
+将基因丰度表读入
+
+### 模型搭建完毕
+
+做超参数搭建 利用的技术包括梯度裁剪 调低学习率
+
+**如果梯度裁剪后依然出现了nan现象直接降低学习率**
+
+## 文章讨论
+
+### 对于无氮肥现象
+
++ 现象1 氮影响根际微生物群落 已有论文1 2 3 直接讨论
++ 有膜无膜低浓度无差别 ？ 找文献证明 原因为失去迁移力 但在高氮浓度依然会有的先现象
++ 不同氮对运动细菌影响 也要找
+
+### 三者关系
+
++ 植物根际诱导hitchhiking 分泌物问题 谈不谈？
++ 有无植物 氮浓度对于hitchhiking作用影响十分显著  
+  
+
+## 蛋白建模扩展
+
+### wiki资料
+https://en.wikipedia.org/wiki/Direct_coupling_analysis
+
+### 文献
++ https://www.nature.com/articles/s41592-018-0138-4 **DeepSequece**
++ https://academic.oup.com/mbe/article/35/4/1018/4815777 **bmDCA**
+
+
+# 2021-11-14
+
+## PLAN
++ **VAE调惨 可视化等overview**
++ **蛋白序列建模deepsequence 总结**
++ **调参技巧学习**
+
+
+## VAE 损失函数
+
+Output假定为正态分布 均值为输出方差为常数 构造出mse
+
+## 调参
+
+如果在训练集就效果不理想要增大模型容量解决
+
+
+# 2021-11-15
+
+## PLAN
++ **网申填报 诺特丹**
++ **推荐信邮件**
++ **VAE训练问题总结**
++ **单细胞文献**
+
+## Problems
++ tf 出现负值 (限制tf三层 具体处理？)
++ UMAP 在原始数据结果不好
+
+## perturb-seq
+
+原理 向细胞中转入可以是特定基因成魔的CRISPR inference RNA序列 sgRNA  沉默特定基因后 观察
+
+### 文章符号
+Tg
+DOSM
+
+# 2021-11-16
+
+## PLAN
++ **网申收尾**
++ **单细胞论文进一步阅读，以及分类标注**
++ **单细胞论文 umap t-sne图**
+
+## 单细胞
+
+### 代码备注
+
+```r
+attributes(train)$dim
+attributes(train[tfs, ])$dim
+attributes(tpm)$dim
+attributes(tpm[tfs, ])$dim
+
+```
+train 筛选出的五种细胞处理
+tpm所有的
+`train[tfs, ]`转录本training set
+`tpm[tfs, ]` 未筛选的转录本
+
+### umap 图
+
+利用genes构建umap图可以将不同类别区分开但用tf做图无法分类
+
+重点关注tf对于genes的影响
+
+### 需解决问题
+
+不考虑tf时重建效率不高，loss巨大
+
+隐层构建可以考虑用scvi的构建
+
+https://www.nature.com/articles/s41592-018-0229-2.pdf
+
+# 2021-11-17
+
+## PLAN
++ **展示ppt完成素材**
++ **单细胞网络调优**
++ **分析scvi代码**
++ **深度RNN**
+
+## VAE 不考虑tf数据后恢复情况
+
+5000左右loss 不够理想 可以加入 tf再做尝试
+
+不用过拟合防止技术算一下
+
+# 2021-11-18
+
+## PLAN
++ **UA 申请系统填报**
++ **展示ppt**
++ **不用过拟合技术 计算VAE损失**
++ **宏基因组套路讨论**
++ 总环讨论
+
+## 多利用scvi的代码为基础
+```python
+import os
+from typing import Literal
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from scvi.nn import FCLayers,Encoder
+# import scvi
+# import  scvi
+
+
+
+class VAE(nn.Module):
+
+    def __init__(self,n_gene=784, h_dim=[800,400], z_dim=200):
+        super(VAE, self).__init__()
+
+        # [b,784] -> [b,20]
+        # u:[b,10] sigma:[b,10]
+        self.use_batch_norm: Literal["encoder", "decoder", "none", "both"] = "both",
+        self.use_layer_norm: Literal["encoder", "decoder", "none", "both"] = "none",
+        self.n_gene=n_gene
+        self.latent_distribution = "normal"
+        use_batch_norm_encoder = self.use_batch_norm == "encoder" or self.use_batch_norm == "both"
+        use_layer_norm_encoder = self.use_layer_norm == "encoder" or self.use_layer_norm == "both"
+        self.encoder = nn.Sequential(
+            nn.Linear(n_gene, h_dim[0]),
+            nn.ReLU(),
+            nn.Linear(h_dim[0], h_dim[1]),
+            nn.ReLU(),
+            nn.Linear(h_dim[1], z_dim*2),
+            nn.ReLU(),
+        )
+        # [b,20] -> [b,784]
+        self.decoder = FCLayers(
+            n_in=200,
+            n_out=800,
+            n_cat_list=None,
+            n_layers=1,
+            n_hidden=400,
+            dropout_rate=0.2
+        )
+
+        self.z_encoder = Encoder(
+            n_gene,
+            400,
+            n_layers=2,
+            n_hidden=800,
+            dropout_rate=0.2,
+            distribution=self.latent_distribution,
+            use_batch_norm=use_batch_norm_encoder,
+            use_layer_norm=use_layer_norm_encoder,
+            activation_fn=torch.nn.LeakyReLU,
+        )
+        self.criterion = nn.MSELoss()
+        self.linear_out = nn.Linear(800, self.n_gene)
+
+    def forward(self, x):
+        batch_size = x.size(0)
+        # flatten
+        # x = x.view(batch_size, 784)
+        # encoder
+        # [b,20] , including mean and sigma
+        h_ = self.encoder(x)
+        # [b,20] -> [b,10] and [b,10]
+        mu, sigma = h_.chunk(2, dim=1)
+        # reparametrize trick, epison~N(0,1)
+        h = mu + sigma * torch.randn_like(sigma)
+        # decoder
+        x_hat = self.decoder(h)
+        x_hat = self.linear_out(x_hat)
+        x_hat = F.relu(x_hat)
+        # reshape
+        # x_hat = x_hat.view(batch_size, 1, 28, 28)
+
+        # kl divergence
+        kld = 0.5 * torch.sum(
+            torch.pow(mu, 2) +
+            torch.pow(sigma, 2) -
+            torch.log(1e-8 + torch.pow(sigma, 2)) - 1
+        ) / (batch_size*self.n_gene)
+
+        return x_hat, kld
+
+class vae_loss(nn.Module):
+    def __init__(self):
+        super().__init__()
+        
+    def calculate(self, x, x_reconst , mu ,log_var):
+        reconst_loss = F.mse_loss(x_reconst, x, size_average=False)
+        kl_div = - 0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+        return reconst_loss , kl_div
+
+    def forward(self, x, x_reconst , mu ,log_var):
+        reconst_loss , kl_div = self.calculate(x, x_reconst , mu ,log_var)
+        return reconst_loss + kl_div
+
+```
+
+## 宏基因组参考文献
+
+氮代谢 Metagenomic reconstruction of nitrogen cycling pathways in a CO2-
+enriched grassland ecosystem
+
+
+# 2021-11-19
+
+## PLAN
++ **阅读宏基因组论文**
++ **调参**
++ **adata 数据结构熟悉**
++ **讨论+结果确定基调**
+
+## scanpy 数据结构总结
+
+### 对于该项目
+尽量使用read_csv后手动设置基因名称，细胞名称等内容
+
+## VAE调参
+此前的问题，没有进行cell normalization 就进行训练了，如果进行cell normalization后进行训练会效果好一些
+
+
+## 功能
+
+一定要做成表
+
+### 无植物
+有膜 无差异 cell motility
+无膜 有差异 cell motility
+
+### 有植物
+有膜 无差异 cell motility
+无膜 有差异 cell motility
+
+## 讨论
+无植物 无运动菌hitchhiking  无bacillus
+
+## 无植物微生物结论基调
+
+### 微生物不同氮肥浓度
+**H1-F-vs-H2-F-vs-H3-F 0.8601 0.006 ** 无差异**
+H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
+
+
+# 2021-11-20
+
+## PLAN
++ **复现vega同等量级loss**
++ **宏基因组多篇文章混合整理**
+
+## 训练记录
+
+利用vega的pmbc数据集训练问题不大，加上tfloss重新训练并作出 loss map进行观察，可能这个数据有一定问题
+
+可以用scanpy进行更进一步的数据预处理
+
+## 文章
+
+### 2021年applied
+
++ rda pca 找到不同处理的群落之间区别
++ 找到氮代谢基因并分析
++ binning后每一个mag都与氮代谢进行对应
+
+### 2021 fim
+
++ 16 s做物种堆叠图
++ 注释找到 gene
++ gene做丰度变化分析和富集分析基于kegg 
++ 做出gene之间的网络并做出模块划分
