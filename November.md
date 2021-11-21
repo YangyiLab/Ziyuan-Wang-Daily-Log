@@ -116,6 +116,15 @@
 - [2021-11-20](#2021-11-20)
   - [PLAN](#plan-19)
   - [训练记录](#训练记录)
+  - [文章](#文章)
+    - [2021年applied](#2021年applied)
+    - [2021 fim](#2021-fim)
+- [2021-11-21](#2021-11-21)
+  - [PLAN](#plan-20)
+  - [大流行的影响 文件](#大流行的影响-文件)
+  - [宏基因组文章3](#宏基因组文章3)
+    - [主线逻辑](#主线逻辑)
+    - [方法](#方法-1)
 
 # 2021-11-1
 ## PLAN
@@ -1053,3 +1062,36 @@ H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 + 注释找到 gene
 + gene做丰度变化分析和富集分析基于kegg 
 + 做出gene之间的网络并做出模块划分
+
+# 2021-11-21
+
+## PLAN
+
++ **教堂山硕士**
++ **杨老师推荐信**
++ 宏基因组第三篇文献
++ **KAUST硕士填报**
+
+## 大流行的影响 文件
++ 英语考试
++ 上了网课
++ 心情一开始不好，导致身体不健康 但克服了
++ 由于从事计算生物学研究不会让我受到很大的学术影响，和老师的见面都改成了网课
+
+After the outbreak of COVID-19, it had a great impact on my life at the beginning. Many English exams, such as IETLS and GRE, were stopped, which had a great impact on me. At the same time, in China, we cannot go to the school to have offline classes, so we need to take online classes, which has affected the teaching effect. Most of the time, during the break, we would ask the teacher about some knowledge points we did not understand during the teaching process. However, in the process of online courses, it is sometimes difficult to solve problems only through text communication. At the beginning, we felt too shy to speak in online communication, but we gradually adapted to this form later.
+
+In addition, during the pandemic, I felt it was a blow to students' psychology, and the lack of exercise at home made me very depressed. When the epidemic gradually improved, I created conditions to go outdoors to do a good job of running and exercise, which helped me to improve. Exercise is a good way for me to release pressure.
+
+Academically, the pandemic has made it difficult for me to communicate with my advisor. In offline research internships, we can immediately communicate with advisors when we have a problem. During the pandemic, this becomes less possible. But with the spread of web conferencing, we can also solve many problems in scientific research through online video conferencing. Especially considering that I majored in computational biology, most of my work was carried out using servers without field experiments, which made my scientific research work less affected.
+
+
+## 宏基因组文章3
+
+### 主线逻辑
++ 找到优势菌
++ 分析进化树
++ 找到N基因丰度变化 & 氨基酸合成变化
+
+### 方法
+
+KO注释找到基因 unigene
