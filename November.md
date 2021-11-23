@@ -129,6 +129,8 @@
   - [PLAN](#plan-21)
   - [宏基因组方法](#宏基因组方法)
   - [umap 数据](#umap-数据)
+- [2021-11-23](#2021-11-23)
+  - [PLAN](#plan-22)
 
 # 2021-11-1
 ## PLAN
@@ -1113,3 +1115,10 @@ Unigenes_abundance_keggFunc.tsv
 
 ## umap 数据
 无法每一类聚集而Kang数据可以复现
+
+# 2021-11-23
+
+## PLAN
++ **UA ps**
++ **UNC ps**
++ **ND ps**
