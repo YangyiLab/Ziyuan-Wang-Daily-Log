@@ -131,6 +131,20 @@
   - [umap 数据](#umap-数据)
 - [2021-11-23](#2021-11-23)
   - [PLAN](#plan-22)
+- [2021-11-24](#2021-11-24)
+  - [PLAN](#plan-23)
+  - [申请情况总结](#申请情况总结)
+    - [Madison](#madison-1)
+    - [Penn State](#penn-state-1)
+    - [Arizona](#arizona)
+    - [Tulane](#tulane)
+    - [ND](#nd)
+    - [UNC](#unc)
+    - [CMU](#cmu)
+  - [配置ltr_finder](#配置ltr_finder)
+- [2021-11-25](#2021-11-25)
+  - [PLAN](#plan-24)
+  - [论文中代码指导(NAR)](#论文中代码指导nar)
 
 # 2021-11-1
 ## PLAN
@@ -1122,3 +1136,101 @@ Unigenes_abundance_keggFunc.tsv
 + **UA ps**
 + **UNC ps**
 + **ND ps**
+
+# 2021-11-24
+
+## PLAN
++ **甲基化pipeline 完成**
++ **申请情况总结**
+
+## 申请情况总结
+
+### Madison
+材料完成，等待老板给材料提意见以及推荐信
+需要修改 **diversity statement**
+
+### Penn State
+等待Karthik推荐信以及等待ps内容可以填报
+
+### Arizona
+系统未开
+
+### Tulane
+等待润色ps 推荐信未上传
+
+### ND
+推荐信上传两篇，ps在修改，covid-ps还未修改
+
+### UNC
+ps在修改，推荐信未上传
+
+### CMU
+ps 没写 推荐信未上传 ddl12.9
+
+## 配置ltr_finder
+
+```bash
+bash /home/ubuntu/Arabidopsis/Scripts/NAR_LTR_Finding_Code/find_LTRs.sh $1
+# 在其中要保证其是fasta文件的.前部分如 chr1.fasta $1 为chr1 
+```
+
+# 2021-11-25
+
+## PLAN
++ **ltr_finder 修复**
++ **杨老师推荐信提交**
++ **论文结果讨论完成**
+
+## 论文中代码指导(NAR)
+```txt
+This folder contains scripts used to generate, process and visualize plant 
+LTR retrotransposon sequences, as well as triplexes and quadruplexes in them
+
+Detecting and annotating LTR retroelements
+------------------------------------------
+1. find_LTRs.sh
+2. add_features.pl
+(the feature used in the paper was the Blast-GD annotation line produced 
+by running tblastx on the retrotransposon sequence against a collection 
+of GAG, RT, INT and other retrotransposon protein domains)
+3. example.ltr	#example output from find_LTRs.sh
+
+Filtration of detected sequences
+--------------------------------
+4. select_best.pl	#Selects the best LTR element for each sequence analysed
+(cat example.ltr | ./select_best.pl > example.ltr)
+5. guess_orientation.pl
+(cat example_best.ltr |  ./guess_orientation.pl | egrep -v " N" | uniq > example_best.orientation
+6. process_orientation.pl	#Reverse sequences where needed
+(cat example_best.orientation | ./process_orientation.pl > example_processed.fa)
+
+Source sequence file
+--------------------
+(macas_clean.fa, FASTA file not included)
+
+Quadruplex detection
+--------------------
+8. quad.pl, quad2.pl	#Run regular expressions for PQS2, PQS3 on FASTA file
+(cat macas_clean.fa | ./quad_fix.pl > quad_macas_fix_1.out)
+(cat macas_clean.fa | ./quad2_fix.pl > quad_macas_fix_2.out)
+
+Triplex_detection
+-----------------
+9. get_triplexes.R
+
+Intermediate data tables
+------------------------
+macas_clean_proms.tab
+best_ltrs.tab
+quad_macas_1c_fix.tab
+quad_macas_1g_fix.tab
+quad_macas_2c_fix.tab
+quad_macas_2g_fix.tab
+macas_clean_18_best.tab
+
+Visualization
+-------------
+10. load_data_fix.R	#load data into R variables
+11. summary_fig.R	#example visualization
+```
+
