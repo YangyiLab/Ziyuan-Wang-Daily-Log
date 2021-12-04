@@ -422,7 +422,7 @@ class BasicBlock(nn.Module):
         self.downsample = downsample
 
     def forward(self, x):
-        identity = x #捷径上的输出值
+        identity = x
         if self.downsample is not None:
             identity = self.downsample(x)
 
