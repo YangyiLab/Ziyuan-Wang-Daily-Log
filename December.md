@@ -9,6 +9,7 @@
   - [GRU 训练中trick](#gru-训练中trick)
 - [2021-12-4](#2021-12-4)
   - [PLAN](#plan-3)
+  - [微生物更改](#微生物更改)
 
 
 # 2021-12-1
@@ -52,3 +53,7 @@
 ## PLAN
 + **机器学习几次作业完成**
 + **loss plot做出，准确率输出**
+
+## 微生物更改
+
+Bacillus content was 2.63, 7.29 and 2.83(H1, H2 and H3) times higher in the non-membrane treatment group than in the membrane treatment group, respectively.
