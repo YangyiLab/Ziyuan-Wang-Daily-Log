@@ -10,6 +10,13 @@
 - [2021-12-4](#2021-12-4)
   - [PLAN](#plan-3)
   - [微生物更改](#微生物更改)
+- [2021-12-5](#2021-12-5)
+  - [PLAN](#plan-4)
+- [2021-12-6](#2021-12-6)
+  - [PLAN](#plan-5)
+  - [甲基化g4 pipeline](#甲基化g4-pipeline)
+    - [下载方式](#下载方式)
+  - [VAE 回顾](#vae-回顾)
 
 
 # 2021-12-1
@@ -57,3 +64,105 @@
 ## 微生物更改
 
 Bacillus content was 2.63, 7.29 and 2.83(H1, H2 and H3) times higher in the non-membrane treatment group than in the membrane treatment group, respectively.
+
+# 2021-12-5
+
+## PLAN
++ **机器学习PPT 讲稿**
++ **Yale PS**
++ **K MEANS 作业整理**
+
+# 2021-12-6
+
+## PLAN
++ MAE论文分析
++ single cell denoise 分析
++ **甲基化g4 pipeline**
++ vae 回顾
+
+## 甲基化g4 pipeline
+
+### 下载方式
+
+找到网址
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM1085222
+
+wget即可下载
+
+下载好tsv.gz文件，直接使用
+
+```python
+def trans_mCfile2bed_gz(path,input_file_name):
+    '''
+    'path' the path to the folder of the the mC tsv.gz file
+    'input_file_name' the name of the the mC tsv.gz file
+    this will creat a new bed file like xxx.mC.bed file in the
+    fold showed in the parametre path
+    '''
+    f = gzip.open(path+input_file_name, 'rb')
+    mc_data=f.read()
+    mc_lines=str(mc_data,encoding='utf-8').split("\n")
+    # [judge_if_mC(i) for i in mc_lines]
+    mc_true_lines=list(filter(judge_if_mC,mc_lines))
+    list(mc_true_lines)
+    mc_true_lines_out=[trans2bed(line) for line in mc_true_lines]
+    output_file_name=input_file_name[20:-4]+".mC.bed"
+    f_bed=open(path+output_file_name,"w")
+    f_bed.write("\n".join(mc_true_lines_out))
+    output_file_name=input_file_name[20:-4]+".mC.bed"
+    f_bed.close()
+    return output_file_name
+```
+
+bedtools coverage 统计G4 含有甲基化位点的比例
+
+```bed
+染色体号  g4起始  g4终止  序列  长度  正负链  评分  甲基化位点hit_number  甲基化位点coverage_length 长度again 甲基化位点coverage_ratio
+chr1    25335134        25335174        GGGTTTTGTCGGTCCGGGTTAGGGTAAAAGCGGGTCCGGG        40      +       6.68    0       0       40      0.0000000
+chr1    25449721        25449752        CCCGCCCTGGTGCTGCATCCCATGCATGCCC 31      -       18.62   3       3       31      0.0967742
+chr1    25449865        25449896        CCCCCCCTGGTGCTGCATCCCATGCATGCCC 31      -       22.85   2       2       31      0.0645161
+chr1    25449937        25450006        CCCCCCCTGGTGCTGCATCCCGTGCATGCCCTGGTGCTGCATCCCGTGCCCGCCCTGGTGCTGCATCCC   69      -       19.56   9       9       69      0.1304348
+chr1    25752671        25752713        CCCTTAATCTTATCCCCAAATTCGAAACCCTAATTAGCTCCC      42      -       3.29    0       0       42      0.0000000
+```
+
+bedtools 加 -hist 效果更好
+
+all     0       45550   46089   0.9883052
+all     1       539     46089   0.0116948
+
+直接统计好覆盖率
+
+```py
+def calculate_coverage_mC_g4(g4_file,mC_file):
+    tmp1 = "tmp1.bed"
+    tmp2 = "tmp2.bed"
+    os.system("bedtools coverage -a "+g4_file+" -b "+mC_file+" -s " + " > "+ tmp1)
+    os.system("bedtools coverage -a "+g4_file+" -b "+mC_file+" -s -hist " + " > "+ tmp2)
+    [covered,total,rate,hist] = mC_coverage_parser(tmp1,tmp2)
+    
+    os.system("rm "+tmp1)
+    os.system("rm "+tmp2)
+```
+
+[covered,total,rate,hist] 有甲基化的G4 全部G4 比例 以及加入hist参数后 all     1       539     46089   0.0116948
+
+## VAE 回顾
+
+分析思路 https://cloud.tencent.com/developer/article/1764757
+
+pmbc数据集降维可以分析 直接利用sc.pl.umap
+
+pmbc 也可以直接训练 但需要转录本做对应
+
+```py
+import numpy as np
+genes = list(adata.var['gene_symbol'])
+f = open('/home/ubuntu/MLPackageStudy/VAE/tf-homo-current-symbol.dat','rb')
+tfs = f.read()
+tfs = str(tfs,encoding = 'utf-8')
+tfs = tfs.split('\r\n')
+tfs
+tfs_pmbc = set(genes) & set(tfs)
+len(tfs_pmbc) , len(tfs)
+```
+重新确定转录本 利用pmbc数据集做
