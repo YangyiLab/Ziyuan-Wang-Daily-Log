@@ -75,10 +75,10 @@ Bacillus content was 2.63, 7.29 and 2.83(H1, H2 and H3) times higher in the non-
 # 2021-12-6
 
 ## PLAN
-+ MAE论文分析
-+ single cell denoise 分析
++ **MAE论文分析**trans_mCfile2bed_gz
++ **single cell denoise 分析**
 + **甲基化g4 pipeline**
-+ vae 回顾
++ **vae 回顾**
 
 ## 甲基化g4 pipeline
 
@@ -164,5 +164,16 @@ tfs = tfs.split('\r\n')
 tfs
 tfs_pmbc = set(genes) & set(tfs)
 len(tfs_pmbc) , len(tfs)
-```
+``` 
 重新确定转录本 利用pmbc数据集做
+    
+
+## dca
+
+本质：数据清洗针对单细胞数据零值较多进行处理
+负二项分布有特点为 方差随均质增大而增大的特点 适合单细胞
+该文章问题在于降维无解释性
+
+## mae
+
+图片预训练 找隐变量。按照模块mask 想十分创新
