@@ -17,6 +17,12 @@
   - [甲基化g4 pipeline](#甲基化g4-pipeline)
     - [下载方式](#下载方式)
   - [VAE 回顾](#vae-回顾)
+  - [dca](#dca)
+  - [mae](#mae)
+- [2021-12-7](#2021-12-7)
+  - [PLAN](#plan-6)
+  - [vae pmbc](#vae-pmbc)
+  - [MAE 论文](#mae-论文)
 
 
 # 2021-12-1
@@ -75,7 +81,7 @@ Bacillus content was 2.63, 7.29 and 2.83(H1, H2 and H3) times higher in the non-
 # 2021-12-6
 
 ## PLAN
-+ **MAE论文分析**trans_mCfile2bed_gz
++ **MAE论文分析**
 + **single cell denoise 分析**
 + **甲基化g4 pipeline**
 + **vae 回顾**
@@ -177,3 +183,49 @@ len(tfs_pmbc) , len(tfs)
 ## mae
 
 图片预训练 找隐变量。按照模块mask 想十分创新
+
+# 2021-12-7
+
+## PLAN
+
++ **完成BU申请**
++ **VAE 训练代码**
++ **修改RNN和LSTM的训练代码**
++ **甲基化pipeline**
+
+## vae pmbc
+将pmbc的tfs 和给出的tfs做了 交集 
+
+```py
+adata = sc.read_h5ad("/home/ubuntu/MLPackageStudy/VAE/in-silico/train_pbmc.h5ad")
+adata.X = adata.X.A
+sc.settings.verbosity = 3 
+
+
+sc.pp.filter_cells(adata, min_genes=200)
+sc.pp.filter_genes(adata, min_cells=3)
+
+#标准化数据
+sc.pp.log1p(adata)
+sc.pp.normalize_total(adata)
+
+gene_names = list(adata.var['gene_symbol'])
+f = open('/home/ubuntu/MLPackageStudy/VAE/tf-homo-current-symbol.dat','rb')
+tfs = f.read()
+tfs = str(tfs,encoding='utf-8')
+tfs = tfs.split('\r\n')
+tfs_pmbc = set(gene_names) & set(tfs)
+tfs_pmbc = list(tfs_pmbc)
+# data_z = adata.X
+
+batch_size = 128
+learning_rate = 1e-5
+patience = 20
+data_z_genes = adata.X
+
+data_z = adata[:,tfs_pmbc].X
+```
+
+## MAE 论文
+
+关注pretraining 后分类问题
