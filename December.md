@@ -36,6 +36,7 @@
 - [2021-12-10](#2021-12-10)
   - [PLAN](#plan-9)
   - [Transformer](#transformer)
+    - [Self-Attention](#self-attention)
 
 
 # 2021-12-1
@@ -305,9 +306,33 @@ $\mathbf {x'_{p}}\in \mathbb{R}^{N\times D}$
 
 + **乔治城 kaust 申请 overview**
 + **RNN LSTM 可视化总结**
-+ Transform 学习
++ **Transform 学习**
 + **in-silico 开始训练**
 
 ## Transformer
 
 paper https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+
++ 只用self-Attention 的架构
++ Encoder-Decoder 输出 是auto-regression 每次输出依赖上一次
++ Transformer 使用编码器解码器架构
++ Problem *multi-head Attention 机制*
++ LayerNorm vs BatchNorm 对每一个样本算均值方差
+
+### Self-Attention
+
+一种替代RNN的方案
+$$ y_i = f(\mathbf{x},(x_1,x_1),(x_i,x_i),...,) \in \mathbb{R}^d$$ 
+
+
+$\mathbf{y} $ 为抽取的特征向量 $n\times d$
+得到编码矩阵
+$$\mathbf{X}\in \mathbb{R}^{n\times d}$$
+
+**位置信息丢失**
+*解决方案* Positional Encoding 利用在序列中的位置(0...n)和维度(0...d) 得到编码矩阵
+$$\mathbf{P} \in \mathbb{R}^{n\times d}$$
+
+最终结果
+$$\mathbf{X}=\mathbf{X}+\mathbf{P}$$
+
