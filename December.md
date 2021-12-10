@@ -29,10 +29,13 @@
     - [按细胞](#按细胞)
     - [按gene](#按gene)
   - [微生物](#微生物)
-- [2021-12-8](#2021-12-8-1)
+- [2021-12-9](#2021-12-9)
   - [PLAN](#plan-8)
   - [MAE 相关研究](#mae-相关研究)
     - [Fine Tuning](#fine-tuning)
+- [2021-12-10](#2021-12-10)
+  - [PLAN](#plan-9)
+  - [Transformer](#transformer)
 
 
 # 2021-12-1
@@ -264,10 +267,10 @@ Bacilli H1 H3< H2
 
 COR-edges H1 H3< H2
 
-# 2021-12-8
+# 2021-12-9
 
 ## PLAN
-+ CMU YALE申请结束
++ **CMU YALE申请结束**
 + **MAE相关研究**
 + **RNN 可视化**
 
@@ -294,4 +297,17 @@ patches 拉到D维度
 $N=HW/P^2$
 $\mathbf {x'_{p}}\in \mathbb{R}^{N\times D}$
 
-![ViT数学表达](https://pic1.zhimg.com/v2-cb632e9df1dbc49e379799a0417e9b34_b.jpg) 
+![ViT数学表达](https://pic1.zhimg.com/v2-cb632e9df1dbc49e379799a0417e9b34_b.jpg)
+
+# 2021-12-10
+
+## PLAN
+
++ **乔治城 kaust 申请 overview**
++ **RNN LSTM 可视化总结**
++ Transform 学习
++ **in-silico 开始训练**
+
+## Transformer
+
+paper https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
