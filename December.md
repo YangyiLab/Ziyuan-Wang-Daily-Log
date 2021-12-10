@@ -23,6 +23,16 @@
   - [PLAN](#plan-6)
   - [vae pmbc](#vae-pmbc)
   - [MAE 论文](#mae-论文)
+- [2021-12-8](#2021-12-8)
+  - [PLAN](#plan-7)
+  - [pmbc 结果可视化](#pmbc-结果可视化)
+    - [按细胞](#按细胞)
+    - [按gene](#按gene)
+  - [微生物](#微生物)
+- [2021-12-8](#2021-12-8-1)
+  - [PLAN](#plan-8)
+  - [MAE 相关研究](#mae-相关研究)
+    - [Fine Tuning](#fine-tuning)
 
 
 # 2021-12-1
@@ -37,8 +47,9 @@
 +  Yale biostatistics 12.15
 +  密歇根 安娜堡 3.1
 +  BU 滚动
-+  UCLA 滚动
++  UCLA 滚动 (NG)
 +  JHU 滚动
++  Brown 2.1
 
 ## 机器学习K_Means 作业
 初步代码需要调整数据集
@@ -229,3 +240,58 @@ data_z = adata[:,tfs_pmbc].X
 ## MAE 论文
 
 关注pretraining 后分类问题
+
+
+# 2021-12-8
+
+## PLAN
++ **pmbc 结果可视化**
++ **微生物讨论初步**
++ **RNN LSTM训练**
+
+## pmbc 结果可视化
+
+### 按细胞
++ 不同类型做平均 
++ plot
+
+### 按gene
+同上
+
+## 微生物
+
+Bacilli H1 H3< H2
+
+COR-edges H1 H3< H2
+
+# 2021-12-8
+
+## PLAN
++ CMU YALE申请结束
++ **MAE相关研究**
++ **RNN 可视化**
+
+## MAE 相关研究
++ ViT
++ BEIT
+
+### Fine Tuning
+
+由 pretraining 到直接训练
+
+pre-training 是生成模型 得到隐变量后 分类等问题
+
+Patch Embedding Position Embedding https://bbs.cvmart.net/articles/4461
+
+https://arxiv.org/abs/2010.11929
+
+$\mathbf{xp}\in \mathbb{R}^{N\times(P^2\cdot C)}$
+
+$\mathbf{x'{p}}\in \mathbb{R}^{N\times D}$
+
+PATCH 拉成1D特征为$P^2\cdot C$
+patches 拉到D维度
+$N=HW/P^2$
+$\mathbf {x'_{p}}\in \mathbb{R}^{N\times D}$
+
+![ViT数学表达](https://pic1.zhimg.com/v2-cb632e9df1dbc49e379799a0417e9b34_b.jpg) 
