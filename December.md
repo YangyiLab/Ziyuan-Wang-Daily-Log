@@ -311,7 +311,7 @@ $\mathbf {x'_{p}}\in \mathbb{R}^{N\times D}$
 
 ## Transformer
 
-paper https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf
+[paper](https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf)
 
 + 只用self-Attention 的架构
 + Encoder-Decoder 输出 是auto-regression 每次输出依赖上一次
@@ -335,4 +335,51 @@ $$\mathbf{P} \in \mathbb{R}^{n\times d}$$
 
 最终结果
 $$\mathbf{X}=\mathbf{X}+\mathbf{P}$$
+
+
+# 2021-12-11
+
+## PLAN
++ **Transform 学习**
++ **nc 论文**
++ 乔治城和kaust ps
+
+
+## transformer学习
+
+### attention以及self-attention
+https://link.zhihu.com/?target=https%3A//arxiv.org/abs/1703.03130
+
+Self-attention应用于文本情感分析
+
+
+Attention的用途是在seq2seq中对于解码器给出输入让翻译可以专注于语义词，表示出重要程度
+
+![attention](https://pic3.zhimg.com/80/v2-7113d028d878ebcf8654d3ce6b54fa36_1440w.jpg)
+
+
+
+### 权重值
+
+对于attention 权重值由对应位置的编码器embedding和上时刻的解码器的隐状态共同决定
+
+![Image](https://pic4.zhimg.com/80/v2-5561fa61321f31113043fb9711ee3263_1440w.jpg)
+
+![Image](https://pic1.zhimg.com/80/v2-50473aa7b1c20d680abf8ca36d82c9e4_1440w.jpg) 
+
+## 文献nature. method
+
+[URL](https://www.nature.com/articles/s41592-021-01286-1.pdf)
+
+### 引言
+
+线性与非线性降维优缺点
+Trajectory estimation ？要查文献
+
+### 建图
+
+knn knn 时间序列等方法
+
+优点：求解xia对轻松比gcn 因为有解析解
+
 
