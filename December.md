@@ -37,6 +37,15 @@
   - [PLAN](#plan-9)
   - [Transformer](#transformer)
     - [Self-Attention](#self-attention)
+- [2021-12-11](#2021-12-11)
+  - [PLAN](#plan-10)
+  - [transformer学习](#transformer学习)
+    - [attention以及self-attention](#attention以及self-attention)
+    - [权重值](#权重值)
+  - [文献nature. method](#文献nature-method)
+    - [引言](#引言)
+    - [建图](#建图)
+    - [StructDB](#structdb)
 
 
 # 2021-12-1
@@ -342,7 +351,7 @@ $$\mathbf{X}=\mathbf{X}+\mathbf{P}$$
 ## PLAN
 + **Transform 学习**
 + **nc 论文**
-+ 乔治城和kaust ps
++ **乔治城和kaust ps**
 
 
 ## transformer学习
@@ -381,5 +390,20 @@ Trajectory estimation ？要查文献
 knn knn 时间序列等方法
 
 优点：求解xia对轻松比gcn 因为有解析解
+
+### StructDB
+
+**Pseudotime**
+
+源头 monocle2 
+
+先聚类后找路径
+
+找路径
++ 最小生成树
++ 反向嵌入图 则是先对细胞进行聚类，再对细胞群的平均值进行轨迹构建。用**最小生成树**
++ RNA velocity (gene expression trajectory) 从non-splicing 到splicingm 判断发育轨迹，不需要给出发育起点
+
+> 由于RNA velocity分析的前提是要我们从单细胞RNA-seq的数据中区分出未成熟的mRNA(unspliced)和成熟的mRNA(spliced)，所以需要从fastq文件开始，与基因组进行比对后得到sam文件，从sam文件转成bam文件，再从bam文件中提取spliced，unspliced和ambiguous信息。得到.loom为后缀的文件。
 
 
