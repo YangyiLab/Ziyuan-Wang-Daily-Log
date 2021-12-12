@@ -46,6 +46,9 @@
     - [引言](#引言)
     - [建图](#建图)
     - [StructDB](#structdb)
+- [2021-12-12](#2021-12-12)
+  - [PLAN](#plan-11)
+  - [甲基化G4论文](#甲基化g4论文)
 
 
 # 2021-12-1
@@ -407,3 +410,17 @@ knn knn 时间序列等方法
 > 由于RNA velocity分析的前提是要我们从单细胞RNA-seq的数据中区分出未成熟的mRNA(unspliced)和成熟的mRNA(spliced)，所以需要从fastq文件开始，与基因组进行比对后得到sam文件，从sam文件转成bam文件，再从bam文件中提取spliced，unspliced和ambiguous信息。得到.loom为后缀的文件。
 
 
+# 2021-12-12
+
+## PLAN
+
++ **KAUST 申请填写**
++ **范德堡账号申请材料overview**
++ **Madison Master Overivew**
++ **甲基化论文初步寻找**
+
+## 甲基化G4论文
++ Spiegel, J., Cuesta, S. M., Adhikari, S., Hänsel-Hertsch, R., Tannahill, D., & Balasubramanian, S. (2021). G-quadruplexes are transcription factor binding hubs in human chromatin. Genome Biology, 22(1), 1–15. https://doi.org/10.1186/s13059-021-02324-z
++ Zhang, S., Li, R., Zhang, L., Chen, S., Xie, M., Yang, L., Xia, Y., Foyer, C. H., Zhao, Z., & Lam, H. M. (2020). New insights into Arabidopsis transcriptome complexity revealed by direct sequencing of native RNAs. Nucleic Acids Research, 48(14), 7700–7711. https://doi.org/10.1093/nar/gkaa588 *CONCERNED WITH WENYAN LEI*
++ Wu, F., Niu, K., Cui, Y., Li, C., Lyu, M., Ren, Y., Chen, Y., Deng, H., Huang, L., Zheng, S., Liu, L., Wang, J., Song, Q., Xiang, H., & Feng, Q. (2021). Genome-wide analysis of DNA G-quadruplex motifs across 37 species provides insights into G4 evolution. Communications Biology, 4(1). https://doi.org/10.1038/s42003-020-01643-4  *CONCERNED WITH WENYAN LEI*
++ Iurlaro, M., McInroy, G. R., Burgess, H. E., Dean, W., Raiber, E. A., Bachman, M., Beraldi, D., Balasubramanian, S., & Reik, W. (2016). In vivo genome-wide profiling reveals a tissue-specific role for 5-formylcytosine. Genome Biology, 17(1), 1–9. https://doi.org/10.1186/s13059-016-1001-5
