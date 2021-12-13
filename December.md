@@ -49,6 +49,10 @@
 - [2021-12-12](#2021-12-12)
   - [PLAN](#plan-11)
   - [甲基化G4论文](#甲基化g4论文)
+- [2021-12-13](#2021-12-13)
+  - [PLAN](#plan-12)
+  - [文献阅读](#文献阅读)
+    - [G4基序与甲基化的关系](#g4基序与甲基化的关系)
 
 
 # 2021-12-1
@@ -424,3 +428,35 @@ knn knn 时间序列等方法
 + Zhang, S., Li, R., Zhang, L., Chen, S., Xie, M., Yang, L., Xia, Y., Foyer, C. H., Zhao, Z., & Lam, H. M. (2020). New insights into Arabidopsis transcriptome complexity revealed by direct sequencing of native RNAs. Nucleic Acids Research, 48(14), 7700–7711. https://doi.org/10.1093/nar/gkaa588 *CONCERNED WITH WENYAN LEI*
 + Wu, F., Niu, K., Cui, Y., Li, C., Lyu, M., Ren, Y., Chen, Y., Deng, H., Huang, L., Zheng, S., Liu, L., Wang, J., Song, Q., Xiang, H., & Feng, Q. (2021). Genome-wide analysis of DNA G-quadruplex motifs across 37 species provides insights into G4 evolution. Communications Biology, 4(1). https://doi.org/10.1038/s42003-020-01643-4  *CONCERNED WITH WENYAN LEI*
 + Iurlaro, M., McInroy, G. R., Burgess, H. E., Dean, W., Raiber, E. A., Bachman, M., Beraldi, D., Balasubramanian, S., & Reik, W. (2016). In vivo genome-wide profiling reveals a tissue-specific role for 5-formylcytosine. Genome Biology, 17(1), 1–9. https://doi.org/10.1186/s13059-016-1001-5
+
+# 2021-12-13
+
+## PLAN
++ **推荐信**
++ 文献阅读
++ **地理位置标注overview**
++ 毕业设计overview
++ **vae修改模型**
+
+## 文献阅读
+已作出巨大努力通过计算预测探索 G4 序列、结构和分布在植物19、20、原核生物21、病毒22、23和真核生物24 中的基因组景观和特征，这表明通用生物基因组中存在广泛的模式。以及这些结构在基因25 , 26的启动子和 5' 调节区中的功能意义。最近的两项研究使用高通量结构测序方法绘制了人类和其他生物体的全基因组 G4 结构图6 , 27. 值得注意的是，在这些研究中，通过 G4 结构测序方法6证实了生物信息学分析预测的绝大多数 G4 结构（80-90%）存在于基因组中，这表明基于预测的方法的可行性。
+
+分析表明，随着物种的进化（图 1a），G4 基序密度和长度与整个基因组的比例增加（图 1b、c；补充表 1）)，表明虽然基因组中G4s数量的增加部分与基因组大小的增加有关，但G4s数量和密度的增加是由于物种复杂性的增加。基因组模拟测试进一步支持了这一建议
+
+### G4基序与甲基化的关系
+
+文章 Genome-wide analysis of DNA G-quadruplex motifs across 37 species provides insights into G4 evolution
+
+**DNA 甲基化和 G4 结构都发生在富含 GC 的区域**
+
+使用具有高度甲基化基因组的哺乳动物物种猪和具有相对低甲基化的物种家蚕来检查 G4 基序与上游甲基化之间可能的进化关系 2 kb 基因区域。一般来说，在高度甲基化的猪基因组中，携带 (G/C) 3 L 1-7的基因上游 2 kb 区域的胞嘧啶显示出比整个基因组中的甲基化水平显着较低的甲基化水平（图 6a））。我们进一步绘制了基因上游 2 kb 区域 200 bp 滑动窗口的甲基化水平，发现在每个 200 bp 窗口中，(G/C) 3 L 1-7基因的甲基化水平明显低于在整个基因集背景中（图 6b）。
+
+在稀疏甲基化的家蚕基因组中，(G/C) 3 L 1-7基因的上游区域的甲基化胞嘧啶（mCs）的频率显着低于所有基因（图 6c）。当检查这些 mCs 的甲基化水平时，(G/C) 3 L 1-7基因的高甲基化胞嘧啶的频率显着低于所有基因（图 2d )。 *可能是未折叠*
+
+
+
+**这些结果表明 DNA G4s 和甲基化之间的拮抗关系可能存在并且可能是保守的，至少在哺乳动物和昆虫中是这样。**
+
+![](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42003-020-01643-4/MediaObjects/42003_2020_1643_Fig6_HTML.png?as=webp)
+
+**对于G4预测是用软件预测的**
