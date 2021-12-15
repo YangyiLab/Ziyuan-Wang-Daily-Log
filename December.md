@@ -53,6 +53,15 @@
   - [PLAN](#plan-12)
   - [文献阅读](#文献阅读)
     - [G4基序与甲基化的关系](#g4基序与甲基化的关系)
+- [2021-12-14](#2021-12-14)
+  - [PLAN](#plan-13)
+  - [Penn state](#penn-state)
+    - [PPT overview](#ppt-overview)
+    - [问题](#问题)
+- [2021-12-14](#2021-12-14-1)
+  - [PLAN](#plan-14)
+  - [ppt](#ppt)
+    - [拟南芥](#拟南芥)
 
 
 # 2021-12-1
@@ -433,9 +442,9 @@ knn knn 时间序列等方法
 
 ## PLAN
 + **推荐信**
-+ 文献阅读
++ **文献阅读**
 + **地理位置标注overview**
-+ 毕业设计overview
++ **毕业设计overview**
 + **vae修改模型**
 
 ## 文献阅读
@@ -460,3 +469,89 @@ knn knn 时间序列等方法
 ![](https://media.springernature.com/lw685/springer-static/image/art%3A10.1038%2Fs42003-020-01643-4/MediaObjects/42003_2020_1643_Fig6_HTML.png?as=webp)
 
 **对于G4预测是用软件预测的**
+
+# 2021-12-14
+
+## PLAN
++ **KAUST 提交**
++ **PENN STATE 稿**
++ **PENN STATE PPT**
++ 群体遗传复习
++ **简历复习**
+
+## Penn state
+
+### PPT overview
+
++ 标题页
++ Background
++ Skills
++ Research Summary: 1. 拟南芥 2. Phage Genome 3. SaAlign
+  + 拟南芥1001Genome
+    + 背景 
+      + 1001Genome distribution 图
+      + G4 示意图
+      + TE 示意图
+      + 甲基化 示意图
+    + 猜想 G4 在LTR末端 甲基化 如果不折叠 可能甲基化 导致分化
+    + Work
+      + 1. G4 Indentification 2. TE Indentification 3. 甲基化示意图
+      + G4被甲基化比率 与全体基因组甲基化比率
+      + TE差异识别/ TE转座子
+      + Because quadruplexes formed on one strand would theoretically leave the other strand in a single- stranded state, it is possible they could hinder methylation of the surrounding sequences, even if they were rich in CpG and other methylable nucleotide pairs. 
+    + 未来工作
+      + TE 转座子 G4三者关系
+  + Phage Genome
+    + 背景
+      + gene caller 算法回顾 GLIMMER PRODIGAL PHANOTATE
+      + PHAGE genome
+      + metagenome for phage genome
+    + work
+      + Random Forest
+      + MLP
+      + LSTM/RNN/GRU
+    + 进一步工作
+      + Atthention Transform架构
+      + pre-training small samples
+  + SaAlign
+    + 背景 MSA
+    + Work Overview
+
+### 问题
+
++ Introduction
+
+My name is Ziyuan Wang, a fourth-year undergraduate from Sichuan University, majoring in computational biology.I have been taking plenty of courses related to biology, statistics, and programming during my three-year undergraduate study, during which I got an overall GPA of 3.92/4.00, with the rank in my major as 1/27. My research interests consist of population genetics and deep learning.
+
++ why school
+
+The reputation of PSU all over the world and in China is great.Penn State’s Department of Biology is one of the top-ranked biology departments in the United States. Penn State has a lot of research funding and can produce good research results.
+Dr. Huang's research is attracting. He is good at finding scientific problem and using proper computational and deep learning method to solve them.
+
++ why phd
+
+First of all, I am very interested in research, and I enjoy the process of solving problems. At the same time, I really want to use computational and statistical methods to solve problems related to human diseases. At the same time, my future goal is to pursue an academic career. Obtaining a doctoral degree can improve my competitiveness, and participating in a doctoral program can enable me to learn more professional knowledge under the guidance of advisor.
+
++ obstacles
+
+# 2021-12-14
+
+## PLAN
++ 面试稿
++ sc可视化
++ 群体遗传概念复习
+
+## ppt
+
+### 拟南芥
+Arabidopsis thaliana is found throughout the world.
+
+In Europe we can also find different species of Arabidopsis growing in different geographical and climatic environments. This also results in the morphology of the final growth of Arabidopsis thaliana, which varies greatly from species to species. The root cause is that the genomes of different arabidopsis species are different under different growth conditions.
+
+The role of transposons in genome changes in Arabidopsis thaliana has been reported in many studies. Meanwhile, methylation can inactivate transposons and prevent transposons from transposing, which leads to genome changes between different species.
+
+Based on previous studies, G4 was considered in the analysis of arabidopsis transposons.
+
+It can be seen that G4 content is higher on both sides of the transposon, and the G4 site can be antagonistic to methylation.
+
+It has been speculated that the activity of transposable enzymes is affected by different geographical and climatic conditions. But here, we propose that different geographical and climatic environments will affect the folding of G4, and failure of G4 to fold will lead to methylation of CpG islands on both sides of LTR and inactivation of transposons.
