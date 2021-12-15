@@ -530,7 +530,8 @@ Dr. Huang's research is attracting. He is good at finding scientific problem and
 
 + why phd
 
-First of all, I am very interested in research, and I enjoy the process of solving problems. At the same time, I really want to use computational and statistical methods to solve problems related to human diseases. At the same time, my future goal is to pursue an academic career. Obtaining a doctoral degree can improve my competitiveness, and participating in a doctoral program can enable me to learn more professional knowledge under the guidance of advisor.
++ 群体遗传概念复习
+First of all, I am very interested in research, and I enjoy the process of solving problems. At the same time, I really want to use computational and statistical methods to solve problems related to human diseases. At the same time, my future goal is to pursue an academic career. Obtaining a doctoral degree can improve my competitiveness, and participating in a doctoral program can enable me to learn more professiodnal knowledge under the guidance of advisor.
 
 + obstacles
 
@@ -538,8 +539,8 @@ First of all, I am very interested in research, and I enjoy the process of solvi
 
 ## PLAN
 + **面试稿**
-+ sc可视化
-+ 群体遗传概念复习
++ **sc可视化**
++ **群体遗传概念复习**
 
 ## ppt
 
