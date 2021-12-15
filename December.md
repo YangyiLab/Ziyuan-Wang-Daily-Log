@@ -537,21 +537,21 @@ First of all, I am very interested in research, and I enjoy the process of solvi
 # 2021-12-14
 
 ## PLAN
-+ 面试稿
++ **面试稿**
 + sc可视化
 + 群体遗传概念复习
 
 ## ppt
 
 ### 拟南芥
-Arabidopsis thaliana is found throughout the world.
 
-In Europe we can also find different species of Arabidopsis growing in different geographical and climatic environments. This also results in the morphology of the final growth of Arabidopsis thaliana, which varies greatly from species to species. The root cause is that the genomes of different arabidopsis species are different under different growth conditions.
+The main question we want to explore is, what factors influence transposon activity. 
 
-The role of transposons in genome changes in Arabidopsis thaliana has been reported in many studies. Meanwhile, methylation can inactivate transposons and prevent transposons from transposing, which leads to genome changes between different species.
+Geographic factors, including altitude and geographical location, are known to affect the Arabidopsis genome. As shown here, despite the Arabidopsises are close to each other, genome variation can be large. The root cause is that the genomes of different arabidopsis species are located different growth conditions.
 
-Based on previous studies, G4 was considered in the analysis of arabidopsis transposons.
+G4 is a short piece of DNA in the genome that, when folded, blocks methylation on CpG island. The role of transposons in genome changes in Arabidopsis thaliana has been reported in many studies. However, methylation can inactivate transposons leading to genome differences between different species. 
 
-It can be seen that G4 content is higher on both sides of the transposon, and the G4 site can be antagonistic to methylation.
+LTR is a retrotransposon that can be copied and pasted.LTRs  are often the target of epigen- etic regulation, whereas retrotransposons are methylated and inactivated by the host. G4s have been observed in unmethylated regions of genomes of different kingdom before. We speculate that the presence of G4s in LTRs may be related to such inactivating mechanism, probably by interfering with the methylation process. Because G4s formed on one strand would theoretically leave the other strand in a single- stranded state, it is possible they could hinder methylation of the surrounding sequences, even if they were rich in CpG.
+
 
 It has been speculated that the activity of transposable enzymes is affected by different geographical and climatic conditions. But here, we propose that different geographical and climatic environments will affect the folding of G4, and failure of G4 to fold will lead to methylation of CpG islands on both sides of LTR and inactivation of transposons.
