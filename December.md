@@ -58,10 +58,18 @@
   - [Penn state](#penn-state)
     - [PPT overview](#ppt-overview)
     - [问题](#问题)
-- [2021-12-14](#2021-12-14-1)
+- [2021-12-15](#2021-12-15)
   - [PLAN](#plan-14)
   - [ppt](#ppt)
     - [拟南芥](#拟南芥)
+- [2021-12-16](#2021-12-16)
+  - [PLAN](#plan-15)
+  - [文章discussion](#文章discussion)
+    - [**Bacillus** 单独加一个part](#bacillus-单独加一个part)
+    - [未种植物的讨论](#未种植物的讨论)
+- [2021-12-17](#2021-12-17)
+  - [PLAN](#plan-16)
+  - [文章讨论](#文章讨论)
 
 
 # 2021-12-1
@@ -530,12 +538,10 @@ Dr. Huang's research is attracting. He is good at finding scientific problem and
 
 + why phd
 
-+ 群体遗传概念复习
 First of all, I am very interested in research, and I enjoy the process of solving problems. At the same time, I really want to use computational and statistical methods to solve problems related to human diseases. At the same time, my future goal is to pursue an academic career. Obtaining a doctoral degree can improve my competitiveness, and participating in a doctoral program can enable me to learn more professiodnal knowledge under the guidance of advisor.
 
-+ obstacles
 
-# 2021-12-14
+# 2021-12-15
 
 ## PLAN
 + **面试稿**
@@ -556,3 +562,46 @@ LTR is a retrotransposon that can be copied and pasted.LTRs  are often the targe
 
 
 It has been speculated that the activity of transposable enzymes is affected by different geographical and climatic conditions. But here, we propose that different geographical and climatic environments will affect the folding of G4, and failure of G4 to fold will lead to methylation of CpG islands on both sides of LTR and inactivation of transposons.
+
+# 2021-12-16
+
+## PLAN
++ **毕业设计ppt**
++ **sc结果整理**
++ **文章discussion**
+
+## 文章discussion
+
+
+### **Bacillus** 单独加一个part
+
++ Composition
+
++ Function
+
++ Interaction
+
+推出:hitchhiking 有助于植物生长
+
+### 未种植物的讨论
+
++ 无植物微生物结论基调
+
++ 微生物不同氮肥浓度
+**H1-F-vs-H2-F-vs-H3-F  无差异**
+H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
+
+没种植物和hitchhiking 关系主要论述!!!
+
+
+# 2021-12-17
+
+## PLAN
++ **cell paper visualization**
++ **文章讨论部分**
++ 分子生物学复习
+
+## 文章讨论
++ 种菜不种菜差异 堆叠A怎么样 种菜后和每种菜 种菜自己有膜无膜 描述A图 描述B图 AB图比较
++ 热图 用 Graph1-24 Tax4Fun
++ 重做Bacillus的图 用graphped
