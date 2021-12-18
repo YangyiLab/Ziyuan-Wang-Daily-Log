@@ -79,6 +79,7 @@
     - [预期结果及时间安排](#预期结果及时间安排)
   - [文献](#文献)
     - [Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications](#non-duplex-g-quadruplex-structures-emerge-as-mediators-of-epigenetic-modifications)
+    - [问题](#问题-1)
 
 
 # 2021-12-1
@@ -671,3 +672,8 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 
 人工添加 G4 
 由于结果支持 G4s 在参与 DNA 和组蛋白修饰的因果因素中的作用，G4s 将两种类型的表观遗传修饰联系起来的可能性可能很有趣。通过进一步的工作，有可能在分子水平上更清楚地了解 G4 作为可能诱导或改变位点特异性组蛋白和/或 DNA 修饰的介质的作用
+
+### 问题
++ 页码
++ 改成四个方式
++ why Introduction
