@@ -78,6 +78,7 @@
     - [技术路线及实验方案](#技术路线及实验方案)
     - [预期结果及时间安排](#预期结果及时间安排)
   - [文献](#文献)
+    - [Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications](#non-duplex-g-quadruplex-structures-emerge-as-mediators-of-epigenetic-modifications)
 
 
 # 2021-12-1
@@ -658,6 +659,15 @@ NLP发展历程。20世纪70年代以前主要是基于语义规则方法等，7
 
 ## 文献
 
-Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications
+Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications (DNA 甲基化影响 G4 稳定性，影响转录因子结合。在端粒酶启动子处，C5 甲基化阻断 CTCF 结合，抑制癌细胞中的端粒酶表达。)
 
 Mao, S. Q., Ghanbarian, A. T., Spiegel, J., Martínez Cuesta, S., Beraldi, D., Di Antonio, M., Marsico, G., Hänsel-Hertsch, R., Tannahill, D., & Balasubramanian, S. (2018). DNA G-quadruplex structures mold the DNA methylome. Nature Structural and Molecular Biology, 25(10), 951–957. https://doi.org/10.1038/s41594-018-0131-8
+
+Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, Li, D., Gu, L. quan, Ou, T. miao, & Huang, Z. shu. (2013). Stabilization of G-quadruplex DNA by C-5-methyl-cytosine in bcl-2 promoter: Implications for epigenetic regulation. Biochemical and Biophysical Research Communications, 433(4), 368–373. https://doi.org/10.1016/j.bbrc.2012.12.040
+
+### Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications
+
+由于结果支持 G4s 在参与 DNA 和组蛋白修饰的因果因素中的作用，G4s 将两种类型的表观遗传修饰联系起来的可能性可能很有趣。通过进一步的工作，有可能在分子水平上更清楚地了解 G4 作为可能诱导或改变位点特异性组蛋白和/或 DNA 修饰的介质的作用（参见未决问题）。
+
+人工添加 G4 
+由于结果支持 G4s 在参与 DNA 和组蛋白修饰的因果因素中的作用，G4s 将两种类型的表观遗传修饰联系起来的可能性可能很有趣。通过进一步的工作，有可能在分子水平上更清楚地了解 G4 作为可能诱导或改变位点特异性组蛋白和/或 DNA 修饰的介质的作用
