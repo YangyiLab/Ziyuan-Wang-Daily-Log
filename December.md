@@ -620,9 +620,9 @@ H1-NF-vs-H2-NF-vs-H3-NF 0.3333 0.026 *
 
 ## PLAN
 + **PPT讲稿**
-+ 分子生物学复习
++ **分子生物学复习**
 + **试验记录**
-+ 阅读文献
++ **阅读文献**
 
 ## PPT讲稿
 
@@ -664,6 +664,8 @@ Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modificatio
 
 Mao, S. Q., Ghanbarian, A. T., Spiegel, J., Martínez Cuesta, S., Beraldi, D., Di Antonio, M., Marsico, G., Hänsel-Hertsch, R., Tannahill, D., & Balasubramanian, S. (2018). DNA G-quadruplex structures mold the DNA methylome. Nature Structural and Molecular Biology, 25(10), 951–957. https://doi.org/10.1038/s41594-018-0131-8
 
+利用转录因子
+
 Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, Li, D., Gu, L. quan, Ou, T. miao, & Huang, Z. shu. (2013). Stabilization of G-quadruplex DNA by C-5-methyl-cytosine in bcl-2 promoter: Implications for epigenetic regulation. Biochemical and Biophysical Research Communications, 433(4), 368–373. https://doi.org/10.1016/j.bbrc.2012.12.040
 
 ### Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications
@@ -677,3 +679,9 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 + 页码
 + 改成四个方式
 + why Introduction
+
+## 分子
+
+操纵子模型
+
+翻译调控
