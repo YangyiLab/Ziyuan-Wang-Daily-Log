@@ -694,8 +694,11 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 ## PLAN
 + **毕业设计ppt修改**
 + **R语言教材整理**
-+ 分子生物学复习
++ **分子生物学复习**
 
+## 分子生物学进度
+
+翻译后修饰 N端化学修饰 肽切除 空间修饰
 
 
 
