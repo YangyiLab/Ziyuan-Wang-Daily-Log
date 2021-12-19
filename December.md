@@ -80,6 +80,9 @@
   - [文献](#文献)
     - [Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modifications](#non-duplex-g-quadruplex-structures-emerge-as-mediators-of-epigenetic-modifications)
     - [问题](#问题-1)
+  - [分子](#分子)
+- [2021-12-19](#2021-12-19)
+  - [PLAN](#plan-18)
 
 
 # 2021-12-1
@@ -664,7 +667,7 @@ Non-duplex G-Quadruplex Structures Emerge as Mediators of Epigenetic Modificatio
 
 Mao, S. Q., Ghanbarian, A. T., Spiegel, J., Martínez Cuesta, S., Beraldi, D., Di Antonio, M., Marsico, G., Hänsel-Hertsch, R., Tannahill, D., & Balasubramanian, S. (2018). DNA G-quadruplex structures mold the DNA methylome. Nature Structural and Molecular Biology, 25(10), 951–957. https://doi.org/10.1038/s41594-018-0131-8
 
-利用转录因子
+**利用转录因子**
 
 Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, Li, D., Gu, L. quan, Ou, T. miao, & Huang, Z. shu. (2013). Stabilization of G-quadruplex DNA by C-5-methyl-cytosine in bcl-2 promoter: Implications for epigenetic regulation. Biochemical and Biophysical Research Communications, 433(4), 368–373. https://doi.org/10.1016/j.bbrc.2012.12.040
 
@@ -685,3 +688,14 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 操纵子模型
 
 翻译调控
+
+# 2021-12-19
+
+## PLAN
++ **毕业设计ppt修改**
++ **R语言教材整理**
++ 分子生物学复习
+
+
+
+
