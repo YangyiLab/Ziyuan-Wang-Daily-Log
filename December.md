@@ -707,3 +707,13 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 
 
 因此 **优先利用葡萄糖**
+
+
+# 2021-12-20
+
+## PLAN
++ 分子生物学
++ 单细胞系统训练
++ 机器学习研究报告
++ zhou 文献阅读
+
