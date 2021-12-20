@@ -83,6 +83,11 @@
   - [分子](#分子)
 - [2021-12-19](#2021-12-19)
   - [PLAN](#plan-18)
+  - [分子生物学进度](#分子生物学进度)
+    - [细菌乳糖操纵子](#细菌乳糖操纵子)
+- [2021-12-20](#2021-12-20)
+  - [PLAN](#plan-19)
+  - [单细胞文献](#单细胞文献)
 
 
 # 2021-12-1
@@ -712,8 +717,16 @@ Lin, J., Hou, J. qiang, Xiang, H. dan, Yan, Y. yong, Gu, Y. chao, Tan, J. heng, 
 # 2021-12-20
 
 ## PLAN
-+ 分子生物学
-+ 单细胞系统训练
-+ 机器学习研究报告
-+ zhou 文献阅读
++ **分子生物学**
++ **单细胞系统训练**
++ **机器学习研究报告**
++ **zhou 文献阅读**
 
+## 单细胞文献
+Bfimpute: A Bayesian factorization method to recover single-cell RNA sequencing data
+恢复 dropout
+Gibbs 采样
+
+![gibss](https://pic3.zhimg.com/80/v2-7770a11e316152ef0369fad770015ab2_1440w.jpg)
+
+过程 剩一个确定其他的变量，一维一维移动 理论来源 平稳分布来源于 平稳分布的条件分布很多时候条件分布很好做
