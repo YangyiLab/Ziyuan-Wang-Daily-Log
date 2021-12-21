@@ -780,3 +780,12 @@ indicator分析中 不同氮肥浓度下种菜有Bacilli差异 不种菜没有
 延伸 新aatrna 原有的aatrna 分别在A P位置 考虑多肽酰trna和去氨酰trna位置 分别位于P E
 
 终止 涉及终止密码子和rf释放因子
+
+
+### RNA处理
+
+mRNA 修饰 加工 降解 主要关注splicing
+
+rRNA 关注处理
+
+trna 化学修饰 5 3 处理 
