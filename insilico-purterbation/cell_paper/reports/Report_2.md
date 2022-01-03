@@ -23,7 +23,7 @@
 
 
 
-# In-silico perturbation
+# In-silico perturbation 
 
 ## Material
 NCBI dataset: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90546
@@ -156,3 +156,5 @@ I plot the mean gene expression of two types of single cells with different trea
 It can be seen that under different treatments in PBMC, cell expression is not very similar, while in the CRISPR-perturbation group, gene expression is very similar.
 
 This result is validated by the umap plot.
+
+### Gene
