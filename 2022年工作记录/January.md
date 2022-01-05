@@ -42,7 +42,7 @@
   +  3) 系统生物学和肠道微生物组代谢-代谢物网络建模
   +  4) 开发用于生物医学数据分析的 AI 工具。
 
-# 2021-1-4
+# 2022-1-4
 
 ## PLAN
 + **分子生物学复习**
@@ -81,3 +81,12 @@ Figure2
 ![F2](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13073-018-0567-9/MediaObjects/13073_2018_567_Fig2_HTML.png?as=webp)
 
 sox2 是Transformed cells的标志
+
+# 2022-1-5
+
+## PLAN
++ **分子生物学**
++ 面试
+
+
+
