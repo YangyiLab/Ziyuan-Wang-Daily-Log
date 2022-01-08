@@ -21,6 +21,14 @@
   - [微生物](#微生物)
     - [Result](#result)
     - [Discussion](#discussion)
+  - [统计学习](#统计学习)
+    - [分布复习](#分布复习)
+    - [检验](#检验)
+- [2022-1-7](#2022-1-7-1)
+  - [PLAN](#plan-5)
+  - [单细胞](#单细胞)
+    - [单细胞数据检查](#单细胞数据检查)
+    - [模型进度](#模型进度)
 
 # 2021-1-3
 
@@ -175,3 +183,26 @@ sox2 是Transformed cells的标志
 
 非参数 不要求总体分布 品质数据
 品质数据往往不是随机变量 由好 很好 差等离散定序数据组成
+
+
+# 2022-1-7
+
+## PLAN
++ **微生物论文Discussion完成**
++ **单细胞数据检查**
++ 文献阅读
+
+## 单细胞
+
+### 单细胞数据检查
+
+mouse 数据 /home/ubuntu/data/insilico_pretrubation_data/mouse_epistasis_all.csv
+
+human 数据 /home/ubuntu/data/insilico_pretrubation_data/human_epistasis_all.csv
+/home/ubuntu/data/insilico_pretrubation_data/human_epistasis_gene.csv
+/home/ubuntu/data/insilico_pretrubation_data/human_epistasis_cell_type.csv
+
+### 模型进度
+
++ 已修改decoder模型
++ 未添加正则化
