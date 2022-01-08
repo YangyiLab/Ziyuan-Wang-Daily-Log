@@ -185,12 +185,12 @@ sox2 是Transformed cells的标志
 品质数据往往不是随机变量 由好 很好 差等离散定序数据组成
 
 
-# 2022-1-7
+# 2022-1-8
 
 ## PLAN
 + **微生物论文Discussion完成**
 + **单细胞数据检查**
-+ 文献阅读
++ **文献阅读**
 
 ## 单细胞
 
@@ -206,3 +206,12 @@ human 数据 /home/ubuntu/data/insilico_pretrubation_data/human_epistasis_all.cs
 
 + 已修改decoder模型
 + 未添加正则化
+
+## 人类hsc
+
+分化路径 层次
+
+
+尚在问题 是否可以只调一个转录因子
+
+成熟细胞和祖细胞关系
