@@ -14,6 +14,30 @@
 - [2022-1-6](#2022-1-6)
   - [PLAN](#plan-3)
   - [微生物主旨](#微生物主旨)
+- [2022-1-7](#2022-1-7)
+  - [PLAN](#plan-4)
+  - [单细胞进度](#单细胞进度)
+    - [Pre-Training](#pre-training)
+  - [微生物](#微生物)
+    - [Result](#result)
+    - [Discussion](#discussion)
+  - [统计学习](#统计学习)
+    - [分布复习](#分布复习)
+    - [检验](#检验)
+- [2022-1-8](#2022-1-8)
+  - [PLAN](#plan-5)
+  - [单细胞](#单细胞)
+    - [单细胞数据检查](#单细胞数据检查)
+    - [模型进度](#模型进度)
+  - [人类hsc](#人类hsc)
+- [2022-1-9](#2022-1-9)
+  - [PLAN](#plan-6)
+  - [单细胞可视化](#单细胞可视化)
+  - [微生物论文](#微生物论文)
+    - [Graphical Abstract](#graphical-abstract)
+  - [CellOracle](#celloracle)
+    - [Summary](#summary)
+    - [造血细胞研究](#造血细胞研究)
 
 # 2021-1-3
 
@@ -106,3 +130,126 @@ sox2 是Transformed cells的标志
 
 图一 没植物 画上氮肥微生物没有方向性
 图二 加植物 画上氮肥微生物有方向性
+
+# 2022-1-7
+
+## PLAN
++ **单细胞进度**
++ **Result**
++ **模式图商议**
++ **整理工作思路**
++ **统计学学习**
+
+## 单细胞进度
+
+> 老鼠HSC数据集
+
+最先计划 新数据集已有pipeline做训练(**在现有的network 正则化**)
+
+### Pre-Training 
+
+在现有的network 正则化 主要做 decoder 
+
+
+## 微生物
+
+### Result
+
+完成了堆叠图、多样性以及功能、相关性图的描述。
+
+**堆叠图**和**多样性**分析中修改较多
+
+### Discussion
+
++ Bacillus 没菜没区别 加植物有区别 证明会影响Bacillus 影响细胞运动 影响hitchhiking
++ 通过加了植物后 不同氮肥下 Bacillus 不一样 中等浓度最高 **适量氮肥和植物促进Bacillus** 浓度过高 浓度过低的氮肥影响Bacillus运动
++ 结论 协同共同作用hitchhiking
+
+另一段
+
++ 氮肥会促进植物生长 我们的结果表明了这个观点 植物生长图
++ 以往认为的原因 1 2 3 
++ 除了这些原因外 通过我们的实验，在加膜后，之间没有差异了（摆结果） 可能通过影响 hitchhiking 
++ 可以得出hitchhiking 促进植物生长
+
+## 统计学习
+
+### 分布复习
+
+
+均值 正态 z分布 t分布
+
+方差 卡方分布 自由度n-1
+
+比例 t分布
+
+相关系数 正态分布 t分布
+
+### 检验
+
+
+参数检验 样本量大 总体封据服从正态分布小样本服从分布
+
+非参数 不要求总体分布 品质数据
+品质数据往往不是随机变量 由好 很好 差等离散定序数据组成
+
+
+# 2022-1-8
+
+## PLAN
++ **微生物论文Discussion完成**
++ **单细胞数据检查**
++ **文献阅读**
+
+## 单细胞
+
+### 单细胞数据检查
+
+mouse 数据 /home/ubuntu/data/insilico_pretrubation_data/mouse_epistasis_all.csv
+
+human 数据 /home/ubuntu/data/insilico_pretrubation_data/human_epistasis_all.csv
+/home/ubuntu/data/insilico_pretrubation_data/human_epistasis_gene.csv
+/home/ubuntu/data/insilico_pretrubation_data/human_epistasis_cell_type.csv
+
+### 模型进度
+
++ 已修改decoder模型
++ 未添加正则化
+
+## 人类hsc
+
+分化路径 层次
+
+
+尚在问题 是否可以只调一个转录因子
+
+成熟细胞和祖细胞关系
+
+
+# 2022-1-9
+
+## PLAN
++ **单细胞可视化**
++ **文献阅读**
++ **微生物论文定稿审查**
+
+## 单细胞可视化
+
+问题 从tfs -> genes 的tsne umap降维效果不好
+
+**double check tf的顺序**
+
+## 微生物论文
+
+### Graphical Abstract
+初稿修订完毕
+
+
+## CellOracle
+
+### Summary
+在这里，我们介绍了 CellOracle，这是一种计算工具，它集成了单细胞转录组和表观基因组谱，以推断基因调控网络 (GRN)，这是细胞身份的关键调控因子。利用推断的 GRN，**我们模拟了响应转录因子 (TF) 扰动的基因表达变化**，使网络配置能够在计算机上进行询问，方便他们的解释。**我们验证了 CellOracle 的功效，可以概括造血过程中已知的调节变化，正确预测特征明确的 TF 扰动的结果**。将 CellOracle 分析与直接重编程的谱系追踪相结合，揭示了不同重编程故障模式下的不同网络配置。此外，沿着成功的重编程轨迹分析 GRN 重配置确定了提高靶细胞产量的新因素，揭示了 AP-1 亚基 Fos 与河马信号效应器 Yap1 的作用。总之，这些结果证明了 CellOracle 以高分辨率推断和解释细胞类型特异性 GRN 配置的功效，促进了对细胞身份调节和重编程的新机制见解
+
+### 造血细胞研究
+
+![HSC](https://www.biorxiv.org/content/biorxiv/early/2020/04/21/2020.02.17.947416/F3.large.jpg?width=800&height=600&carousel=1)
