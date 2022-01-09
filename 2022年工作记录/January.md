@@ -33,6 +33,11 @@
 - [2022-1-9](#2022-1-9)
   - [PLAN](#plan-6)
   - [单细胞可视化](#单细胞可视化)
+  - [微生物论文](#微生物论文)
+    - [Graphical Abstract](#graphical-abstract)
+  - [CellOracle](#celloracle)
+    - [Summary](#summary)
+    - [造血细胞研究](#造血细胞研究)
 
 # 2021-1-3
 
@@ -225,11 +230,26 @@ human 数据 /home/ubuntu/data/insilico_pretrubation_data/human_epistasis_all.cs
 
 ## PLAN
 + **单细胞可视化**
-+ 文献阅读
-+ 微生物论文定稿审查
++ **文献阅读**
++ **微生物论文定稿审查**
 
 ## 单细胞可视化
 
 问题 从tfs -> genes 的tsne umap降维效果不好
 
 **double check tf的顺序**
+
+## 微生物论文
+
+### Graphical Abstract
+初稿修订完毕
+
+
+## CellOracle
+
+### Summary
+在这里，我们介绍了 CellOracle，这是一种计算工具，它集成了单细胞转录组和表观基因组谱，以推断基因调控网络 (GRN)，这是细胞身份的关键调控因子。利用推断的 GRN，**我们模拟了响应转录因子 (TF) 扰动的基因表达变化**，使网络配置能够在计算机上进行询问，方便他们的解释。**我们验证了 CellOracle 的功效，可以概括造血过程中已知的调节变化，正确预测特征明确的 TF 扰动的结果**。将 CellOracle 分析与直接重编程的谱系追踪相结合，揭示了不同重编程故障模式下的不同网络配置。此外，沿着成功的重编程轨迹分析 GRN 重配置确定了提高靶细胞产量的新因素，揭示了 AP-1 亚基 Fos 与河马信号效应器 Yap1 的作用。总之，这些结果证明了 CellOracle 以高分辨率推断和解释细胞类型特异性 GRN 配置的功效，促进了对细胞身份调节和重编程的新机制见解
+
+### 造血细胞研究
+
+![HSC](https://www.biorxiv.org/content/biorxiv/early/2020/04/21/2020.02.17.947416/F3.large.jpg?width=800&height=600&carousel=1)
