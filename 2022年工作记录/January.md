@@ -38,6 +38,18 @@
   - [CellOracle](#celloracle)
     - [Summary](#summary)
     - [造血细胞研究](#造血细胞研究)
+- [2022-1-10](#2022-1-10)
+  - [PLAN](#plan-7)
+  - [tmux滚轮](#tmux滚轮)
+  - [LTR 学习内容](#ltr-学习内容)
+- [2022-1-11](#2022-1-11)
+  - [PLAN](#plan-8)
+  - [转录因子重建问题](#转录因子重建问题)
+- [2022-1-11](#2022-1-11-1)
+  - [PLAN](#plan-9)
+  - [LTR研究](#ltr研究)
+    - [基因破坏和表观遗传控制](#基因破坏和表观遗传控制)
+  - [LTR进化分析](#ltr进化分析)
 
 # 2021-1-3
 
@@ -253,3 +265,55 @@ human 数据 /home/ubuntu/data/insilico_pretrubation_data/human_epistasis_all.cs
 ### 造血细胞研究
 
 ![HSC](https://www.biorxiv.org/content/biorxiv/early/2020/04/21/2020.02.17.947416/F3.large.jpg?width=800&height=600&carousel=1)
+
+# 2022-1-10
+
+## PLAN
++ **微生物论文定稿**
+
+## tmux滚轮
+
+ctrl+B [ 即可正常使用
+
+## LTR 学习内容
+
++ 3'LTR 5'LTR 末端重复序列 根据这识别
++ 判断失活TE **用进化树聚类分析**
+
+# 2022-1-11
+
+## PLAN
++ 单细胞问题
+
+## 转录因子重建问题
+
+![s](../insilico-purterbation/repots_hsc_human/tfs.png)
+
+蓝色 encoder 后隐藏层
+橙色 隐藏层的交互层
+绿色 输出层转录因子
+
+
+# 2022-1-11
+
+## PLAN
++ **LTR 结构研究**
++ **G4 甲基化统计**
++ **LTR初步设计**
++ **微生物文章**
+
+## LTR研究
+
+### 基因破坏和表观遗传控制
+
+**外显子、内含子插入**
+
+**通读转录**
+
+**表观遗传学破坏**
+
+## LTR进化分析
+
+ML树 分析 $K_{ST}$数 进行评估等
+
+详见GBE文献
