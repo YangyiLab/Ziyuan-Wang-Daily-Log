@@ -338,8 +338,8 @@ LTR 反转录转座子具有直接的 长末端重复序列，其大小范围从
 
 ## PLAN
 + **微生物文章定稿**
-+ 文献阅读
-+ ML树复习
++ **文献阅读**
++ **进化树复习**
 + **统计学学习**
 
 ## 统计学学习
@@ -381,3 +381,34 @@ A/B 因素方差自由度计算 因素均值-总均值 自由度=因素数-平�
 + 图的图注
 + 文章中图标记
 + abstract
+
+## GBE文章
+
+### 重点
++	进化树可视化分型
++	利用多指标判断是否失话
+
+### 推荐阅读文章
+
+
++ NAR Quadruplex-forming sequences occupy discrete regions inside plant LTR retrotransposons
+
++ NAR Whole genome experimental maps of DNA G-quadruplexes in multiple species
+
++ Nature structural & molecular biology https://doi.org/10.1038/ s41594-018-0131-8.
+
++ Cell http://dx.doi.org/10.1016/j.cell.2016.06.044
+
++ scientific report https://doi.org/10.1038/s41598-017-14017-4
+
++ gene http://dx.doi.org/10.1016/j.gene.2017.04.051
+
++ gbe Evolutionary Dynamics of Retrotransposons Assessed by High-Throughput Sequencing in Wild Relatives of Wheat
+
+## 进化树复习
+
+### 非概率论方法
+
+邻接法（为解决分子钟速率不一致问题） umpga
+
+简约法 用最少碱基替换数目解释 包括确定罚值以及搜索全局最小值
