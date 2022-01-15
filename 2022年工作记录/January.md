@@ -442,8 +442,8 @@ A/B 因素方差自由度计算 因素均值-总均值 自由度=因素数-平�
 + **单细胞结果overview**
 + **预训练学习**
 + **微生物结果整合，检查**
-+ 拟南芥项目规划
-+ 文献阅读 (cell oracle)
++ **拟南芥项目规划**
++ **文献阅读 (cell oracle)**
 
 ## 单细胞结果overview
 依然无法解决中间层 tf恢复较差的问题
@@ -551,3 +551,18 @@ for epoch in range(100):
 + 利用爬虫 (python) 学习如何下载 相关文件
 + 甲基化网站 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE43857
 + https://www.arabidopsis.org/download/index-auto.jsp?dir=%2Fdownload_files%2FGenes%2FTAIR10_genome_release%2FTAIR10_transposable_elements 转座子库
+
+## cell oracle
+
+
+### 数据集
+
+Hsc 数据集
+
+### 原理
+
+首先利用已知信息创建基础网络
+
+再对不同类别创建特异性调控网络贝叶斯边际理论
+
+再对特定转录因子波动 网络多次迭代达到稳态
