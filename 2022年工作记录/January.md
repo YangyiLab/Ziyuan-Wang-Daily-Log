@@ -57,6 +57,22 @@
     - [单因素配对方差检验](#单因素配对方差检验)
     - [双因素方差检验](#双因素方差检验)
   - [微生物文章定稿](#微生物文章定稿)
+  - [GBE文章](#gbe文章)
+    - [重点](#重点)
+    - [推荐阅读文章](#推荐阅读文章)
+  - [进化树复习](#进化树复习)
+    - [非概率论方法](#非概率论方法)
+- [2022-1-14](#2022-1-14)
+  - [PLAN](#plan-11)
+- [2022-1-15](#2022-1-15)
+  - [PLAN](#plan-12)
+  - [单细胞结果overview](#单细胞结果overview)
+  - [pre-training (Transforming Learning)](#pre-training-transforming-learning)
+    - [tricks](#tricks)
+    - [encoder](#encoder)
+    - [decoder](#decoder)
+  - [拟南芥项目规划](#拟南芥项目规划)
+    - [Yijia Liu's TASK](#yijia-lius-task)
 
 # 2021-1-3
 
@@ -412,3 +428,126 @@ A/B 因素方差自由度计算 因素均值-总均值 自由度=因素数-平�
 邻接法（为解决分子钟速率不一致问题） umpga
 
 简约法 用最少碱基替换数目解释 包括确定罚值以及搜索全局最小值
+
+
+# 2022-1-14
+
+## PLAN
++ **图注**
++ **摘要**
+
+# 2022-1-15
+
+## PLAN
++ **单细胞结果overview**
++ **预训练学习**
++ **微生物结果整合，检查**
++ 拟南芥项目规划
++ 文献阅读 (cell oracle)
+
+## 单细胞结果overview
+依然无法解决中间层 tf恢复较差的问题
+
+## pre-training (Transforming Learning)
+
+### tricks
+
+Fine-tuning
+
++ 更小学习率
++ 较少数据迭代
++ 底层更加通用
+
+### encoder
+
+**未设置正则化项**
+
+```py
+from functools import reduce
+from pickle import load
+import torch
+import numpy as np
+import torch.nn.functional as F
+from torch import  nn, optim
+import scanpy as sc
+from scipy import sparse
+import pandas as pd
+import Custom_dataLoader
+import VAE_model
+from torch.utils.data import DataLoader
+from early_stop import EarlyStopping
+import wandb
+
+adata = sc.read_h5ad("/home/ubuntu/MLPackageStudy/VAE/in-silico/model_Version_2/hsc_anndata_human.h5ad")
+gene_names = list(adata.var['gene_symbol'])
+adata.obs['cell_type']=adata.obs_names
+f = open('/home/ubuntu/MLPackageStudy/VAE/tf-homo-current-symbol.dat','rb')
+tfs = f.read()
+tfs = str(tfs,encoding='utf-8')
+tfs = tfs.split('\r\n')
+tfs_hsc_human = set(gene_names) & set(tfs)
+tfs_hsc_human = list(tfs_hsc_human)
+
+wandb.init(project="my-test-project", entity="pry2000")
+wandb.config = {
+"learning_rate": 1e-5,
+"batch_size": 128
+}
+
+batch_size = 128
+learning_rate = 1e-4
+patience = 20
+data_z_genes = adata.X
+data_z = adata[:,tfs_hsc_human].X
+# print(data_z_genes.values)
+training_set = Custom_dataLoader.CustomDataset(torch.Tensor(np.array(data_z,dtype=np.float32)),torch.Tensor(np.array(data_z_genes,dtype=np.float32)))
+training_dataloader = DataLoader(training_set,batch_size, shuffle=True)
+
+def pre_train_loop_decoder(dataloader, model, loss_fn, optimizer,epoch):
+    
+    size = len(dataloader.dataset)
+    loss_epoch = 0
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        pred, _ = model(X)
+        loss = loss_fn(pred, y)
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        nn.utils.clip_grad_norm_(model.parameters(), max_norm=20, norm_type=2)
+        optimizer.step()
+        loss_epoch += loss.item()
+
+    print('epoch: ', epoch, '  loss:', loss_epoch/size)
+    wandb.log({"loss": loss_epoch/size})
+    # Optional
+    wandb.watch(model)
+    return loss_epoch
+
+
+
+model = VAE_model.Decoder_VAE(data_z_genes.shape[1],z_dim = data_z.shape[1])
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+criterion = nn.MSELoss(reduction = "sum")
+print(model)
+early_stopping = EarlyStopping(patience=patience, verbose=True,path="/home/ubuntu/MLPackageStudy/VAE/in-silico/model_Version_2/encoder_human_checkpoint.pt")
+for epoch in range(100):
+    loss = pre_train_loop_decoder (training_dataloader,model,criterion, optimizer,epoch)
+    model.eval()
+    early_stopping(loss, model)
+    if early_stopping.early_stop:
+        break
+```
+
+### decoder
+
+**代码类似但没有考虑两层TFs**
+
+## 拟南芥项目规划
+
+### Yijia Liu's TASK
+
++ 熟悉pipeline 1
++ 利用爬虫 (python) 学习如何下载 相关文件
++ 甲基化网站 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE43857
++ https://www.arabidopsis.org/download/index-auto.jsp?dir=%2Fdownload_files%2FGenes%2FTAIR10_genome_release%2FTAIR10_transposable_elements 转座子库
