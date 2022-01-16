@@ -73,6 +73,14 @@
     - [decoder](#decoder)
   - [拟南芥项目规划](#拟南芥项目规划)
     - [Yijia Liu's TASK](#yijia-lius-task)
+  - [cell oracle](#cell-oracle)
+    - [数据集](#数据集)
+    - [原理](#原理)
+- [2022-1-16](#2022-1-16)
+  - [PLAN](#plan-13)
+  - [BLAST](#blast)
+    - [步骤](#步骤)
+    - [blast操作](#blast操作)
 
 # 2021-1-3
 
@@ -566,3 +574,76 @@ Hsc 数据集
 再对不同类别创建特异性调控网络贝叶斯边际理论
 
 再对特定转录因子波动 网络多次迭代达到稳态
+
+
+# 2022-1-16
+
+## PLAN
++ **单细胞结果处理**
++ **LTR工具操作**
++ 深度学习文章学习
+
+## BLAST
+
+### 步骤
+
+LTR_Finder识别后，提取每一个LTR，再进行blast，blast后再进行处理
+
+
+### blast操作
+
+**已完成**
++ 拟南芥转座子库下载
++ blast 建库
+
+blast比对操作
+
+```bash
+# -query 后面是带查询的序列 -db是建库的数据库即tedb数据库
+blastn -query test.fa -db /home/ubuntu/data/softwares/tedb -outfmt 6
+```
+
+
+**输出**
+1. Query id：查询序列ID标识
+2. Subject id：比对上的目标序列ID标识
+3. % identity：序列比对的一致性百分比
+4. alignment length：符合比对的比对区域的长度
+5. mismatches：比对区域的错配数
+6. gap openings：比对区域的gap数目
+7. q. start：比对区域在查询序列(Query id)上的起始位点
+8. q. end：比对区域在查询序列(Query id)上的终止位点
+9. s. start：比对区域在目标序列(Subject id)上的起始位点
+10. s. end：比对区域在目标序列(Subject id)上的终止位点
+11. e-value：比对结果的期望值
+12. bit score：比对结果的bit score值
+
+
+```xml
+chr1    AT1TE52125|-|15827287|15838845|ATHILA2|LTR/Gypsy|11559  100.000 540     0       0       181     720     1       540     0.0     998
+chr1    AT3TE50655|-|12211825|12218034|ATHILA2|LTR/Gypsy|6210   99.074  540     5       0       181     720     875     1414    0.0     970
+chr1    AT1TE52110|-|15822576|15826633|ATHILA2|LTR/Gypsy|4058   99.074  540     5       0       181     720     1       540     0.0     970
+chr1    AT2TE22520|+|5573729|5578989|ATHILA2|LTR/Gypsy|5261     98.704  540     7       0       181     720     18      557     0.0     959
+chr1    AT4TE16565|-|3736029|3742064|ATHILA2|LTR/Gypsy|6036     98.148  540     10      0       181     720     707     1246    0.0     942
+chr1    AT5TE42965|-|12029290|12035478|ATHILA2|LTR/Gypsy|6189   97.963  540     11      0       181     720     870     1409    0.0     937
+chr1    AT1TE49850|+|15186993|15192976|ATHILA2|LTR/Gypsy|5984   97.963  540     11      0       181     720     706     1245    0.0     937
+chr1    AT5TE42355|+|11777537|11782793|ATHILA2|LTR/Gypsy|5253   98.131  535     10      0       181     715     61      595     0.0     933
+chr1    AT3TE62025|+|15257913|15263797|ATHILA2|LTR/Gypsy|5885   97.407  540     14      0       181     720     543     1082    0.0     920
+chr1    AT2TE16230|-|3750178|3766283|ATHILA2|LTR/Gypsy|5438     96.811  533     17      0       188     720     1       533     0.0     891
+chr1    AT4TE19150|+|4555124|4560555|ATHILA2|LTR/Gypsy|5432     96.111  540     21      0       181     720     19      558     0.0     881
+chr1    AT3TE57150|+|13909790|13915698|ATHILA6A|LTR/Gypsy|5909  95.185  540     26      0       181     720     469     1008    0.0     854
+chr1    AT4TE16400|+|3697525|3703860|ATHILA2|LTR/Gypsy|6336     94.630  540     29      0       181     720     1035    1574    0.0     837
+chr1    AT3TE55340|+|13603229|13609413|ATHILA2|LTR/Gypsy|6185   94.630  540     28      1       181     720     874     1412    0.0     835
+chr1    AT1TE51065|+|15500423|15504894|ATHILA2|LTR/Gypsy|4473   94.259  540     31      0       181     720     61      600     0.0     826
+chr1    AT1TE46575|-|14178069|14183542|ATHILA2|LTR/Gypsy|5454   93.889  540     33      0       181     720     222     761     0.0     815
+chr1    AT5TE43815|-|12338677|12342939|ATHILA2|LTR/Gypsy|4263   93.704  540     23      1       181     720     706     1234    0.0     798
+```
+
+进一步处理
+
+LTR处理路径即
++ LTR_Finder 输出文件 **.ltr
++ **.ltr-> **.ltr.bed
++ **.ltr.bed/ **.fasta -> **.ltr.fasta
++ blast **.ltr.fasta-> **.ltr.xml
++ 最终进行判断
