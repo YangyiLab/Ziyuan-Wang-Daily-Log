@@ -57,6 +57,30 @@
     - [单因素配对方差检验](#单因素配对方差检验)
     - [双因素方差检验](#双因素方差检验)
   - [微生物文章定稿](#微生物文章定稿)
+  - [GBE文章](#gbe文章)
+    - [重点](#重点)
+    - [推荐阅读文章](#推荐阅读文章)
+  - [进化树复习](#进化树复习)
+    - [非概率论方法](#非概率论方法)
+- [2022-1-14](#2022-1-14)
+  - [PLAN](#plan-11)
+- [2022-1-15](#2022-1-15)
+  - [PLAN](#plan-12)
+  - [单细胞结果overview](#单细胞结果overview)
+  - [pre-training (Transforming Learning)](#pre-training-transforming-learning)
+    - [tricks](#tricks)
+    - [encoder](#encoder)
+    - [decoder](#decoder)
+  - [拟南芥项目规划](#拟南芥项目规划)
+    - [Yijia Liu's TASK](#yijia-lius-task)
+  - [cell oracle](#cell-oracle)
+    - [数据集](#数据集)
+    - [原理](#原理)
+- [2022-1-16](#2022-1-16)
+  - [PLAN](#plan-13)
+  - [BLAST](#blast)
+    - [步骤](#步骤)
+    - [blast操作](#blast操作)
 
 # 2021-1-3
 
@@ -412,3 +436,214 @@ A/B 因素方差自由度计算 因素均值-总均值 自由度=因素数-平�
 邻接法（为解决分子钟速率不一致问题） umpga
 
 简约法 用最少碱基替换数目解释 包括确定罚值以及搜索全局最小值
+
+
+# 2022-1-14
+
+## PLAN
++ **图注**
++ **摘要**
+
+# 2022-1-15
+
+## PLAN
++ **单细胞结果overview**
++ **预训练学习**
++ **微生物结果整合，检查**
++ **拟南芥项目规划**
++ **文献阅读 (cell oracle)**
+
+## 单细胞结果overview
+依然无法解决中间层 tf恢复较差的问题
+
+## pre-training (Transforming Learning)
+
+### tricks
+
+Fine-tuning
+
++ 更小学习率
++ 较少数据迭代
++ 底层更加通用
+
+### encoder
+
+**未设置正则化项**
+
+```py
+from functools import reduce
+from pickle import load
+import torch
+import numpy as np
+import torch.nn.functional as F
+from torch import  nn, optim
+import scanpy as sc
+from scipy import sparse
+import pandas as pd
+import Custom_dataLoader
+import VAE_model
+from torch.utils.data import DataLoader
+from early_stop import EarlyStopping
+import wandb
+
+adata = sc.read_h5ad("/home/ubuntu/MLPackageStudy/VAE/in-silico/model_Version_2/hsc_anndata_human.h5ad")
+gene_names = list(adata.var['gene_symbol'])
+adata.obs['cell_type']=adata.obs_names
+f = open('/home/ubuntu/MLPackageStudy/VAE/tf-homo-current-symbol.dat','rb')
+tfs = f.read()
+tfs = str(tfs,encoding='utf-8')
+tfs = tfs.split('\r\n')
+tfs_hsc_human = set(gene_names) & set(tfs)
+tfs_hsc_human = list(tfs_hsc_human)
+
+wandb.init(project="my-test-project", entity="pry2000")
+wandb.config = {
+"learning_rate": 1e-5,
+"batch_size": 128
+}
+
+batch_size = 128
+learning_rate = 1e-4
+patience = 20
+data_z_genes = adata.X
+data_z = adata[:,tfs_hsc_human].X
+# print(data_z_genes.values)
+training_set = Custom_dataLoader.CustomDataset(torch.Tensor(np.array(data_z,dtype=np.float32)),torch.Tensor(np.array(data_z_genes,dtype=np.float32)))
+training_dataloader = DataLoader(training_set,batch_size, shuffle=True)
+
+def pre_train_loop_decoder(dataloader, model, loss_fn, optimizer,epoch):
+    
+    size = len(dataloader.dataset)
+    loss_epoch = 0
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        pred, _ = model(X)
+        loss = loss_fn(pred, y)
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        nn.utils.clip_grad_norm_(model.parameters(), max_norm=20, norm_type=2)
+        optimizer.step()
+        loss_epoch += loss.item()
+
+    print('epoch: ', epoch, '  loss:', loss_epoch/size)
+    wandb.log({"loss": loss_epoch/size})
+    # Optional
+    wandb.watch(model)
+    return loss_epoch
+
+
+
+model = VAE_model.Decoder_VAE(data_z_genes.shape[1],z_dim = data_z.shape[1])
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+criterion = nn.MSELoss(reduction = "sum")
+print(model)
+early_stopping = EarlyStopping(patience=patience, verbose=True,path="/home/ubuntu/MLPackageStudy/VAE/in-silico/model_Version_2/encoder_human_checkpoint.pt")
+for epoch in range(100):
+    loss = pre_train_loop_decoder (training_dataloader,model,criterion, optimizer,epoch)
+    model.eval()
+    early_stopping(loss, model)
+    if early_stopping.early_stop:
+        break
+```
+
+### decoder
+
+**代码类似但没有考虑两层TFs**
+
+## 拟南芥项目规划
+
+### Yijia Liu's TASK
+
++ 熟悉pipeline 1
++ 利用爬虫 (python) 学习如何下载 相关文件
++ 甲基化网站 https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE43857
++ https://www.arabidopsis.org/download/index-auto.jsp?dir=%2Fdownload_files%2FGenes%2FTAIR10_genome_release%2FTAIR10_transposable_elements 转座子库
+
+## cell oracle
+
+
+### 数据集
+
+Hsc 数据集
+
+### 原理
+
+首先利用已知信息创建基础网络
+
+再对不同类别创建特异性调控网络贝叶斯边际理论
+
+再对特定转录因子波动 网络多次迭代达到稳态
+
+
+# 2022-1-16
+
+## PLAN
++ **单细胞结果处理**
++ **LTR工具操作**
++ 深度学习文章学习
+
+## BLAST
+
+### 步骤
+
+LTR_Finder识别后，提取每一个LTR，再进行blast，blast后再进行处理
+
+
+### blast操作
+
+**已完成**
++ 拟南芥转座子库下载
++ blast 建库
+
+blast比对操作
+
+```bash
+# -query 后面是带查询的序列 -db是建库的数据库即tedb数据库
+blastn -query test.fa -db /home/ubuntu/data/softwares/tedb -outfmt 6
+```
+
+
+**输出**
+1. Query id：查询序列ID标识
+2. Subject id：比对上的目标序列ID标识
+3. % identity：序列比对的一致性百分比
+4. alignment length：符合比对的比对区域的长度
+5. mismatches：比对区域的错配数
+6. gap openings：比对区域的gap数目
+7. q. start：比对区域在查询序列(Query id)上的起始位点
+8. q. end：比对区域在查询序列(Query id)上的终止位点
+9. s. start：比对区域在目标序列(Subject id)上的起始位点
+10. s. end：比对区域在目标序列(Subject id)上的终止位点
+11. e-value：比对结果的期望值
+12. bit score：比对结果的bit score值
+
+
+```xml
+chr1    AT1TE52125|-|15827287|15838845|ATHILA2|LTR/Gypsy|11559  100.000 540     0       0       181     720     1       540     0.0     998
+chr1    AT3TE50655|-|12211825|12218034|ATHILA2|LTR/Gypsy|6210   99.074  540     5       0       181     720     875     1414    0.0     970
+chr1    AT1TE52110|-|15822576|15826633|ATHILA2|LTR/Gypsy|4058   99.074  540     5       0       181     720     1       540     0.0     970
+chr1    AT2TE22520|+|5573729|5578989|ATHILA2|LTR/Gypsy|5261     98.704  540     7       0       181     720     18      557     0.0     959
+chr1    AT4TE16565|-|3736029|3742064|ATHILA2|LTR/Gypsy|6036     98.148  540     10      0       181     720     707     1246    0.0     942
+chr1    AT5TE42965|-|12029290|12035478|ATHILA2|LTR/Gypsy|6189   97.963  540     11      0       181     720     870     1409    0.0     937
+chr1    AT1TE49850|+|15186993|15192976|ATHILA2|LTR/Gypsy|5984   97.963  540     11      0       181     720     706     1245    0.0     937
+chr1    AT5TE42355|+|11777537|11782793|ATHILA2|LTR/Gypsy|5253   98.131  535     10      0       181     715     61      595     0.0     933
+chr1    AT3TE62025|+|15257913|15263797|ATHILA2|LTR/Gypsy|5885   97.407  540     14      0       181     720     543     1082    0.0     920
+chr1    AT2TE16230|-|3750178|3766283|ATHILA2|LTR/Gypsy|5438     96.811  533     17      0       188     720     1       533     0.0     891
+chr1    AT4TE19150|+|4555124|4560555|ATHILA2|LTR/Gypsy|5432     96.111  540     21      0       181     720     19      558     0.0     881
+chr1    AT3TE57150|+|13909790|13915698|ATHILA6A|LTR/Gypsy|5909  95.185  540     26      0       181     720     469     1008    0.0     854
+chr1    AT4TE16400|+|3697525|3703860|ATHILA2|LTR/Gypsy|6336     94.630  540     29      0       181     720     1035    1574    0.0     837
+chr1    AT3TE55340|+|13603229|13609413|ATHILA2|LTR/Gypsy|6185   94.630  540     28      1       181     720     874     1412    0.0     835
+chr1    AT1TE51065|+|15500423|15504894|ATHILA2|LTR/Gypsy|4473   94.259  540     31      0       181     720     61      600     0.0     826
+chr1    AT1TE46575|-|14178069|14183542|ATHILA2|LTR/Gypsy|5454   93.889  540     33      0       181     720     222     761     0.0     815
+chr1    AT5TE43815|-|12338677|12342939|ATHILA2|LTR/Gypsy|4263   93.704  540     23      1       181     720     706     1234    0.0     798
+```
+
+进一步处理
+
+LTR处理路径即
++ LTR_Finder 输出文件 **.ltr
++ **.ltr-> **.ltr.bed
++ **.ltr.bed/ **.fasta -> **.ltr.fasta
++ blast **.ltr.fasta-> **.ltr.xml
++ 最终进行判断
