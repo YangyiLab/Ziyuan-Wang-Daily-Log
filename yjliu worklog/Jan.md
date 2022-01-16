@@ -1,9 +1,11 @@
 - [寒假work](#寒假work)
   - [1.15](#115)
     - [理解项目](#理解项目)
-    - [待做](#待做)
+    - [待做（bed、pipeline、split、replace、join）](#待做bedpipelinesplitreplacejoin)
     - [记录](#记录)
   - [1.16](#116)
+    - [待做](#待做)
+    - [记录（bedtools（intersect、coverage））](#记录bedtoolsintersectcoverage)
 
 # 寒假work
 
@@ -12,9 +14,38 @@
 + 下载G4序列和已测好的甲基化序列，寻找重叠部分
 + LTR结构中具有CpG，易发生甲基化，但G4会抑制甲基化
 + fasta和bed文件的转化
-### 待做
-+ 理解pipeline
-    + 目的：计算出染色体中G4的甲基化部分
+### 待做（bed、pipeline、split、replace、join）
++ 理解pipeline √
++ 爬虫批量下载文件
++ 文献阅读
+  +  NAR Quadruplex-forming sequences occupy discrete regions inside plant LTR retrotransposons
+
+  + NAR Whole genome experimental maps of DNA G-quadruplexes in multiple species
+
+  + Nature structural & molecular biology https://doi.org/10.1038/ s41594-018-0131-8.
+
+  + Cell http://dx.doi.org/10.1016/j.cell.2016.06.044
+
+  + scientific report https://doi.org/10.1038/s41598-017-14017-4
+
+  + gene http://dx.doi.org/10.1016/j.gene.2017.04.051
+
+  + gbe Evolutionary Dynamics of Retrotransposons Assessed by High-Throughput Sequencing in Wild Relatives of Wheat
++ tmux
+### 记录
++ bed文件
+    + 3个必须的列和9个额外可选的列
+        + chrom（染色体名字）、目标区段起止位置
+        + strand ：定义链的方向，''+” 或者”-”
+    thickStart ：起始位置(例如，基因起始编码位置）
+    thickEnd ：终止位置（例如：基因终止编码位置）　
+    itemRGB ：是一个RGB值的形式, R, G, B (eg. 255, 0,0), 如果itemRgb设置为'On”, 这个RBG值将决定数据的显示的颜色。
+    blockCount ：BED行中的block数目，也就是外显子数目
+    blockSize：用逗号分割的外显子的大小, 这个item的数目对应于BlockCount的数目
+    blockStarts ：用逗号分割的列表, 所有外显子的起始位置，数目也与blockCount数目对应
+
++ pipeline：
+  + 目的：计算出染色体中G4的甲基化部分
     + Quadron_finder:
         + 输入：该条染色体的序列（fasta）
         + 结果：该条染色体中G4序列（bed）
@@ -32,8 +63,8 @@
         + 过程：
             mC_coverage_parser：
             + 输入：G4bed文件和甲基化序列bed文件合并后的文件（利用bedtools处理，还不太理解？）
-            + 输出：重叠的序列，总的序列，重叠序列占比，hist（？）
-   + fasta_all_5：
+            + 输出：重叠的序列，总的序列，重叠序列占比，hist（画直方图）
+    + fasta_all_5：
         + 输入：全序列文件和idfile（方便对比）
         + 输出：每个染色体自己的序列文件
         + 过程：
@@ -57,19 +88,91 @@
            result= key.split("\t") 
         结果:[a,b,c]
 
-+ 爬虫批量下载文件
-+ 文献阅读
-+ tmux
-### 记录
-+ bed文件
-    + 3个必须的列和9个额外可选的列
-        + chrom（染色体名字）、目标区段起止位置
-        + strand ：定义链的方向，''+” 或者”-”
-    thickStart ：起始位置(例如，基因起始编码位置）
-    thickEnd ：终止位置（例如：基因终止编码位置）　
-    itemRGB ：是一个RGB值的形式, R, G, B (eg. 255, 0,0), 如果itemRgb设置为'On”, 这个RBG值将决定数据的显示的颜色。
-    blockCount ：BED行中的block数目，也就是外显子数目
-    blockSize：用逗号分割的外显子的大小, 这个item的数目对应于BlockCount的数目
-    blockStarts ：用逗号分割的列表, 所有外显子的起始位置，数目也与blockCount数目对应
-
 ## 1.16
+### 待做
++ bedtools学习
++ 数学建模
++ 文献阅读
+### 记录（bedtools（intersect、coverage））
++ bedtools
+学习网站：https://bedtools.readthedocs.io/en/latest/content/bedtools-suite.html
+  + **intersect**
+    + 目的：提取两组基因组特征的重叠（扩展后可以一次识别单个查询 ( -a ) 文件和多个数据库文件 ( -b ) 之间的重叠）
+    + 基本操作：$ bedtools intersect -a A.bed -b B.bed
+    报告A与B的共享间隔
+    如：$ cat A.bed
+        chr1  10  20
+        chr1  30  40
+        $ cat B.bed
+        chr1  15   20
+        使用如上命令，结果为 chr1 15 20
+    
+    **扩展功能基本都为在上述原始命令后接“-命令”**
+
+    + -wa:报告原始A特征，即不仅仅是重叠的那部分，而是包含重叠部分的那整段序列
+      如上例：$ bedtools intersect -a A.bed -b B.bed -wa
+      结果为 chr1  10   20
+    + -wb：报告 A 的重叠部分，然后是原始的B特征
+      如上例，结果为 chr1  15  20  chr1 15  20
+    **同时用-wa和-wb则显示的为A和B各自的包含重叠序列的完整序列**
+    + -loj：对每个A特征都进行输出，不管有无重叠
+        但若有重叠，将报告A及重叠部分；若无则报告A及NULL B特征
+        chr1  10  20  chr1 15  20
+        chr1  30  40  . -1  -1
+    + -wo：在-wa和-wb同时使用效果的基础上，再加入一列报告重叠量（碱基对的量）
+        如上例：$ cat A.bed
+        chr1    10    20
+        chr1    30    40
+
+        $ cat B.bed
+        chr1    15  20
+        chr1    18  25
+
+        $ bedtools intersect -a A.bed -b B.bed -wo
+        chr1    10    20    chr1    15  20  5
+        chr1    10    20    chr1    18  25  2
+    + -wao：在-wo的基础上，还报告了A中与B无重叠的的序列
+    + -u：如果存在一个或多个重叠，则报告 A 特征。否则，不会报告任何内容；-c扩展-u，在后加一列指示重叠特征的数量（非碱基对的量），另外对于A中无重叠的也会报告；-C则扩展-c在A对于多个文件的比较（分别计数与显示），再加上-filenames，则把对应标号改为文件名
+    如下例：$ bedtools intersect -a A.bed -b B.bed -C -names a b
+    chr1    10    20    a 2
+    chr1    10    20    b 2
+    chr1    30    40    a 0
+    chr1    30    40    b 0
+    + -v：报告A中与B无重叠序列的序列
+    + -f：要求最小重叠分数，即要求至少重叠X%，才会报告
+    + -s：仅在相同链上找重叠，而-S则限制在相反链上
+  + **coverage**
+    + 基本操作 $ bedtools coverage -a A.bed -b B.bed
+    在 A 中的每个间隔之后，将报告：
+      + B 中与 A 区间重叠（至少一个碱基对）的特征数。
+      + A 中具有 B 中特征的非零覆盖率的碱基数。
+      + A中条目的长度。
+      + A 中具有 B 中特征的非零覆盖率的碱基比例。
+    + -s：则按链计算覆盖率
+    + -hist：为 A 文件中的每个特征创建覆盖率直方图
+    如下例：
+    $ cat A.bed
+    chr1  0   100 b1  1  +
+    chr1  100 200 b2  1  -
+    chr2  0   100 b3  1  +
+
+    $ cat B.bed
+    chr1  10  20  a1  1  -
+    chr1  20  30  a2  1  -
+    chr1  30  40  a3  1  -
+    chr1  100 200 a4  1  +
+
+    $ bedtools coverage  -a A.bed -b B.bed -hist
+    chr1  0   100 b1  1  +  0  70  100  0.7000000
+    chr1  0   100 b1  1  +  1  30  100  0.3000000
+    chr1  100 200 b2  1  -  1  100 100  1.0000000
+    chr2  0   100 b3  1  +  0  100 100  1.0000000
+    all   0   170 300 0.5666667
+    all   1   130 300 0.4333333
+
+    **实质上把B中所有序列都当作一种特征，则A中每段与B重叠的序列都被视为特征1，而无重叠的序列都被视为特征2**
+
+    -s和-hist混用则可以按链来统计
++ 文献阅读：**Quadruplex-forming sequences occupy discrete regions inside plant LTR retrotransposons**
+    + 小tips：DNA负链即为模板链，正链：复制中与新链序列相同的原单链，非模板链。
+    具mRNA功能、进入宿主细胞后可直接作为模板合成病毒蛋白质的单链RNA病毒，称正链RNA病毒或(+)RNA病毒。
