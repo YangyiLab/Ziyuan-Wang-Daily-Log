@@ -81,6 +81,11 @@
   - [BLAST](#blast)
     - [步骤](#步骤)
     - [blast操作](#blast操作)
+- [2022-1-17](#2022-1-17)
+  - [PLAN](#plan-14)
+  - [单细胞源代码学习](#单细胞源代码学习)
+  - [ltr](#ltr)
+    - [ML树](#ml树)
 
 # 2021-1-3
 
@@ -647,3 +652,28 @@ LTR处理路径即
 + **.ltr.bed/ **.fasta -> **.ltr.fasta
 + blast **.ltr.fasta-> **.ltr.xml
 + 最终进行判断
+
+
+# 2022-1-17
+
+## PLAN
+
++ **单细胞源代码学习**
++ **ltr pipeline**
++ 统计学学习
+
+## 单细胞源代码学习
+修改网络架构
+进行预训练 encoder层面
+要想在内存有限的情况下训练，需要减小batchsize
+
+## ltr
+
+### ML树
+
+两个potential choices
+
++ raxml
++ iqtree
+
+msa -> tree
