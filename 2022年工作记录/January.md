@@ -81,6 +81,18 @@
   - [BLAST](#blast)
     - [步骤](#步骤)
     - [blast操作](#blast操作)
+- [2022-1-17](#2022-1-17)
+  - [PLAN](#plan-14)
+  - [单细胞源代码学习](#单细胞源代码学习)
+  - [ltr](#ltr)
+    - [ML树](#ml树)
+  - [多重检验](#多重检验)
+    - [Bonferroni 法](#bonferroni-法)
+    - [Scheff 法](#scheff-法)
+    - [Tukey 法](#tukey-法)
+- [2022-1-18](#2022-1-18)
+  - [PLAN](#plan-15)
+  - [序列下载](#序列下载)
 
 # 2021-1-3
 
@@ -647,3 +659,71 @@ LTR处理路径即
 + **.ltr.bed/ **.fasta -> **.ltr.fasta
 + blast **.ltr.fasta-> **.ltr.xml
 + 最终进行判断
+
+
+# 2022-1-17
+
+## PLAN
+
++ **单细胞源代码学习**
++ **ltr pipeline**
++ **统计学学习**
+
+## 单细胞源代码学习
+修改网络架构
+进行预训练 encoder层面
+要想在内存有限的情况下训练，需要减小batchsize
+
+## ltr
+
+### ML树
+
+两个potential choices
+
++ raxml
++ iqtree
+
+msa -> tree
+
+## 多重检验
+
+当通过方差检验发现多组之间存在差异时，如果逐个进行t检验，错误概率会大大增加
+
+$$r_{error} = 1-(1-\alpha)^n$$
+
+所以要进行修正，包括对于每个检验的$\alpha$值进行修正，对于检验统计量的矫正以及分布的矫正
+
+### Bonferroni 法
+
+本质对于$\alpha$值进行矫正
+
+$$\alpha'=\alpha/n$$
+
+当样本大于5时过于严格
+
+### Scheff 法
+
+$$\sum c_j\mu_j,s.t. \sum c_j=0$$
+
+重新抽早统计量进行对比，计算是否具有显著性与$F(j-1,N-j;\alpha)$进行比较
+
+$j$组数，$N$样本数
+
+
+### Tukey 法
+
+更改统计量
+
+# 2022-1-18
+
+## PLAN
++ **单细胞pre-train**
++ **bcftools探究**
+
+## 序列下载
+
++ 下载vcf文件
++ 利用**bcftools** 和参考基因组 构建新序列
+```bash
+ bcftools consensus -I -f /home/ubuntu/Arabidopsis/Arabidopsis_sequence/Col-0/Col-0.fasta in.new.vcf.gz > out.fa
+ ```
