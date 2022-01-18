@@ -90,6 +90,9 @@
     - [Bonferroni 法](#bonferroni-法)
     - [Scheff 法](#scheff-法)
     - [Tukey 法](#tukey-法)
+- [2022-1-18](#2022-1-18)
+  - [PLAN](#plan-15)
+  - [序列下载](#序列下载)
 
 # 2021-1-3
 
@@ -710,3 +713,17 @@ $j$组数，$N$样本数
 ### Tukey 法
 
 更改统计量
+
+# 2022-1-18
+
+## PLAN
++ **单细胞pre-train**
++ **bcftools探究**
+
+## 序列下载
+
++ 下载vcf文件
++ 利用**bcftools** 和参考基因组 构建新序列
+```bash
+ bcftools consensus -I -f /home/ubuntu/Arabidopsis/Arabidopsis_sequence/Col-0/Col-0.fasta in.new.vcf.gz > out.fa
+ ```
