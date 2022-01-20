@@ -93,6 +93,8 @@
 - [2022-1-18](#2022-1-18)
   - [PLAN](#plan-15)
   - [序列下载](#序列下载)
+- [2022-1-20](#2022-1-20)
+  - [PLAN](#plan-16)
 
 # 2021-1-3
 
@@ -727,3 +729,10 @@ $j$组数，$N$样本数
 ```bash
  bcftools consensus -I -f /home/ubuntu/Arabidopsis/Arabidopsis_sequence/Col-0/Col-0.fasta in.new.vcf.gz > out.fa
  ```
+
+
+# 2022-1-20
+
+## PLAN
++ TE/G4构架设计
++ 单细胞预训练
