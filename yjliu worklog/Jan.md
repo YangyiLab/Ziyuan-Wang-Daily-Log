@@ -12,6 +12,14 @@
   - [1.18](#118)
     - [待做](#待做-2)
     - [记录](#记录-2)
+  - [1.20](#120)
+    - [待做](#待做-3)
+    - [记录](#记录-3)
+  - [1.21](#121)
+    - [待做](#待做-4)
+    - [记录](#记录-4)
+  - [1.22](#122)
+    - [记录](#记录-5)
 
 # 寒假work
 
@@ -168,6 +176,16 @@
     chr1  30  40  a3  1  -
     chr1  100 200 a4  1  +
 
+    $ bedtools coverage -a A.bed -b B.bed
+    chr1  0   100 b1  1  +  3  30  100  0.3000000
+    chr1  100 200 b2  1  -  1  100 100  1.0000000
+    chr2  0   100 b3  1  +  0  0   100  0.0000000
+
+    $ bedtools coverage -a A.bed -b B.bed -s
+    chr1  0   100 b1  1  +  0  0   100  0.0000000
+    chr1  100 200 b2  1  -  0  0   100  0.0000000
+    chr2  0   100 b3  1  +  0  0   100  0.0000000
+
     $ bedtools coverage  -a A.bed -b B.bed -hist
     chr1  0   100 b1  1  +  0  70  100  0.7000000
     chr1  0   100 b1  1  +  1  30  100  0.3000000
@@ -214,3 +232,47 @@
         **① 星形表示法和邻接表表示法在实际算法实现中都是经常采用的。星形表示法的优点是占用的存储空间较少，并且对那些不提供指针类型的语言（如 FORTRAN 语言 等）也容易实现。邻接表表示法对那些提供指针类型的语言（如 C 语言等）是方便的， 且增加或删除一条弧所需的计算工作量很少，而这一操作在星形表示法中所需的计算工作量较大（需要花费O(m) 的计算时间）② 当网络不是简单图，而是具有平行弧（即多重弧）时，显然此时邻接矩阵表示法是不能采用的。其他方法则可以很方便地推广到可以处理平行弧的情形。**
       + 若道路W 的边互不相同，则W 称为迹(trail)。若道路W 的顶点互不相同，则W 称 为轨(path)。起点和终点重合的轨叫做 圈(cycle)。 
         **(i) 图 P 是一条轨的充要条件是 P 是连通的，且有两个一度的顶点，其余顶点的度 为 2；(ii) 图C 是一个圈的充要条件是C 是各顶点的度均为 2 的连通图。**
+
+## 1.20
+### 待做
++ 把数据计入表中
+### 记录
++ Python小tips：
+    filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判断，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。
++ 数据计入表中：
+  + mC_coverage_parser(file1,file2)输出：
+    covered：g4序列中有甲基化的序列数
+    total：g4序列总数
+    covered/total
+    hist：无重叠的部分
+
+'G4/MC':被甲基化的G4（个数）,'G4_total'：全部G4个数,'MC_rate'：第一个除第二个
+'G4_MC_bp':bp形式的如上
+'G4_all_bp'
+'MC_frequncy'
+
+## 1.21
+### 待做
++ 下载
++ vcf.gz转为fasta
+### 记录
++ 安装 bcftools 1.2,   htslib-1.2.1
+  网址：http://blog.sina.com.cn/s/blog_e94982960102yzy4.html
++ vcf的解压方法：
+  bgzip -d view.vcf.gz
+  gunzip view.vcf.gz
++ vcf.gz转为fasta的方法：
++ https://samtools.github.io/bcftools/howtos/consensus-sequence.html（调用，规范化indels并进行过滤，但报错，怀疑与“chr”有关）
++ https://www.jianshu.com/p/a23d6f1226a1?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation（最终选择方法）
++ https://blog.csdn.net/Cassiel60/article/details/88998254(关于1和chr1)
+  https://www.cnblogs.com/zhanmaomao/p/12570237.html（tabix用法）
+https://www.biostars.org/p/204875/(关于Fasta 序列与 REF 不匹配错误，并以samtools faidx 检查 )
+
+## 1.22
+### 记录
+  + 整理了pipeline(包括操作和输入表格)，只需调用deal_package(i)一步
+  + 下载则package(i)，vcfgzToFasta(i,"/home/ubuntu/data/Arabidopsis_sequence/"+i)
+  + tmux：新建会话tmux new -s my_session。
+    在 Tmux 窗口运行所需的程序。
+    按下快捷键Ctrl+b d将会话分离。
+    下次使用时，重新连接到会话tmux attach-session -t my_session。
