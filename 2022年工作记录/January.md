@@ -131,10 +131,8 @@
 - [2022-1-27](#2022-1-27)
   - [PLAN](#plan-22)
   - [拟南芥文献阅读](#拟南芥文献阅读)
+  - [进化树代码](#进化树代码)
 
----
-bibliography: ["../Refs/Genome1001 Project-Genome1001-2021.bib"]
----
 
 # 2021-1-3
 
@@ -945,10 +943,31 @@ from X to Z 重建效果很差
 # 2022-1-27
 
 ## PLAN
-+ 进化树的功能实现
++ **进化树的功能实现**
 + **NTU文献阅读**
 + **拟南芥文献阅读**
 
 ## 拟南芥文献阅读
 + 4acC 在TSS富集
 + 4acC 与5mc 拮抗
+
+## 进化树代码
+
+路径： /home/ubuntu/Arabidopsis/Scripts/tree_construction.sh
+
+```bash
+
+cd $1
+mafft $2.fasta > tmp.fasta
+if [ ! -d $1/tmpfolder ];then
+    mkdir $1/tmpfolder
+    iqtree -s tmp.fasta -m TIM2+I+G -bb 1000 -pre $1/tmpfolder/tmp
+else
+  echo "文件夹已经存在"
+fi
+
+cd $1/tmpfolder
+cd $1
+rm tmp.fasta
+rm -R $1/tmpfolder
+```
