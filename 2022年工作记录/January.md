@@ -1,98 +1,145 @@
 - [2021-1-3](#2021-1-3)
   - [PLAN](#plan)
-  - [UTHealth 面试准备](#uthealth-面试准备)
-    - [讲稿修改](#讲稿修改)
-    - [研究兴趣](#研究兴趣)
-    - [潜在教授](#潜在教授)
+  - [UTHealth 面试准备](#uthealth-%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87)
+    - [讲稿修改](#%E8%AE%B2%E7%A8%BF%E4%BF%AE%E6%94%B9)
+    - [研究兴趣](#%E7%A0%94%E7%A9%B6%E5%85%B4%E8%B6%A3)
+    - [潜在教授](#%E6%BD%9C%E5%9C%A8%E6%95%99%E6%8E%88)
 - [2022-1-4](#2022-1-4)
   - [PLAN](#plan-1)
-  - [方差分析](#方差分析)
-  - [文献阅读](#文献阅读)
-    - [结果](#结果)
+  - [方差分析](#%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90)
+  - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
+    - [结果](#%E7%BB%93%E6%9E%9C)
 - [2022-1-5](#2022-1-5)
   - [PLAN](#plan-2)
 - [2022-1-6](#2022-1-6)
   - [PLAN](#plan-3)
-  - [微生物主旨](#微生物主旨)
+  - [微生物主旨](#%E5%BE%AE%E7%94%9F%E7%89%A9%E4%B8%BB%E6%97%A8)
 - [2022-1-7](#2022-1-7)
   - [PLAN](#plan-4)
-  - [单细胞进度](#单细胞进度)
+  - [单细胞进度](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%BF%9B%E5%BA%A6)
     - [Pre-Training](#pre-training)
-  - [微生物](#微生物)
+  - [微生物](#%E5%BE%AE%E7%94%9F%E7%89%A9)
     - [Result](#result)
     - [Discussion](#discussion)
-  - [统计学习](#统计学习)
-    - [分布复习](#分布复习)
-    - [检验](#检验)
+  - [统计学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0)
+    - [分布复习](#%E5%88%86%E5%B8%83%E5%A4%8D%E4%B9%A0)
+    - [检验](#%E6%A3%80%E9%AA%8C)
 - [2022-1-8](#2022-1-8)
   - [PLAN](#plan-5)
-  - [单细胞](#单细胞)
-    - [单细胞数据检查](#单细胞数据检查)
-    - [模型进度](#模型进度)
-  - [人类hsc](#人类hsc)
+  - [单细胞](#%E5%8D%95%E7%BB%86%E8%83%9E)
+    - [单细胞数据检查](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE%E6%A3%80%E6%9F%A5)
+    - [模型进度](#%E6%A8%A1%E5%9E%8B%E8%BF%9B%E5%BA%A6)
+  - [人类hsc](#%E4%BA%BA%E7%B1%BBhsc)
 - [2022-1-9](#2022-1-9)
   - [PLAN](#plan-6)
-  - [单细胞可视化](#单细胞可视化)
-  - [微生物论文](#微生物论文)
+  - [单细胞可视化](#%E5%8D%95%E7%BB%86%E8%83%9E%E5%8F%AF%E8%A7%86%E5%8C%96)
+  - [微生物论文](#%E5%BE%AE%E7%94%9F%E7%89%A9%E8%AE%BA%E6%96%87)
     - [Graphical Abstract](#graphical-abstract)
   - [CellOracle](#celloracle)
     - [Summary](#summary)
-    - [造血细胞研究](#造血细胞研究)
+    - [造血细胞研究](#%E9%80%A0%E8%A1%80%E7%BB%86%E8%83%9E%E7%A0%94%E7%A9%B6)
 - [2022-1-10](#2022-1-10)
   - [PLAN](#plan-7)
-  - [tmux滚轮](#tmux滚轮)
-  - [LTR 学习内容](#ltr-学习内容)
+  - [tmux滚轮](#tmux%E6%BB%9A%E8%BD%AE)
+  - [LTR 学习内容](#ltr-%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9)
 - [2022-1-11](#2022-1-11)
   - [PLAN](#plan-8)
-  - [转录因子重建问题](#转录因子重建问题)
+  - [转录因子重建问题](#%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90%E9%87%8D%E5%BB%BA%E9%97%AE%E9%A2%98)
 - [2022-1-12](#2022-1-12)
   - [PLAN](#plan-9)
-  - [LTR研究](#ltr研究)
-    - [基因破坏和表观遗传控制](#基因破坏和表观遗传控制)
-  - [LTR进化分析](#ltr进化分析)
-  - [LTR 结构](#ltr-结构)
+  - [LTR研究](#ltr%E7%A0%94%E7%A9%B6)
+    - [基因破坏和表观遗传控制](#%E5%9F%BA%E5%9B%A0%E7%A0%B4%E5%9D%8F%E5%92%8C%E8%A1%A8%E8%A7%82%E9%81%97%E4%BC%A0%E6%8E%A7%E5%88%B6)
+  - [LTR进化分析](#ltr%E8%BF%9B%E5%8C%96%E5%88%86%E6%9E%90)
+  - [LTR 结构](#ltr-%E7%BB%93%E6%9E%84)
 - [2022-1-13](#2022-1-13)
   - [PLAN](#plan-10)
-  - [统计学学习](#统计学学习)
-    - [单因素配对方差检验](#单因素配对方差检验)
-    - [双因素方差检验](#双因素方差检验)
-  - [微生物文章定稿](#微生物文章定稿)
-  - [GBE文章](#gbe文章)
-    - [重点](#重点)
-    - [推荐阅读文章](#推荐阅读文章)
-  - [进化树复习](#进化树复习)
-    - [非概率论方法](#非概率论方法)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0)
+    - [单因素配对方差检验](#%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%85%8D%E5%AF%B9%E6%96%B9%E5%B7%AE%E6%A3%80%E9%AA%8C)
+    - [双因素方差检验](#%E5%8F%8C%E5%9B%A0%E7%B4%A0%E6%96%B9%E5%B7%AE%E6%A3%80%E9%AA%8C)
+  - [微生物文章定稿](#%E5%BE%AE%E7%94%9F%E7%89%A9%E6%96%87%E7%AB%A0%E5%AE%9A%E7%A8%BF)
+  - [GBE文章](#gbe%E6%96%87%E7%AB%A0)
+    - [重点](#%E9%87%8D%E7%82%B9)
+    - [推荐阅读文章](#%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0)
+  - [进化树复习](#%E8%BF%9B%E5%8C%96%E6%A0%91%E5%A4%8D%E4%B9%A0)
+    - [非概率论方法](#%E9%9D%9E%E6%A6%82%E7%8E%87%E8%AE%BA%E6%96%B9%E6%B3%95)
 - [2022-1-14](#2022-1-14)
   - [PLAN](#plan-11)
 - [2022-1-15](#2022-1-15)
   - [PLAN](#plan-12)
-  - [单细胞结果overview](#单细胞结果overview)
+  - [单细胞结果overview](#%E5%8D%95%E7%BB%86%E8%83%9E%E7%BB%93%E6%9E%9Coverview)
   - [pre-training (Transforming Learning)](#pre-training-transforming-learning)
     - [tricks](#tricks)
     - [encoder](#encoder)
     - [decoder](#decoder)
-  - [拟南芥项目规划](#拟南芥项目规划)
+  - [拟南芥项目规划](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E9%A1%B9%E7%9B%AE%E8%A7%84%E5%88%92)
     - [Yijia Liu's TASK](#yijia-lius-task)
   - [cell oracle](#cell-oracle)
-    - [数据集](#数据集)
-    - [原理](#原理)
+    - [数据集](#%E6%95%B0%E6%8D%AE%E9%9B%86)
+    - [原理](#%E5%8E%9F%E7%90%86)
 - [2022-1-16](#2022-1-16)
   - [PLAN](#plan-13)
   - [BLAST](#blast)
-    - [步骤](#步骤)
-    - [blast操作](#blast操作)
+    - [步骤](#%E6%AD%A5%E9%AA%A4)
+    - [blast操作](#blast%E6%93%8D%E4%BD%9C)
 - [2022-1-17](#2022-1-17)
   - [PLAN](#plan-14)
-  - [单细胞源代码学习](#单细胞源代码学习)
+  - [单细胞源代码学习](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0)
   - [ltr](#ltr)
-    - [ML树](#ml树)
-  - [多重检验](#多重检验)
-    - [Bonferroni 法](#bonferroni-法)
-    - [Scheff 法](#scheff-法)
-    - [Tukey 法](#tukey-法)
+    - [ML树](#ml%E6%A0%91)
+  - [多重检验](#%E5%A4%9A%E9%87%8D%E6%A3%80%E9%AA%8C)
+    - [Bonferroni 法](#bonferroni-%E6%B3%95)
+    - [Scheff 法](#scheff-%E6%B3%95)
+    - [Tukey 法](#tukey-%E6%B3%95)
 - [2022-1-18](#2022-1-18)
   - [PLAN](#plan-15)
-  - [序列下载](#序列下载)
+  - [序列下载](#%E5%BA%8F%E5%88%97%E4%B8%8B%E8%BD%BD)
+- [2022-1-20](#2022-1-20)
+  - [PLAN](#plan-16)
+  - [单细胞预训练](#%E5%8D%95%E7%BB%86%E8%83%9E%E9%A2%84%E8%AE%AD%E7%BB%83)
+  - [TE/G4构架设计](#teg4%E6%9E%84%E6%9E%B6%E8%AE%BE%E8%AE%A1)
+    - [VCF files](#vcf-files)
+  - [下载格式](#%E4%B8%8B%E8%BD%BD%E6%A0%BC%E5%BC%8F)
+- [2022-1-21](#2022-1-21)
+  - [PLAN](#plan-17)
+  - [统计学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0-1)
+    - [Tukey法 & TK法](#tukey%E6%B3%95--tk%E6%B3%95)
+    - [与两两t分布区别](#%E4%B8%8E%E4%B8%A4%E4%B8%A4t%E5%88%86%E5%B8%83%E5%8C%BA%E5%88%AB)
+  - [单细胞架构训练](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%9E%B6%E6%9E%84%E8%AE%AD%E7%BB%83)
+- [2022-1-22](#2022-1-22)
+  - [PLAN](#plan-18)
+  - [代码检查](#%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5)
+  - [BERT 微调](#bert-%E5%BE%AE%E8%B0%83)
+    - [Sentence Level](#sentence-level)
+    - [word level](#word-level)
+    - [QA](#qa)
+  - [非参数检验](#%E9%9D%9E%E5%8F%82%E6%95%B0%E6%A3%80%E9%AA%8C)
+    - [皮尔逊卡方检验](#%E7%9A%AE%E5%B0%94%E9%80%8A%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C)
+- [2022-1-23](#2022-1-23)
+  - [PLAN](#plan-19)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0-1)
+    - [皮尔逊卡方](#%E7%9A%AE%E5%B0%94%E9%80%8A%E5%8D%A1%E6%96%B9)
+    - [2x2 联表](#2x2-%E8%81%94%E8%A1%A8)
+- [2022-1-24](#2022-1-24)
+  - [PLAN](#plan-20)
+  - [vi学习](#vi%E5%AD%A6%E4%B9%A0)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0-2)
+    - [U检验](#u%E6%A3%80%E9%AA%8C)
+- [2022-1-26](#2022-1-26)
+  - [PLAN](#plan-21)
+  - [单细胞可视化](#%E5%8D%95%E7%BB%86%E8%83%9E%E5%8F%AF%E8%A7%86%E5%8C%96-1)
+  - [参数非参数检验比较](#%E5%8F%82%E6%95%B0%E9%9D%9E%E5%8F%82%E6%95%B0%E6%A3%80%E9%AA%8C%E6%AF%94%E8%BE%83)
+- [2022-1-27](#2022-1-27)
+  - [PLAN](#plan-22)
+  - [拟南芥文献阅读](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
+  - [进化树代码](#%E8%BF%9B%E5%8C%96%E6%A0%91%E4%BB%A3%E7%A0%81)
+- [2022-1-28](#2022-1-28)
+  - [PLAN](#plan-23)
+- [2022-1-29](#2022-1-29)
+  - [PLAN](#plan-24)
+  - [NTU题目](#ntu%E9%A2%98%E7%9B%AE)
+    - [MINST 数据集代码](#minst-%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%A3%E7%A0%81)
+    - [龙哥库塔求解](#%E9%BE%99%E5%93%A5%E5%BA%93%E5%A1%94%E6%B1%82%E8%A7%A3)
+
 
 # 2021-1-3
 
@@ -727,3 +774,284 @@ $j$组数，$N$样本数
 ```bash
  bcftools consensus -I -f /home/ubuntu/Arabidopsis/Arabidopsis_sequence/Col-0/Col-0.fasta in.new.vcf.gz > out.fa
  ```
+
+
+# 2022-1-20
+
+## PLAN
++ **TE/G4构架设计**
++ **单细胞预训练**
++ **毕业设计相关文件**
+
+## 单细胞预训练
+
+修改网络架构，只训练均值后，出现了较好的结果
+
+## TE/G4构架设计
+
+### VCF files
+
+link https://blog.csdn.net/u012150360/article/details/70666213
+
+## 下载格式
+
+e.g.
+
+data
+------ 2212
+------------ 2212对应的甲基化文件
+------------ fasta
+
+下载函数
+
+一个参数 2212
+
+# 2022-1-21
+
+## PLAN
++ **统计学学习**
++ **单细胞架构训练**
++ **文献阅读**
+
+## 统计学习
+
+数据不平衡TK法
+
+### Tukey法 & TK法
+
+统计量
+$$t_{\bar{x_1}-\bar{x_2}}=\frac{\bar{x_1}-\bar{x_2}}{\sqrt{\frac{\^{\sigma_e}}{n}}}$$
+
+$$t_{\bar{x_1}-\bar{x_2}}=\frac{\bar{x_1}-\bar{x_2}}{\sqrt{{\sigma_e}*(1/n_1+1/n_2)}}$$
+
+$\^{\sigma_e}$为总体样本的无偏估计方差（所有组共同的无偏方差）
+
+临界值
+
+$$q=\frac{\bar{x_{max}}-\bar{x_{min}}}{\sqrt{\frac{\^{\sigma_e}}{n}}}$$
+
+$$q=\frac{\bar{x_{max}}-\bar{x_{min}}}{\sqrt{{\sigma_e}*(1/n_1+1/n_2)}}$$
+
+$q$服从**学生化极差分布**
+
+查表计算q值是否有显著性，q值由组数和自由度决定
+
+**学生化极差分布** 意义 一组数据中平均数最大和平均数最小的组统计检验值的**检验统计量**$q$最大即他们的分布是最严格的，当任意两组中的检验统计量在置信区间外，就可以判断显著性，这也规避了多重性问题
+
+### 与两两t分布区别
+
+更加严格，因为检验统计量的数学意义是自由度为$v$组数为$s$的数据中，统计量差异最大的两组的差异统计量分布作为检验统计量，而独立$t$检验没有规避多重性问题。
+
+## 单细胞架构训练
+
+loss 缩小了，但可能模型复杂度不够 内存崩溃问题
+
+# 2022-1-22
+
+## PLAN
++ **统计学学习**
++ **单细胞架构训练**
++ **文献阅读**
++ **深度学习**
++ **pipeline 代码检查**
+
+## 代码检查
+
+file downloadfile.py
+package 7323 报错 原因 没有相应的key
+
+## BERT 微调
+
+### Sentence Level
+用 `<cls>`的embedding 进行二分类或者多分类
+
+### word level
+对非特殊词的embedding 进行分类任务
+
+### QA
+给定一个问题和一段文字，找到一个片段进行回答
+
+
+## 非参数检验
+
+处理品质数据(描述数据,定序数据)或由于极值导致非正态or $t分布$的统计量
+
+### 皮尔逊卡方检验
+
+利用期望频数和实际频数做比较
+
+# 2022-1-23
+
+## PLAN
++ **统计学学习**
++ **单细胞training**
+
+## 统计学学习
+
+### 皮尔逊卡方
+
+多样本 制造卡方统计量 用观测数据代替$x$用期望数据代替方差和均值
+
+### 2x2 联表
+
+Fisher 确切检验 通过固定边际频数
+
+将当前频数和更极端的概率相加和统计检验量作比较
+
+
+# 2022-1-24
+
+## PLAN
++ **vi学习**
++ **单细胞training**
++ **统计学学习**
+
+## vi学习
+
+替代mcmc采样计算均值方差
+
+通过先验和似然概率估计后验概率
+输出依然为均值方差 很可能无法输出角解析解
+
+
+问题  还不了解使用场景
+
+
+## 统计学学习
+
+### U检验
+
+原始数据 -> 排序定序数据 -> U值
+
+U值 小样本通过查表 大样本计算$z_U=\frac{U-\mu_U}{\sigma_U}$
+
+若原始数据为大样本 需要做修正
+
+# 2022-1-26
+
+## PLAN
++ **UW 申请填报**
++ **统计学学习**
++ NTU论文overview
++ **拟南芥项目文献阅读**
++ **单细胞可视化**
+
+
+## 单细胞可视化
+
+from X to Z 重建效果很差
+
+## 参数非参数检验比较
+
+不同的方法至要观注样本值类型，样本数 样本分布是否配对以及样本中重复数等 非参数平均数易利用秩和的修正分布查表 或大样本z检验
+
+![Image](非参数检验.png)
+
+# 2022-1-27
+
+## PLAN
++ **进化树的功能实现**
++ **NTU文献阅读**
++ **拟南芥文献阅读**
+
+## 拟南芥文献阅读
++ 4acC 在TSS富集
++ 4acC 与5mc 拮抗
+
+## 进化树代码
+
+路径： /home/ubuntu/Arabidopsis/Scripts/tree_construction.sh
+
+```bash
+
+cd $1
+mafft $2.fasta > tmp.fasta
+if [ ! -d $1/tmpfolder ];then
+    mkdir $1/tmpfolder
+    iqtree -s tmp.fasta -m TIM2+I+G -bb 1000 -pre $1/tmpfolder/tmp
+else
+  echo "文件夹已经存在"
+fi
+
+cd $1/tmpfolder
+cd $1
+rm tmp.fasta
+rm -R $1/tmpfolder
+
+```
+
+# 2022-1-28
+
+## PLAN
++ **NTU两篇文献阅读完毕**
+
+# 2022-1-29
+
+## PLAN
++ **NTU代码overview**
++ 变分推断学习
+
+## NTU题目
+
+### MINST 数据集代码
+
+```python
+def train_loop(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        y = [torch.tensor(1) if i == 7 else i for i in y]
+        pred = model(X)
+        y = torch.tensor(y)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if batch % 100 == 0:
+            loss, current = loss.item(), batch * len(X)
+            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+def test_loop(dataloader, model, loss_fn):
+    size = len(dataloader.dataset)
+    num_batches = len(dataloader)
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in dataloader:
+            y = [torch.tensor(1) if i == 7 else i for i in y]
+            pred = model(X)
+            y = torch.tensor(y)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+    test_loss /= num_batches
+    correct /= size
+    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+```
+
+输出 7 1
+
+### 龙哥库塔求解
+
+方程组
+
+$$\begin{cases}
+\frac{ds}{dt} = k_2c+k_1se \\
+
+\frac{de}{dt} =  (k_2 + k_3)c − k_1se\\
+
+\frac{dc}{dt} = k_1se − (k_3 + k_2)c\\
+
+\frac{dp}{dt} = k_2c\\
+\end{cases}
+$$
+
+求解方法
+
+$$
+y_{n+1} = y_n + \frac{h}{6}(k_1+k_2+k_3+k_4)
+$$
+
+迭代求解
