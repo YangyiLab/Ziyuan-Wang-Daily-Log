@@ -134,6 +134,11 @@
   - [进化树代码](#%E8%BF%9B%E5%8C%96%E6%A0%91%E4%BB%A3%E7%A0%81)
 - [2022-1-28](#2022-1-28)
   - [PLAN](#plan-23)
+- [2022-1-29](#2022-1-29)
+  - [PLAN](#plan-24)
+  - [NTU题目](#ntu%E9%A2%98%E7%9B%AE)
+    - [MINST 数据集代码](#minst-%E6%95%B0%E6%8D%AE%E9%9B%86%E4%BB%A3%E7%A0%81)
+    - [龙哥库塔求解](#%E9%BE%99%E5%93%A5%E5%BA%93%E5%A1%94%E6%B1%82%E8%A7%A3)
 
 
 # 2021-1-3
@@ -972,13 +977,81 @@ cd $1/tmpfolder
 cd $1
 rm tmp.fasta
 rm -R $1/tmpfolder
+
 ```
 
 # 2022-1-28
 
 ## PLAN
 + **NTU两篇文献阅读完毕**
-+ 统计学学习
-+ 变分推断
 
+# 2022-1-29
 
+## PLAN
++ **NTU代码overview**
++ 变分推断学习
+
+## NTU题目
+
+### MINST 数据集代码
+
+```python
+def train_loop(dataloader, model, loss_fn, optimizer):
+    size = len(dataloader.dataset)
+    for batch, (X, y) in enumerate(dataloader):
+        # Compute prediction and loss
+        y = [torch.tensor(1) if i == 7 else i for i in y]
+        pred = model(X)
+        y = torch.tensor(y)
+        loss = loss_fn(pred, y)
+
+        # Backpropagation
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        if batch % 100 == 0:
+            loss, current = loss.item(), batch * len(X)
+            print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+def test_loop(dataloader, model, loss_fn):
+    size = len(dataloader.dataset)
+    num_batches = len(dataloader)
+    test_loss, correct = 0, 0
+
+    with torch.no_grad():
+        for X, y in dataloader:
+            y = [torch.tensor(1) if i == 7 else i for i in y]
+            pred = model(X)
+            y = torch.tensor(y)
+            test_loss += loss_fn(pred, y).item()
+            correct += (pred.argmax(1) == y).type(torch.float).sum().item()
+
+    test_loss /= num_batches
+    correct /= size
+    print(f"Test Error: \n Accuracy: {(100*correct):>0.1f}%, Avg loss: {test_loss:>8f} \n")
+```
+
+输出 7 1
+
+### 龙哥库塔求解
+
+方程组
+
+$$\begin{cases}
+\frac{ds}{dt} = k_2c+k_1se \\
+
+\frac{de}{dt} =  (k_2 + k_3)c − k_1se\\
+
+\frac{dc}{dt} = k_1se − (k_3 + k_2)c\\
+
+\frac{dp}{dt} = k_2c\\
+\end{cases}
+$$
+
+求解方法
+
+$$
+y_{n+1} = y_n + \frac{h}{6}(k_1+k_2+k_3+k_4)
+$$
+
+迭代求解
