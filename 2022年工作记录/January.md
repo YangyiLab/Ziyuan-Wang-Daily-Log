@@ -989,7 +989,7 @@ rm -R $1/tmpfolder
 
 ## PLAN
 + **NTU代码overview**
-+ 变分推断学习
++ **变分推断学习**
 
 ## NTU题目
 
