@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "yzhang.markdown-all-in-one",
-        "bierner.markdown-footnotes"
+        "bierner.markdown-footnotes",
+        "rsolano.pandoc-markdown"
     ]
 }
