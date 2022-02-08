@@ -2,6 +2,7 @@
     "recommendations": [
         "yzhang.markdown-all-in-one",
         "bierner.markdown-footnotes",
-        "rsolano.pandoc-markdown"
+        "rsolano.pandoc-markdown",
+        "shd101wyy.markdown-preview-enhanced"
     ]
 }

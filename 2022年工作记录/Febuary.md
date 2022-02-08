@@ -1,5 +1,5 @@
 ---
-output: pdf_document
+output : pdf_document
 ---
 - [2022-2-1](#2022-2-1)
   - [PLAN](#plan)
@@ -23,6 +23,19 @@ output: pdf_document
   - [Dynamo](#dynamo)
     - [limitation 改进](#limitation-%E6%94%B9%E8%BF%9B)
     - [相关工作](#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C)
+- [2022-2-7](#2022-2-7)
+  - [PLAN](#plan-4)
+  - [全基因组项目资料](#%E5%85%A8%E5%9F%BA%E5%9B%A0%E7%BB%84%E9%A1%B9%E7%9B%AE%E8%B5%84%E6%96%99)
+    - [群体遗传软件](#%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E8%BD%AF%E4%BB%B6)
+  - [dynamo insilico](#dynamo-insilico)
+  - [微生物摘要](#%E5%BE%AE%E7%94%9F%E7%89%A9%E6%91%98%E8%A6%81)
+- [2022-2-8](#2022-2-8)
+  - [PLAN](#plan-5)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0)
+    - [最小二乘法](#%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95)
+    - [残差图](#%E6%AE%8B%E5%B7%AE%E5%9B%BE)
+- [2022-2-9](#2022-2-9)
+  - [PLAN](#plan-6)
 # 2022-2-1
 
 ## PLAN
@@ -69,6 +82,7 @@ $$\frac{\partial f_1}{\partial x_2}=b_2 \frac{n*K_2^nx_1^{n-1}}{(K_2^n+x_1^n)^2}
 ### Kinetic parametres estimation
 
 **data**
+
 > cscRNA-seq 传统的通过推断 unslinced/sliced
 
 > tscRNA-seq 时间标记
@@ -151,3 +165,57 @@ Generative is like we can do the imagination even if we have not seen the whole 
 + https://www.nature.com/articles/s41592-020-0935-4 *Generalizing RNA velocity to transient cell states through dynamical modeling*
 + https://www.science.org/doi/10.1126/science.aax3072 *Sequencing metabolically labeled transcripts in single cells reveals mRNA turnover strategies*
 + https://www.nature.com/articles/s41586-019-1369-y *scSLAM-seq reveals core features of transcription dynamics in single cells*
+
+# 2022-2-7
+
+## PLAN
++ **全基因组项目资料查询**
++ **面试准备**
++ **dynamo 收尾**
++ **微生物文章表格设计**
+
+## 全基因组项目资料
+
+### 群体遗传软件
+
+DnaSP V6
+
+https://academic.oup.com/mbe/article/34/12/3299/4161815
+
+Genetic Differentiation Analysis $K_{st},F_{st},\pi$
+
+## dynamo insilico
+
+$\Delta x$ pertrubation 需要到PCA维度转化 再回到 gene-wise
+
+## 微生物摘要
+
+hitchhiking 是什么 生物和环境(植物和氮肥)影响尚不清楚。所以我们怎么设计的实验，为了阐明植物是否影响hitchhiking，加一层膜阻挡hitchhiking 解释这种影响(不用说氮肥浓度). 结果显示...
+
+# 2022-2-8
+
+## PLAN
++ **统计学学习/回归**
++ **面试准备**
++ **微生物文章修改**
+
+## 统计学学习
+
+### 最小二乘法
+
+利用求导和极大似然法求解$\alpha,\beta$
+
+### 残差图
+
+残差应该满足正态分布，通过残差图判断使用的拟合模型是否有问题。
+
+
+# 2022-2-9
+
+## PLAN
++ 统计学学习/回归
++ 面试准备
++ 拟南芥项目文献阅读
++ 摘要定稿
+
+
