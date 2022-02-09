@@ -36,6 +36,10 @@ output : pdf_document
     - [残差图](#%E6%AE%8B%E5%B7%AE%E5%9B%BE)
 - [2022-2-9](#2022-2-9)
   - [PLAN](#plan-6)
+  - [拟南芥文章](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%96%87%E7%AB%A0)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0-1)
+    - [多元线性回归的误差分布](#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E5%B8%83)
+    - [多元线性回归的统计修正](#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%9F%E8%AE%A1%E4%BF%AE%E6%AD%A3)
 # 2022-2-1
 
 ## PLAN
@@ -213,9 +217,32 @@ hitchhiking 是什么 生物和环境(植物和氮肥)影响尚不清楚。所�
 # 2022-2-9
 
 ## PLAN
-+ 统计学学习/回归
-+ 面试准备
-+ 拟南芥项目文献阅读
-+ 摘要定稿
++ **统计学学习/回归**
++ **面试准备**
++ **拟南芥项目文献阅读**
++ **摘要定稿**
+
+## 拟南芥文章
+
++ Puig Lombardi, E., Holmes, A., Verga, D., Teulade-Fichou, M.-P., Nicolas, A., & Londoño-Vallejo, A. (2019). Thermodynamically stable and genetically unstable G-quadruplexes are depleted in genomes across species. Nucleic Acids Research, 47(12), 6098–6113. https://doi.org/10.1093/nar/gkz463
++ Griffin, B. D., & Bass, H. W. (2018). Review: Plant G-quadruplex (G4) motifs in DNA and RNA; abundant, intriguing sequences of unknown function. Plant Science, 269(January), 143–147. https://doi.org/10.1016/j.plantsci.2018.01.011
+
+## 统计学学习
+
+### 多元线性回归的误差分布
+
+$$f(x_1,x_2,...,x_m)=\frac{1}{\sqrt{2\pi}^{n}}e^{-\frac{\sum_{i=1}^{n}x_i^2}{2}}$$
+
+通过该公式可以通过极大似然法求解参数$\mathbf{\beta},\alpha$
+$$E(\epsilon|\mathbf{x})=\begin{bmatrix} 0  \\  0 \\0 \\ ... \\ 0 \end{bmatrix}_{n\times1}$$
+
+$$Var(\epsilon|\mathbf{x}) = \sigma^2I$$
+
+回归系数的均值无偏估计为$\beta$,方差无偏估计为$\sigma^2 /(\mathbf{XX^T})$
+
+### 多元线性回归的统计修正
+
++ R 修正 $\bar{R}^2 = 1-(1-R^2)\frac{n-1}{n-k-1}$ 防止出现自变量多的拟合越来越优的悖论
++ 多重共线性的解决方法 利用方差膨胀因子VIF ${VIF}_i=\frac{1}{1-R_i^2}$ $R_i$为将$x_i$ 回归到$\mathbf{x}^{-i}$时计算的R值 VIF<10，自变量可以被接受
 
 
