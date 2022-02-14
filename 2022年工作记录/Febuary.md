@@ -40,6 +40,27 @@ output : pdf_document
   - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0-1)
     - [多元线性回归的误差分布](#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E8%AF%AF%E5%B7%AE%E5%88%86%E5%B8%83)
     - [多元线性回归的统计修正](#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E7%BB%9F%E8%AE%A1%E4%BF%AE%E6%AD%A3)
+- [2022-2-10](#2022-2-10)
+  - [PLAN](#plan-7)
+  - [会议记录](#%E4%BC%9A%E8%AE%AE%E8%AE%B0%E5%BD%95)
+  - [统计学学习](#%E7%BB%9F%E8%AE%A1%E5%AD%A6%E5%AD%A6%E4%B9%A0-2)
+  - [拟南芥文献](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%96%87%E7%8C%AE)
+    - [Key Points](#key-points)
+    - [Refs](#refs)
+- [2022-2-11](#2022-2-11)
+  - [PLAN](#plan-8)
+  - [PPT](#ppt)
+  - [生存分析](#%E7%94%9F%E5%AD%98%E5%88%86%E6%9E%90)
+    - [生存曲线](#%E7%94%9F%E5%AD%98%E6%9B%B2%E7%BA%BF)
+    - [概念](#%E6%A6%82%E5%BF%B5)
+    - [COX 回归模型](#cox-%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B)
+- [2022-2-12](#2022-2-12)
+  - [PLAN](#plan-9)
+- [2022-2-13](#2022-2-13)
+  - [PLAN](#plan-10)
+  - [PPT](#ppt-1)
+    - [题目](#%E9%A2%98%E7%9B%AE)
+  - [拟南芥旁系种](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%97%81%E7%B3%BB%E7%A7%8D)
 # 2022-2-1
 
 ## PLAN
@@ -245,4 +266,103 @@ $$Var(\epsilon|\mathbf{x}) = \sigma^2I$$
 + R 修正 $\bar{R}^2 = 1-(1-R^2)\frac{n-1}{n-k-1}$ 防止出现自变量多的拟合越来越优的悖论
 + 多重共线性的解决方法 利用方差膨胀因子VIF ${VIF}_i=\frac{1}{1-R_i^2}$ $R_i$为将$x_i$ 回归到$\mathbf{x}^{-i}$时计算的R值 VIF<10，自变量可以被接受
 
+# 2022-2-10
+
+## PLAN
++ **会议**
++ **统计学学习**
++ **面试演练**
++ **文献阅读**
+
+## 会议记录
+
+software
+
+dataset
+
+remote VPN 才能连接
+
+VPN address https://technology.pharmacy.arizona.edu/get-support/cisco-anyconnect-vpn
+
+
+
+## 统计学学习
+
+二值变量学习
+
+Probit/Logistic
+
+区别在于Probit给予的假设为误差服从正态分布，计算较复杂
+
+## 拟南芥文献
+
+### Key Points
+
++ duplex opening G4的状态可以被称为inreversible or conditional
+
+### Refs
+
+Tang, J., Wu, J., Zhu, R., Wang, Z., Zhao, C., Tang, P., Xie, W., Wang, D., & Liang, L. (2021). Reversible photo-regulation on the folding/unfolding of telomere G-quadruplexes with solid-state nanopores. Analyst, 146(2), 655–663. https://doi.org/10.1039/d0an01930e
+
+
+# 2022-2-11
+
+## PLAN
++ **面试演练**
++ **文献阅读**
++ **生存分析**
++ **摘要修改**
+
+## PPT
+
++ Predicting gene expression alterations caused by chemical or genetic perturbations on TFs
++ reconstruction Loss 做一张ppt
++ Version 藏起来
+
+## 生存分析
+
+### 生存曲线
+
+利用估计法 估计每个时刻的存活率
+
+
+### 概念
+
+$d_i$ 是否为$t_i$时刻事件发生 $w_i$ $t_i$时刻发生删失事件。
+
+### COX 回归模型
+
+比例风险模型 对应的多因素模型则常用Cox回归模型（Cox风险比例模型）
+
+风险函数表示生存时间达到t后瞬时发生失效事件的概率，用$h(t)$表示，$h(t)=f(t)/S(t)$。其中$f(t)$为概率密度函数（Probability Density Function），$f(t)=F'(t)$的导数。$F(t)$为积累分布函数（Cumulative Distribution Function），$F(t)=1-S(t)$，表示生存时间未超过时间点t的概率。累积风险函数$H(t)=-logS(t)$。概率密度和积累分布的关系类似于速度与位移的关系。
+
+
+Cox比例风险回归模型的基本形式为：将某时点t个体出现失效事件的风险分为两部分：$h_0(t)$和$h(t,X)$。$第i个影响因素X使风险函数从h0(t)$$增加exp（βiXi）$而成为$h_0(t)*exp(βiXi)$。
+
+# 2022-2-12
+
+## PLAN
++ **修改ppt**
++ **更新讲稿**
+
+# 2022-2-13
+
+## PLAN
++ **面试演练**
++ **拟南芥旁系种**
++ 润色查看
+
+## PPT
+
+### 题目
+
+**using TE landscape to infer geographic evolution of plant**
+
++ geographical distribution of 拟南芥  地理和进化的关系
++ 我们利用 TE G4 甲基化 关系弄出来 environmental conditions G4 folding 甲基化 
++ 流程图 空 和箭头 中间指示图
+
+## 拟南芥旁系种
+
+物种选择 C. rubella
 
