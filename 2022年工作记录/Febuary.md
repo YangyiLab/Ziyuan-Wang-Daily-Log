@@ -63,6 +63,17 @@ output : pdf_document
   - [拟南芥旁系种](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%97%81%E7%B3%BB%E7%A7%8D)
 - [2022-2-15](#2022-2-15)
   - [PLAN](#plan-11)
+- [2022-2-23](#2022-2-23)
+  - [PLAN](#plan-12)
+  - [大修 Editor and Reviewer comments](#%E5%A4%A7%E4%BF%AE-editor-and-reviewer-comments)
+    - [Reviewer #1](#reviewer-1)
+    - [Reviewer #2](#reviewer-2)
+- [2022-2-24](#2022-2-24)
+  - [PLAN](#plan-13)
+  - [Supplementary](#supplementary)
+    - [Supplementary Materials and Methods](#supplementary-materials-and-methods)
+    - [Supplementary Tables](#supplementary-tables)
+    - [Supplementary Figures](#supplementary-figures)
 # 2022-2-1
 
 ## PLAN
@@ -371,5 +382,83 @@ Cox比例风险回归模型的基本形式为：将某时点t个体出现失效�
 # 2022-2-15
 
 ## PLAN
-+ 面试演练
++ **面试演练**
+
+# 2022-2-23
+
+## PLAN
++ **微生物文章参考文献提交**
++ **SaAlgin 修改overview**
+
+
+## 大修 Editor and Reviewer comments
+
+### Reviewer #1
+
+I really appreciate authors' effort to address most of reviewers' concerns. Although I think the manuscript has improved a lot, I still have some concerns. I thought it would be good to publish with these details restored.
+
+The introduction only focuses on the parallel MSA algorithm, and some work is not covered, including minimap2(Li, 2018) which is concerned with the nanopore, ProbPFP(Zhan et al., 2019), etc. They should be added into the introduction. In Line 178 the author said, 'bootstrap value is more than 77%.' which is not clear. The author should modify it like 'the lowest bootstrap values are greater than 77%' to avoid ambiguity. On the other hand, there are many kinds of dual-sequence comparison algorithms at present, and you have not mentioned the PHMM dual-sequence comparison algorithm, whether the software can be changed to the software with user-defined dual-sequence comparison algorithm. I think this extensionality will make the software more popular.
+
+### Reviewer #2
+
+The manuscript by Wang et al. describes a tool called SaAlign for sequence alignment of large and long sequences. The tool is based on the Needleman-Wunsch algorithm and can distribute the alignment tasks across multiple nodes in a computing cluster via the apache spark frame work. They bypass the conventional benchmarking dataset (balibase) and create their own databases based on fungal ITS, mitochondrial genomes, and coronavirus genomes. The authors compare their tool to MAFFT and HAlign on a single node based on run time and average sum-of-pair score (SPS) finding that it is capable of handling larger datasets with speed-ups on larger datasets that can be further accelerated by distributing across multiple nodes. The trade off is that the alignments have a lower SPS on datasets that MAFFT and HAlign are capable of processing.
+
+Major Comments:
+
++ **The question of how to scale multiple sequence alignments to large datasets is a very important one. Some tempering of the claims need to be carefully considered as the authors mention zettabyte datasets but the largest tested database is < 30mb and 10,000 sequences.** 不好回答
+
++ Line 34-35: It should probably be specified what ultra-large means in the context of MAFFT not being able to handle the data. Does this mean some sort of core dump/memory error or was the analysis stopped after some period of time? *yes*
+
++ The documentation for the tool is somewhat lacking and I am not confident that I would be able to get the tool up and running based on what is found in the readme file of the github repository. *yes*
+
++ Were the comparisons shown in Table 2 and 3 run a single time on a single node? It seems like it might be pertinent to replicate these findings either within a node, or on different nodes. *yes*
+
+Minor comments:
+
++ Table 2 and 3: HAlign is has typo.
+
++ Line 29: Typo on "ultara-arge"
+
++ Line 51: Typo on "introdcution"
+
++ Line 55: It seems somewhat difficult to believe there would be a zettabyte dataset at the current moment.
+
++ Line 62: USEARCH is not an alignment tool per se. Are the authors referring to MUSCLE?
+
++ Line 148: This statement is slightly unclear, the data is being tested on a single node with 64Gb of memory and an 8 core cpu? This is a relatively under spec'd node for a modern HPC.
+
++ Line 151: The SPS acronym should be explained on first use.
+
++ It appears that SaAlign has a dependency on Neigh to generate phylogenetic trees which is not documented in the manuscript.
+
++ Only the coronavirus dataset appears to be available on the github repository.
+
++ The Figure legends are not sufficiently detailed. For example: what are X5, X10, and X20? In general the writing of the manuscript is slightly unclear and could be improved for clarity and conciseness.
+
+
+# 2022-2-24
+
+## PLAN
++ **微生物补充材料**
++ 拟南芥甲基化文献
+
+## Supplementary
+
+### Supplementary Materials and Methods
++ DNA extraction and PCR amplification
++ Illumina Novaseq 6000 sequencing
++ Quality control and clustering
+
+### Supplementary Tables
++ Table S1 Abundances of class-level microorganisms in all groups;
++ Table S2 Abundances of OTUs in all groups;
++ Table S3 Alpha-diversity in all groups (sobs, shannon, simpson, chao, ace, goods, coverage, pielou and pd index);
++ Table S4 Determinations of the alpha- and beta-diversity levels in the bacterial and fungal communities under different nitrogen concentrations. A) Kruskal–Wallis H test results for bacterial alpha-diversity levels; B) Anosim results for bacterial beta-diversity levels; 
++ Table S5 Functional abundance for all groups;
++ Table S6 Primers used in this study for quantitative real-time polymerase chain reaction (qPCR).
+
+### Supplementary Figures
+
++ Figure S1 
++ Figure S2 
 
