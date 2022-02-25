@@ -1,6 +1,4 @@
----
-output : pdf_document
----
+
 - [2022-2-1](#2022-2-1)
   - [PLAN](#plan)
   - [文献地址](#%E6%96%87%E7%8C%AE%E5%9C%B0%E5%9D%80)
@@ -74,6 +72,10 @@ output : pdf_document
     - [Supplementary Materials and Methods](#supplementary-materials-and-methods)
     - [Supplementary Tables](#supplementary-tables)
     - [Supplementary Figures](#supplementary-figures)
+  - [拟南芥甲基化文献](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E7%94%B2%E5%9F%BA%E5%8C%96%E6%96%87%E7%8C%AE)
+- [2022-2-25](#2022-2-25)
+  - [PLAN](#plan-14)
+  - [补充材料](#%E8%A1%A5%E5%85%85%E6%9D%90%E6%96%99)
 # 2022-2-1
 
 ## PLAN
@@ -440,7 +442,7 @@ Minor comments:
 
 ## PLAN
 + **微生物补充材料**
-+ 拟南芥甲基化文献
++ **拟南芥甲基化文献**
 
 ## Supplementary
 
@@ -462,3 +464,20 @@ Minor comments:
 + Figure S1 
 + Figure S2 
 
+## 拟南芥甲基化文献
+
+relict 概念 PE只在单个样本accession出现
+
+PE现象与TE有关 PE在TE中概率极高
+
+甲基化 与 维度 降水 温度相关
+
+# 2022-2-25
+
+## PLAN
++ **微生物补充材料完成**
++ **深度学习**
+
+## 补充材料
+
+2图 6表 一个补充方法需要注明参考文献
