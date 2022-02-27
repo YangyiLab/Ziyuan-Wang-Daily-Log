@@ -76,6 +76,17 @@
 - [2022-2-25](#2022-2-25)
   - [PLAN](#plan-14)
   - [补充材料](#%E8%A1%A5%E5%85%85%E6%9D%90%E6%96%99)
+- [2022-2-26](#2022-2-26)
+  - [PLAN](#plan-15)
+  - [C.rubella 参考基因组](#crubella-%E5%8F%82%E8%80%83%E5%9F%BA%E5%9B%A0%E7%BB%84)
+  - [CellOracle 文章计算补充](#celloracle-%E6%96%87%E7%AB%A0%E8%AE%A1%E7%AE%97%E8%A1%A5%E5%85%85)
+    - [Overview](#overview)
+    - [计算步骤](#%E8%AE%A1%E7%AE%97%E6%AD%A5%E9%AA%A4)
+- [2022-2-27](#2022-2-27)
+  - [PLAN](#plan-16)
+  - [1135 地理分布](#1135-%E5%9C%B0%E7%90%86%E5%88%86%E5%B8%83)
+    - [溯祖率推断](#%E6%BA%AF%E7%A5%96%E7%8E%87%E6%8E%A8%E6%96%AD)
+    - [Footprint of Selection](#footprint-of-selection)
 # 2022-2-1
 
 ## PLAN
@@ -481,3 +492,59 @@ PE现象与TE有关 PE在TE中概率极高
 ## 补充材料
 
 2图 6表 一个补充方法需要注明参考文献
+
+# 2022-2-26
+
+## PLAN
+
++ **CellOracle 文章学习**
++ **拟南芥外群script**
++ **微生物附加文件完成**
+
+## C.rubella 参考基因组
+
++ 位置 /home/ubuntu/data/rubella/Crubella_474_v1.fa
++ 特点 不区分染色体 有1600+个长片段 未拼接
++ 只需要找TE不需要找g4 直接搜索TE 并进行命名 Crubella-number 特点与此前相同
+
+## CellOracle 文章计算补充
+
+### Overview
+
+在通过GRN调控推断完成后，要经过GRN传播，转移概率以及细胞推断
+
+### 计算步骤
+
+$$\Delta y_i = \sum_i \beta_i \Delta x_i$$
+$$\Delta \mathbf{X'}=\Delta \mathbf{X}*B$$
+
+$B$未$\beta$系数矩阵，即每一个基因对应的调控系数
+
+转移概率$\mathbf{P}$
+
+$$p_{ij}=exp(corr(r_{ij},d_i))$$
+
+$$r_{ij} = \mathbf{Y_i} - \mathbf{Y_j}\\d_i = \Delta \mathbf{X'}$$
+
+# 2022-2-27
+
+## PLAN
+
++ **1135地理分布学习**
++ **投稿系统填报完毕**
+
+## 1135 地理分布
+
+从csv中可直接发现relict accession
+
+### 溯祖率推断
+
+利用不同组基因，判断不同时间中$N_e$大小
+
+冰期出现过瓶颈事件
+
+### Footprint of Selection
+
+**Fst**衡量由于种群结构的存在而造成的杂合子频数的降低。 由于基因流有限，造成等位基因频率在群体中分布存在异质性
+
+自然选择后 Fst和连锁不平衡会发生变化，用这个方法可以筛选出与气候相关的基因。
