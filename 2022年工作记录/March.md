@@ -26,6 +26,7 @@ dim = 1 按列合并 向又加
 用 readcsv 读
 
 处理缺失 插值法
+
 ```py
 inputs = inputs.fillna(inputs.mean())
 ```
@@ -59,3 +60,25 @@ inputs = inputs.fillna(inputs.mean())
 ## 大修文章
 
 差一个major review问题和 R2的minor review问题
+
+
+# 2022-3-6
+
+## PLAN
+
++ 大修文章完成R2minor修改
++ **文献阅读**
++ **深度学习微分方程**
+
+
+## NODE
+
+深度学习解微分方程原理利用神经网络模拟差分过程
+
+## PSMC MSMC
+
+利用隐马尔可夫模型估计有效群体大小
+
+为第三类问题即参数估计问题
+
+在转移概率计算中变异重组有效群体都可以计算
