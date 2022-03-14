@@ -373,7 +373,7 @@ def create_pathway_mask(feature_list, dict_pathway, add_missing=1, fully_connect
 
 + **完成mask 函数**
 + **拟南芥数据预处理**
-+ 文献阅读
++ **文献阅读**
 
 ## 拟南芥数据处理
 
@@ -440,3 +440,22 @@ tf_mask [idx] = 0
 # torch.sum(tf_mask) , z2tf.shape[0]*z2tf.shape[0]/2
 tf_mask = tf_mask.reshape(z2tf.shape[0],z2tf.shape[0])
 ```
+
+## 单细胞药学开发
+
+### 应用
+        
+
+找到drug target关系利用单细胞转录组可以保存细胞异质性的特点
+Bulk在一个组织上直接多个细胞测转录组
+
+
+### 耐药性研究
+
+对于肿瘤细胞，可能车消除一类细胞后会出现残留细胞主导疾病的现象，因此需要保留细胞异质性信息
+
+对t细胞受体进行单细胞测序可以以好物帮助的活T细胞
+
+### 迁移学习
+
+Bulk转录组测序后做预训练再做做微调
