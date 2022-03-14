@@ -36,6 +36,26 @@
   - [meta-learning](#meta-learning)
     - [分类](#%E5%88%86%E7%B1%BB)
     - [数据准备](#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87)
+- [2022-3-11](#2022-3-11)
+  - [PLAN](#plan-7)
+  - [meta-learning学习整理](#meta-learning%E5%AD%A6%E4%B9%A0%E6%95%B4%E7%90%86)
+    - [Overview](#overview)
+    - [Matching](#matching)
+    - [MAML](#maml)
+  - [单细胞](#%E5%8D%95%E7%BB%86%E8%83%9E)
+    - [均值恢复不好的原因](#%E5%9D%87%E5%80%BC%E6%81%A2%E5%A4%8D%E4%B8%8D%E5%A5%BD%E7%9A%84%E5%8E%9F%E5%9B%A0)
+- [2022-3-12](#2022-3-12)
+  - [PLAN](#plan-8)
+  - [单细胞预训练](#%E5%8D%95%E7%BB%86%E8%83%9E%E9%A2%84%E8%AE%AD%E7%BB%83)
+    - [GENE2TF](#gene2tf)
+    - [TF2GENE](#tf2gene)
+- [2022-3-13](#2022-3-13)
+  - [PLAN](#plan-9)
+  - [权值预训练](#%E6%9D%83%E5%80%BC%E9%A2%84%E8%AE%AD%E7%BB%83)
+- [2022-3-14](#2022-3-14)
+  - [PLAN](#plan-10)
+  - [拟南芥数据处理](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
+  - [mask 代码](#mask-%E4%BB%A3%E7%A0%81)
 
 
 # 2022-3-1
@@ -219,3 +239,204 @@ overview 学习相似任务的共性
 如元训练集 每个任务 包含N分类每个分类下有K个样本的数据集作为训练集，包含N分类每个分类下有K个样本的数据集作为训练集，剩余样本作为测试集
 
 其他两个外层相同
+
+# 2022-3-11
+
+## PLAN
+
++ **meta learning 学习**
++ **单细胞工作整理**
++ **微生物投稿**
+
+## meta-learning学习整理
+
+### Overview
+
++ pre-train
++ FSL few-shot learn
+
+### Matching
+
+特征向量cos 相似度
+
+
+### MAML
+
+多任务找到比较好的$\hat{\theta}$,以便让测试任务中每一个任务都能迭代到好结果。
+
+## 单细胞
+
+### 均值恢复不好的原因
+
+可能分类就不够明确，导致均值不一定能复现
+
+# 2022-3-12
+
+## PLAN
+
++ **毕设文件整理**
++ **单细胞预训练**
+
+
+## 单细胞预训练
+
+### GENE2TF
+
+相关性大约在0.4-0.6 beta=0.05
+
+### TF2GENE
+
+相关性0.8以上
+
+# 2022-3-13
+
+## PLAN
+
++ **毕业设计中期整理**
++ **预训练权值研究**
+
+## 权值预训练
+
+```py
+from functools import reduce
+from pickle import load
+import torch
+import numpy as np
+import torch.nn.functional as F
+from torch import  nn, optim
+import scanpy as sc
+from scipy import sparse
+import pandas as pd
+import Custom_dataLoader
+import VAE_model
+from torch.utils.data import DataLoader
+from early_stop import EarlyStopping
+model = torch.load("/home/ubuntu/MLPackageStudy/VAE/in-silico/model_Version_2/decoder_human_checkpoint.pt",map_location="cpu")
+model
+z2tf = 0
+for name,parameters in model.named_parameters():
+    if name.startswith("z2tf2.fc_layers.Layer 0.0.weight"):
+        print(name,':',parameters)
+        z2tf = parameters
+torch.argmax(torch.abs(z2tf))
+_, idx1 = torch.sort(torch.abs(z2tf).reshape(-1), descending=False)#descending为alse，升序，为True，降序
+idx = idx1[:int(z2tf.shape[0]*z2tf.shape[1]*0.5)]
+z2tf.view(-1)[idx]
+```
+
+进一步参考vega代码进行mask进一步操作
+
+```py
+def create_pathway_mask(feature_list, dict_pathway, add_missing=1, fully_connected=True, to_tensor=False):
+    """
+    Creates a mask of shape [genes,pathways] where (i,j) = 1 if gene i is in pathway j, 0 else.
+
+    Expects a list of genes and pathway dict.
+    Note: dict_pathway should be an Ordered dict so that the ordering can be later interpreted.
+
+    Args:
+        feature_list (list): List of genes in single-cell dataset.
+        dict_pathway (OrderedDict): Dictionary of gene_module:genes.
+        add_missing (int): Number of additional, fully connected nodes.
+        fully_connected (bool): Whether to fully connect additional nodes or not.
+        to_tensor (False): Whether to convert mask to tensor or not.
+    Returns:
+        torch.tensor/np.array: Gene module mask.
+    """
+    assert type(dict_pathway) == OrderedDict
+    p_mask = np.zeros((len(feature_list), len(dict_pathway)))
+    for j, k in enumerate(dict_pathway.keys()):
+        for i in range(p_mask.shape[0]):
+            if feature_list[i] in dict_pathway[k]:
+                p_mask[i,j] = 1.
+    if add_missing:
+        n = 1 if type(add_missing)==bool else add_missing
+        # Get non connected genes
+        if not fully_connected:
+            idx_0 = np.where(np.sum(p_mask, axis=1)==0)
+            vec = np.zeros((p_mask.shape[0],n))
+            vec[idx_0,:] = 1.
+        else:
+            vec = np.ones((p_mask.shape[0], n))
+        p_mask = np.hstack((p_mask, vec))
+    if to_tensor:
+        p_mask = torch.Tensor(p_mask)
+    return p_mask
+```
+
+创建mask矩阵 tf_mask [ i, j ] = 1 如果他们的关系够大 否则为0
+
+
+# 2022-3-14
+
+## PLAN
+
++ **完成mask 函数**
++ **拟南芥数据预处理**
++ 文献阅读
+
+## 拟南芥数据处理
+
+```r
+
+###### 数据预处理 #####
+data <-read.table(file="/home/ubuntu/Arabidopsis/Scripts/datasetA.csv", header=TRUE, sep=",")
+data$G4_MC_rate_bp
+data <- data[,c(-1)]
+colnames(data)[1] <- 'Num'
+
+
+accessions_altitude <-read.table(file="/home/ubuntu/Arabidopsis/accessions-altitude.csv", header=FALSE, sep=",")
+accessions_altitude <- accessions_altitude[,c(-5,-9,-10,-12,-13,-14)]
+names(accessions_altitude) <- c("Num", "Platform", "Name","Nation","Lat","Long","Altitude","Group")
+accessions_altitude$Altitude = as.numeric(accessions_altitude$Altitude)
+
+library(dplyr)
+data_join = inner_join(data,accessions_altitude,by="Num")
+
+
+##### 相关性分析#####
+plot(data_join$Altitude, data_join$sequence.bp,   col = "blue",
+     abline(lm(data_join$sequence.bp~data_join$Lat)),cex = 1.3,pch = 16)
+accessions_altitude <- accessions_altitude[,c(-9,-12,-13,-14)]
+
+
+(data$G4_MC_rate_bp~data$sequence.bp)
+cor(data_join$Lat, data_join$sequence.bp,method="pearson")
+ggplot(data_join[which(data_join$Group=="relict"),],aes(x=sequence.bp,y=G4_MC_rate))+ geom_point(size=1,shape=15)+geom_smooth(method=lm)
+
+
+#### 不同组的参数对比
+
+boxplot(data_join$G4_MC_rate~data_join$Group)
+boxplot(data_join$sequence.bp~data_join$Group)
+boxplot(data_join$G4_total_bp~data_join$Group,ylim=c(9e+4,1.1e+5))
+boxplot(data_join$Altitude~data_join$Group)
+
+
+
+
+
+
+
+##### relict#####
+
+relict = data_join[which(data_join$Group=="relict"),]
+cor(relict$Lat, relict$sequence.bp,method="pearson")
+cor(relict$Long, relict$sequence.bp,method="pearson")
+cor(relict$Altitude, relict$sequence.bp,method="pearson")
+cor(relict$sequence.bp,relict$G4_total,method="pearson")
+cor(relict$sequence.bp,relict$G4_MC_rate_bp,method="pearson")
+cor(relict$sequence.bp,relict$G4_MC_rate,method="pearson")
+ggplot(relict,aes(x=sequence.bp,y=G4_MC_rate_bp))+ geom_point(size=1,shape=15)+geom_smooth(method=lm)
+```
+
+## mask 代码
+
+```py
+### 一旦有了全部的id 即可
+tf_mask = torch.ones(z2tf.shape[0]*z2tf.shape[0])
+tf_mask [idx] = 0
+# torch.sum(tf_mask) , z2tf.shape[0]*z2tf.shape[0]/2
+tf_mask = tf_mask.reshape(z2tf.shape[0],z2tf.shape[0])
+```
