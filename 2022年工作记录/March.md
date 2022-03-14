@@ -55,7 +55,12 @@
 - [2022-3-14](#2022-3-14)
   - [PLAN](#plan-10)
   - [拟南芥数据处理](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
+    - [下载代码更新](#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%96%B0)
   - [mask 代码](#mask-%E4%BB%A3%E7%A0%81)
+  - [单细胞药学开发](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%8D%AF%E5%AD%A6%E5%BC%80%E5%8F%91)
+    - [应用](#%E5%BA%94%E7%94%A8)
+    - [耐药性研究](#%E8%80%90%E8%8D%AF%E6%80%A7%E7%A0%94%E7%A9%B6)
+    - [迁移学习](#%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0)
 
 
 # 2022-3-1
@@ -431,6 +436,13 @@ cor(relict$sequence.bp,relict$G4_MC_rate,method="pearson")
 ggplot(relict,aes(x=sequence.bp,y=G4_MC_rate_bp))+ geom_point(size=1,shape=15)+geom_smooth(method=lm)
 ```
 
+### 下载代码更新
+
+```bash
+ascp -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh -l 100M -k 1 -T anonftp@ftp.ncbi.nlm.nih.gov:/geo/samples/GSM2099nnn/GSM2099214/suppl/GSM2099214_allc_6201.tsv.gz ~/data/softwares
+
+```
+https://blog.csdn.net/weshengxin/article/details/110118398
 ## mask 代码
 
 ```py
