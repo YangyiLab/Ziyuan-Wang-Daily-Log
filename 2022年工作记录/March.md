@@ -61,6 +61,9 @@
     - [应用](#%E5%BA%94%E7%94%A8)
     - [耐药性研究](#%E8%80%90%E8%8D%AF%E6%80%A7%E7%A0%94%E7%A9%B6)
     - [迁移学习](#%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0)
+- [2022-3-15](#2022-3-15)
+  - [PLAN](#plan-11)
+  - [成果收集](#%E6%88%90%E6%9E%9C%E6%94%B6%E9%9B%86)
 
 
 # 2022-3-1
@@ -384,7 +387,7 @@ def create_pathway_mask(feature_list, dict_pathway, add_missing=1, fully_connect
 
 ```r
 
-###### 数据预处理 #####
+###### 数据预处理 #####··1  1                                                                                                                                                           
 data <-read.table(file="/home/ubuntu/Arabidopsis/Scripts/datasetA.csv", header=TRUE, sep=",")
 data$G4_MC_rate_bp
 data <- data[,c(-1)]
@@ -471,3 +474,19 @@ Bulk在一个组织上直接多个细胞测转录组
 ### 迁移学习
 
 Bulk转录组测序后做预训练再做做微调
+
+
+# 2022-3-15
+
+## PLAN
+
++ **毕业设计图片翻译及成果收集**
++ 单细胞finetune
+
+
+## 成果收集
+
++ /home/ubuntu/project/phage-classifer/layers.py 神经网络架构
++ /home/ubuntu/project/phage-classifer/initial_data.py 数据预处理
++ /home/ubuntu/project/phage-classifer/course_final.py 特征识别
++ 
