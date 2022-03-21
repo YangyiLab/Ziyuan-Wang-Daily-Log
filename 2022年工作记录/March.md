@@ -64,6 +64,23 @@
 - [2022-3-15](#2022-3-15)
   - [PLAN](#plan-11)
   - [成果收集](#%E6%88%90%E6%9E%9C%E6%94%B6%E9%9B%86)
+- [2022-3-16](#2022-3-16)
+  - [PLAN](#plan-12)
+  - [下载代码步骤](#%E4%B8%8B%E8%BD%BD%E4%BB%A3%E7%A0%81%E6%AD%A5%E9%AA%A4)
+- [2022-3-17](#2022-3-17)
+  - [PLAN](#plan-13)
+  - [单细胞代码](#%E5%8D%95%E7%BB%86%E8%83%9E%E4%BB%A3%E7%A0%81)
+    - [Encoder Pretrain](#encoder-pretrain)
+    - [latent space注意顺序](#latent-space%E6%B3%A8%E6%84%8F%E9%A1%BA%E5%BA%8F)
+- [2022-3-18](#2022-3-18)
+  - [PLAN](#plan-14)
+  - [TE重构代码](#te%E9%87%8D%E6%9E%84%E4%BB%A3%E7%A0%81)
+- [2022-3-19](#2022-3-19)
+  - [PLAN](#plan-15)
+  - [单细胞工作设计](#%E5%8D%95%E7%BB%86%E8%83%9E%E5%B7%A5%E4%BD%9C%E8%AE%BE%E8%AE%A1)
+- [2022-3-19](#2022-3-19-1)
+  - [PLAN](#plan-16)
+  - [权值](#%E6%9D%83%E5%80%BC)
 
 
 # 2022-3-1
@@ -481,7 +498,7 @@ Bulk转录组测序后做预训练再做做微调
 ## PLAN
 
 + **毕业设计图片翻译及成果收集**
-+ 单细胞finetune
++ **单细胞finetune**
 
 
 ## 成果收集
@@ -489,4 +506,69 @@ Bulk转录组测序后做预训练再做做微调
 + /home/ubuntu/project/phage-classifer/layers.py 神经网络架构
 + /home/ubuntu/project/phage-classifer/initial_data.py 数据预处理
 + /home/ubuntu/project/phage-classifer/course_final.py 特征识别
-+ 
+
+
+# 2022-3-16
+
+## PLAN
++ **完善下载代码**
++** 修改单细胞训练代码**
+
+## 下载代码步骤
+
++ 打开tmux
++ `source /etc/bashrc`
++ 下载
+
+
+# 2022-3-17
+
+## PLAN
+
++ **修改单细胞mask代码**
+
+## 单细胞代码
+
+### Encoder Pretrain
+
+最新模型 cor 达到0.4-0.7之间
+
+### latent space注意顺序
+
+错误原因:由Adata处发生
+
+# 2022-3-18
+
+## PLAN
+
++ **单细胞整理后可视化**
++ **TE重构代码**
+
+## TE重构代码
+
+利用paralle 和 相关参数的设定在LTR_FINDER_parallel中修改参数
+
+
+# 2022-3-19
+
+## PLAN
++ 单细胞工作设计
+
+## 单细胞工作设计
+
++ 拿出decoder 的权重 做可视化
++ 跑新的benchmark以及perturbation
+  + 研究此前benchmark的R代码
+  + 输出特定格式
+
+# 2022-3-19
+
+## PLAN
++ 文献阅读
++ **权值调控网络可视化**
+
+## 权值
+
+还需解决如何构建网络的问题
+
+**GRN调控网络学习**
