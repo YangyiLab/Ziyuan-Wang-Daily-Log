@@ -78,9 +78,24 @@
 - [2022-3-19](#2022-3-19)
   - [PLAN](#plan-15)
   - [单细胞工作设计](#%E5%8D%95%E7%BB%86%E8%83%9E%E5%B7%A5%E4%BD%9C%E8%AE%BE%E8%AE%A1)
-- [2022-3-19](#2022-3-19-1)
+- [2022-3-21](#2022-3-21)
   - [PLAN](#plan-16)
   - [权值](#%E6%9D%83%E5%80%BC)
+    - [TF predicted-TF 存在线性关系](#tf-predicted-tf-%E5%AD%98%E5%9C%A8%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB)
+  - [文献](#%E6%96%87%E7%8C%AE)
+    - [主题](#%E4%B8%BB%E9%A2%98)
+    - [单细胞测序](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%B5%8B%E5%BA%8F)
+    - [转录因子](#%E8%BD%AC%E5%BD%95%E5%9B%A0%E5%AD%90)
+- [2022-3-22](#2022-3-22)
+  - [PLAN](#plan-17)
+  - [hsc转录调控](#hsc%E8%BD%AC%E5%BD%95%E8%B0%83%E6%8E%A7)
+  - [训练流程](#%E8%AE%AD%E7%BB%83%E6%B5%81%E7%A8%8B)
+    - [Code](#code)
+    - [Flow](#flow)
+- [2022-3-23](#2022-3-23)
+  - [PLAN](#plan-18)
+  - [单细胞benchmark 数据overview](#%E5%8D%95%E7%BB%86%E8%83%9Ebenchmark-%E6%95%B0%E6%8D%AEoverview)
+  - [单细胞预训练文献](#%E5%8D%95%E7%BB%86%E8%83%9E%E9%A2%84%E8%AE%AD%E7%BB%83%E6%96%87%E7%8C%AE)
 
 
 # 2022-3-1
@@ -573,6 +588,12 @@ Bulk转录组测序后做预训练再做做微调
 
 **GRN调控网络学习**
 
+### TF predicted-TF 存在线性关系
+
+**Input**: TF-Real
+
+**Output**: linear-relation
+
 ## 文献
 
 ### 主题
@@ -590,3 +611,52 @@ Bulk转录组测序后做预训练再做做微调
 
 + 不同的时间点的不同细胞子群有不同转录调控因子表达量
 + 不同的分支有不同的转录调控网络
+
+# 2022-3-22
+
+## PLAN
+
++ **研究转录调控机制**
++ **VAE模型预训练pipeline**
+
+## hsc转录调控
+
+![fig 3](https://els-jbs-prod-cdn.jbs.elsevierhealth.com/cms/attachment/e86bafbf-4411-451c-94a5-36d4f7c42a32/gr4.jpg)
+
+## 训练流程
+
+### Code 
+```py
+## output: the pretrained model
+def pretrain(data_z_genes,data_z):
+    encoder = encoder_pretrain(data_z_genes,data_z)
+    tf2tf_mask,tf2gene_mask = decoder_pretrain(data_z_genes,data_z)
+    decoder = decoder_fine_tune(tf2tf_mask,tf2gene_mask,data_z_genes,data_z)
+    model = VAE_model.VAE_2(model_encoder=encoder, model_decoder = decoder)
+    pretrained_model = finetune(model,data_z_genes,data_z)
+    return pretrained_model
+```
+
+### Flow
+
++ 预训练encoder
++ 预训练fully-connected decoder
++ 通过权重进行mask
++ 预训练finetuned decoder
++ 组装成VAE并finetune
+
+# 2022-3-23
+
+## PLAN
+
++ **单细胞训练pipelien测试**
++ **TE G4 测试**
++ **单细胞benchmark 数据overview**
+
+## 单细胞benchmark 数据overview
+
+两个batch 分别对应两天，可以清晰分开在umap图中
+
+## 单细胞预训练文献
+
+https://academic.oup.com/bioinformatics/article/38/6/1607/6499287#337386334
