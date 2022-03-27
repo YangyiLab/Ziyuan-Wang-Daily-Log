@@ -96,6 +96,23 @@
   - [PLAN](#plan-18)
   - [单细胞benchmark 数据overview](#%E5%8D%95%E7%BB%86%E8%83%9Ebenchmark-%E6%95%B0%E6%8D%AEoverview)
   - [单细胞预训练文献](#%E5%8D%95%E7%BB%86%E8%83%9E%E9%A2%84%E8%AE%AD%E7%BB%83%E6%96%87%E7%8C%AE)
+- [2022-3-24](#2022-3-24)
+  - [PLAN](#plan-19)
+  - [R脚本](#r%E8%84%9A%E6%9C%AC)
+  - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
+- [2022-3-25](#2022-3-25)
+  - [PLAN](#plan-20)
+  - [R语言图论学习(igraph)](#r%E8%AF%AD%E8%A8%80%E5%9B%BE%E8%AE%BA%E5%AD%A6%E4%B9%A0igraph)
+  - [PageRank 学习](#pagerank-%E5%AD%A6%E4%B9%A0)
+- [2022-3-26](#2022-3-26)
+  - [PLAN](#plan-21)
+  - [拟南芥结论](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E7%BB%93%E8%AE%BA)
+  - [拟南芥可视化](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E5%8F%AF%E8%A7%86%E5%8C%96)
+- [2022-3-26](#2022-3-26-1)
+  - [PLAN](#plan-22)
+  - [气候数据处理](#%E6%B0%94%E5%80%99%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
+    - [R语言处理方法](#r%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95)
+    - [Bio 1-19](#bio-1-19)
 
 
 # 2022-3-1
@@ -660,3 +677,176 @@ def pretrain(data_z_genes,data_z):
 ## 单细胞预训练文献
 
 https://academic.oup.com/bioinformatics/article/38/6/1607/6499287#337386334
+
+
+# 2022-3-24
+
+## PLAN
+
++ **文献阅读**
++ **R语言脚本overview**
++ **周六journal club ppt**
++ **删除raw 文件**
++ **table 修改**
+
+## R脚本
+
+包括数据读写，通过go去做perturbation 但是需要全部基因数据，明天尝试用sc.write_csv处理
+
+## 文献阅读
+
+通过psudo-label 做pretrain
+
+Steps:
+
++ 通过基因表达做K-means做label 训练出encoder
++ 通过encoder训练出的representation 对Kmeans中心点做迭代调整，最终训练出较好的encoder
++ fine-tune 训练出通过encoder给出的向量找出好的分类器
+
+
+消除batch effect
+
+通过多任务计算**总loss** 训练出较好的encoder
+
+
+# 2022-3-25
+
+## PLAN
+
++ **PageRank 学习**
++ **R语言图论学习**
+
+## R语言图论学习(igraph)
+
+通过邻接矩阵创建
+
+```r
+g <- graph.adjacency(tf_net)
+page.rank(g)$vector
+```
+## PageRank 学习
+
+基于各个节点计算邻接矩阵，通过马尔科夫链求平稳分布估算各个节点的重要程度。
+
+# 2022-3-26
+
+## PLAN
+
++ **拟南芥可视化函数**
++ **拟南芥结论总结**
+
+## 拟南芥结论
+
++ TE中G4很容易被甲基化
++ 不同类群中相关性异质化很高
++ TE G4 BP rate没有修正
++ genome大小越依赖于转座子 基因组大小和转座子G4甲基化程度的关联越大
+
+## 拟南芥可视化
+
++ corrplots 基于不同类群
++ boxplot 比较global 以及 TE-wise
+
+# 2022-3-26
+
+## PLAN
++ **校稿**
++ **气候数据处理**
+
+## 气候数据处理
+
+### R语言处理方法
+
+```r
+library(rgdal) 
+
+library(raster)
+
+setwd('/home/ubuntu/data/climate')
+
+lst <- list.files(path=getwd(),pattern='tif$',full.names = T) # 这里用的是tiff格式图层，可根据自己的需要修改，例如# bil、asc 等。数据来源WorldClid网站。
+
+accessions_altitude <-read.table(file="/home/ubuntu/Arabidopsis/accessions-altitude.csv", header=FALSE, sep=",")
+accessions_altitude <- accessions_altitude[,c(-5,-9,-10,-12,-13,-14)]
+names(accessions_altitude) <- c("Num", "Platform", "Name","Nation","Lat","Long","Altitude","Group")
+
+data = data.frame(Num=accessions_altitude$Num,Lat=accessions_altitude$Lat,Long=accessions_altitude$Long)
+
+attach(data) #据说这个命令最好换成with命令，能力有限不改了。
+
+dim(data)
+
+data<-na.omit(data)
+
+coordinates(data)<-c("Long","Lat") #Lon 为经度，Lat为纬度。
+
+bio_number<-vector()
+
+#运行核心代码，提取每个点的气候信息
+
+result<-matrix(rep(0,1131*19),ncol=19)
+
+for(i in 1:2){
+  
+  BIO <- raster(lst[[i]]) #读取第i个气候图层
+  
+  BIO_centroid <- extract(BIO, data, method='simple', buffer=1000, fun=mean, df=TRUE) #提取每个点的气候信息，第i个气候图层，其中用的是均值(座标处不一定有数值)，同时也可选择其他计算方法。
+  
+  bio_number[i]<-strsplit(strsplit(lst[[i]],split="/")[[1]][5],split=".tif")[[1]] #获取气候图层名(使用"/"分割路径来获取文件名，所以需要指定第几级文件。)
+  
+  #注意其中的5是指当前图层在第几级文件中。（可对比上下两个路径的例子来理解这一点）
+  
+  #"E:/Worldclim/30 seconds/version (1.0)/bio1-19_30s_bil/bio_1.bil"   这里设置应为[6]，注意斜杠的方向。
+  
+  result[,i]<-BIO_centroid[,2]
+  
+}
+```
+
+result 为每一个数据对应的BIO1-19的数值
+
+### Bio 1-19 
+BIO1 = Annual Mean Temperature
+
+BIO2 = Mean Diurnal Range (Mean of monthly (max temp - min
+
+temp))
+
+BIO3 = Isothermality(BIO2/BIO7) (* 100)
+
+BIO4 = Temperature Seasonality(standard deviation *100)
+
+BIO5 = Max Temperature of Warmest Month
+
+BIO6 = Min Temperature of Coldest Month
+
+BIO7 = Temperature Annual Range(BIO5-BIO6)
+
+BIO8 = Mean Temperature of Wettest Quarter
+
+BIO9 = Mean Temperature of Driest Quarter
+
+BIO10 = Mean Temperature of Warmest Quarter
+
+BIO11 = Mean Temperature of Coldest Quarter
+
+BIO12 = Annual Precipitation
+
+BIO13 = Precipitation of Wettest Month
+
+BIO14 = Precipitation of Driest Month
+
+BIO15 = Precipitation Seasonality (Coefficient of
+
+Variation)
+
+BIO16 = Precipitation of Wettest Quarter
+
+BIO17 = Precipitation of Driest Quarter
+
+BIO18 = Precipitation of Warmest Quarter
+
+BIO19 = Precipitation of Coldest Quarter
+
+
+
