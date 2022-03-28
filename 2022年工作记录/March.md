@@ -861,7 +861,7 @@ BIO19 = Precipitation of Coldest Quarter
 ## PLAN
 
 + **气候数据整理**
-+ 文献阅读
++ 图深度学习
 + **初步观察结果**
 
 
@@ -882,3 +882,17 @@ BIO19 = Precipitation of Coldest Quarter
 ### 分组4
 
 基因组大小，TE数量，G4在全基因组甲基化的数量，G4在TE的甲基化数量比例
+
+
+## 图神经网络
+
+
+### node2vec
+
+分为两步，第一步为基于深度优先或广度优先的随机游走。第二步为skipgram计算每一下节点的嵌入向量
+
+
+### GCN
+
+只通过每一个结点的特征和邻接矩阵进行训练，通过多层神经网络，找到每个节点的embedding
+损失函数通过特定问题定义
