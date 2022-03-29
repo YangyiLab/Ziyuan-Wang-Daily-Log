@@ -113,13 +113,22 @@
   - [气候数据处理](#%E6%B0%94%E5%80%99%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86)
     - [R语言处理方法](#r%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95)
     - [Bio 1-19](#bio-1-19)
-- [2022-3-27](#2022-3-27)
+- [2022-3-28](#2022-3-28)
   - [PLAN](#plan-23)
   - [数据处理分组](#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E5%88%86%E7%BB%84)
     - [分组1](#%E5%88%86%E7%BB%841)
     - [分组2](#%E5%88%86%E7%BB%842)
     - [分组3](#%E5%88%86%E7%BB%843)
     - [分组4](#%E5%88%86%E7%BB%844)
+  - [图神经网络](#%E5%9B%BE%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C)
+    - [node2vec](#node2vec)
+    - [GCN](#gcn)
+- [2022-3-29](#2022-3-29)
+  - [PLAN](#plan-24)
+  - [index 问题解决](#index-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3)
+  - [拟南芥可视化](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E5%8F%AF%E8%A7%86%E5%8C%96-1)
+    - [boxplot](#boxplot)
+    - [corrplots](#corrplots)
 
 
 # 2022-3-1
@@ -856,12 +865,12 @@ BIO18 = Precipitation of Warmest Quarter
 BIO19 = Precipitation of Coldest Quarter
 
 
-# 2022-3-27
+# 2022-3-28
 
 ## PLAN
 
 + **气候数据整理**
-+ 图深度学习
++ **图深度学习**
 + **初步观察结果**
 
 
@@ -896,3 +905,55 @@ BIO19 = Precipitation of Coldest Quarter
 
 只通过每一个结点的特征和邻接矩阵进行训练，通过多层神经网络，找到每个节点的embedding
 损失函数通过特定问题定义
+
+# 2022-3-29
+
+## PLAN
+
++ **解决index问题**
++ 单细胞可视化 Ding Script
++ **拟南芥可视化**
+
+## index 问题解决
+
+利用fastaNormalizaion来解决
+
+软件位置 /home/ubuntu/data/softwares/picard.jar
+
+软件使用网站 https://broadinstitute.github.io/picard/command-line-overview.html
+
+FastaNormalization
+
+```bash
+java -jar picard.jar NormalizeFasta \
+      I=input_sequence.fasta \
+      O=normalized_sequence.fasta
+```
+
+在服务器中使用
+
++ 修复软件
++ 重命名
+
+```bash
+## FastaNormalization
+java -jar /home/ubuntu/data/softwares/picard.jar NormalizeFasta \
+      -I /home/ubuntu/Arabidopsis/Arabidopsis_sequence/159/chr5.fasta \
+      -O /home/ubuntu/Arabidopsis/Arabidopsis_sequence/159/chr5n.fasta
+
+## Overwrite
+mv /home/ubuntu/Arabidopsis/Arabidopsis_sequence/159/chr5n.fasta /home/ubuntu/Arabidopsis/Arabidopsis_sequence/159/chr5.fasta
+```
+
+## 拟南芥可视化
+
+### boxplot
+
++ 25% LTR中有TE
++ relict G4含量少
++ 明显TE中G4甲基化程度小
+
+### corrplots
+
++ 急需多类别转座子分类
++ 目前能推出TE 和基因组关系 去掉没有G4的TE再看
