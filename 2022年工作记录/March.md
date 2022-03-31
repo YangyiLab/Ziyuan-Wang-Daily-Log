@@ -129,6 +129,18 @@
   - [拟南芥可视化](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E5%8F%AF%E8%A7%86%E5%8C%96-1)
     - [boxplot](#boxplot)
     - [corrplots](#corrplots)
+- [2022-3-30](#2022-3-30)
+  - [PLAN](#plan-25)
+  - [GRN](#grn)
+  - [单细胞训练](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%AE%AD%E7%BB%83)
+  - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB-1)
+- [2022-3-31](#2022-3-31)
+  - [PLAN](#plan-26)
+  - [拟南芥数据](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E6%95%B0%E6%8D%AE)
+    - [有问题数据](#%E6%9C%89%E9%97%AE%E9%A2%98%E6%95%B0%E6%8D%AE)
+    - [TE 转座子benchmark](#te-%E8%BD%AC%E5%BA%A7%E5%AD%90benchmark)
+    - [问题](#%E9%97%AE%E9%A2%98)
+  - [GRN](#grn-1)
 
 
 # 2022-3-1
@@ -911,7 +923,7 @@ BIO19 = Precipitation of Coldest Quarter
 ## PLAN
 
 + **解决index问题**
-+ 单细胞可视化 Ding Script
++ **单细胞可视化 Ding Script**
 + **拟南芥可视化**
 
 ## index 问题解决
@@ -957,3 +969,78 @@ mv /home/ubuntu/Arabidopsis/Arabidopsis_sequence/159/chr5n.fasta /home/ubuntu/Ar
 
 + 急需多类别转座子分类
 + 目前能推出TE 和基因组关系 去掉没有G4的TE再看
+
+# 2022-3-30
+
+## PLAN
+
++ **单细胞umap降维**
++ **tf调控网络**
++ **文献阅读**
+
+## GRN
+
++ 从神经网络下载邻接矩阵
++ 构建图g
++ 通过图g 创建邻接表
++ rbind 连接两个表
+
+```r
+ael <- as_adj_edge_list(g)
+```
+
+## 单细胞训练
+
+需要调高epoch
+
+## 文献阅读
+
+通过遗传信息介导 由于基因和表型的但方向性 只能基因影响表型 不能表型影响基因进行推断
+
+2-sample 很重要！！
+
+
+# 2022-3-31
+
+## PLAN
+
++** 整理拟南芥数据**
++ 单细胞网络
++ MR方法
+
+## 拟南芥数据
+
+
++ TE_G4(bp):即与位于TE中G4结构的数量（bp数）,从TE_G4.csv中获取
++ TE_G4_mc（bp）：位于TE中G4结构的甲基化数量（bp数）
++ TE_G4_mc_rate:位于TE中G4结构的甲基化程度
+            TE_G4_mc_rate=float(TE_G4_mc)/float(TE_G4)
++ TE_G4_mc_bp_rate：先计算a=float(TE_G4_mc_bp)/float(TE_G4_bp)
+        再求b=float(TE_mc_bp)/float(TE_bp)
+        TE_G4_mc_bp_rate=a/b
++ TE_mc_bp：该染色体中TE被甲基化的bp数           
++ TE(bp):即TE的总数量（bp数），总数量：读取tmp1，每一行对应一个TE+1，bp则在-hist可直接读
++ G4（bp):即G4的总数量（bp数）,从“number.csv”中读取
++ TE_G4(bp):即与位于TE中G4结构的数量，倒数第四列即指明了该TE中与几个G4结构重叠，累加即可
++ TE_G4_rate（bp）：G4中位于TE的比例
+            TE_G4_rate=float(TE_G4)/float(G4)
++ G4_TE(bp):包含G4结构的TE数目（bp数）
++ G4_TE_rate（bp）：TE中包含G4结构的比例
+            G4_TE_rate=float(G4_TE)/float(TE)
+
+### 有问题数据
+
++ /home/ubuntu/Arabidopsis/Scripts/datasetTE1.csv 中 G4_TE_bp_rate,G4_TE_rate,T4_G4_bp_rate,T4_G4_rate 
++ G4_TE_bp_rate
+
+### TE 转座子benchmark
+
+https://genomebiology.biomedcentral.com/articles/10.1186/gb-2004-5-10-r79#MOESM4
+
+### 问题
+d
+TE数量变化实际并不大
+
+## GRN
+
+需要重新学习graph_from_data_frame
