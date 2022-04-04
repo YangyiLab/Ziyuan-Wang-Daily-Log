@@ -1004,9 +1004,8 @@ ael <- as_adj_edge_list(g)
 
 ## PLAN
 
-+** 整理拟南芥数据**
-+ 单细胞网络
-+ MR方法
++ **整理拟南芥数据**
++ **单细胞网络**
 
 ## 拟南芥数据
 
@@ -1038,7 +1037,6 @@ ael <- as_adj_edge_list(g)
 https://genomebiology.biomedcentral.com/articles/10.1186/gb-2004-5-10-r79#MOESM4
 
 ### 问题
-d
 TE数量变化实际并不大
 
 ## GRN
