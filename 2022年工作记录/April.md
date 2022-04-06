@@ -128,4 +128,16 @@ def get_g4te_type(chr_num,path):
 ## PLAN
 + 拟南芥项目推进
 + **PU1 perturbation**
-+ 文献阅读
++ **文献阅读**
+
+
+## hsc
+
+### 分化
+
+由转录因子介导的分化即gata1和spi 1的拮抗作用，gata1倾向于mep而spi1倾向于gmp
+
+
+### 造血干细胞亚群
+
+不同类型细胞，转录因子表达量存在显著性不同
