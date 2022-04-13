@@ -52,6 +52,10 @@
   - [TE转座子](#te%E8%BD%AC%E5%BA%A7%E5%AD%90)
     - [graph](#graph)
     - [完成ltr计算代码](#%E5%AE%8C%E6%88%90ltr%E8%AE%A1%E7%AE%97%E4%BB%A3%E7%A0%81)
+- [2022-4-13](#2022-4-13)
+  - [PLAN](#plan-11)
+  - [Visa](#visa)
+  - [GRN排查](#grn%E6%8E%92%E6%9F%A5)
 
 # 2022-4-1
 
@@ -345,4 +349,24 @@ Spi1 -> Gata1 -1
 在每一个ltr_classification中
 
 类群的文件下 *_age.txt
+
+# 2022-4-13
+
+## PLAN
++ **签证**
++ **甲基化可视化**
++ **进一步探索GRN**
++ **修改微生物文章**
+
+## Visa
+SEVIS N0032960589
+school code PHO214F20092000
+passport EA5831025
+
+## GRN排查
+
++ gene/tf construction
++ perturb 之间的散点图
+
+
 
