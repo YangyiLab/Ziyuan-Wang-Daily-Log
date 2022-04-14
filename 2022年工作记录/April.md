@@ -56,6 +56,8 @@
   - [PLAN](#plan-11)
   - [Visa](#visa)
   - [GRN排查](#grn%E6%8E%92%E6%9F%A5)
+- [2022-4-14](#2022-4-14)
+  - [PLAN](#plan-12)
 
 # 2022-4-1
 
@@ -368,5 +370,9 @@ passport EA5831025
 + gene/tf construction
 + perturb 之间的散点图
 
+# 2022-4-14
 
-
+## PLAN
++ 修改并提交微生物文章
++ **perturbation 纠错可视化**
++ 文献阅读
