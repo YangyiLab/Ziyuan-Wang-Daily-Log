@@ -58,6 +58,8 @@
   - [GRN排查](#grn%E6%8E%92%E6%9F%A5)
 - [2022-4-14](#2022-4-14)
   - [PLAN](#plan-12)
+  - [journal club](#journal-club)
+    - [ouline](#ouline)
 
 # 2022-4-1
 
@@ -373,6 +375,17 @@ passport EA5831025
 # 2022-4-14
 
 ## PLAN
-+ 修改并提交微生物文章
++ **修改并提交微生物文章**
 + **perturbation 纠错可视化**
-+ 文献阅读
++ **journal club ppt**
+
+## journal club
+
+### ouline
+
++ Background Knowledge
+  + 图神经网络和化学的应用
+  + meta-learning 思想 主要从数据集谈(FSL)
++ Feature
++ Model Overview
++ Thoughts
