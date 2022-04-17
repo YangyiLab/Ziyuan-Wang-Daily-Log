@@ -52,6 +52,14 @@
   - [TE转座子](#te%E8%BD%AC%E5%BA%A7%E5%AD%90)
     - [graph](#graph)
     - [完成ltr计算代码](#%E5%AE%8C%E6%88%90ltr%E8%AE%A1%E7%AE%97%E4%BB%A3%E7%A0%81)
+- [2022-4-13](#2022-4-13)
+  - [PLAN](#plan-11)
+  - [Visa](#visa)
+  - [GRN排查](#grn%E6%8E%92%E6%9F%A5)
+- [2022-4-14](#2022-4-14)
+  - [PLAN](#plan-12)
+  - [journal club](#journal-club)
+    - [ouline](#ouline)
 
 # 2022-4-1
 
@@ -346,3 +354,67 @@ Spi1 -> Gata1 -1
 
 类群的文件下 *_age.txt
 
+# 2022-4-13
+
+## PLAN
++ **签证**
++ **甲基化可视化**
++ **进一步探索GRN**
++ **修改微生物文章**
+
+## Visa
+SEVIS N0032960589
+school code PHO214F20092000
+passport EA5831025
+
+## GRN排查
+
++ gene/tf construction
++ perturb 之间的散点图
+
+# 2022-4-14
+
+## PLAN
++ **修改并提交微生物文章**
++ **perturbation 纠错可视化**
++ **journal club ppt**
+
+## journal club
+
+### ouline
+
++ Background Knowledge
+  + 图神经网络和化学的应用
+  + meta-learning 思想 主要从数据集谈(FSL)
++ Feature
++ Model Overview
++ Thoughts
+
+# 2022-4-15
+
+## PLAN
+
++ **journal club ppt/讲稿**
++ 拟南芥起源论文设计
++ 单细胞项目继续排查
++ **单细胞文献**
+
+## journal club
+
+### 讲稿
+
+第一部分中讲解背景包括分子性质预测，图神经网络以及meta learning｡
+
+第二部分中讲解meta learning在化学分子性质预测中的应用
+
+第三部分讲解par模型在的优势即考虑不同分子在不同性质上相似度不同
+
+第四部分讲解方法应用场景如三代中出现较少的表观遗传
+
+
+## gwas 与 单细胞
+
+可以找到依赖于细胞类型的eqtl对于疾病风险位点更加精确
+
+Steps
+孟德尔随机化定位基因，再在不同细胞类型中eqtl ，需要snp以及单细胞测序数据
