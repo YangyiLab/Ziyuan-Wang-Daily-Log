@@ -10,6 +10,13 @@
 - [2022-5-7](#2022-5-7)
   - [PLAN](#plan-3)
   - [预测数据分析](#%E9%A2%84%E6%B5%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90)
+  - [转座子活性](#%E8%BD%AC%E5%BA%A7%E5%AD%90%E6%B4%BB%E6%80%A7)
+- [2022-5-8](#2022-5-8)
+  - [PLAN](#plan-4)
+  - [解决](#%E8%A7%A3%E5%86%B3)
+  - [信息](#%E4%BF%A1%E6%81%AF)
+- [2022-5-9](#2022-5-9)
+  - [PLAN](#plan-5)
 
 # 2022-5-4
 
@@ -61,3 +68,63 @@ v1 v2 push程度较大，但在gene-wise不明显，可以考虑修改umap降维
 ## 转座子活性
 
 利用snp低频偏移以及转座子拷贝数做分析
+
+
+# 2022-5-8
+
+## PLAN
+
++ **单细胞原始数据分析**
++ **继续做不同mask rate调优**
+
+## 解决
+
++ 堆叠层数
++ thredhold 分别不同
+
+## 信息
+
+Hongxu Ding, PhD
+
+Assistant Professor, Translational Pharmacogenomics
+
+Department of Pharmacy Practice and Science, University of Arizona
+
+Drachman Hall B207N
+
+Email: hongxuding@arizona.edu
+
+Tel: 520-626-5764
+
+
+Email: hongxuding@arizona.edu
+
+Tel: 520-626-5764
+Brian Erstad, PharmD
+
+https://www.pharmacy.arizona.edu/
+
+Roy P. Drachmann Hall
+Pulido Center – Tucson
+1295 N. Martin
+PO Box 210202
+Tucson, AZ 85721
+Phone: 520-626-1427
+
+$5500
+
+19901130
+
+丁鸿绪
+
+SSN 722349266
+
+# 2022-5-9
+
+## PLAN
+
++ **空间转录组工作**
++ **修改perturbation 函数**
++ 蛋白生成模型
+
+
