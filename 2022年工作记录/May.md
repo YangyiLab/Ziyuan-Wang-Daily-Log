@@ -37,6 +37,15 @@
   - [PLAN](#plan-9)
   - [单细胞训练训练步骤](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%AE%AD%E7%BB%83%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A4)
   - [minimap2](#minimap2)
+- [2022-5-16](#2022-5-16)
+  - [PLAN](#plan-10)
+  - [拟南芥空间转录组](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E7%A9%BA%E9%97%B4%E8%BD%AC%E5%BD%95%E7%BB%84)
+    - [验证](#%E9%AA%8C%E8%AF%81)
+    - [应用](#%E5%BA%94%E7%94%A8)
+  - [模型修改结果](#%E6%A8%A1%E5%9E%8B%E4%BF%AE%E6%94%B9%E7%BB%93%E6%9E%9C)
+  - [NGS 学习](#ngs-%E5%AD%A6%E4%B9%A0)
+    - [SRA 命令](#sra-%E5%91%BD%E4%BB%A4)
+    - [bwa 命令](#bwa-%E5%91%BD%E4%BB%A4)
 
 # 2022-5-4
 
@@ -244,8 +253,9 @@ minimizer 找到{x,y,w} x 为ref 位置, y为query 位置 w为interval
 # 2022-5-16
 
 ## PLAN
-+ 单细胞修改模型可视化
++ **单细胞修改模型可视化**
 + **拟南芥空间转录组**
++ **bwa 学习**
 
 
 ## 拟南芥空间转录组
@@ -260,3 +270,28 @@ minimizer 找到{x,y,w} x 为ref 位置, y为query 位置 w为interval
 + 细胞分形
 + 不同区域的基因表达关系
 + 不同区域的分化
+
+## 模型修改结果
+
++ P_MEP,P_GMP(3000/5002) 恢复基因数显著多于 未恢复
++ 但在图上无法可视化
+
+## NGS 学习
+
+### SRA 命令
+
+```bash
+fastq-dump --split-3 --defline-qual '+' --defline-seq '@\$ac-\$si/\$ri'  SRR1945478 --gzip
+```
+
+下载压缩的双端测序数据
+
+### bwa 命令
+
+```bash
+# bwa index -a bwtsw Col-0.fasta
+bwa mem /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/SRR390728.fastq > /home/ubuntu/data/NGS/result/bwa_result.sam
+```
++ 建立索引
++ 进行比对
+
