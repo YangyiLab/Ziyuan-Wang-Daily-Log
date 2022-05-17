@@ -5,6 +5,7 @@
   - [DNA 重测序技术](#dna-%E9%87%8D%E6%B5%8B%E5%BA%8F%E6%8A%80%E6%9C%AF)
     - [SRA 命令](#sra-%E5%91%BD%E4%BB%A4)
     - [bwa 命令](#bwa-%E5%91%BD%E4%BB%A4)
+    - [单端测序&双端测序](#%E5%8D%95%E7%AB%AF%E6%B5%8B%E5%BA%8F%E5%8F%8C%E7%AB%AF%E6%B5%8B%E5%BA%8F)
   - [RNA-Seq 技术](#rna-seq-%E6%8A%80%E6%9C%AF)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
   - [甲基化技术](#%E7%94%B2%E5%9F%BA%E5%8C%96%E6%8A%80%E6%9C%AF)
@@ -45,6 +46,11 @@ bwa mem /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/Col-0.fasta /hom
 ```
 + 建立索引
 + 进行比对
+
+### 单端测序&双端测序
+
+主要原因在于Illumina的二代测序仪的读长短，相对于第一代sanger测序法（约1000bp）或者跟同属于NGS的其他测序仪相比短了许多。因此illumina发展了 Paired-end的建库测序技术。同时这种技术还大大推进了基因组学数据分析的发展。
+例如，依赖于Paired-end的技术，假设一个DNA片段刚好跨越了重复序列区域（下图左侧）以及独特序列区域（下图右侧）。
 
 ## RNA-Seq 技术
 
