@@ -42,7 +42,7 @@ fastq-dump --split-3 --defline-qual '+' --defline-seq '@\$ac-\$si/\$ri'  SRR1945
 
 ```bash
 # bwa index -a bwtsw Col-0.fasta
-bwa mem /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/SRR390728.fastq > /home/ubuntu/data/NGS/result/bwa_result.sam
+bwa mem /home/ubuntu/data/NGS/Col-0.fasta /home/ubuntu/data/NGS/SRR390728.fastq > /home/ubuntu/data/NGS/result/bwa_result.sam
 ```
 + 建立索引
 + 进行比对
