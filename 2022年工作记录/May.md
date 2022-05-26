@@ -66,6 +66,12 @@
     - [数据下载](#%E6%95%B0%E6%8D%AE%E4%B8%8B%E8%BD%BD)
     - [质控](#%E8%B4%A8%E6%8E%A7)
   - [单细胞模型修改](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%A8%A1%E5%9E%8B%E4%BF%AE%E6%94%B9)
+- [2022-5-25](#2022-5-25)
+  - [PLAN](#plan-15)
+  - [GATK](#gatk)
+    - [MarkDuplicates](#markduplicates)
+- [2022-5-26](#2022-5-26)
+  - [PLAN](#plan-16)
 
 # 2022-5-4
 
@@ -482,3 +488,42 @@ N在测序数据中一般是不应该出现的。
 ## 单细胞模型修改
 
 权重*2 效果变好
+
+# 2022-5-25
+
+## PLAN
+
++ **GATK 学习使用+原理+文献**
++ **单细胞结果可视**
+
+## GATK
+
+GATK全称是The Genome Analysis Toolkit，是Broad Institute（The Broad Institute, formerly the Broad Institute of MIT and Harvard, evolved from a decade of research collaborations among MIT and Harvard scientists.）开发的用于二代重测序数据分析的一款软件，里面包含了很多有用的工具，主要注重与变异的查找，基因分型且对于数据质量保证高度重视。
+
+### MarkDuplicates
+
+标记PCR重复
+
+原理
+
++ PCR扩增原本的目的就是为了增大微弱DNA序列片段的密度，但由于整个反应都在一个试管中进行，因此其他一些密度并不低的DNA片段也会被同步放大，在取样上机时，这些DNA片段就很可能被重复取到相同的几条去进行测序。最直接的后果就是同时增大了变异检测结果的假阴和假阳率。
+
+gatk的MarkDuplicates模块来实现PCR重复功能，即只把重复序列在输出的新结果中标记出来，但不删除。
+
+代码
+
+```bash
+gatk MarkDuplicates \
+-I E_coli_K12.sorted.bam \
+-O E_coli_K12.sorted.markdup.bam \
+-M E_coli_K12.sorted.markdup_metrics.txt
+```
+
+# 2022-5-26
+
+## PLAN
+
++ 文献阅读
++ NGS组装 samtools
+
+
