@@ -72,6 +72,10 @@
     - [MarkDuplicates](#markduplicates)
 - [2022-5-26](#2022-5-26)
   - [PLAN](#plan-16)
+  - [GATK](#gatk-1)
+    - [为参考序列生成一个.dict文件](#%E4%B8%BA%E5%8F%82%E8%80%83%E5%BA%8F%E5%88%97%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AAdict%E6%96%87%E4%BB%B6)
+    - [生成中间文件gvcf](#%E7%94%9F%E6%88%90%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6gvcf)
+    - [通过gvcf检测变异](#%E9%80%9A%E8%BF%87gvcf%E6%A3%80%E6%B5%8B%E5%8F%98%E5%BC%82)
 
 # 2022-5-4
 
@@ -523,7 +527,40 @@ gatk MarkDuplicates \
 
 ## PLAN
 
-+ 文献阅读
-+ NGS组装 samtools
++ **文献阅读**
++ **NGS组装 samtools**
 
 
+## GATK
+
+### 为参考序列生成一个.dict文件
+
+**代码**
+```bash
+gatk CreateSequenceDictionary \
+-R Col-0.fasta \
+-O Col-0.dict
+```
+
+### 生成中间文件gvcf
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+--emit-ref-confidence GVCF \
+-I Ath.sorted.markdup.bam \
+-O Ath.g.vcf
+```
+
+### 通过gvcf检测变异
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+-I Ath.sorted.markdup.bam \
+-O Ath.vcf.gz
+```
+
+通过gatk检测出变异后，可以进行过滤或进一步操作。
