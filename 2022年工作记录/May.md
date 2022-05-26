@@ -72,6 +72,12 @@
     - [MarkDuplicates](#markduplicates)
 - [2022-5-26](#2022-5-26)
   - [PLAN](#plan-16)
+  - [单细胞可视化](#%E5%8D%95%E7%BB%86%E8%83%9E%E5%8F%AF%E8%A7%86%E5%8C%96)
+  - [GATK](#gatk-1)
+    - [为参考序列生成一个.dict文件](#%E4%B8%BA%E5%8F%82%E8%80%83%E5%BA%8F%E5%88%97%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AAdict%E6%96%87%E4%BB%B6)
+    - [生成中间文件gvcf](#%E7%94%9F%E6%88%90%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6gvcf)
+    - [通过gvcf检测变异](#%E9%80%9A%E8%BF%87gvcf%E6%A3%80%E6%B5%8B%E5%8F%98%E5%BC%82)
+  - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
 
 # 2022-5-4
 
@@ -523,7 +529,51 @@ gatk MarkDuplicates \
 
 ## PLAN
 
-+ 文献阅读
-+ NGS组装 samtools
++ **文献阅读**
++ **NGS组装 samtools**
++ **单细胞可视化**
+
+## 单细胞可视化
+
+推动 两个转录因子 可以影响 4个转录因子
+
+推动一个转录因子 可以影响两个转录因子
 
 
+## GATK
+
+### 为参考序列生成一个.dict文件
+
+**代码**
+```bash
+gatk CreateSequenceDictionary \
+-R Col-0.fasta \
+-O Col-0.dict
+```
+
+### 生成中间文件gvcf
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+--emit-ref-confidence GVCF \
+-I Ath.sorted.markdup.bam \
+-O Ath.g.vcf
+```
+
+### 通过gvcf检测变异
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+-I Ath.sorted.markdup.bam \
+-O Ath.vcf.gz
+```
+
+通过gatk检测出变异后，可以进行过滤或进一步操作。
+
+## 文献阅读
+
+利用scRNA-seq作为参考构建VAE模型。空间转录组组作为输入利用VAE模型，提取embedding ，判断每个spot中子状态，以及其他特性。
