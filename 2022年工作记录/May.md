@@ -78,6 +78,13 @@
     - [生成中间文件gvcf](#%E7%94%9F%E6%88%90%E4%B8%AD%E9%97%B4%E6%96%87%E4%BB%B6gvcf)
     - [通过gvcf检测变异](#%E9%80%9A%E8%BF%87gvcf%E6%A3%80%E6%B5%8B%E5%8F%98%E5%BC%82)
   - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
+- [2022-5-27](#2022-5-27)
+  - [PLAN](#plan-17)
+  - [minimap2 代码](#minimap2-%E4%BB%A3%E7%A0%81)
+  - [VCF及$F_{st}$](#vcf%E5%8F%8Afst)
+    - [VCF Merge](#vcf-merge)
+    - [Fst 问题](#fst-%E9%97%AE%E9%A2%98)
+    - [NUCLEOTIDE DIVERGENCE](#nucleotide-divergence)
 
 # 2022-5-4
 
@@ -577,3 +584,36 @@ gatk HaplotypeCaller \
 ## 文献阅读
 
 利用scRNA-seq作为参考构建VAE模型。空间转录组组作为输入利用VAE模型，提取embedding ，判断每个spot中子状态，以及其他特性。
+
+# 2022-5-27
+
+## PLAN
++ **单细胞结果汇总作图**
++ **计算$F_{st}$脚本检查**
++ **minimap 使用**
+
+## minimap2 代码
+
+```bash
+# 建立索引
+minimap2 -d Col-0.min  Col-0.fasta
+# 比对
+minimap2 -x sr -a  Col-0.min  SRR390728_1.fastq.gz \
+                        SRR390728_2.fastq.gz > test.sam
+```
+
+注意的问题是需要调整参数 sr (short read)
+
+## VCF及$F_{st}$
+
+### VCF Merge
+
+merge后会出现 一个sample有这个图片另一个sample没有的问题，即在中间出现. 可能会影响divergency的问题...
+
+### Fst 问题
+
+出现$H_t$=0的问题，会计算出nan，可以提前做filter`vcftools --min-allels`?
+
+### NUCLEOTIDE DIVERGENCE
+
+利用`vcftools --site-pi`计算核酸多样性
