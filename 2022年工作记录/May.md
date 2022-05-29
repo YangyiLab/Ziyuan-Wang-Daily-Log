@@ -85,6 +85,13 @@
     - [VCF Merge](#vcf-merge)
     - [Fst 问题](#fst-%E9%97%AE%E9%A2%98)
     - [NUCLEOTIDE DIVERGENCE](#nucleotide-divergence)
+- [2022-5-29](#2022-5-29)
+  - [PLAN](#plan-18)
+  - [结果报告](#%E7%BB%93%E6%9E%9C%E6%8A%A5%E5%91%8A)
+    - [图](#%E5%9B%BE)
+    - [模型结构](#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84)
+  - [甲基化分析流程 (Bisulfite-Seq )](#%E7%94%B2%E5%9F%BA%E5%8C%96%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B-bisulfite-seq)
+  - [SV](#sv)
 
 # 2022-5-4
 
@@ -617,3 +624,48 @@ merge后会出现 一个sample有这个图片另一个sample没有的问题，�
 ### NUCLEOTIDE DIVERGENCE
 
 利用`vcftools --site-pi`计算核酸多样性
+
+# 2022-5-29
+
+## PLAN
+
++ **甲基化测序分析流程**
++ **单细胞结果报告**
++ **染色体结构变异**
+## 结果报告
+
+### 图
+
++ 权值分布图
++ DE图
+
+### 模型结构
+
++ Encoder Decoder结构
++ 训练步骤
++ 训练超参数
+
+Encoder Gene gene TF
+Decoder TF TF Gene
+
+训练步骤
++ 对Encoder进行预训练
++ 对Decoder 进行预训练+L2正则化 epoch = 2000 
++ 对于预训练的Decoder 中TF2TF,TF2GENE 这两个网络的权值进行mask 即只保留绝对值在前10%的权值
++ 将每个权值*5后，再将其余权值进行mask后，输入回网络预训练
++ 将Encoder Decoder组成VAE重新训练调整权重
+
+## 甲基化分析流程 (Bisulfite-Seq )
++ Trim
++ Secondly, as a subset of reads contained all or part of the 3ʼ
+adapter oligonucleotide sequence, every read was searched for the adapter sequence, and if detected the read was trimmed to the preceding base.
++ Thirdly, any cytosine base in a read was replaced with thymine. Align to two computationally converted NCBI BUILD 36/HG18 reference
+sequences, the first in which cytosines were replaced with thymines, and the second in which guanines were replaced with adenines.
++ Finally, the number of calls for each base at every reference sequence position and on each strand was calculated 
++ 利用伯努利分布去鉴别甲基化
+
+## SV
+```bash
+mkdir SV && cd SV
+bam2cfg.pl -g -h /home/ubuntu/data/NGS/Athaliana/Ath.sam > 4Ath_requence.cfg
+```
