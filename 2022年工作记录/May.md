@@ -667,5 +667,26 @@ sequences, the first in which cytosines were replaced with thymines, and the sec
 ## SV
 ```bash
 mkdir SV && cd SV
-bam2cfg.pl -g -h /home/ubuntu/data/NGS/Athaliana/Ath.sam > 4Ath_requence.cfg
+-g -h /home/ubuntu/data/NGS/Athaliana/Ath.sam > 4Ath_requence.cfg
 ```
+
+# 2022-5-30
+
+## PLAN
+
++ **breakdancer文献阅读**
++ 档案相关流程
++ **eQTL复习**
+
+## QTL
+
+回顾双标记法找qtl位点流程，未对应对 eqtl上
+
+假设为基因连锁与图距（摩尔根距离）
+
+##文献sv
+基于分离距离以及对各方向估计可信区间及变异类型
+
+流程使用maq算法进行基因组对齐
+
+文献中缺少判断多种变异类型描述
