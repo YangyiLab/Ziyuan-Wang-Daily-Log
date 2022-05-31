@@ -105,6 +105,9 @@
   - [VCF 文件](#vcf-%E6%96%87%E4%BB%B6)
     - [在没检测的用0/0](#%E5%9C%A8%E6%B2%A1%E6%A3%80%E6%B5%8B%E7%9A%84%E7%94%A800)
     - [过滤缺失](#%E8%BF%87%E6%BB%A4%E7%BC%BA%E5%A4%B1)
+  - [SV](#sv-1)
+    - [manta](#manta-1)
+    - [breakdancer](#breakdancer-1)
 
 # 2022-5-4
 
@@ -746,3 +749,13 @@ vcf-merge -R 0/0 ...
 ```bash
 vcftools --max-missing 1 ...
 ```
+
+## SV
+
+### manta
+
+illumina 倾力推荐 生成VCF文件
+
+### breakdancer
+
+可以识别多种染色体结构变异
