@@ -92,6 +92,15 @@
     - [模型结构](#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84)
   - [甲基化分析流程 (Bisulfite-Seq )](#%E7%94%B2%E5%9F%BA%E5%8C%96%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B-bisulfite-seq)
   - [SV](#sv)
+- [2022-5-30](#2022-5-30)
+  - [PLAN](#plan-19)
+  - [QTL](#qtl)
+  - [文献sv](#%E6%96%87%E7%8C%AEsv)
+- [2022-5-31](#2022-5-31)
+  - [PLAN](#plan-20)
+  - [Breakdancer](#breakdancer)
+  - [manta](#manta)
+  - [PE测序](#pe%E6%B5%8B%E5%BA%8F)
 
 # 2022-5-4
 
@@ -675,7 +684,7 @@ mkdir SV && cd SV
 ## PLAN
 
 + **breakdancer文献阅读**
-+ 档案相关流程
++ **档案相关流程**
 + **eQTL复习**
 
 ## QTL
@@ -684,9 +693,31 @@ mkdir SV && cd SV
 
 假设为基因连锁与图距（摩尔根距离）
 
-##文献sv
+## 文献sv
 基于分离距离以及对各方向估计可信区间及变异类型
 
 流程使用maq算法进行基因组对齐
 
 文献中缺少判断多种变异类型描述
+
+# 2022-5-31
+
+## PLAN
++ **Breakdancer 调试**
++ minimap2算法整理
++ **manta 安装**
+
+## Breakdancer 
+
+下载成了RNA-seq，应使用SRR1945478
+
+## manta
+需要依赖```conda activate manta```
+
+## PE测序
+
+参考illumina视频 https://www.youtube.com/watch?v=-8fG9ruvbe4
+
+需要bridge 扩增 读数是通过和柱子上的dna配对后 荧光
+
+两个reverse 序列的overlap取决于fragments 
