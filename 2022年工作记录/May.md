@@ -704,7 +704,7 @@ mkdir SV && cd SV
 
 ## PLAN
 + **Breakdancer 调试**
-+ minimap2算法整理
++ **minimap2算法整理**
 + **manta 安装**
 
 ## Breakdancer 
@@ -721,3 +721,7 @@ mkdir SV && cd SV
 需要bridge 扩增 读数是通过和柱子上的dna配对后 荧光
 
 两个reverse 序列的overlap取决于fragments 
+
+## minimap 2
+
+算anchor找chain之后找到最佳的匹配路径 对于rna读数就找到了对应参考基因组位置，如果要拼接再找其他方法
