@@ -101,6 +101,10 @@
   - [Breakdancer](#breakdancer)
   - [manta](#manta)
   - [PE测序](#pe%E6%B5%8B%E5%BA%8F)
+  - [minimap 2](#minimap-2)
+  - [VCF 文件](#vcf-%E6%96%87%E4%BB%B6)
+    - [在没检测的用0/0](#%E5%9C%A8%E6%B2%A1%E6%A3%80%E6%B5%8B%E7%9A%84%E7%94%A800)
+    - [过滤缺失](#%E8%BF%87%E6%BB%A4%E7%BC%BA%E5%A4%B1)
 
 # 2022-5-4
 
@@ -725,3 +729,20 @@ mkdir SV && cd SV
 ## minimap 2
 
 算anchor找chain之后找到最佳的匹配路径 对于rna读数就找到了对应参考基因组位置，如果要拼接再找其他方法
+
+## VCF 文件
+
+### 在没检测的用0/0
+
+**bcftools**
+```bash
+bcftools merge -0
+```
+**vcftools**
+```bash
+vcf-merge -R 0/0 ...
+```
+### 过滤缺失
+```bash
+vcftools --max-missing 1 ...
+```
