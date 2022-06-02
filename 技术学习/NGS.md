@@ -7,6 +7,11 @@
     - [bwa 命令](#bwa-%E5%91%BD%E4%BB%A4)
     - [单端测序&双端测序](#%E5%8D%95%E7%AB%AF%E6%B5%8B%E5%BA%8F%E5%8F%8C%E7%AB%AF%E6%B5%8B%E5%BA%8F)
     - [质控](#%E8%B4%A8%E6%8E%A7)
+    - [GATK](#gatk)
+    - [VCF 文件](#vcf-%E6%96%87%E4%BB%B6)
+    - [染色体结构变异](#%E6%9F%93%E8%89%B2%E4%BD%93%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82)
+    - [$F_{st}$计算(基于vcftools)](#fst%E8%AE%A1%E7%AE%97%E5%9F%BA%E4%BA%8Evcftools)
+    - [NUCLEOTIDE DIVERGENCE(基于vcftools)](#nucleotide-divergence%E5%9F%BA%E4%BA%8Evcftools)
   - [RNA-Seq 技术](#rna-seq-%E6%8A%80%E6%9C%AF)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
   - [甲基化技术](#%E7%94%B2%E5%9F%BA%E5%8C%96%E6%8A%80%E6%9C%AF)
@@ -26,6 +31,19 @@ minimizer 找到{x,y,w} x 为ref 位置, y为query 位置 w为interval
 + 首先，将基因组序列的minimizer存储在哈希表中（minimizer指一段序列内最小哈希值的种子）；
 + 然后，对于每一条待比对序列，找到待比对序列所有的minimizer，通过哈希表找出其在基因组中的位置，并利用chaining算法寻找待比对区域；
 + 最后，将非种子区域用动态规划算法进行比对得到比对结果。
+
+
+**代码**
+
+```bash
+# 建立索引
+minimap2 -d Col-0.min  Col-0.fasta
+# 比对
+minimap2 -x sr -a  Col-0.min  SRR390728_1.fastq.gz \
+                        SRR390728_2.fastq.gz > test.sam
+```
+
+注意的问题是需要调整参数 sr (short read)
 
 ### BWT算法
 
@@ -145,6 +163,75 @@ N在测序数据中一般是不应该出现的。
 
 **WGS质控与RNA-seq不同**
 
+### GATK
+
+**GATK**全称是The Genome Analysis Toolkit，是Broad Institute（The Broad Institute, formerly the Broad Institute of MIT and Harvard, evolved from a decade of research collaborations among MIT and Harvard scientists.）开发的用于二代重测序数据分析的一款软件，里面包含了很多有用的工具，主要注重与变异的查找，基因分型且对于数据质量保证高度重视。
+
++ 为参考序列生成一个.dict文件
+
+**代码**
+```bash
+gatk CreateSequenceDictionary \
+-R Col-0.fasta \
+-O Col-0.dict
+```
+
++ 生成中间文件gvcf
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+--emit-ref-confidence GVCF \
+-I Ath.sorted.markdup.bam \
+-O Ath.g.vcf
+```
+
++ 通过gvcf检测变异
+
+**代码**
+```bash
+gatk HaplotypeCaller \
+-R Col-0.fasta \
+-I Ath.sorted.markdup.bam \
+-O Ath.vcf.gz
+```
+
+**通过gatk检测出变异后，可以进行过滤或进一步操作。**
+
+### VCF 文件
+
+*在没检测的用0/0*
+
+**bcftools**
+```bash
+bcftools merge -0
+```
+**vcftools**
+```bash
+vcf-merge -R 0/0 ...
+```
+*过滤缺失*
+```bash
+vcftools --max-missing 1 ...
+```
+
+### 染色体结构变异
+
+**breakdancer,manta**
+
+```bash
+mkdir SV && cd SV
+-g -h /home/ubuntu/data/NGS/Athaliana/Ath.sam > 4Ath_requence.cfg
+```
+
+### $F_{st}$计算(基于vcftools)
+
+出现$H_t$=0的问题，会计算出nan，可以提前做filter`vcftools --min-allels`?
+
+### NUCLEOTIDE DIVERGENCE(基于vcftools)
+
+利用`vcftools --site-pi`计算核酸多样性
 
 ## RNA-Seq 技术
 
