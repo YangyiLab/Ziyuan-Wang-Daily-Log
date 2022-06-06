@@ -18,6 +18,12 @@
 - [2022-6-5](#2022-6-5)
   - [PLAN](#plan-2)
   - [STAR](#star-1)
+- [2022-6-6](#2022-6-6)
+  - [PLAN](#plan-3)
+  - [Single Cell](#single-cell)
+    - [Droplet-based RNA-seq](#droplet-based-rna-seq)
+    - [UMI](#umi)
+  - [范数计算](#%E8%8C%83%E6%95%B0%E8%AE%A1%E7%AE%97)
 
 # 2022-6-2
 
@@ -212,3 +218,58 @@ torch.norm(w,p = 1)
 
 + 可以进行剪接mRNA 
 + 可以容忍错配
+
+# 2022-6-6
+
+## PLAN
++ **学习pytorch 范数操作**
++ **scRNA-seq 理论学习**
+
+## Single Cell
+
+### Droplet-based RNA-seq
+
++ 对于tissue，首先对细胞进行消化
++ 消化后每一个细胞和一个磁珠组合成一个drop
++ 每个drop内部对single cell打上DNA barcode(Cell) and UMI(transcript)
+
+Mapping 用STARSolo 可以兼顾DNA barcode 和 UMI
+
+### UMI
+
+Unique molecular identifier (UMI): 转录本来源
+The UMI will be used to collapse PCR duplicates
+
+![umi](https://pic4.zhimg.com/80/v2-cf515910e0fcf32bb666c75f6cd9b313_720w.jpg)
+
+UMI是一段12nt的核苷酸序列（序列空间100万），但与Barcode序列不同的是，一个Gel Beads中UMI序列是不同的。UMI序列的空间很大，远多于需要检测的原始细胞的mRNA数量，(即使一种mRNA有多条，也是达不到UMI的序列空间的)。所以每一条mRNA都会带上一个独特的UMI。
+
+UMI的作用是绝对定量，因为每个mRNA的扩增效率是不一样的，即使两个初始的mRNA表达量一致，在多轮扩增之后，我们也会误认为他们差异表达。UMI通过初始的标记，让我们可以统计扩增后UMI的种类就可以知道原始的表达量了。
+
+![10x](https://img-blog.csdnimg.cn/fa6e7d158f454da6ba0584da156884de.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAR2xhbmNlclo=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+**例子**
+
+![UMI_example](https://pic1.zhimg.com/80/v2-fa134b90d45079eebab1fad18aebd3b8_720w.jpg)
+
+图中的Gene 1定量为2，Gene 2定量为3，Gene 3,000定量为1。
+
+## 范数计算
+
+```py
+import torch
+# import torch.tensor as tensor
+ 
+a = torch.rand((2,3))  #建立tensor
+a2 = torch.norm(a)      #默认求2范数
+a1 = torch.norm(torch.abs(a)-1,p=0.5)  #指定求1范数
+ 
+print(a)
+print(a2)
+print(a1)
+
+# tensor([[0.4072, 0.8210, 0.6538],
+#         [0.8089, 0.0198, 0.9845]])
+# tensor(1.7004)
+# tensor(11.1093)
+```  
