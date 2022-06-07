@@ -24,6 +24,9 @@
     - [Droplet-based RNA-seq](#droplet-based-rna-seq)
     - [UMI](#umi)
   - [范数计算](#%E8%8C%83%E6%95%B0%E8%AE%A1%E7%AE%97)
+  - [GWAS](#gwas)
+- [2022-6-7](#2022-6-7)
+  - [PLAN](#plan-4)
 
 # 2022-6-2
 
@@ -273,3 +276,18 @@ print(a1)
 # tensor(1.7004)
 # tensor(11.1093)
 ```  
+
+## GWAS
+
+GWAS 效应值 以及 eQTL效应值
+
+$$y=ax+b$$
+
+效应值为a的估计值
+
+# 2022-6-7
+
+## PLAN
++ 西语学习开头
++ Journal Club讲稿整理
++ 探索转座子pipeline
