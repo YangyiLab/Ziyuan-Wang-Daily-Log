@@ -41,6 +41,22 @@
   - [MSA转到VCF](#msa%E8%BD%AC%E5%88%B0vcf)
   - [NGS拼接问题](#ngs%E6%8B%BC%E6%8E%A5%E9%97%AE%E9%A2%98)
   - [单细胞模型训练参数](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%8F%82%E6%95%B0)
+    - [1/-1](#1-1)
+    - [直接mask 不修改权重大小](#%E7%9B%B4%E6%8E%A5mask-%E4%B8%8D%E4%BF%AE%E6%94%B9%E6%9D%83%E9%87%8D%E5%A4%A7%E5%B0%8F)
+- [2022-6-11](#2022-6-11)
+  - [PLAN](#plan-7)
+- [2022-6-20](#2022-6-20)
+  - [PLAN](#plan-8)
+  - [单细胞网络训练](#%E5%8D%95%E7%BB%86%E8%83%9E%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83)
+    - [L1正则训练](#l1%E6%AD%A3%E5%88%99%E8%AE%AD%E7%BB%83)
+    - [两层网络](#%E4%B8%A4%E5%B1%82%E7%BD%91%E7%BB%9C)
+  - [拟南芥转座子G4思路](#%E6%8B%9F%E5%8D%97%E8%8A%A5%E8%BD%AC%E5%BA%A7%E5%AD%90g4%E6%80%9D%E8%B7%AF)
+- [2022-6-21](#2022-6-21)
+  - [PLAN](#plan-9)
+  - [Cover letter](#cover-letter)
+    - [Reviewer #3](#reviewer-3)
+    - [Reviewer #4](#reviewer-4)
+    - [Reviewer #5](#reviewer-5)
 
 # 2022-6-2
 
@@ -376,7 +392,156 @@ snp-sites -v /home/ubuntu/data/ltr_classification/germany/random.ARNOLDY2.aln.fa
 
 ## 单细胞模型训练参数
 
+### 1/-1
+
 利用1/-1初始化 效果不够好 z2 恢复不好导致后续恢复也不行
 
 + decoder pretrain 参数 weight_decay = 0 epoch = 2000 lr = 1e-4
 + decoder finetune 参数 lr 前3000 lr=1e-3 后17000 lr=1e-4
+
+### 直接mask 不修改权重大小
+
++ decoder pretrain 参数 weight_decay = 0 epoch = 2000 lr = 1e-4 （L2正则化）
++ decoder finetune 参数 lr 前3000 lr=1e-3 后17000 lr=1e-4
+
+**结果** 恢复了一些DE 基因和转录因子
+
+# 2022-6-11
+
+## PLAN
++ **单细胞模型**
++ **西班牙语语音**
+  
+# 2022-6-20
+
+## PLAN
++ **单细胞训练/可视化**
++ **二代测序拼接探究/基于文献(19样本)**
+
+## 单细胞网络训练
+
+### L1正则训练
+
++ decoder pretrain 参数 weight_decay = 10 epoch = 2000 lr = 1e-4 （L1正则化）
++ decoder finetune 参数 lr 前3000 lr=1e-3 后17000 lr=1e-4
+
+### 两层网络
+
++ decoder pretrain 参数 weight_decay = 10 epoch = 2000 lr = 1e-4 （L1正则化）(两层TF->TF->TF->GENES) TF->TF的mask相同
++ decoder finetune 参数 lr 前3000 lr=1e-3 后17000 lr=1e-4
+
+de的效果较好，basic效果较好
+
+## 拟南芥转座子G4思路
+
++ 基因组大小 -> ALLPATHS-LG 拼接得到 目前已下载好软件，需要测试使用场景
++ 转座子 首先拼成contig 再做blast
+
+![pipeline](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/gbe/5/5/10.1093_gbe_evt064/4/m_evt064f1p.jpeg?Expires=1656941469&Signature=STtZQzGp-W3hjbySchNdwm6qpAh6F2FYDozo2VoMVFDycCsBY0T7LumD7hEYaUhFV1j4mbmhq6bqyGCVhph9AT4IISc3QdKA0dr4yNTGBcayAIH5Gnua9XpwFcSd-3HZtZRwrTIzIFWlLunExzTfMtdJTExf1kwSkkcXYIkTvAJIsmKZhcysxjkS2zNb8I-clMJqAHGOd9GX5EpDnP4tWku7Wans1f4gXY1qpidDUdtAmtwshGi5eaJ6yABPsuugAdF66r4dLIg7YzZth83cqf5MavUmB1zGTT3EcPUQqFQwjZKoXbOsHD2FFSshJ6HqtYgDbULP~-WvymMP0EyPzA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+
++ G4 利用正则表达式
++ 甲基化 contig拼接直接利用甲基化原始数据
+
+# 2022-6-21
+
+## PLAN
++ **单细胞结果分析**
++ **西班牙语学习**
++ **cover letter overview**
+
+## Cover letter
+
+### Reviewer #3
+General comments
+This paper studies the influence of nitrogen concentration on microbial communities, focusing on co-mobilization of non-motile bacteria with motile ones. In my opinion, the topic of the paper is very innovative: bacterial hitchhiking is a very interesting and investigation, and at the moment, not many papers are dedicated to study it. Then, the results of the paper are of a good quality to be published in STOTEN, but many details should be improved before publication.
+The introduction should be revised. The content is correct but the organisation of the information is poor, leading to the repetition of the same arguments all over the text. The description of the experimental setup in materials and methods is not complete. Only by reading the abstract I could figure out how the experiment was carried out. As probably many readers, I am not familiarized with metabolomic analysis and the statistical analyses carried out, and considering the description included, for me it was too difficult to follow what you have done and how. Materials and methods should be more specific (for example, OTUs are not specified, but only included in Figures). Generally, I found the results section too long and difficult to follow, and the discussion is not concise and sometimes is repeating the results, making the paper very heavy to read.
+Therefore, I recommend to reject the paper and resubmit after careful revisions.
+Specific comments
+Highlights
+Highlight 1: soil nitrogen concentrations…
+Highlight 2: revise grammar. Delete "Show that the…"
+Highlight 3: revise grammar. "the results revealed…". A subject is missing.
+Graphical Abstract
+Improve image quality
+Abstract
+Line 6 delete force
+Line 7 % of what??
+Line 8-9 This sentence is not understandable; what do you mean by ambient soils?
+Line 12 correct Bacillus (same in lines 18-19)
+Line 30 Hitchhiking is only named here, while you state that plant growth is affected by this mechanism. You should revise the abstract, since it is very difficult to catch what are you investigating. State clearly your objectives, your hypothesis, your experimentation, and what you obtained.
+Introduction
+Line 60 indicate that N treatments are applied in agricultural practices.
+Line 62 which kind of responses? This statement is a bit vague.
+Line 64 it is not clear what you mean by "relative functional level of motility"
+Line 66 This statement may need a reference.
+Line 67 properties of soil
+Line 86-90 this paragraph is a bit unclear. Please revise.
+Line 93 "inhibition" might not be the correct word here. What about antagonism?
+Line 99 Replace "here" by the authors of a paper (I understand you are citing a paper results?)
+Line 108 What do you mean by "mechanism behind"?
+Line 109/110 delete " 's"
+Line 115 groups of what?
+Line 108-130 This paragraph is a bit long. You don't have to describe everything you have done so specifically. Be concise. Specify the aim of the investigation, the hypothesis, and what have you done to study it (briefly).
+Line 126-130 This is confusing. Terms like "co-ocurrence netwok" on "symbiotic mode" are not clear.
+
+Materials and methods
+Line 141 "the soil is yellow" is really vague. Soil is "yellow" because of its inorganic components. Be more specific or just delete it if it not significant for the discussion.
+Line 141 Specify the pH if possible. It will be accurate to specify also the taxonomy of the soil used.
+Line 148 "of approximately" something is missing.
+Line 149 I don't think Figure 1 is necessary if the description of the experimental setup is sufficiently clear in the text
+Line 150 This sentence is unclear. Pot or plot?
+Lines 150-162 You don't say that the soil where plants were planted was sterile (how have you sterilized it), but this was stated in the abstract. The experimental setup should be more clearly described.
+Line 155 Explain how did you do the selection of the seedling
+Line 156 specify
+Line 157 Still, the text is not clear about if it is an on-site experiment in plots (line 142) or pots. If it is pots?
+Line 158/161 what do you mean by region?
+Line 159 You should describe better how this membrane was installed.
+Line 165 In results you talk about bulk and rhizospheric soil. Specify this in materials and methods, and describe how did you sample both.
+Line 195 Define OTU
+Line 195 "organic amendment treatment"? The treatments are fertilizers, this is quite confusing.
+
+Results
+Line 261 It will be better to cite the Figure at the beginning of its explanation, so that the reader knows which results are you referring to.
+Line 265 If here you are explaining the results of the non-filter treatment, you should clarify this.
+Line 280 When spinach was planted you have a rhizosphere, so specify you are talking about non-rhizospheric soil.
+Lines 275 and so on Revise the names of bacteria/fungi and write them in italics. Revise this throughout the whole text. Also, I am not sure about using the term "group" for the treatments. You may find a more scientific word, such as replicate, plots, pots, etc.
+Line 323 What does the "R" in "H1-R-F" stand for?
+Line 337 "when the membrane was added"
+Line 346 It is not clear for me what function or functional changes mean here?
+Line 354 How did you determined cell motility? This is not explained in materials and methods.
+
+Discussion
+Line 402 This a strong argument. You only studied N concentration influence, but many other factors may be implied (you may cite some studies here).
+Line 509 "which is consistent"
+Line 546-529 this sentence is very speculative. How do you know transported bacteria are "favourable" and they have plant growth promoting characteristics?
+
+Conclusions
+I found them too short, and missed some sentences about further investigation needed, since co-mobilization of microbes is a very innovative subject.
+
+
+### Reviewer #4
+
+The topic of the manuscript is interesting and a well-designed study would have contributed to the understanding of how changes in soil chemistry influences microbial mobility through hitchhiking. However, there are some major gaps in the study design, the description of methods and the approach taken:
+(i) There are no details of the 0.45 micron filter membrane used. How did the authors ensure that there were no gaps in pieces between the filter which surrounded the soil around the plant roots? Was the filter one sheet or multiple sheets? Was there a pore size distribution? Was this a woven or non-woven filter, and what are the implications on the pore size?
+(ii) There is no direct evidence of microbial hitchhiking. All conclusions are based on network analysis of the microbial community data, which is not convincing.
+(iii) Because of the use of the soil which has a very complex microbial community, as is subject to changes in composition over time and due to numerous factors, the evidence of the hitchhiking phenomenon is weak. The motility is attributed to Bacillus and Gammaprotobacteriae only - how was this determined? How can one be sure whether other types of motile bacteria were not present? How can be sure that the other bacteria were indeed non-motile?
+
+There are numerous inconsistencies in the writing. A couple of examples are:
+1) Lines 56-58. The authors quote 3 studies none of which are relevant to the statement that inorganic ions impact bacterial motility due to increasing temperatures. None of the references discuss impacts of atmospheric temperature increase.
+2) In Line 43 the authors state the nutrients used - none of which contain P. Yet in Line 152 they refer to pots containing P.
+
+
+### Reviewer #5
+
+In their study Liu et al. describe the effects of nitrogen fertilizer addition on plant growth as well as bulk and rhizosphere microbial communities and their (in silico predicted) functions. Two experimental series were performed: one with a membrane between bulk and rhizosphere soil allowing for exchange of dissolved matter (yet presumably not microbes) and a control in the absence of the 0.45 µm membrane. In the controls the authors find clear fertilization effects on microbial communities and functions while corresponding effects on rhizosphere microbial communities were different and reduced in membrane-separated rhizosphere communities. From their data the authors conclude that nitrogen application changed the rhizosphere microbiome and 'thereby affecting plant growth because of the influence on microbial hitchhiking' (in lines 29-30). Such conclusion is based on the assumption that nitrogen addition influences the 'migration of mobile organisms and hitchhiking' (line 112).
+While changed microbial communities in different fertilization treatments may not be surprising, the presence of differing rhizosphere communities in membrane and control treatments is interesting. Although we agree with the authors that microbial dispersal (i.e. dispersal ecology) is important and maybe often overlooked in microbial ecology, the data presented do NOT allow for the conclusions of the authors. The mere presence of different communities (based on DNA and after PCR amplification) and a probably higher fraction of bacilli in controls relative to membrane treatment may also be due to other reasons than dispersal (e.g. changed nutrient status in the rhizosphere due to changed water flow regimes in membrane treatment, limited nutrient transport due to the exclusion of fungal mycelial networks (cf. Deveau et al., FEMS Microbiology Reviews, Vol. 42, 2018), limited exchange of protozoa and/or soil mesofauna (earth worms, collembolan etc.), limited access of plant roots to 'bulk soil' due to membranes etc:. Secondly: even if microbial dispersal was the reason, the authors show no evidence of hitchhiking as defined by Muok et al (as cited in the text). As insinuated in the discussion and by the title the community changes would be due to hitchhiking (i.e. co-transport with motile organism or abiotic particles due to flow events). Such assumption is highly speculative.
+The technical quality (and the language) of the manuscript further should be improved. From the 'Material and methods' sections e.g. it does not become clear how the experiments were performed: for how long were the plants grown? Dimensions of the rhizosphere compartments vs. bulk soil? Were the experiments done in pots (line 150) placed in differently fertilized plots (line 142)? How and when was the soil fertilized (before or after addition of the membrane)? And importantly: how and to which degree was the soil mixed prior to membrane addition; was the control soil treated exactly the same way.
+Next to omissions in the experimental description, the manuscript quality may be improved as several paragraphs seem (i) misplaced (e.g. lines 363ff to M&M; line 392ff to Introduction etc.), (ii) unclear (e.g. lines 370ff or 421ff), (iii) somewhat redundant (e.g. lines 322ff), (iv) in their statements very vague (e.g. line 352 - what does 'weakened' mean?, or simply wrong (lines 536ff - conclusions).
+Some other comments:
+- Figure 3: are the data presented averages of the three replicates? What about standard deviations? This is in particular important for the motile bacteria.
+- Please explain statistics of Fig. 4 better.
+- Line 49: as fungal impact on matter and organism transport is important, the reference given seems a bit arbitrary. You may better use the ref. given above (Deveau et al) and the refs. cited therein.
+- Line 152: what is meant by 'P treatment'
+- Line 155: which was the normal water content in the soil?
+- Line 264 and 286: are the %-values given averages? Which are the standard deviations?
+   
