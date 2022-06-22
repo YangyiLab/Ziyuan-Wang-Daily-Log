@@ -57,6 +57,10 @@
     - [Reviewer #3](#reviewer-3)
     - [Reviewer #4](#reviewer-4)
     - [Reviewer #5](#reviewer-5)
+- [2022-6-22](#2022-6-22)
+  - [PLAN](#plan-10)
+  - [Reviewer #4回答](#reviewer-4%E5%9B%9E%E7%AD%94)
+  - [Reviewer #5 回答](#reviewer-5-%E5%9B%9E%E7%AD%94)
 
 # 2022-6-2
 
@@ -545,3 +549,52 @@ Some other comments:
 - Line 155: which was the normal water content in the soil?
 - Line 264 and 286: are the %-values given averages? Which are the standard deviations?
    
+
+# 2022-6-22
+
+## PLAN
+
++ **简要回答审稿意见**
++ **单细胞报告**
++ **西班牙语语音**
+
+## Reviewer #4回答
+
+The topic of the manuscript is interesting and a well-designed study would have contributed to the understanding of how changes in soil chemistry influences microbial mobility through hitchhiking. However, there are some major gaps in the study design, the description of methods and the approach taken:
++ (i) There are no details of the 0.45 micron filter membrane used. How did the authors ensure that there were no gaps in pieces between the filter which surrounded the soil around the plant roots? Was the filter one sheet or multiple sheets? Was there a pore size distribution? Was this a woven or non-woven filter, and what are the implications on the pore size?
+
+新版已回答
+
++ (ii) There is no direct evidence of microbial hitchhiking. All conclusions are based on network analysis of the microbial community data, which is not convincing.
+
+引用此前的文献，目前Bacillus了，文献已经报道了，**Bacillus差异很大**
+
++ (iii) Because of the use of the soil which has a very complex microbial community, as is subject to changes in composition over time and due to numerous factors, the evidence of the hitchhiking phenomenon is weak. The motility is attributed to Bacillus and Gammaprotobacteriae only - how was this determined? How can one be sure whether other types of motile bacteria were not present? How can be sure that the other bacteria were indeed non-motile?
+
+文献中主要提到了Bacillus,我们主要关注的是Bacillus介导的 引用文献
+
+There are numerous inconsistencies in the writing. A couple of examples are:
+1) Lines 56-58. The authors quote 3 studies none of which are relevant to the statement that inorganic ions impact bacterial motility due to increasing temperatures. None of the references discuss impacts of atmospheric temperature increase.
+2) In Line 43 the authors state the nutrients used - none of which contain P. Yet in Line 152 they refer to pots containing P.
+
+## Reviewer #5 回答
+
+In their study Liu et al. describe the effects of nitrogen fertilizer addition on plant growth as well as bulk and rhizosphere microbial communities and their (in silico predicted) functions. Two experimental series were performed: one with a membrane between bulk and rhizosphere soil allowing for exchange of dissolved matter (yet presumably not microbes) and a control in the absence of the 0.45 µm membrane. In the controls the authors find clear fertilization effects on microbial communities and functions while corresponding effects on rhizosphere microbial communities were different and reduced in membrane-separated rhizosphere communities. From their data the authors conclude that nitrogen application changed the rhizosphere microbiome and 'thereby affecting plant growth because of the influence on microbial hitchhiking' (in lines 29-30). Such conclusion is based on the assumption that nitrogen addition influences the 'migration of mobile organisms and hitchhiking' (line 112).
+
+
++ While changed microbial communities in different fertilization treatments may not be surprising, the presence of differing rhizosphere communities in membrane and control treatments is interesting. Although we agree with the authors that microbial dispersal (i.e. dispersal ecology) is important and maybe often overlooked in microbial ecology, the data presented do NOT allow for the conclusions of the authors. The mere presence of different communities (based on DNA and after PCR amplification) and a probably higher fraction of bacilli in controls relative to membrane treatment may also be due to other reasons than dispersal (e.g. changed nutrient status in the rhizosphere due to changed water flow regimes in membrane treatment, limited nutrient transport due to the exclusion of fungal mycelial networks (cf. Deveau et al., FEMS Microbiology Reviews, Vol. 42, 2018), limited exchange of protozoa and/or soil mesofauna (earth worms, collembolan etc.), limited access of plant roots to 'bulk soil' due to membranes etc:. Secondly: even if microbial dispersal was the reason, the authors show no evidence of hitchhiking as defined by Muok et al (as cited in the text). As insinuated in the discussion and by the title the community changes would be due to hitchhiking (i.e. co-transport with motile organism or abiotic particles due to flow events). Such assumption is highly speculative.
+
+补充了没有植物的实验组作为对照
+
++ The technical quality (and the language) of the manuscript further should be improved. From the 'Material and methods' sections e.g. it does not become clear how the experiments were performed: for how long were the plants grown? Dimensions of the rhizosphere compartments vs. bulk soil? Were the experiments done in pots (line 150) placed in differently fertilized plots (line 142)? How and when was the soil fertilized (before or after addition of the membrane)? And importantly: how and to which degree was the soil mixed prior to membrane addition; was the control soil treated exactly the same way.
+
+修改在新版中
+
+Next to omissions in the experimental description, the manuscript quality may be improved as several paragraphs seem (i) misplaced (e.g. lines 363ff to M&M; line 392ff to Introduction etc.), (ii) unclear (e.g. lines 370ff or 421ff), (iii) somewhat redundant (e.g. lines 322ff), (iv) in their statements very vague (e.g. line 352 - what does 'weakened' mean?, or simply wrong (lines 536ff - conclusions).
+Some other comments:
+- Figure 3: are the data presented averages of the three replicates? What about standard deviations? This is in particular important for the motile bacteria.
+- Please explain statistics of Fig. 4 better.
+- Line 49: as fungal impact on matter and organism transport is important, the reference given seems a bit arbitrary. You may better use the ref. given above (Deveau et al) and the refs. cited therein.
+- Line 152: what is meant by 'P treatment'
+- Line 155: which was the normal water content in the soil?
+- Line 264 and 286: are the %-values given averages? Which are the standard deviations?
