@@ -598,3 +598,20 @@ Some other comments:
 - Line 152: what is meant by 'P treatment'
 - Line 155: which was the normal water content in the soil?
 - Line 264 and 286: are the %-values given averages? Which are the standard deviations?
+
+# 2022-6-22
+
+## PLAN
++ 文献阅读
++ 单细胞代码审查
++ contig流程
+
+
+## 多模态文献
+
++ 关注整合方法moe
++ 关注多模态和变分自编码
+
+需要弄请不同模态如何算关系由于混合专家因此缺少一个模态后续仍可预测缺失组
+
+创新在于同时有降维 可解释以及预测的特点
