@@ -61,6 +61,10 @@
   - [PLAN](#plan-10)
   - [Reviewer #4回答](#reviewer-4%E5%9B%9E%E7%AD%94)
   - [Reviewer #5 回答](#reviewer-5-%E5%9B%9E%E7%AD%94)
+- [2022-6-22](#2022-6-22-1)
+  - [PLAN](#plan-11)
+  - [多模态文献](#%E5%A4%9A%E6%A8%A1%E6%80%81%E6%96%87%E7%8C%AE)
+  - [contig 拼接](#contig-%E6%8B%BC%E6%8E%A5)
 
 # 2022-6-2
 
@@ -602,8 +606,8 @@ Some other comments:
 # 2022-6-22
 
 ## PLAN
-+ 文献阅读
-+ 单细胞代码审查
++ **文献阅读**
++ **单细胞代码审查**
 + contig流程
 
 
@@ -615,3 +619,12 @@ Some other comments:
 需要弄请不同模态如何算关系由于混合专家因此缺少一个模态后续仍可预测缺失组
 
 创新在于同时有降维 可解释以及预测的特点
+
+## contig 拼接
+
+```bash
+
+spades.py -t 2 -m 12 --phred-offset 33 -1 /home/ubuntu/data/NGS/Athaliana/rawdata/SRR1945478_1.fastq.gz \
+    -2 /home/ubuntu/data/NGS/Athaliana/rawdata/SRR1945478_2.fastq.gz -o /home/ubuntu/data/NGS/Athaliana 
+```
+
