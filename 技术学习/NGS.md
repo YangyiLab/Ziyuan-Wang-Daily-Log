@@ -11,6 +11,7 @@
     - [VCF 文件](#vcf-%E6%96%87%E4%BB%B6)
     - [染色体结构变异](#%E6%9F%93%E8%89%B2%E4%BD%93%E7%BB%93%E6%9E%84%E5%8F%98%E5%BC%82)
     - [$F_{st}$计算(基于vcftools)](#fst%E8%AE%A1%E7%AE%97%E5%9F%BA%E4%BA%8Evcftools)
+    - [将·替换为0|0](#%E5%B0%86%E6%9B%BF%E6%8D%A2%E4%B8%BA00)
     - [NUCLEOTIDE DIVERGENCE(基于vcftools)](#nucleotide-divergence%E5%9F%BA%E4%BA%8Evcftools)
   - [RNA-Seq 技术](#rna-seq-%E6%8A%80%E6%9C%AF)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
@@ -228,6 +229,21 @@ mkdir SV && cd SV
 ### $F_{st}$计算(基于vcftools)
 
 出现$H_t$=0的问题，会计算出nan，可以提前做filter`vcftools --min-allels`?
+
+### 将·替换为0|0
+
+可以进行大量的Fst 计算后0值显著性减少，同时负数可以被看做0值 [如何解读negative
+$F_{st}$ value](https://www.researchgate.net/post/What-can-be-interpreted-from-a-negative-Fst-value-005-and-a-high-P-value-06-when-measuring-pairwise-Fst-between-2-populations-mtDNA-cyt-b)
+
+**bcftools**
+```bash
+bcftools merge -0
+```
+
+**vcftools**
+```bash
+vcf-merge -R 0/0 ...
+```
 
 ### NUCLEOTIDE DIVERGENCE(基于vcftools)
 
