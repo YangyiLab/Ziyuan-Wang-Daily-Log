@@ -14,6 +14,11 @@
   - [PLAN](#plan-2)
   - [COP服务器](#cop%E6%9C%8D%E5%8A%A1%E5%99%A8)
   - [文献阅读](#%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB)
+- [2022-7-7](#2022-7-7)
+  - [PLAN](#plan-3)
+  - [COP](#cop)
+  - [Cover Letter](#cover-letter)
+  - [单细胞模型](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%A8%A1%E5%9E%8B)
 
 
 # 2022-7-4
@@ -85,3 +90,23 @@ novel classification 依赖于novel training的freature extraction 和 Base分�
 深度学习模型 VAGE
 
 训练方法对于ground-true数据，mask一些TRN edge 通过可见的进行预测不可见的TRN edge
+
+# 2022-7-7
+
+## PLAN
+
++ **COP服务器探索**
++ **Cover Letter**
++ **单细胞模型检查**
+
+## COP
+
+目前没有sudo权限
+
+## Cover Letter
+
+R4 基本回复完毕，R3需要对照新版本进行修订
+
+## 单细胞模型
+
+通过Z1/Z2 Z1/Z3的作图发现，模型出问题的关键在于多层后会出现一种收敛的情况，这种状态似乎也是与生物状态不符的。
