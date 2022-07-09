@@ -19,6 +19,19 @@
   - [COP](#cop)
   - [Cover Letter](#cover-letter)
   - [单细胞模型](#%E5%8D%95%E7%BB%86%E8%83%9E%E6%A8%A1%E5%9E%8B)
+- [2022-7-8](#2022-7-8)
+  - [PLAN](#plan-4)
+  - [COP Rserver](#cop-rserver)
+  - [Cover Letter](#cover-letter-1)
+  - [GCN](#gcn)
+  - [Bonito](#bonito)
+- [2022-7-9](#2022-7-9)
+  - [PLAN](#plan-5)
+  - [Cover Letter](#cover-letter-2)
+  - [GCN代码](#gcn%E4%BB%A3%E7%A0%81)
+  - [JCppt](#jcppt)
+    - [引言](#%E5%BC%95%E8%A8%80)
+    - [Related Concept and Work](#related-concept-and-work)
 
 
 # 2022-7-4
@@ -110,3 +123,65 @@ R4 基本回复完毕，R3需要对照新版本进行修订
 ## 单细胞模型
 
 通过Z1/Z2 Z1/Z3的作图发现，模型出问题的关键在于多层后会出现一种收敛的情况，这种状态似乎也是与生物状态不符的。
+
+# 2022-7-8
+
+## PLAN
+
++ **COP 服务器配置**
++ **GCN代码下载**
++ **Bonito代码下载**
++ **Cover Letter第一版**
+
+## COP Rserver
+
+ip http://10.128.207.5:8787/auth-sign-in?appUri=%2F
+
+已可以迁移in silico perturbation的代码
+
+## Cover Letter
+
+目前存在问题
+
++ Line 526-529 this sentence is very speculative. How do you know transported bacteria are "favourable" and they have plant growth promoting characteristics? 准确细菌类型需要表述
++ Line 402 This a strong argument. You only studied N concentration influence, but many other factors may be implied (you may cite some studies here). 问题没看懂
+
+## GCN
+
+配置了一个conda环境 GCN 导入了pyg库
+
+## Bonito
+
+代码已下载但还不能单步执行跑
+
+
+# 2022-7-9
+
+## PLAN
+
++ **Cover Letter**
++ **GCN代码探索**
++ **JC ppt**
+
+## Cover Letter
+
++ 一个难以回答的问题
++ 方法的问题没有回答
+
+## GCN代码
+
+成功导入pyg库在conda GCN环境中，并成功运行
+
+## JCppt
+
+### 引言
+
+主要讨论这篇文章模型的目的
+
+> **In this context, the goal of our work is to devise a few-shot visual learning system that during test time it will be able to efficiently learn novel categories from only a few training data while at the same time it will not forget the initial categories on which it was trained**
+
+### Related Concept and Work
+
+Concept: Meta-learning/ Incremental Learning
+
+Work: Meta-Learning/ Metric-Learning(包括两个方向，正则化和matching方法)
