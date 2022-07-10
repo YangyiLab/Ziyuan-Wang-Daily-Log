@@ -32,6 +32,11 @@
   - [JCppt](#jcppt)
     - [引言](#%E5%BC%95%E8%A8%80)
     - [Related Concept and Work](#related-concept-and-work)
+- [2022-7-10](#2022-7-10)
+  - [PLAN](#plan-6)
+  - [GCN 代码](#gcn-%E4%BB%A3%E7%A0%81)
+  - [JC](#jc)
+    - [Learning to learn by gradient descent by gradient descent](#learning-to-learn-by-gradient-descent-by-gradient-descent)
 
 
 # 2022-7-4
@@ -185,3 +190,138 @@ ip http://10.128.207.5:8787/auth-sign-in?appUri=%2F
 Concept: Meta-learning/ Incremental Learning
 
 Work: Meta-Learning/ Metric-Learning(包括两个方向，正则化和matching方法)
+
+
+# 2022-7-10
+
+## PLAN
++ **GCN代码探索**
++ **JC ppt**
+
+## GCN 代码
+
+可以在`GCNconv()`函数里增加edge_attr 来获取边的值，这也就是tf_net中对应的权重。
+
+## JC
+
+### Learning to learn by gradient descent by gradient descent
+
+```python
+def learn(optimizee,unroll_train_steps,retain_graph_flag=False,reset_theta = False): 
+    """retain_graph_flag=False   默认每次loss_backward后 释放动态图
+    #  reset_theta = False     默认每次学习前 不随机初始化参数"""
+    
+    if reset_theta == True:
+        theta_new = torch.empty(DIM)
+        torch.nn.init.uniform_(theta_new,a=-1,b=1.0) 
+        theta_init_new = torch.tensor(theta,dtype=torch.float32,requires_grad=True)
+        x = theta_init_new
+    else:
+        x = theta_init
+        
+    global_loss_graph = 0 #这个是为LSTM优化器求所有loss相加产生计算图准备的
+    state = None
+    x.requires_grad = True
+    if optimizee.__name__ !='Adam':
+        losses = []
+        for i in range(unroll_train_steps):
+            
+            loss = f(x)
+            
+            #global_loss_graph += torch.exp(torch.Tensor([-i/20]))*loss
+            #global_loss_graph += (0.8*torch.log10(torch.Tensor([i+1]))+1)*loss
+            global_loss_graph += loss
+            
+            
+            loss.backward(retain_graph=retain_graph_flag) # 默认为False,当优化LSTM设置为True
+            update, state = optimizee(x.grad, state)
+            losses.append(loss)
+           
+            x = x + update
+            
+            # x = x.detach_()
+            #这个操作 直接把x中包含的图给释放了，
+            #那传递给下次训练的x从子节点变成了叶节点，那么梯度就不能沿着这个路回传了，        
+            #之前写这一步是因为这个子节点在下一次迭代不可以求导，那么应该用x.retain_grad()这个操作，
+            #然后不需要每次新的的开始给x.requires_grad = True
+            
+            x.retain_grad()
+            #print(x.retain_grad())
+            
+            
+        #print(x)
+        return losses ,global_loss_graph 
+    
+    else:
+        losses = []
+        x.requires_grad = True
+        optimizee= torch.optim.Adam( [x],lr=0.1 )
+        
+        for i in range(unroll_train_steps):
+            
+            optimizee.zero_grad()
+            loss = f(x)
+            global_loss_graph += loss
+            
+            loss.backward(retain_graph=retain_graph_flag)
+            optimizee.step()
+            losses.append(loss.detach_())
+        #print(x)
+        return losses,global_loss_graph 
+    
+Global_Train_Steps = 1000
+
+def global_training(optimizee):
+    global_loss_list = []    
+    adam_global_optimizer = torch.optim.Adam([{'params':optimizee.parameters()},{'params':Linear.parameters()}],lr = 0.0001)
+    _,global_loss_1 = learn(LSTM_Optimizee,TRAINING_STEPS,retain_graph_flag =True ,reset_theta = True)
+    print(global_loss_1)
+    for i in range(Global_Train_Steps):    
+        _,global_loss = learn(LSTM_Optimizee,TRAINING_STEPS,retain_graph_flag =True ,reset_theta = False)       
+        adam_global_optimizer.zero_grad()
+        
+        #print(i,global_loss)
+        global_loss.backward() #每次都是优化这个固定的图，不可以释放动态图的缓存
+        #print('xxx',[(z,z.requires_grad) for z in optimizee.parameters()  ])
+        adam_global_optimizer.step()
+        #print('xxx',[(z.grad,z.requires_grad) for z in optimizee.parameters()  ])
+        global_loss_list.append(global_loss.detach_())
+        
+    print(global_loss)
+    return global_loss_list
+
+# 要把图放进函数体内，直接赋值的话图会丢失
+# 优化optimizee
+global_loss_list = global_training(lstm)
+
+
+```
+
+LSTM optimizer
+```python
+Layers = 2
+Hidden_nums = 20
+Input_DIM = DIM
+Output_DIM = DIM
+# "coordinate-wise" RNN 
+lstm=torch.nn.LSTM(Input_DIM,Hidden_nums ,Layers)
+Linear = torch.nn.Linear(Hidden_nums,Output_DIM)
+batchsize = 1
+
+print(lstm)
+    
+def LSTM_Optimizee(gradients, state):
+    #LSTM的输入为梯度，pytorch要求torch.nn.lstm的输入为（1，batchsize,input_dim）
+    #原gradient.size()=torch.size[5] ->[1,1,5]
+    gradients = gradients.unsqueeze(0).unsqueeze(0)   
+    if state is None:
+        state = (torch.zeros(Layers,batchsize,Hidden_nums),
+                 torch.zeros(Layers,batchsize,Hidden_nums))
+   
+    update, state = lstm(gradients, state) # 用optimizee_lstm代替 lstm
+    update = Linear(update)
+    # Squeeze to make it a single batch again.[1,1,5]->[5]
+    return update.squeeze().squeeze(), state
+```
+
+**LSTM优化器的最终优化策略是没有任何人工设计的经验在里面，是自动学习出的一种学习策略**
