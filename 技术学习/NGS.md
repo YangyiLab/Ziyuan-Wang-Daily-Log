@@ -20,6 +20,7 @@
     - [Alignment](#alignment)
     - [**FeatureCounts** 基于gff3 文件统计每一个CDS的hit数量](#featurecounts-%E5%9F%BA%E4%BA%8Egff3-%E6%96%87%E4%BB%B6%E7%BB%9F%E8%AE%A1%E6%AF%8F%E4%B8%80%E4%B8%AAcds%E7%9A%84hit%E6%95%B0%E9%87%8F)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
+    - [读GSE中单细胞数据](#%E8%AF%BBgse%E4%B8%AD%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE)
   - [甲基化技术](#%E7%94%B2%E5%9F%BA%E5%8C%96%E6%8A%80%E6%9C%AF)
 
 # NGS学习
@@ -390,5 +391,20 @@ cat /home/ubuntu/data/NGS/Prunus_persica/RNA_seq/all.id.txt | cut -f1,7- > /home
 只保留CDS还有count数
 
 ## 单细胞 scRNA-seq 技术
+
+### 读GSE中单细胞数据
+
+数据来源 GSE225978
+
+tpm 已被normalization后的数据
+annotation 每个样本的描述(type, name...)
+
+```R
+annotation = read.table("GSE115978_cell.annotations.csv.gz",header = TRUE, sep = ",")[,3]
+tpm = read.table("GSE115978_tpm.csv.gz",sep = ",",header = TRUE)
+rownames(tpm) = tpm$X
+tpm$X = NULL
+tpm = t(tpm)
+genes = colnames(tpm)
 
 ## 甲基化技术

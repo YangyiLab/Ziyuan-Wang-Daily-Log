@@ -37,6 +37,10 @@
   - [GCN 代码](#gcn-%E4%BB%A3%E7%A0%81)
   - [JC](#jc)
     - [Learning to learn by gradient descent by gradient descent](#learning-to-learn-by-gradient-descent-by-gradient-descent)
+- [2022-7-11](#2022-7-11)
+  - [PLAN](#plan-7)
+  - [单细胞读文件](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%AF%BB%E6%96%87%E4%BB%B6)
+  - [Bonito](#bonito-1)
 
 
 # 2022-7-4
@@ -325,3 +329,35 @@ def LSTM_Optimizee(gradients, state):
 ```
 
 **LSTM优化器的最终优化策略是没有任何人工设计的经验在里面，是自动学习出的一种学习策略**
+
+
+# 2022-7-11
+
+## PLAN
+
++ **JC 讲稿**
++ **Nanopore sequencing 摸索**
++ **单细胞数据初探(NGS)**
+
+## 单细胞读文件
+
+数据来源 GSE225978
+
+tpm 已被normalization后的数据
+annotation 每个样本的描述(type, name...)
+
+```R
+annotation = read.table("GSE115978_cell.annotations.csv.gz",header = TRUE, sep = ",")[,3]
+tpm = read.table("GSE115978_tpm.csv.gz",sep = ",",header = TRUE)
+rownames(tpm) = tpm$X
+tpm$X = NULL
+tpm = t(tpm)
+genes = colnames(tpm)
+```
+## Bonito
+
+Input: fast5
+Output: fastq,fasta...
+
++ 其中包含多个model
++ 需要找到合适的fast5文件 fast5文件本质就是数字
