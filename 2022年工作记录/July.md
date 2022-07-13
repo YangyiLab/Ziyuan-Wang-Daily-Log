@@ -41,6 +41,13 @@
   - [PLAN](#plan-7)
   - [单细胞读文件](#%E5%8D%95%E7%BB%86%E8%83%9E%E8%AF%BB%E6%96%87%E4%BB%B6)
   - [Bonito](#bonito-1)
+  - [UA 服务器](#ua-%E6%9C%8D%E5%8A%A1%E5%99%A8)
+- [2022-7-12](#2022-7-12)
+  - [PLAN](#plan-8)
+  - [Bonito源码](#bonito%E6%BA%90%E7%A0%81)
+  - [GCN](#gcn-1)
+- [2022-7-13](#2022-7-13)
+  - [PLAN](#plan-9)
 
 
 # 2022-7-4
@@ -354,6 +361,7 @@ tpm$X = NULL
 tpm = t(tpm)
 genes = colnames(tpm)
 ```
+
 ## Bonito
 
 Input: fast5
@@ -361,3 +369,31 @@ Output: fastq,fasta...
 
 + 其中包含多个model
 + 需要找到合适的fast5文件 fast5文件本质就是数字
+
+## UA 服务器
+
+UA HPC Slurm手册 https://docs.slurm.cn/users/
+
+# 2022-7-12
+
+## PLAN
+
++ **GCN数据导入**
++ **Cover Letter定稿**
++ **Bonito源码**
+
+## Bonito源码
+
+修改部分包括
++ /home/princezwang/software/bonito/bonito/training.py
++ /home/princezwang/software/bonito/bonito/cli/train.py
+
+## GCN
++ 使用新的训练权值可以导入
++ **GCNConv 出现nan值**
+
+# 2022-7-13
+
+## PLAN
+
++ 文献阅读
