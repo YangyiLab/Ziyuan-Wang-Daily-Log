@@ -483,3 +483,4 @@ motifications = ["N", "A", "C", "G", "T"]
 + RNA-seq (hista/STAR)
 + sc-seq 
 + *bs-seq* (bimarsk)
+
