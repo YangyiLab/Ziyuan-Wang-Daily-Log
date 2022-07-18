@@ -48,6 +48,16 @@
   - [GCN](#gcn-1)
 - [2022-7-13](#2022-7-13)
   - [PLAN](#plan-9)
+  - [细胞间配体受体结合预测](#%E7%BB%86%E8%83%9E%E9%97%B4%E9%85%8D%E4%BD%93%E5%8F%97%E4%BD%93%E7%BB%93%E5%90%88%E9%A2%84%E6%B5%8B)
+- [2022-7-17](#2022-7-17)
+  - [PLAN](#plan-10)
+  - [GCN权值](#gcn%E6%9D%83%E5%80%BC)
+- [2022-7-18](#2022-7-18)
+  - [PLAN](#plan-11)
+  - [GCN代码测试](#gcn%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95)
+  - [Bonito](#bonito-2)
+    - [Alphabetical](#alphabetical)
+  - [contig 说明](#contig-%E8%AF%B4%E6%98%8E)
 
 
 # 2022-7-4
@@ -396,4 +406,80 @@ UA HPC Slurm手册 https://docs.slurm.cn/users/
 
 ## PLAN
 
-+ 文献阅读
++ **文献阅读**
+
+## 细胞间配体受体结合预测
+
++ 通过gene profile推断不同细胞间的配体受体结合因素
+
++ 创建4D 配体受体打分表
+
++ 进行TCA降维可解释性
+
+# 2022-7-17
+
+## PLAN
+
++ **GCN权值**
+
+## GCN权值
+
+将每个权值设置为正数,需要挑选权值进行加减
+
+**最大问题，处理负权重**
+
+# 2022-7-18
+
+## PLAN
+
++ **GCN代码测试**
++ **Bonito 代码查看更新修改**
++ **contig 文档**
++ **甲基化数据处理**
+
+## GCN代码测试
+
+normalize 去除后可以进行传递
+
+## Bonito
+
+```bash
+bonito basecaller dna_r10.4_e8.1_sup@v3.4  /home/hongxuding/sunlab --device cpu> /home/princezwang/basecalls.bam
+```
+
+```python
+def ctc_label_smoothing_loss(self, log_probs, targets, lengths, weights=None):
+        T, N, C = log_probs.shape
+        weights = weights or torch.cat([torch.tensor([0.4]), (0.1 / (C - 1)) * torch.ones(C - 1)])
+        log_probs_lengths = torch.full(size=(N, ), fill_value=T, dtype=torch.int64)
+        loss = ctc_loss(log_probs.to(torch.float32), targets, log_probs_lengths, lengths, reduction='mean')
+        label_smoothing_loss = -((log_probs * weights.to(log_probs.device)).mean())
+        return {'total_loss': loss + label_smoothing_loss, 'loss': loss, 'label_smooth_loss': label_smoothing_loss}
+```
+
+需要一个正则化loss
+
+### Alphabetical
+
+/home/princezwang/software/bonito/bonito/models/configs
+
+```tmol
+[labels]
+labels = ["N", "A", "C", "G", "T"]
+motifications = ["N", "A", "C", "G", "T"]
+```
+
+## contig 说明
+
+包括三种物种: 拟南芥 大肠杆菌 桃
+
+目前只保留原始数据: 参考基因组+测序数据
+
+**已有代码 在scripts中**
+
++ WGS
+  + SV (manta)
+  + Population Genetics (vcftools/bcftools)
++ RNA-seq (hista/STAR)
++ sc-seq 
++ *bs-seq* (bimarsk)

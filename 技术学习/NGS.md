@@ -19,6 +19,8 @@
     - [software](#software)
     - [Alignment](#alignment)
     - [**FeatureCounts** 基于gff3 文件统计每一个CDS的hit数量](#featurecounts-%E5%9F%BA%E4%BA%8Egff3-%E6%96%87%E4%BB%B6%E7%BB%9F%E8%AE%A1%E6%AF%8F%E4%B8%80%E4%B8%AAcds%E7%9A%84hit%E6%95%B0%E9%87%8F)
+  - [bs-seq](#bs-seq)
+    - [Bismark](#bismark)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
     - [读GSE中单细胞数据](#%E8%AF%BBgse%E4%B8%AD%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE)
   - [甲基化技术](#%E7%94%B2%E5%9F%BA%E5%8C%96%E6%8A%80%E6%9C%AF)
@@ -389,6 +391,14 @@ cat /home/ubuntu/data/NGS/Prunus_persica/RNA_seq/all.id.txt | cut -f1,7- > /home
 ```
 
 只保留CDS还有count数
+
+## bs-seq
+
+### Bismark
+
++ Bismark https://www.bioinformatics.babraham.ac.uk/projects/bismark/
++ Related Paper https://www.nature.com/articles/nmeth.1828
++ Doc https://rawgit.com/FelixKrueger/Bismark/master/Docs/Bismark_User_Guide.html#ii-bismark-alignment-step
 
 ## 单细胞 scRNA-seq 技术
 
