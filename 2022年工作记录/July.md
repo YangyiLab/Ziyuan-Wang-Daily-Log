@@ -58,6 +58,12 @@
   - [Bonito](#bonito-2)
     - [Alphabetical](#alphabetical)
   - [contig 说明](#contig-%E8%AF%B4%E6%98%8E)
+- [2022-7-19](#2022-7-19)
+  - [PLAN](#plan-12)
+  - [bonito decoder](#bonito-decoder)
+    - [Bonito CTC 版](#bonito-ctc-%E7%89%88)
+    - [Bonito CRF 版](#bonito-crf-%E7%89%88)
+  - [BS-Seq TE](#bs-seq-te)
 
 
 # 2022-7-4
@@ -484,3 +490,46 @@ motifications = ["N", "A", "C", "G", "T"]
 + sc-seq 
 + *bs-seq* (bimarsk)
 
+# 2022-7-19
+
+## PLAN
+
++ **bs-seq NGS代码**
++ **bonito decoder 修改**
+
+## bonito decoder
+
+### Bonito CTC 版
+
+```py
+class Decoder(Module):
+    """
+    Decoder
+    """
+    def __init__(self, features, classes):
+        super(Decoder, self).__init__()
+        self.layers = Sequential(
+            Conv1d(features, classes, kernel_size=1, bias=True),
+            Permute([2, 0, 1])
+        )
+
+    def forward(self, x):
+        return log_softmax(self.layers(x), dim=-1)
+```
+
+单独拿出文件，写好预训练/增加类别的代码
+
++ 卷积
++ **维度更换** Permute
+
+### Bonito CRF 版
+
+CRF计算分数
+
+## BS-Seq TE
+
+![TE_METHELATION_COVERAGE](https://media.springernature.com/lw685/springer-static/image/art%3A10.1186%2Fs13059-017-1232-0/MediaObjects/13059_2017_1232_Fig1_HTML.gif?as=webp)
+
++ 对于每一个TE 直接采用参考TE计算G4
++ 同时计算出Methylation Coverage
+      

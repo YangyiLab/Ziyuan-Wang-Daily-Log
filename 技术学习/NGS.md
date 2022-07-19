@@ -23,7 +23,6 @@
     - [Bismark](#bismark)
   - [单细胞 scRNA-seq 技术](#%E5%8D%95%E7%BB%86%E8%83%9E-scrna-seq-%E6%8A%80%E6%9C%AF)
     - [读GSE中单细胞数据](#%E8%AF%BBgse%E4%B8%AD%E5%8D%95%E7%BB%86%E8%83%9E%E6%95%B0%E6%8D%AE)
-  - [甲基化技术](#%E7%94%B2%E5%9F%BA%E5%8C%96%E6%8A%80%E6%9C%AF)
 
 # NGS学习
 
@@ -416,5 +415,4 @@ rownames(tpm) = tpm$X
 tpm$X = NULL
 tpm = t(tpm)
 genes = colnames(tpm)
-
-## 甲基化技术
+```
